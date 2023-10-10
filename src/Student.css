@@ -1,0 +1,116 @@
+/*Name (Last, First) and Student Id
+Sunkoju,TarunKumar(1002077699)
+Kotagiri, Arvind kumar Satyanarayana (1002126766)
+Tamanampudi, Sai Sridhar (1002117404)
+Tadivaka, Sai Swetha (1002112726)
+Tallapelli, Sai Charan (1002073449)*/
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+.student-nav {
+    text-align: right;
+}
+
+.headerClass {
+    background-color: #011558;
+    color: white;
+    padding: 20px 30px;
+    margin-bottom: 30px;
+}
+
+.student-nav ul {
+    list-style: none;
+    display: flex;
+}
+
+.student-nav ul li {
+    margin: 0 20px;
+}
+
+.student-nav ul li a {
+    text-decoration: none;
+    color: white;
+    display: flex;
+    align-items: center;
+}
+
+.nav-list {
+    list-style: none;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.material-icons {
+    font-size: 24px;
+    margin-right: 5px;
+}
+
+
+.tiles {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    padding: 20px;
+}
+
+.tile {
+    width: 30%;
+    background-color: rgb(241, 241, 251);
+    border: 2px solid #000;
+    padding: 20px;
+    text-align: center;
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.tile-row {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10px 0;
+}
+
+.student-btn {
+    background-color: #011558;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin-top: 10px;
+    width: 150px;
+    height: 40px;
+}
+
+.notification-badge {
+    background-color: red;
+    color: white;
+    border-radius: 50%;
+    padding: 4px 8px;
+    position: relative;
+    top: -8px;
+}
+.footerClass {
+    margin-top: auto;
+    background-color: #011558;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    width: 100%;
+}
+@media (max-width: 768px) {
+    .tiles {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .tile {
+        width: 80%;
+    }
+}
+

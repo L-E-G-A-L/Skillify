@@ -1,0 +1,257 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body,
+h1,
+h2,
+p,
+label,
+input,
+button,
+a {
+  margin: 0;
+  padding: 0;
+}
+
+/* body {
+  background-image: url("backgroundImage.avif");
+  background-size: cover;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; 
+} */
+
+.login-page, .registration-page, .forgot-password-page {
+    /* background-image: url("backgroundImage.avif"); */
+    background-size: cover;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+.login-container {
+  padding: 20px;
+  border-radius: 5px;
+  background-color: #fff;
+  box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.1);
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+}
+
+.registration-container,
+.forgot-password-container {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.1);
+  text-align: center;
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+}
+
+.forgot-password-container > .lrf-h1 {
+  margin-bottom: 5px;
+}
+
+.forgot-password-container > .fp-p {
+  font-size: large;
+  margin-bottom: 20px;
+}
+
+.lrf-h1 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.input-group {
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.input-group-2 {
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.lrf-label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  font-size: larger;
+}
+
+.lrf-input {
+  width: 95%;
+  padding: 10px 5px;
+  border: 1px solid #8fcbff;
+  border-radius: 10px;
+}
+
+.login-button,
+.register-button,
+.reset-password-button {
+  background-color: #011558;
+  color: #fff;
+  margin-top: 10px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.links {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+}
+
+.links .lrf-a {
+  text-decoration: none;
+  color: #011558;
+  margin: 0 10px;
+  padding: 0px 10px;
+}
+
+@media (min-width: 768px) {
+  .login-container {
+    width: 40%;
+    height: auto;
+    max-width: 400px;
+    background-color: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(8px);
+  }
+  .registration-container,
+  .forgot-password-container {
+    background-color: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(8px);
+  }
+  .registration-container {
+    top: 53%;
+  }
+  .input-group-2 {
+    display: grid;
+    justify-items: start;
+  }
+}
+
+@media (max-width: 767px) {
+  .lrf-input {
+    width: 90%;
+    padding: 10px 5px;
+  }
+  .login-container {
+    padding: 0;
+    width: 100%;
+    height: 50%;
+    box-shadow: none;
+  }
+  .registration-container,
+  .forgot-password-container {
+    padding: 0;
+  }
+  .input-group .lrf-input {
+    width: 90%;
+    padding: 10px 5px;
+  }
+  .forgot-password-container > p {
+    font-size: large;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+}
+
+.navbar {
+  background-color: #011558;
+  color: #fff;
+  display: flex;
+  justify-content: flex-end;
+  padding: 10px;
+}
+
+.navbar-button {
+  background-color: transparent;
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  margin-left: 10px;
+  cursor: pointer;
+  font-weight: bold;
+  text-transform: uppercase;
+  transition: background-color 0.3s ease;
+}
+
+.navbar-button:hover {
+  background-color: #011558;
+}
+
+.navbar {
+  background-color: #011558;
+  color: #fff;
+  display: flex;
+  justify-content: flex-end;
+  padding: 10px;
+}
+
+.navbar-button {
+  background-color: transparent;
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  margin-left: 10px;
+  cursor: pointer;
+  font-weight: bold;
+  text-transform: uppercase;
+  transition: background-color 0.3s ease;
+}
+
+.navbar-button:hover {
+  background-color: #011558;
+}
+
+.lrf-footer {
+  margin-top: auto;
+  background-color: #011558;
+  color: #fff;
+  text-align: center;
+  width: 100%;
+}
+
+@media (max-height: 752px) {
+  .registration-container {
+    position: unset;
+    margin: 0 auto;
+    transform: none;
+  }
+}
+@media (max-height: 470px) {
+  .forgot-password-container {
+    position: unset;
+    margin: 0 auto;
+    transform: none;
+  }
+  .login-container {
+    position: unset;
+    margin: 0 auto;
+    transform: none;
+  }
+}
