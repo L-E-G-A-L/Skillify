@@ -51,7 +51,7 @@ export function QANav({title,toggleInnerNav}){
                   <h3 className='qah3'>User Name</h3>
                 </div>
                 <hr className='qahr' />
-                <a href="profile.html" className="sub-menu-link">
+                <a href="profile" className="sub-menu-link">
                   <img src={ProfileLogo} alt="Profile Logo" />
                   <p className='qap'>Edit Profile</p>
                   <span className='qaspan'>&gt;</span>
@@ -66,7 +66,7 @@ export function QANav({title,toggleInnerNav}){
                   <p className='qap'>Help & Support</p>
                   <span className='qaspan'>&gt;</span>
                 </a>
-                <a href="login.html" className="sub-menu-link">
+                <a href="login" className="sub-menu-link">
                   <img src={LogoutImage} alt="Logout" />
                   <p className='qap'>Logout</p>
                   <span className='qaspan'>&gt;</span>

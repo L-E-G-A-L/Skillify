@@ -1,0 +1,160 @@
+/*Name (Last, First) and Student Id
+Sunkoju,TarunKumar(1002077699)
+Kotagiri, Arvind kumar Satyanarayana (1002126766)
+Tamanampudi, Sai Sridhar (1002117404)
+Tadivaka, Sai Swetha (1002112726)
+Tallapelli, Sai Charan (1002073449)*/
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+.studentDiscussion {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+.studentDiscussionHeaderClass {
+    background-color: #011558;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+}
+
+#stuDiscussionheader-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 50px;
+}
+
+#stuDiscussionhome-button {
+    padding: 10px 20px;
+    color: #fff;
+    text-decoration: none;
+    margin: 0 90px;
+}
+.stuDisscussionNavul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    background-color: #011558;
+}
+.stuDisscussionNavLi {
+    margin: 0;
+    padding: 0;
+}
+.studentDiscussionNava {
+    display: block;
+    text-decoration: none;
+    color: #fff;
+    padding: 10px 20px;
+    margin-right: 10px;
+}
+.studentDiscussionSection {
+    margin: 20px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    background-color: #f9f9f9;
+}
+.studentDiscussionFooterClass {
+    margin: 20px;
+    padding: 20px;
+    background-color: #f9f9f9;
+}
+
+.studentDiscussionNava {
+    display: block;
+    text-decoration: none;
+    color: #fff;
+    padding: 10px 20px;
+    border: 2px solid #fff;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.studentDiscussionNava:hover {
+    background-color: #0040ae;
+    color: #fff;
+}
+.studentDiscussionFooterClass{
+    background-color: #011558;
+    color: #fff;
+    text-align: center;
+    padding: 2px;
+    margin: 10px;
+}
+.discussion {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.discussion input[type="checkbox"] {
+    display: none;
+}
+
+.discussion input[type="checkbox"] + label {
+    background-color: #fff;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.discussion-content {
+    display: none;
+}
+
+.discussion input[type="checkbox"]:checked + label + .discussion-content {
+    display: block;
+}
+
+.delete-button {
+    color: red;
+    cursor: pointer;
+}
+@media (max-width: 768px) {
+    .studentDiscussionHeaderClass {
+        font-size: 24px;
+    }
+    #stuDiscussionhome-button {
+        padding: 8px 15px;
+        margin: 0 60px;
+    }
+    .stuDisscussionNavul {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .studentDiscussionNava {
+        padding: 10px;
+        margin: 5px;
+    }
+    .studentDiscussionSection {
+        margin: 10px;
+        padding: 10px;
+    }
+}
+@media (max-width: 480px) {
+    .studentDiscussionHeaderClass {
+        font-size: 20px;
+    }
+    #stuDiscussionhome-button {
+        padding: 6px 10px;
+        margin: 0 30px;
+    }
+    .studentDiscussionNava {
+        padding: 8px;
+        margin: 3px;
+    }
+    .studentDiscussionSection {
+        margin: 5px;
+        padding: 5px;
+    }
+}

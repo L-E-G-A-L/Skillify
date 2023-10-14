@@ -5,9 +5,9 @@ function Login() {
   return (
     <div className="login-page">
       <div className="navbar">
-        <a href="home.html"><button className="navbar-button">Home</button></a>
-        <a href="contact.html"><button className="navbar-button">Contact</button></a>
-        <a href="aboutUs.html"><button className="navbar-button">About</button></a>
+        <a href="home"><button className="navbar-button">Home</button></a>
+        <a href="contact"><button className="navbar-button">Contact</button></a>
+        <a href="about"><button className="navbar-button">About</button></a>
       </div>
       <div className="login-container">
         <h1 className='lrf-h1'>Login</h1>

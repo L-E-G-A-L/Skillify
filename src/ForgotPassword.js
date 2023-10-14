@@ -6,9 +6,9 @@ function ForgotPassword() {
   return (
     <div className="forgot-password-page">
       <div className="navbar">
-        <a href="home.html"><button className="navbar-button">Home</button></a>
-        <a href="contact.html"><button className="navbar-button">Contact</button></a>
-        <a href="aboutUs.html"><button className="navbar-button">About</button></a>
+        <a href="home"><button className="navbar-button">Home</button></a>
+        <a href="contact"><button className="navbar-button">Contact</button></a>
+        <a href="aboutUs"><button className="navbar-button">About</button></a>
       </div>
       <div className="forgot-password-container">
         <h1 className='lrf-h1'>Forgot Password</h1>

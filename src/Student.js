@@ -1,31 +1,31 @@
 import React from "react";
-import "./Student.css";
+import "./css/student.css";
 
 class Student extends React.Component {
   render() {
     return (
       <div>
-        <header className="headerClass">
-          <nav className="student-nav">
-            <ul className="nav-list">
-              <li>
-                <a href="announcements">
+        <header className="studentHeaderClass">
+          <nav>
+            <ul className="studentNav-list studentNavUl">
+              <li className="studentNavULLi">
+                <a href="announcements" className="studentNavULLia">
                   <i className="material-icons">notifications</i>
                   <span className="notification-badge">2</span>
                 </a>
               </li>
-              <li>
-                <a href="home">
+              <li className="studentNavULLi">
+                <a href="home" className="studentNavULLia">
                   <i className="material-icons">insert_drive_file</i>
                 </a>
               </li>
-              <li>
-                <a href="profile.html">
+              <li className="studentNavULLi">
+                <a href="profile" className="studentNavULLia">
                   <i className="material-icons">person</i>
                 </a>
               </li>
-              <li>
-                <a href="login.html">
+              <li className="studentNavULLi">
+                <a href="login" className="studentNavULLia">
                   <i className="material-icons">logout</i>
                 </a>
               </li>
@@ -39,27 +39,27 @@ class Student extends React.Component {
             </div>
             <div className="tile-row">
               <a href="announcements">
-                <button className="student-btn">Announcements</button>
+                <button className="stuButtonClass">Announcements</button>
               </a>
             </div>
             <div className="tile-row">
               <a href="courseModules">
-                <button className="student-btn">Modules</button>
+                <button className="stuButtonClass">Modules</button>
               </a>
             </div>
             <div className="tile-row">
               <a href="assessments">
-                <button className="student-btn">Assessments</button>
+                <button className="stuButtonClass">Assessments</button>
               </a>
             </div>
             <div className="tile-row">
               <a href="grades">
-                <button className="student-btn">Grades</button>
+                <button className="stuButtonClass">Grades</button>
               </a>
             </div>
             <div className="tile-row">
               <a href="studentDiscussion">
-                <button className="student-btn">Discussions</button>
+                <button className="stuButtonClass">Discussions</button>
               </a>
             </div>
           </div>
@@ -69,27 +69,27 @@ class Student extends React.Component {
             </div>
             <div className="tile-row">
               <a href="announcements">
-                <button className="student-btn">Announcements</button>
+                <button className="stuButtonClass">Announcements</button>
               </a>
             </div>
             <div className="tile-row">
               <a href="courseModules">
-                <button className="student-btn">Modules</button>
+                <button className="stuButtonClass">Modules</button>
               </a>
             </div>
             <div className="tile-row">
               <a href="assessments">
-                <button className="student-btn">Assessments</button>
+                <button className="stuButtonClass">Assessments</button>
               </a>
             </div>
             <div className="tile-row">
               <a href="grades">
-                <button className="student-btn">Grades</button>
+                <button className="stuButtonClass">Grades</button>
               </a>
             </div>
             <div className="tile-row">
               <a href="studentDiscussion">
-                <button className="student-btn">Discussions</button>
+                <button className="stuButtonClass">Discussions</button>
               </a>
             </div>
           </div>
@@ -99,27 +99,27 @@ class Student extends React.Component {
             </div>
             <div className="tile-row">
               <a href="announcements">
-                <button className="student-btn">Announcements</button>
+                <button className="stuButtonClass">Announcements</button>
               </a>
             </div>
             <div className="tile-row">
               <a href="courseModules">
-                <button className="student-btn">Modules</button>
+                <button className="stuButtonClass">Modules</button>
               </a>
             </div>
             <div className="tile-row">
               <a href="assessments">
-                <button className="student-btn">Assessments</button>
+                <button className="stuButtonClass">Assessments</button>
               </a>
             </div>
             <div className="tile-row">
               <a href="grades">
-                <button className="student-btn">Grades</button>
+                <button className="stuButtonClass">Grades</button>
               </a>
             </div>
             <div className="tile-row">
               <a href="studentDiscussion">
-                <button className="student-btn">Discussions</button>
+                <button className="stuButtonClass">Discussions</button>
               </a>
             </div>
           </div>
@@ -127,7 +127,7 @@ class Student extends React.Component {
             Need to talk to anyone? <a href="studentChat">Click here</a>
           </h2>
         </section>
-        <footer className="footerClass">
+        <footer className="studentfooterClass">
           <p>&copy; 2023 Program Coordinator Website</p>
         </footer>
       </div>

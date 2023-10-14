@@ -1,0 +1,283 @@
+/*Name (Last, First) and Student Id
+Sunkoju,TarunKumar(1002077699)
+Kotagiri, Arvind kumar Satyanarayana (1002126766)
+Tamanampudi, Sai Sridhar (1002117404)
+Tadivaka, Sai Swetha (1002112726)
+Tallapelli, Sai Charan (1002073449)*/
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+.contactClass {
+    min-height: 100vh;
+    width: 100%;
+    background: #011558;
+    display: inline-block;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.contactHeaderClass{
+    position: relative;
+    max-width: 1200px;
+    margin: 13px auto;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    box-sizing: border-box;
+    border-radius: 4px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.logo {
+    color: #fff;
+    height: 60px;
+    font-size: 30px;
+    line-height: 60px;
+    padding: 0 20px;
+    text-align: center;
+    box-sizing: border-box;
+    float: left;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.contactNav {
+    float: right; 
+}
+
+.clearfix {
+    clear: both;
+}
+
+.contactLinks {
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.contactli {
+    list-style: none;
+
+}
+
+.contactLia {
+    position: relative;
+    display: inline-block;
+    margin: 10px 0;
+    font-size: 20px;
+    padding: 10px 20px;
+    text-decoration: none;
+    color: #fff;
+    ;
+}
+
+.contactLia:hover {
+    background: #1436e07e;
+    color: #fff;
+    transition: 0.5s;
+}
+
+#check {
+    position: absolute;
+    top: -100px;
+}
+
+.checkbtn {
+    display: none;
+    position: absolute;
+    right: 5%;
+    margin-top: 2%;
+    transform: translateY(-50%);
+}
+
+.line{
+    width: 30px;
+    height: 5px;
+    background-color: #fff;
+    margin: 5px;
+    border-radius: 3px;
+    transition: all .3s ease-in-out;
+}
+
+.contactContainer {
+    width: 85%;
+    background: #fff;
+    box-shadow: 0 4px 9px rgba(0, 0, 0, 0.3);
+    border-radius: 5px;
+    padding: 19px 60px 29px 40px;
+    margin-top: 35px;
+    flex-grow: 1;
+    margin-left: 8%;
+}
+
+.contactContainer .content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.contactContainer .content .form-content {
+    width: 100%;
+}
+
+.contactContainer .form-content .topic-text {
+    font-size: 21px;
+    font-weight: 600;
+    color: #011558;
+}
+
+.form-content .input-box {
+    height: 52px;
+    width: 100%;
+    margin: 11px 0;
+}
+
+.form-content .input-box input,
+.form-content .input-box textarea {
+    height: 100%;
+    width: 100%;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    background: #F0F1F8;
+    border-radius: 6px;
+    padding: 0 15px;
+    resize: none;
+}
+
+.form-content .message-box {
+    min-height: 110px;
+}
+
+.form-content .input-box textarea {
+    padding-top: 7px;
+}
+
+.form-content .contactSubmitButton {
+    display: inline-block;
+    margin-top: 12px;
+}
+
+.form-content .contactSubmitButton input[type="button"] {
+    color: #fff;
+    font-size: 16px;
+    outline: none;
+    border: none;
+    padding: 9px 15px;
+    border-radius: 5px;
+    background: #011558;
+    cursor: pointer;
+    transition: all 0.4s ease;
+}
+
+.contactSubmitButton input[type="button"]:hover {
+    background: #0040ae;
+}
+
+.form-content::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.contactFooterClass {
+    color: #fff;
+    text-align: center;
+    padding: 2px;
+    margin: 30px;
+    background: rgba(255, 255, 255, 0.1);
+    box-sizing: border-box;
+}
+
+.topic-text {
+    font-size: 24px;
+    font-weight: 600;
+    color: #011558;
+    margin-bottom: 20px;
+}
+
+@media (max-width: 768px) {
+    .contactContainer {
+        width: 100%;
+        margin-left: 0px;
+        /* padding: 30px 90px 36px 35px; */
+    }
+
+    .contactContainer .content .form-content {
+        width: 100%;
+        margin-left: 50px;
+    }
+
+    .menu-toggle {
+        margin: 20px;
+    }
+
+    .checkbtn {
+        display: block;
+    }
+
+    .contactSubmitButton {
+        width: auto;
+        margin-top: 90%;
+        margin-left: 10%;
+    }
+
+    .contactLinks{
+        position: fixed;
+        width: 95%;
+        height: auto;
+        background: rgba(0, 0, 0, 0.8);
+        top: 95px;
+        left: -100%;
+        margin-left: 10px;
+        text-align: center;
+        transition: all .5s;
+        flex-direction: column;
+        justify-content: space-evenly;
+    }
+
+    .contactli {
+        display: block;
+        margin: 20px 0;
+        line-height: 30px;
+    }
+
+    .contactLia{
+        font-size: 30px;
+        color: white;
+    }
+
+    a:hover {
+        background: #021b3050;
+        transition: 0.5s;
+    }
+
+    #check:checked~.contactLinks {
+        left: 0;
+    }
+
+
+
+   .checkbtn{
+        display: block;
+    }
+
+    nav :checked~.checkbtn .line:nth-child(1) {
+        transform: translateY(10px) rotate(225deg);
+    }
+
+    nav :checked~.checkbtn .line:nth-child(3) {
+        transform: translateY(-10px) rotate(-225deg);
+    }
+
+    nav :checked~.checkbtn .line:nth-child(2) {
+        opacity: 0;
+    }
+}
