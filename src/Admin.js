@@ -8,8 +8,8 @@ function Admin() {
         <a href="profile" className='admin-nav-a'>My Profile</a>
         <a href="login" className='admin-nav-a'>Sign Out</a>
       </div>
-      <div className="content">
-        <button className="dashboard-button">Dashboard</button>
+      <div className="admin-content">
+        <button className="admin-dashboard-button">Dashboard</button>
         <div className="boxes">
           <div className="box">
             <h2 className="admin-box-h2">STUDENT</h2>

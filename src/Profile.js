@@ -8,8 +8,8 @@ function Profile() {
         <a href="#" className='profile-nav-a'>My Profile</a>
         <a href="login" className='profile-nav-a'>Sign Out</a>
       </div>
-      <div className="content">
-        <button className="dashboard-button">Dashboard</button>
+      <div className="profile-content">
+        <button className="profile-dashboard-button">Dashboard</button>
       </div>
       <div className="profile-container">
         <img src="profilepic.png" alt="User Profile Picture" />

@@ -38,11 +38,11 @@ button {
   margin: 0 15px;
 }
 
-.content {
+.profile-content {
   padding: 20px;
 }
 
-.dashboard-button {
+.profile-dashboard-button {
   background-color: #1d3557;
   color: #fff;
   padding: 10px 20px;
@@ -152,7 +152,7 @@ button {
     margin-bottom: 10px;
   }
 
-  .dashboard-button {
+  .profile-dashboard-button {
     width: 100%;
   }
 

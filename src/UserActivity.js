@@ -16,8 +16,8 @@ function UserActivity() {
         <table className="activity-table">
           <thead>
             <tr>
-              <th>Name</th>
-              <th>Last Activity</th>
+              <th className='user-activity-th'>Name</th>
+              <th className='user-activity-th'>Last Activity</th>
             </tr>
           </thead>
           <tbody>
