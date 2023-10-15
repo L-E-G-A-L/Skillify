@@ -8,7 +8,7 @@ function ForgotPassword() {
       <div className="navbar">
         <a href="home"><button className="navbar-button">Home</button></a>
         <a href="contact"><button className="navbar-button">Contact</button></a>
-        <a href="aboutUs"><button className="navbar-button">About</button></a>
+        <a href="about"><button className="navbar-button">About</button></a>
       </div>
       <div className="forgot-password-container">
         <h1 className='lrf-h1'>Forgot Password</h1>

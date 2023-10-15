@@ -1,0 +1,91 @@
+/*Name (Last, First) and Student Id
+Sunkoju,TarunKumar(1002077699)
+Kotagiri, Arvind kumar Satyanarayana (1002126766)
+Tamanampudi, Sai Sridhar (1002117404)
+Tadivaka, Sai Swetha (1002112726)
+Tallapelli, Sai Charan (1002073449)*/
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+
+/* body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+} */
+
+.pc-chat-box {
+    width: 300px;
+    margin: 20px auto;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+}
+
+.pc-chat-header {
+    background-color: #011558;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.pc-chat-messages {
+    padding: 10px;
+    max-height: 300px;
+    overflow-y: scroll;
+}
+
+.message {
+    margin-bottom: 10px;
+}
+
+.pc-sender-message {
+    background-color: #011558;
+    color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+    max-width: 70%;
+    float: right;
+    clear: both;
+}
+
+.pc-receiver-message {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 5px;
+    max-width: 70%;
+    float: left;
+    clear: both;
+}
+
+.pc-chat-input {
+    border-top: 1px solid #ccc;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.pcchat-input-text {
+    flex: 1;
+    padding: 5px;
+    border: none;
+    border-radius: 5px;
+}
+
+.pcchat-button {
+    background-color: #011558;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+@media (max-width: 768px) {
+    .pc-chat-box {
+        width: 100%;
+        max-width: 100%;
+    }
+}

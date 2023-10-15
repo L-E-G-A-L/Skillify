@@ -20,6 +20,13 @@ import StudentDiscussion from './StudentDiscussion';
 import StudentChat from './StudentChat';
 import Profile from './Profile';
 import UserActivity from './UserActivity';
+import AboutUsPage from './AboutUs';
+import ProgramCoordinator from './PC';
+import Chat from './PCChat';
+import Services from './Services';
+import InstructorDiscussion from './InstructorDiscussion';
+import Instructor from './Instructor';
+import ChatApp from './InstructorChat';
 
 function App() {
   return (
@@ -36,15 +43,15 @@ function App() {
         <Route path="/profile" element={<Profile />} />
         <Route path="/userActivity" element={<UserActivity />} />
 
-        {/* Sridhar Paths */}
+
+
         <Route path='/student' element={<Student />} />
         <Route path='/qa' element={<QADashboard />} />
         <Route path='/discussion' element={<DiscussionForum />} />
         <Route path='/qareports' element={<QAreports />} />
 
-        {/* Swetha Paths */}
-        <Route path='/about' element={<About />} />
-        <Route path='/services' element={<Service />} />
+
+
         <Route path='/contact' element={<Contact />} />
         <Route path='/announcements' element={<Announcements />} />
         <Route path='/coursemodules' element={<CourseModules />} />
@@ -52,6 +59,20 @@ function App() {
         <Route path='/grades' element={<Grades />} />
         <Route path='/studentdiscussion' element={<StudentDiscussion />} />
         <Route path='/studentchat' element={<StudentChat />} />
+
+
+
+        {/* <Route path='/about' element={<About />} /> */}
+        <Route path="/about" element={<AboutUsPage />} />
+        <Route path="/pc" element={<ProgramCoordinator />} />
+        <Route path="/pcChat" element={<Chat />} />
+
+
+
+        <Route path="/Instructor" element={<Instructor />} />
+        <Route path="/instructorDiscussion" element={<InstructorDiscussion />} />
+        <Route path="/instructorChat" element={<ChatApp />} />
+        <Route path='/services' element={<Services />} />
       </Routes>
     </Router>
   );

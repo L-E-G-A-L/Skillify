@@ -1,0 +1,251 @@
+/*Name (Last, First) and Student Id
+Sunkoju, TarunKumar (1002077699)
+Kotagiri, Arvind kumar Satyanarayana (1002126766)
+Tamanampudi, Sai Sridhar (1002117404)
+Tadivaka, Sai Swetha (1002112726)
+Tallapelli, Sai Charan (1002073449)*/
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+/* * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+} */
+
+/* body {
+  display: inline-block;
+  flex-direction: column;
+  min-height: 100vh;
+} */
+
+.services-header {
+  position: relative;
+  max-width: 1200px;
+  margin: 13px auto;
+  padding: 10px;
+  background: #011558;
+  box-sizing: border-box;
+  border-radius: 4px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.logo {
+  color: #fff;
+  height: 60px;
+  font-size: 30px;
+  line-height: 60px;
+  padding: 0 20px;
+  text-align: center;
+  box-sizing: border-box;
+  float: left;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.services-nav {
+  float: right;
+}
+
+.clearfix {
+  clear: both;
+}
+
+.services-nav .links {
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+.services-nav .links .services-li {
+  list-style: none;
+}
+
+.services-nav .links .services-li .services-a {
+  position: relative;
+  display: inline-block;
+  margin: 10px 0;
+  font-size: 20px;
+  padding: 10px 20px;
+  text-decoration: none;
+  color: #fff;
+}
+
+.services-nav .links .services-li .services-a:hover {
+  background: #1436e07e;
+  color: #fff;
+  transition: 0.5s;
+}
+
+#check {
+  position: absolute;
+  top: -100px;
+}
+
+.services-nav .checkbtn {
+  display: none;
+  position: absolute;
+  right: 5%;
+  margin-top: 2%;
+  transform: translateY(-50%);
+}
+
+.services-nav .checkbtn .line {
+  width: 30px;
+  height: 5px;
+  background-color: #fff;
+  margin: 5px;
+  border-radius: 3px;
+  transition: all .3s ease-in-out;
+}
+
+.content {
+  padding: 20px;
+  margin: 0 auto;
+  min-height: max-content;
+}
+
+/* footer {
+  background-color: #011558;
+  color: #fff;
+  text-align: center;
+  padding: 2px;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+} */
+
+.show {
+  display: block;
+}
+
+.title {
+  text-align: center;
+  font-size: 24px;
+  margin-top: 20px;
+}
+
+.show-button {
+  display: none;
+}
+
+.show-button + .services-label {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #011558;
+  color: white;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.print-content {
+  display: none; /* Hide the content by default */
+  border: 2px solid black;
+  padding: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+  text-align: justify;
+}
+
+/* Use the :checked pseudo-class to show the content when radio buttons are checked */
+#show-content1:checked ~ #content1 .print-content,
+#show-content2:checked ~ #content2 .print-content,
+#show-content3:checked ~ #content3 .print-content,
+#show-content4:checked ~ #content4 .print-content,
+#show-content5:checked ~ #content5 .print-content {
+  display: block;
+}
+
+@media screen and (max-width: 768px) {
+  .menu-toggle {
+    margin: 20px;
+  }
+
+  .checkbtn {
+    display: block;
+  }
+
+  /* .services-nav h1, .button {
+    width: auto;
+    margin-top: 90%;
+    margin-left: 10%;
+  } */
+
+  .services-nav .links {
+    position: fixed;
+    width: 95%;
+    height: auto;
+    background: rgba(0, 0, 0, 0.8);
+    top: 95px;
+    left: -102%;
+    margin-left: 10px;
+    text-align: center;
+    transition: all .5s;
+    flex-direction: column;
+    justify-content: space-evenly;
+  }
+
+  .services-nav .links .services-li {
+    display: block;
+    margin: 20px 0;
+    line-height: 30px;
+  }
+
+  .services-nav .links .services-li .services-a {
+    font-size: 30px;
+    color: white;
+  }
+
+  .services-a:hover {
+    background: #021b3050;
+    transition: 0.5s;
+  }
+
+  #check:checked ~ .links {
+    left: 0;
+  }
+
+  #check:checked ~ .hero {
+    display: none;
+  }
+
+  .services-nav .checkbtn {
+    display: block;
+  }
+
+  .services-nav :checked ~ .checkbtn .line:nth-child(1) {
+    transform: translateY(10px) rotate(225deg);
+  }
+
+  .services-nav :checked ~ .checkbtn .line:nth-child(3) {
+    transform: translateY(-10px) rotate(-225deg);
+  }
+
+  .services-nav :checked ~ .checkbtn .line:nth-child(2) {
+    opacity: 0;
+  }
+
+  /* footer {
+    position: relative;
+    width: 94%;
+    bottom: initial;
+  } */
+}
+
+@media (min-width: 700px) {
+  .radio-btns {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .radio-btns > .services-label {
+    display: flex !important;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+  }
+}

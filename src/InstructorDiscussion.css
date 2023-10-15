@@ -1,0 +1,196 @@
+/*Name (Last, First) and Student Id
+Sunkoju, TarunKumar (1002077699)
+Kotagiri, Arvind Kumar Satyanarayana (1002126766)
+Tamanampudi, Sai Sridhar (1002117404)
+Tadivaka, Sai Swetha (1002112726)
+Tallapelli, Sai Charan (1002073449)*/
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+/* * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #f9f9f9;
+} */
+
+.id-header {
+    background-color: #011558;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+}
+
+#header-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 50px;
+}
+
+#home-button {
+    padding: 10px 20px;
+    color: #fff;
+    text-decoration: none;
+    margin: 0 90px;
+}
+
+.id-nav .id-ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    background-color: #011558;
+}
+
+.id-nav .id-li {
+    margin: 0;
+    padding: 0;
+}
+
+.id-nav .id-a {
+    display: block;
+    text-decoration: none;
+    color: #fff;
+    padding: 10px 20px;
+}
+
+.id-section {
+    height: calc(100% - 50px);
+    margin: 20px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    background-color: #f9f9f9;
+}
+
+.id-footer {
+    margin: 20px;
+    padding: 20px;
+    background-color: #f9f9f9;
+}
+
+/* textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+} */
+
+/* button {
+    background-color: #011558;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+} */
+
+.id-nav .id-li {
+    margin: 10px;
+}
+
+.id-nav .id-a {
+    display: block;
+    text-decoration: none;
+    color: #fff;
+    padding: 10px 20px;
+    border: 2px solid #fff;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.id-nav .id-a:hover {
+    background-color: #0040ae;
+    color: #fff;
+}
+
+.id-footer {
+    background-color: #011558;
+    color: #fff;
+    text-align: center;
+    padding: 2px;
+    margin: 10px;
+}
+
+.instructorDiscussion-discussion {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.instructorDiscussion-discussion .id-input-chkbx {
+    display: none;
+}
+
+.instructorDiscussion-discussion .id-input-chkbx + .id-label {
+    background-color: #fff;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.instructorDiscussion-discussion-content {
+    display: none;
+}
+
+.instructorDiscussion-discussion .id-input-chkbx:checked + .id-label + .discussion-content {
+    display: block;
+}
+
+.instructorDiscussion-delete-button {
+    color: red;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    .id-header {
+        font-size: 24px;
+    }
+    #home-button {
+        padding: 8px 15px;
+        margin: 0 60px;
+    }
+    .id-nav .id-ul {
+        flex-direction: column;
+        text-align: center;
+    }
+    .id-nav .id-a {
+        padding: 10px;
+        margin: 5px;
+    }
+    .id-section {
+        height: auto;
+        margin: 10px;
+        padding: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .id-header {
+        font-size: 20px;
+    }
+    #home-button {
+        padding: 6px 10px;
+        margin: 0 30px;
+    }
+    .id-nav .id-a {
+        padding: 8px;
+        margin: 3px;
+    }
+    .id-section {
+        height: auto;
+        margin: 5px;
+        padding: 5px;
+    }
+}
