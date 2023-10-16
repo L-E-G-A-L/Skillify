@@ -102,15 +102,15 @@ Tallapelli, Sai Charan (1002073449)*/
     background-color: var(--nav-color);
     color: var(--bg-color);
     text-align: center;
-    padding: 2px;
-    margin: 10px;
+    padding: 5px;
+    /* margin: 10px; */
   }
 
 
 .qanav {
     background: var(--nav-color);
     width: 100%;
-    padding: 1px 0;
+    padding: 10px 0;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -293,6 +293,7 @@ Tallapelli, Sai Charan (1002073449)*/
     }
     .chat {
         margin-bottom: 5%;
+        position: relative;
     }
 }
 
