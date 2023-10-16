@@ -13,7 +13,7 @@ function Profile() {
       </div>
       <div className="profile-container">
         <img src="profilepic.png" alt="User Profile Picture" />
-        <h1 className='profile-h1'>Student_Name</h1>
+        <h1 className='profile-h1'>User Name</h1>
         <div className="profile-details">
           <div className="form-group">
             <label className='profile-label' htmlFor="full-name">Full Name:</label>

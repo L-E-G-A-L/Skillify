@@ -18,7 +18,7 @@ td {
 }
 
 .user-activity-navbar {
-  background-color: #1d3557;
+  background-color: #011558;
   color: #fff;
   display: flex;
   justify-content: flex-end;
@@ -37,7 +37,7 @@ td {
 }
 
 .dashboard-button {
-  background-color: #1d3557;
+  background-color: #011558;
   color: #fff;
   padding: 10px 20px;
   border: none;
@@ -74,7 +74,7 @@ label {
 /* select {
   width: 100%;
   padding: 10px;
-  border: 1px solid #1d3557;
+  border: 1px solid #011558;
   border-radius: 5px;
 } */
 
@@ -86,7 +86,7 @@ label {
 
 .user-activity-th,
 .user-activity-td {
-  border: 1px solid #1d3557;
+  border: 1px solid #011558;
   padding: 10px;
   text-align: center;
 }
