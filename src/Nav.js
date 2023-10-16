@@ -8,6 +8,7 @@ function Navbar() {
       <ul className="links">
         <li className='onnav'><a className='innav' href="home">Home</a></li>
         <li className='onnav'><a className='innav' href="about">About</a></li>
+        <li className='onnav'><a className='innav' href="https://sxt2726.uta.cloud/WDM_Group15/Blog/">Blog</a></li>
         <li className='onnav'><a className='innav' href="services">Services</a></li>
         <li className='onnav'><a className='innav' href="contact">Contact</a></li>
       </ul>
