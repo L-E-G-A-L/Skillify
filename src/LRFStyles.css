@@ -247,3 +247,7 @@ a {
     transform: none;
   }
 }
+
+.login-error-message {
+  color: #ff4b19;
+}

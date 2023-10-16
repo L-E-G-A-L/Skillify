@@ -1,0 +1,41 @@
+/* styles.css */
+
+/* Styles for DiscussionForum component */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+    margin: 0;
+    padding: 0;
+}
+  
+  /* Styles for StudentListPage component */
+  .student-list-page {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .student-box {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .student-box p {
+    margin: 0;
+  }
+  
+  .student-box button {
+    background-color: #011558;
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .student-box button:hover {
+    background-color: #0056b3;
+  }
+  

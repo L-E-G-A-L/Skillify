@@ -8,6 +8,7 @@ import Student from './Student';
 import QADashboard from './QADash';
 import DiscussionForum from './Discussion';
 import QAreports from './Reports';
+import QAStudentDiscussion from './QAStudentDiscussion';
 import Home from './Home';
 import About from './About';
 import Service from './Service';
@@ -51,6 +52,7 @@ function App() {
         <Route path='/qahome' element={<QADashboard />} />
         <Route path='/discussion' element={<DiscussionForum />} />
         <Route path='/reports' element={<QAreports />} />
+        <Route path='/qastudentdiscussion' element={<QAStudentDiscussion />} />
 
 
 

@@ -24,7 +24,7 @@ function InnerNav(){
         <nav className='disnav'>
           <ul className='disul'>
             <li className='disli'>
-              <a className='disa'><Link className="link" to="/student">Student</Link></a>
+              <a className='disa'><Link className="link" to="/qastudentdiscussion">Student</Link></a>
             </li>
             <li className='disli'>
               <a className='disa' href="#">Instructor</a>
