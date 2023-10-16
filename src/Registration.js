@@ -4,7 +4,7 @@ import './LRFStyles.css';
 function Registration() {
   return (
     <div className="registration-page">
-      <div className="navbar">
+      <div className="lrf-navbar">
         <button className="navbar-button">Home</button>
         <button className="navbar-button">Contact</button>
         <button className="navbar-button">About</button>

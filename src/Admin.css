@@ -24,7 +24,7 @@ button {
     flex-direction: column;
   }
 
-.navbar {
+.admin-navbar {
   background-color: #011558;
   color: #fff;
   display: flex;
@@ -33,7 +33,7 @@ button {
   padding: 10px;
 }
 
-.navbar .admin-nav-a {
+.admin-navbar .admin-nav-a {
   text-decoration: none;
   color: #fff;
   margin: 0 15px;

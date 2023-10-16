@@ -4,7 +4,7 @@ import './Admin.css';
 function Admin() {
   return (
     <div className="admin-page">
-      <div className="navbar">
+      <div className="admin-navbar">
         <a href="profile" className='admin-nav-a'>My Profile</a>
         <a href="login" className='admin-nav-a'>Sign Out</a>
       </div>

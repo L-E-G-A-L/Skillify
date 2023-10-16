@@ -4,7 +4,7 @@ import './LRFStyles.css';
 function Login() {
   return (
     <div className="login-page">
-      <div className="navbar">
+      <div className="lrf-navbar">
         <a href="home"><button className="navbar-button">Home</button></a>
         <a href="contact"><button className="navbar-button">Contact</button></a>
         <a href="about"><button className="navbar-button">About</button></a>
