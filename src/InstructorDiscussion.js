@@ -8,7 +8,7 @@ class InstructorDiscussion extends React.Component {
       <header className='id-header'>
         <div id="header-content">
           <h1>Discussion Forum</h1>
-          <a href="/Instructor" id="home-button" className='id-a'>Home</a>
+          <a href="/instructor" id="home-button" className='id-a'>Home</a>
         </div>
       </header>
       <nav className='id-nav'>

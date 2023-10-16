@@ -24,7 +24,7 @@ function ForgotPassword() {
           />
         </div>
         <button className="reset-password-button">Reset Password</button>
-        <div className="links">
+        <div className="lrf-links">
           <a href="login" className='lrf-a'>Back to Login</a>
         </div>
       </div>

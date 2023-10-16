@@ -66,7 +66,7 @@ function Registration() {
           <input type="date" className="lrf-input" id="date-of-birth" name="date-of-birth" />
         </div>
         <a href="login"><button className="register-button">Register</button></a>
-        <div className="links">
+        <div className="lrf-links">
           <a href="login" className='lrf-a'>Already registered? Login</a>
         </div>
       </div>
