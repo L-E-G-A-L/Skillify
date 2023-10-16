@@ -48,7 +48,7 @@ section {
     border-radius: 5px;
     transition: background-color 0.3s, color 0.3s;
 }
-.disnav .disa .link{
+.disnav .link {
     border-radius: 2px;
     text-decoration: none;
     color: #fff;
