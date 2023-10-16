@@ -1,6 +1,8 @@
 // InstructorPage.js
 import React from 'react';
 import './Instructor.css'; // Import your CSS file
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPencil, faTrash } from '@fortawesome/free-solid-svg-icons'
 
 function Instructor() {
   return (
@@ -48,8 +50,10 @@ function Instructor() {
             <td className='Instructor-td'>CS225</td>
             <td className='Instructor-td'>Web Data Management</td>
             <td className='Instructor-td'>
-              <button className="fa fa-pencil-square-o Instructor-button"></button>
-              <button className="fa fa-trash-o Instructor-button"></button>
+              <FontAwesomeIcon icon={faPencil} className='fa fa-pencil-square-o Instructor-button'/>
+              <FontAwesomeIcon icon={faTrash} className='fa fa-trash-o Instructor-button'/>
+              {/* <button className="fa fa-pencil-square-o Instructor-button"></button>
+              <button className="fa fa-trash-o Instructor-button"></button> */}
             </td>
           </tr>
         </tbody>
@@ -73,8 +77,10 @@ function Instructor() {
             <td className='Instructor-td'>Midterm Exam</td>
             <td className='Instructor-td'>85</td>
             <td className='Instructor-td'>
-              <button className="fa fa-pencil-square-o Instructor-button"></button>
-              <button className="fa fa-trash-o Instructor-button"></button>
+              <FontAwesomeIcon icon={faPencil} className='fa fa-pencil-square-o Instructor-button'/>
+              <FontAwesomeIcon icon={faTrash} className='fa fa-trash-o Instructor-button'/>
+              {/* <button className="fa fa-pencil-square-o Instructor-button"></button>
+              <button className="fa fa-trash-o Instructor-button"></button> */}
             </td>
           </tr>
         </tbody>
@@ -94,8 +100,10 @@ function Instructor() {
             <td className='Instructor-td'>1</td>
             <td className='Instructor-td'>Steve Smith</td>
             <td className='Instructor-td'>
-              <button className="fa fa-eye Instructor-button"></button>
-              <button className="fa fa-trash-o Instructor-button"></button>
+              <FontAwesomeIcon icon={faPencil} className='fa fa-pencil-square-o Instructor-button'/>
+              <FontAwesomeIcon icon={faTrash} className='fa fa-trash-o Instructor-button'/>
+              {/* <button className="fa fa-eye Instructor-button"></button>
+              <button className="fa fa-trash-o Instructor-button"></button> */}
             </td>
           </tr>
         </tbody>

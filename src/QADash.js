@@ -27,7 +27,7 @@ export function QANav({title,toggleInnerNav}){
             <h1 className='qah1'>{title}</h1>
             <ul className='qaul'>
               <li className='qali'>
-                <a className='qaa'><Link className="link" to="/qahome">Home</Link></a>
+              <Link className="link" to="/qahome"><a className='qaa'>Home</a></Link>
               </li>
             </ul>
             <input onClick={toggleInnerNav}
@@ -91,7 +91,7 @@ function MainContent(){
             <h2 className='qah2'>
               Discussion with Students, Instructors, Administrators, and Program Coordinator
             </h2>
-            <button className="toggle-button"><Link className="link" to="/discussion">Discussion</Link></button>
+            <Link className="link" to="/discussion"><button className="toggle-button">Discussion</button></Link>
           </section>
           <section className="functionality">
             <h2 className='qah2'>
@@ -101,7 +101,7 @@ function MainContent(){
           </section>
           <section className="functionality">
             <h2 className='qah2'>Monitor and Analyze Student Performance Data</h2>
-            <button className="toggle-button"><Link className="link" to="/reports">Reports</Link></button>
+            <Link className="link" to="/reports"><button className="toggle-button">Reports</button></Link>
           </section>
         </main>
     );

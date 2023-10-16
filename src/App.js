@@ -9,7 +9,7 @@ import QADashboard from './QADash';
 import DiscussionForum from './Discussion';
 import QAreports from './Reports';
 import QAStudentDiscussion from './QAStudentDiscussion';
-import Home from './Home';
+import Homepage from './Home';
 import About from './About';
 import Service from './Service';
 import Contact from './Contact';
@@ -34,8 +34,8 @@ function App() {
     <Router>
       <Routes>
         {/* <Route path='/home' element={<Home />} /> */}
-        <Route path="/" element={<Home />} />
-        <Route path="/home" element={<Home />} />
+        <Route path="/" element={<Homepage />} />
+        <Route path="/home" element={<Homepage />} />
 
         {/* Aravind Paths */}
         <Route path="/login" element={<Login />} />

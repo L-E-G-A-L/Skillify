@@ -26,8 +26,8 @@ Tallapelli, Sai Charan (1002073449)*/
 .homeheader {
 	position: relative;
 	max-width: 1200px;
-	/* margin: 13px auto; */
-	margin: 0px auto;
+	top: 20px;
+	margin: 10px auto;
 	padding: 10px;
 	background: rgba(255, 255, 255, 0.4);
 	box-sizing: border-box;
@@ -144,13 +144,10 @@ Tallapelli, Sai Charan (1002073449)*/
 }
 
 @media (max-width: 1200px) {
-	.start {
-		margin: 20px;
-	}
 
 	.navbar .hero {
 		width: auto;
-		margin-top: 40%;
+		margin-top: 38%;
 		margin-left: 10%;
 	}
 }
@@ -176,9 +173,8 @@ Tallapelli, Sai Charan (1002073449)*/
     width: 100%; /* Full width of the viewport */
     height: auto;
     background: rgba(0, 0, 0, 0.5);
-    top: 95px; /* Fixed to the top of the viewport */
-    left: -100%;
-    margin-left: 15px; /* Remove margin */
+    top: 110px; /* Fixed to the top of the viewport */
+    left: -105%;
     text-align: center;
     transition: all .5s;
     flex-direction: column;
@@ -252,12 +248,12 @@ Tallapelli, Sai Charan (1002073449)*/
 	@media (max-width:415px) {
 		.navbar .hero {
 			width: auto;
-			margin-top: 50%;
+			margin-top: 60%;
 			margin-left: 10%;
 		}
 
 		.navbar .links {
-			width: 93%;
+			width: 100%;
 			height: auto;
 		}
 	}
