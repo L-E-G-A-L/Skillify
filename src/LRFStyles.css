@@ -119,13 +119,13 @@ a {
   font-weight: bold;
 }
 
-.links {
+.lrf-links {
   margin-top: 30px;
   display: flex;
   justify-content: center;
 }
 
-.links .lrf-a {
+.lrf-links .lrf-a {
   text-decoration: none;
   color: #011558;
   margin: 0 10px;

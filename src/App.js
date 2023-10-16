@@ -71,7 +71,7 @@ function App() {
 
 
 
-        <Route path="/Instructor" element={<Instructor />} />
+        <Route path="/instructor" element={<Instructor />} />
         <Route path="/instructorDiscussion" element={<InstructorDiscussion />} />
         <Route path="/instructorChat" element={<ChatApp />} />
         <Route path='/services' element={<Services />} />
