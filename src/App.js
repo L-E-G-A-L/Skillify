@@ -33,7 +33,8 @@ function App() {
     <Router>
       <Routes>
         {/* <Route path='/home' element={<Home />} /> */}
-        <Route path="/" element={<Login />} />
+        <Route path="/" element={<Home />} />
+        <Route path="/home" element={<Home />} />
 
         {/* Aravind Paths */}
         <Route path="/login" element={<Login />} />
@@ -46,9 +47,10 @@ function App() {
 
 
         <Route path='/student' element={<Student />} />
-        <Route path='/qa' element={<QADashboard />} />
+        <Route path='/qadashboard' element={<QADashboard />} />
+        <Route path='/qahome' element={<QADashboard />} />
         <Route path='/discussion' element={<DiscussionForum />} />
-        <Route path='/qareports' element={<QAreports />} />
+        <Route path='/reports' element={<QAreports />} />
 
 
 

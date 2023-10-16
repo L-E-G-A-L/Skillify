@@ -180,7 +180,7 @@ a {
   }
 }
 
-.navbar {
+.lrf-navbar {
   background-color: #011558;
   color: #fff;
   display: flex;
@@ -202,14 +202,6 @@ a {
 
 .navbar-button:hover {
   background-color: #011558;
-}
-
-.navbar {
-  background-color: #011558;
-  color: #fff;
-  display: flex;
-  justify-content: flex-end;
-  padding: 10px;
 }
 
 .navbar-button {

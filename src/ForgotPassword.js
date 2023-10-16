@@ -5,7 +5,7 @@ import './LRFStyles.css';
 function ForgotPassword() {
   return (
     <div className="forgot-password-page">
-      <div className="navbar">
+      <div className="lrf-navbar">
         <a href="home"><button className="navbar-button">Home</button></a>
         <a href="contact"><button className="navbar-button">Contact</button></a>
         <a href="about"><button className="navbar-button">About</button></a>

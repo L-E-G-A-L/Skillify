@@ -1,9 +1,18 @@
-import React from "react";
+import React from 'react';
+import Navbar from './Nav';
+import './Home.css';
 
-class Home extends React.Component {
-  render() {
-    return <div>Home page</div>;
-  }
+function Homepage() {
+  return (
+  <body className='homebody'>
+    <header className='homeheader'>
+      <a href="#" className="logo">Group15</a>
+      <div className="menu-toggle"></div>
+      <Navbar />
+      <div className="clearfix"></div>
+    </header>
+  </body>  
+  );
 }
 
-export default Home;
+export default Homepage;
