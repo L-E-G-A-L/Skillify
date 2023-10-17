@@ -6,32 +6,12 @@ Tadivaka, Sai Swetha (1002112726)
 Tallapelli, Sai Charan (1002073449)*/
 
 :root {
-    --body-color: #ffffff;
-    --nav-color: #011558;
-    --bg-color: #fff;
+  --body-color: #ffffff;
+  --nav-color: #011558;
+  --bg-color: #fff;
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
-
-/* * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Poppins", sans-serif;
-}
-
-body {
-    background: var(--body-color);
-    transition: background 0.3s;
-    margin: 0;
-    padding: 0;
-    background-attachment: fixed;
-    background-size: cover;
-
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-} */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
 
 #pc-main-div {
     min-height: 100vh;
@@ -39,133 +19,133 @@ body {
     flex-direction: column;
 }
 .pc-h6 {
-    font-size: 25px;
-    color: var(--bg-color);
-    margin: 0;
+  font-size: 25px;
+  color: var(--bg-color);
+  margin: 0;
 }
 
 .pc-main {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    padding: 20px;
-    margin: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 20px;
+  margin: 10px;
 }
 
 .pc-functionality {
-    background-color: var(--bg-color);
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-    border: 2px solid #000;
-    border-radius: 5px;
-    padding: 15px;
-    margin: 5px;
-    flex: 0 0 calc(45% - 20px);
+  background-color: var(--bg-color);
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  border: 2px solid #000;
+  border-radius: 5px;
+  padding: 15px;
+  margin: 5px;
+  flex: 0 0 calc(45% - 20px);
 }
 
 .pc-functionality .pc-h2 {
-    font-size: 20px;
-    margin-bottom: 5px;
-    color: black;
+  font-size: 20px;
+  margin-bottom: 5px;
+  color: black;
 }
 
 .pc-toggle-button {
-    background-color: var(--nav-color);
-    color: var(--bg-color);
-    font-family: Trebuchet MS;
-    border: none;
-    padding: 10px 20px;
-    cursor: pointer;
-    margin-top: 10px;
-    border-radius: 5px;
-    width: 100%;
+  background-color: var(--nav-color);
+  color: var(--bg-color);
+  font-family: Trebuchet MS;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  margin-top: 10px;
+  border-radius: 5px;
+  width: 100%;
 }
 
 .pc-footer {
-    margin-top: auto;
-    background-color: #011558;
-    color: #fff;
-    text-align: center;
-    padding: 10px;
-    width: 100%;
+  margin-top: auto;
+  background-color: #011558;
+  color: #fff;
+  text-align: center;
+  padding: 10px;
+  width: 100%;
 }
 
 .pc-nav {
-    background: var(--nav-color);
-    padding: 10px 20px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    position: relative;
-    width: 100%;
+  background: var(--nav-color);
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  width: 100%;
 }
 
 .pc-ul {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
 .pc-ul .pc-li {
-    display: inline-block;
-    list-style: none;
-    margin: 0 10px;
+  display: inline-block;
+  list-style: none;
+  margin: 0 10px;
 }
 
 .pc-ul .pc-li:first-child {
-    margin-left: 0;
+  margin-left: 0;
 }
 
 .pc-nav .pc-ul {
-    text-align: center;
+  text-align: center;
 }
 
 .pc-nav .pc-ul .pc-li {
-    display: block;
-    list-style: none;
-    margin: 10px 0;
+  display: block;
+  list-style: none;
+  margin: 10px 0;
 }
 
 .pc-nav .pc-ul .pc-li .pc-a {
-    color: var(--bg-color);
-    text-decoration: none;
-    padding: 5px 10px;
-    display: block;
+  color: var(--bg-color);
+  text-decoration: none;
+  padding: 5px 10px;
+  display: block;
 }
 
 .pc-nav .pc-ul .pc-li .pc-a:hover {
-    background-color: black;
-    color: white;
+  background-color: black;
+  color: white;
 }
 
 .pc-nav-list {
-    display: flex;
+  display: flex;
 }
 
 @media screen and (max-width: 768px) {
-    .pc-functionality {
-        flex: 0 0 calc(100% - 20px);
-    }
+  .pc-functionality {
+    flex: 0 0 calc(100% - 20px);
+  }
 
-    .pc-nav {
-        display: block;
-    }
+  .pc-nav {
+    display: block;
+  }
 
-    .pc-nav .pc-h6 {
-        text-align: center;
-    }
+  .pc-nav .pc-h6 {
+    text-align: center;
+  }
 
-    .pc-nav-list {
-        display: flex;
-        flex-wrap: wrap;
-    }
+  .pc-nav-list {
+    display: flex;
+    flex-wrap: wrap;
+  }
 }
 
 .pcChat {
-    margin-top: 15px;
+  margin-top: 15px;
 }
 
 @media (min-width: 820px) {
-    .pc-functionality {
-        display: grid;
-        align-content: space-between;
-    }
+  .pc-functionality {
+    display: grid;
+    align-content: space-between;
+  }
 }

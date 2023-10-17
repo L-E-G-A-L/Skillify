@@ -1,9 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
 }
 
 body,
@@ -18,23 +18,14 @@ a {
   padding: 0;
 }
 
-/* body {
-  background-image: url("backgroundImage.avif");
+.login-page,
+.registration-page,
+.forgot-password-page {
   background-size: cover;
-  height: 100vh;
-  width: 100vw;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
-  min-height: 100vh; 
-} */
-
-.login-page, .registration-page, .forgot-password-page {
-    /* background-image: url("backgroundImage.avif"); */
-    background-size: cover;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-  }
+}
 
 .login-container {
   padding: 20px;
@@ -141,12 +132,10 @@ a {
     max-width: 400px;
     background-color: rgb(241, 241, 251);
     backdrop-filter: blur(8px);
-    /* border: 2px solid #000; */
   }
   .registration-container,
   .forgot-password-container {
     background-color: rgb(241, 241, 251);
-    /* border: 2px solid #000; */
     backdrop-filter: blur(8px);
   }
   .registration-container {
