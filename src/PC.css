@@ -33,6 +33,11 @@ body {
     min-height: 100vh;
 } */
 
+#pc-main-div {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
 .pc-h6 {
     font-size: 25px;
     color: var(--bg-color);
