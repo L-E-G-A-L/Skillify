@@ -6,7 +6,7 @@ function Homepage() {
   return (
   <body className='homebody'>
     <header className='homeheader'>
-      <a href="#" className="logo">Group15</a>
+      <a href="#" className="home-logo">Group15</a>
       <div className="menu-toggle"></div>
       <Navbar />
       <div className="clearfix"></div>
