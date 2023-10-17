@@ -3,7 +3,7 @@ import "./PC.css";
 
 function ProgramCoordinator() {
   return (
-    <div>
+    <div id='pc-main-div'>
       <div className="hero">
         <nav className="pc-nav">
           <h6 className="pc-h6">DASHBOARD</h6>
