@@ -5,20 +5,7 @@ Tamanampudi, Sai Sridhar (1002117404)
 Tadivaka, Sai Swetha (1002112726)
 Tallapelli, Sai Charan (1002073449)*/
 
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
-
-/* * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
-} */
-
-/* body {
-  display: inline-block;
-  flex-direction: column;
-  min-height: 100vh;
-} */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
 
 .service-main-div {
   background-size: cover;
@@ -29,8 +16,6 @@ Tallapelli, Sai Charan (1002073449)*/
 
 .services-header {
   position: relative;
-  /* max-width: 1200px; */
-  /* margin: 5px auto; */
   padding: 10px;
   background: #011558;
   box-sizing: border-box;
@@ -104,7 +89,7 @@ Tallapelli, Sai Charan (1002073449)*/
   background-color: #fff;
   margin: 5px;
   border-radius: 3px;
-  transition: all .3s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
 
 .content {
@@ -113,17 +98,6 @@ Tallapelli, Sai Charan (1002073449)*/
   min-height: max-content;
   flex: 1;
 }
-
-/* footer {
-  background-color: #011558;
-  color: #fff;
-  text-align: center;
-  padding: 2px;
-  width: 100%;
-  position: fixed;
-  bottom: 0;
-} */
-
 .show {
   display: block;
 }
@@ -148,8 +122,7 @@ Tallapelli, Sai Charan (1002073449)*/
 }
 
 .print-content {
-  display: none; /* Hide the content by default */
-  /* border: 2px solid black; */
+  display: none;
   padding: 10px;
   margin-top: 10px;
   margin-bottom: 10px;
@@ -165,7 +138,6 @@ Tallapelli, Sai Charan (1002073449)*/
   text-align: justify;
 }
 
-/* Use the :checked pseudo-class to show the content when radio buttons are checked */
 #show-content1:checked ~ #content1 .print-content,
 #show-content2:checked ~ #content2 .print-content,
 #show-content3:checked ~ #content3 .print-content,
@@ -182,13 +154,6 @@ Tallapelli, Sai Charan (1002073449)*/
   .checkbtn {
     display: block;
   }
-
-  /* .services-nav h1, .button {
-    width: auto;
-    margin-top: 90%;
-    margin-left: 10%;
-  } */
-
   .services-nav .links {
     position: fixed;
     width: 95%;
@@ -198,7 +163,7 @@ Tallapelli, Sai Charan (1002073449)*/
     left: -102%;
     margin-left: 10px;
     text-align: center;
-    transition: all .5s;
+    transition: all 0.5s;
     flex-direction: column;
     justify-content: space-evenly;
   }
@@ -249,8 +214,8 @@ Tallapelli, Sai Charan (1002073449)*/
     text-align: center;
     padding: 2px;
     width: 100%;
-	position: fixed;
-	bottom: 0;
+    position: fixed;
+    bottom: 0;
   }
 }
 

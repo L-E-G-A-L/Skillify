@@ -6,110 +6,95 @@ Tadivaka, Sai Swetha (1002112726)
 Tallapelli, Sai Charan (1002073449)*/
 /* @import 'font-awesome/css/font-awesome.min.css'; */
 
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
-/* 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Poppins", sans-serif;
-}
-
-body {
-    margin: 0;
-    padding: 0;
-    background-color: #f2f2f2;
-} */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
 
 .Instructor-topnav {
-    background-color: #011558;
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    padding: 20px 0;
-
+  background-color: #011558;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 20px 0;
 }
 
 .Instructor-topnav .Instructor-a {
-    color: white;
-    text-decoration: none;
-    margin: 0 10px;
+  color: white;
+  text-decoration: none;
+  margin: 0 10px;
 }
 
 .Instructor-topnav a.Instructor-right {
-    float: Instructor-right;
+  float: Instructor-right;
 }
 
 .Instructor-button-group {
-    text-align: center;
-    margin-top: 20px;
+  text-align: center;
+  margin-top: 20px;
 }
 
 .Instructor-button-group .Instructor-button {
-    background-color: #011558;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    margin: 5px;
-    cursor: pointer;
+  background-color: #011558;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  margin: 5px;
+  cursor: pointer;
 }
 
-
 .Instructor-table {
-    border-collapse: collapse;
-    width: 80%;
-    margin: 20px auto;
-    background-color: white;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  border-collapse: collapse;
+  width: 80%;
+  margin: 20px auto;
+  background-color: white;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
 }
 
 .Instructor-table,
 .Instructor-th,
 .Instructor-td {
-    border: 1px solid #ddd;
+  border: 1px solid #ddd;
 }
 
 .Instructor-table .Instructor-caption {
-    background-color: #011558;
-    color: white;
-    text-align: center;
-    padding: 10px;
+  background-color: #011558;
+  color: white;
+  text-align: center;
+  padding: 10px;
 }
 
 .Instructor-th,
 .Instructor-td {
-    padding: 10px;
-    text-align: left;
+  padding: 10px;
+  text-align: left;
 }
 
 .fa {
-    padding: 5px;
-    font-size: 18px;
-    cursor: pointer;
+  padding: 5px;
+  font-size: 18px;
+  cursor: pointer;
 }
 
 .fa.fa-trash-o {
-    color: red;
+  color: red;
 }
 
 .Instructor-chat {
-    text-align: center;
+  text-align: center;
 }
 
 .Instructor-footer {
-    background-color: #011558;
-    color: white;
-    text-align: center;
-    padding: 10px;
+  background-color: #011558;
+  color: white;
+  text-align: center;
+  padding: 10px;
 }
 
 .Instructor-chat {
-    margin-bottom: 25px;
+  margin-bottom: 25px;
 }
 
 @media (max-width: 768px) {
-    .Instructor-table {
-        width: 100%;
-    }
+  .Instructor-table {
+    width: 100%;
+  }
 }

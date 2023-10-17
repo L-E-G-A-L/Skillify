@@ -17,7 +17,6 @@ Tallapelli, Sai Charan (1002073449)*/
 .contactClass {
     min-height: 100vh;
     width: 100%;
-    /* background: #011558; */
     display: inline-block;
     align-items: center;
     justify-content: center;
@@ -26,11 +25,8 @@ Tallapelli, Sai Charan (1002073449)*/
 
 .contactHeaderClass{
     position: relative;
-    /* max-width: 1200px;
-    margin: 13px auto; */
     padding: 10px;
     background-color: #011558;
-    /* background: rgba(255, 255, 255, 0.1); */
     box-sizing: border-box;
     border-radius: 4px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
@@ -191,15 +187,12 @@ Tallapelli, Sai Charan (1002073449)*/
 .contactFooterClass {
     background-color: #011558;
     color: white;
-    /* color: #fff; */
     text-align: center;
     padding: 2px;
     margin-top: 30px;
     position: fixed;
 	bottom: 0;
     width: 100%;
-    /* background: rgba(255, 255, 255, 0.1);
-    box-sizing: border-box; */
 }
 
 .topic-text {
@@ -213,7 +206,6 @@ Tallapelli, Sai Charan (1002073449)*/
     .contactContainer {
         width: 100%;
         margin-left: 0px;
-        /* padding: 30px 90px 36px 35px; */
     }
 
     .contactContainer .content .form-content {

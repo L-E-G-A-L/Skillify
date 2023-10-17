@@ -5,122 +5,119 @@ Tamanampudi, Sai Sridhar (1002117404)
 Tadivaka, Sai Swetha (1002112726)
 Tallapelli, Sai Charan (1002073449)*/
 
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
 
 .disbody {
-        font-family: "Poppins", sans-serif;
-        background:#f0f0f0;
-        /* margin: 0;
-        padding: 0; */
-        }
+  font-family: "Poppins", sans-serif;
+  background: #f0f0f0;
+}
 
 .disnav .disul {
-    /* list-style-type: none; */
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    background-color: #011558;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  background-color: #011558;
 }
 .disnav .disli {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
 section {
-    margin: 20px;
-    padding: 20px;
-    border: 1px solid #ddd;
-    background-color: #f9f9f9;
+  margin: 20px;
+  padding: 20px;
+  border: 1px solid #ddd;
+  background-color: #f9f9f9;
 }
 
 .disnav .disli {
-    margin: 10px;
-    text-decoration: none;
-    list-style-type: none;
+  margin: 10px;
+  text-decoration: none;
+  list-style-type: none;
 }
 
 .disnav .disa {
-    display: block;
-    text-decoration: none;
-    color: #fff;
-    padding: 3px 20px;
-    border: 2px solid #fff;
-    border-radius: 5px;
-    transition: background-color 0.3s, color 0.3s;
+  display: block;
+  text-decoration: none;
+  color: #fff;
+  padding: 3px 20px;
+  border: 2px solid #fff;
+  border-radius: 5px;
+  transition: background-color 0.3s, color 0.3s;
 }
 .disnav .link {
-    border-radius: 2px;
-    text-decoration: none;
-    color: #fff;
+  border-radius: 2px;
+  text-decoration: none;
+  color: #fff;
 }
 
 .disnav .disa:hover {
-    background-color: #0040ae;
-    color: #fff;
+  background-color: #0040ae;
+  color: #fff;
 }
 
 .discussion {
-    border: 1px solid #ccc;
-    padding: 10px;
-    margin-bottom: 10px;
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 10px;
 }
 
 .discussion input[type="checkbox"] {
-    display: none;
+  display: none;
 }
 
 .discussion input[type="checkbox"] + label {
-    background-color: #fff;
-    padding: 5px 10px;
-    cursor: pointer;
+  background-color: #fff;
+  padding: 5px 10px;
+  cursor: pointer;
 }
 
 .discussion-content {
-    display: none;
+  display: none;
 }
 
 .discussion input[type="checkbox"]:checked + label + .discussion-content {
-    display: block;
+  display: block;
 }
 
 .delete-button {
-    color: red;
-    cursor: pointer;
+  color: red;
+  cursor: pointer;
 }
 @media (max-width: 768px) {
-    #home-button {
-        padding: 8px 15px;
-        margin: 0 60px;
-    }
-    .disnav .disul {
-        flex-direction: column;
-        text-align: center;
-    }
+  #home-button {
+    padding: 8px 15px;
+    margin: 0 60px;
+  }
+  .disnav .disul {
+    flex-direction: column;
+    text-align: center;
+  }
 
-    .disnav .disa {
-        padding: 10px;
-        margin: 5px;
-    }
-    section {
-        margin: 10px;
-        padding: 10px;
-    }
+  .disnav .disa {
+    padding: 10px;
+    margin: 5px;
+  }
+  section {
+    margin: 10px;
+    padding: 10px;
+  }
 }
 @media (max-width: 480px) {
-    #home-button {
-        padding: 6px 10px;
-        margin: 0 30px;
-    }
-    .disnav .disul{
-        top: 0;
-    }
-    .disnav .disa {
-        padding: 6px;
-        margin: -2px;
-        text-align: center;
-    }
-    section {
-        margin: 5px;
-        padding: 5px;
-    }
+  #home-button {
+    padding: 6px 10px;
+    margin: 0 30px;
+  }
+  .disnav .disul {
+    top: 0;
+  }
+  .disnav .disa {
+    padding: 6px;
+    margin: -2px;
+    text-align: center;
+  }
+  section {
+    margin: 5px;
+    padding: 5px;
+  }
 }
