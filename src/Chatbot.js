@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import "./Chatbot.css";
-import RobotIcon from "./images/Chatbot.png";
 
 const ChatComponent = () => {
   const [messages, setMessages] = useState([
@@ -48,7 +47,7 @@ const ChatComponent = () => {
           className={`chat-popup-button ${isOpen ? "open" : ""}`}
           onClick={toggleChat}
         >
-          <img src={RobotIcon} alt="Robot Icon" className="robot-icon" />
+          <img src="Chatbot.png" alt="Robot Icon" className="robot-icon" />
         </div>
         {isOpen && (
           <div className="chat-container">

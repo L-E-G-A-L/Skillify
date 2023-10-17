@@ -1,10 +1,5 @@
 import React from "react";
 import "./QADash.css";
-import ProfileImage from "./images/Profile.png";
-import ProfileLogo from "./images/profile logo.png";
-import SettingImage from "./images/setting.png";
-import HelpImage from "./images/help.png";
-import LogoutImage from "./images/logout.png";
 import { Link } from "react-router-dom";
 import ChatComponent from "./Chatbot";
 
@@ -44,27 +39,27 @@ export function QANav({ title, toggleInnerNav }) {
         </div>
         <div className="sub-menu">
           <div className="user-info">
-            <img src={ProfileImage} alt="Profile" className="user-pic" />
+            <img src="Profile.png" alt="Profile" className="user-pic" />
             <h3 className="qah3">User Name</h3>
           </div>
           <hr className="qahr" />
           <a href="profile" className="sub-menu-link">
-            <img src={ProfileLogo} alt="Profile Logo" />
+            <img src="profile logo.png" alt="Profile Logo" />
             <p className="qap">Edit Profile</p>
             <span className="qaspan">&gt;</span>
           </a>
           <a href="#" className="sub-menu-link">
-            <img className="qaimg" src={SettingImage} alt="Setting" />
+            <img className="qaimg" src="setting.png" alt="Setting" />
             <p className="qap">Settings & Privacy</p>
             <span className="qaspan">&gt;</span>
           </a>
           <a href="#" className="sub-menu-link">
-            <img src={HelpImage} alt="Help" />
+            <img src="help.png" alt="Help" />
             <p className="qap">Help & Support</p>
             <span className="qaspan">&gt;</span>
           </a>
           <a href="login" className="sub-menu-link">
-            <img src={LogoutImage} alt="Logout" />
+            <img src="LogoutImage" alt="Logout" />
             <p className="qap">Logout</p>
             <span className="qaspan">&gt;</span>
           </a>
