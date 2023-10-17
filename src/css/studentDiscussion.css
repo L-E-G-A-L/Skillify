@@ -18,6 +18,9 @@ Tallapelli, Sai Charan (1002073449)*/
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 .studentDiscussionHeaderClass {
     background-color: #011558;
@@ -119,6 +122,11 @@ Tallapelli, Sai Charan (1002073449)*/
     color: red;
     cursor: pointer;
 }
+.studentDiscussionSectionClass {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+  }
 @media (max-width: 768px) {
     .studentDiscussionHeaderClass {
         font-size: 24px;
