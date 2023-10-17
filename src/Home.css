@@ -16,7 +16,7 @@ Tallapelli, Sai Charan (1002073449)*/
 .homebody {
   margin: 0;
   padding: 0;
-  background: url("./images/UTA.jpg");
+  background: url('/public/UTA.jpg');
   background-attachment: fixed;
   background-size: cover;
   height: 100vh;
