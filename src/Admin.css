@@ -8,21 +8,12 @@ button {
   padding: 0;
 }
 
-/* body {
-  background-image: url("backgroundImage.avif");
+.admin-page {
   background-size: cover;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
-} */
-
-.admin-page {
-    /* background-image: url("backgroundImage.avif"); */
-    background-size: cover;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-  }
+}
 
 .admin-navbar {
   background-color: #011558;
@@ -61,20 +52,16 @@ button {
   margin-top: 20px;
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
 }
 
 .box {
-  /* background-color: #f2f2f2; */
-  /* padding: 20px; */
-  /* border: 1px solid #ddd; */
   border-radius: 5px;
-  /* width: 30%; */
   margin-bottom: 20px;
   background-color: rgb(241, 241, 251);
   border: 2px solid #000;

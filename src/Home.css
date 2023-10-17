@@ -5,256 +5,252 @@ Tamanampudi, Sai Sridhar (1002117404)
 Tadivaka, Sai Swetha (1002112726)
 Tallapelli, Sai Charan (1002073449)*/
 
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
 }
 .homebody {
-	margin: 0;
-	padding: 0;
-	background: url("./images/UTA.jpg");
-	background-attachment: fixed;
-	background-size: cover;
-	height: 100vh;
-
+  margin: 0;
+  padding: 0;
+  background: url("./images/UTA.jpg");
+  background-attachment: fixed;
+  background-size: cover;
+  height: 100vh;
 }
 
 .homeheader {
-	position: relative;
-	max-width: 1200px;
-	top: 20px;
-	margin: 10px auto;
-	padding: 10px;
-	background: rgba(255, 255, 255, 0.4);
-	box-sizing: border-box;
-	border-radius: 4px;
-	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  position: relative;
+  max-width: 1200px;
+  top: 20px;
+  margin: 10px auto;
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.4);
+  box-sizing: border-box;
+  border-radius: 4px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
 .home-logo {
-	color: black;
-	height: 60px;
-	font-size: 30px;
-	line-height: 60px;
-	padding: 0 20px;
-	text-align: center;
-	box-sizing: border-box;
-	float: left;
-	font-weight: 700;
-	text-decoration: none;
+  color: black;
+  height: 60px;
+  font-size: 30px;
+  line-height: 60px;
+  padding: 0 20px;
+  text-align: center;
+  box-sizing: border-box;
+  float: left;
+  font-weight: 700;
+  text-decoration: none;
 }
 
 .navbar {
-	float: right;
+  float: right;
 }
 
 .clearfix {
-	clear: both;
+  clear: both;
 }
 
 .links {
-	margin: 0;
-	padding: 0;
-	display: flex;
+  margin: 0;
+  padding: 0;
+  display: flex;
 }
 
 .onnav {
-	list-style: none;
-
+  list-style: none;
 }
 
 .innav {
-	position: relative;
-	display: inline-block;
-	margin: 10px 0;
-	font-size: 20px;
-	padding: 10px 20px;
-	text-decoration: none;
-	color: black;
-	;
+  position: relative;
+  display: inline-block;
+  margin: 10px 0;
+  font-size: 20px;
+  padding: 10px 20px;
+  text-decoration: none;
+  color: black;
 }
 
 .innav:hover {
-	background: #0002047e;
-	color: black;
-	transition: 0.5s;
+  background: #0002047e;
+  color: black;
+  transition: 0.5s;
 }
 
 #check {
-	position: absolute;
-	top: -100px;
+  position: absolute;
+  top: -100px;
 }
 
 .checkbtn {
-	display: none;
-	position: absolute;
-	right: 5%;
-	margin-top: 2%;
-	transform: translateY(-50%);
+  display: none;
+  position: absolute;
+  right: 5%;
+  margin-top: 2%;
+  transform: translateY(-50%);
 }
 
 .navbar .checkbtn .line {
-	width: 30px;
-	height: 5px;
-	background-color: black;
-	margin: 5px;
-	border-radius: 3px;
-	transition: all .3s ease-in-out;
+  width: 30px;
+  height: 5px;
+  background-color: black;
+  margin: 5px;
+  border-radius: 3px;
+  transition: all 0.3s ease-in-out;
 }
 
 .navbar .hero {
-	position: absolute;
-	width: auto;
-	margin-top: 17%;
-	left: 35%;
-	transform: translate(-50%, -50%);
+  position: absolute;
+  width: auto;
+  margin-top: 17%;
+  left: 35%;
+  transform: translate(-50%, -50%);
 }
 
 .heading {
-	color: white;
-	font-size: 2.3em;
+  color: white;
+  font-size: 2.3em;
 }
 
 .btn {
-	border: 1px solid black;
-	padding: 10px 30px;
-	color: white;
-	text-decoration: none;
-	border-radius: 12px;
-	margin-right: 15px;
+  border: 1px solid black;
+  padding: 10px 30px;
+  color: white;
+  text-decoration: none;
+  border-radius: 12px;
+  margin-right: 15px;
 }
 
 .button {
-	margin-top: 20px;
+  margin-top: 20px;
 }
 
 .login {
-	background-color: black;
-	color: white;
+  background-color: black;
+  color: white;
 }
 
 .register:hover {
-	background-color: black;
-	color: white;
-	transition: all 0.5s ease-in;
+  background-color: black;
+  color: white;
+  transition: all 0.5s ease-in;
 }
 
 @media (max-width: 1200px) {
-
-	.navbar .hero {
-		width: auto;
-		margin-top: 38%;
-		margin-left: 10%;
-	}
+  .navbar .hero {
+    width: auto;
+    margin-top: 38%;
+    margin-left: 10%;
+  }
 }
 
 @media (max-width: 830px) {
-	.menu-toggle {
-		margin: 20px;
-	}
+  .menu-toggle {
+    margin: 20px;
+  }
 
-	.checkbtn {
-		display: block;
-	}
+  .checkbtn {
+    display: block;
+  }
 
-	.heading,
-	.button {
-		width: auto;
-		margin-top: 90%;
-		margin-left: 10%;
-	}
+  .heading,
+  .button {
+    width: auto;
+    margin-top: 90%;
+    margin-left: 10%;
+  }
 
-	.links {
-	position: fixed;
-    width: 100%; /* Full width of the viewport */
+  .links {
+    position: fixed;
+    width: 100%;
     height: auto;
     background: rgba(0, 0, 0, 0.5);
-    top: 110px; /* Fixed to the top of the viewport */
+    top: 110px;
     left: -105%;
     text-align: center;
-    transition: all .5s;
+    transition: all 0.5s;
     flex-direction: column;
     justify-content: space-evenly;
-	}
+  }
 
-	.onnav {
-		display: block;
-		margin: 20px 0;
-		line-height: 30px;
-	}
+  .onnav {
+    display: block;
+    margin: 20px 0;
+    line-height: 30px;
+  }
 
-	.innav {
-		font-size: 30px;
-		color: white;
-	}
+  .innav {
+    font-size: 30px;
+    color: white;
+  }
 
-	.innav:hover {
-		background: #021b3050;
-		transition: 0.5s;
-	}
+  .innav:hover {
+    background: #021b3050;
+    transition: 0.5s;
+  }
 
-	#check:checked~.links {
-		left: 0;
-	}
+  #check:checked ~ .links {
+    left: 0;
+  }
 
-	#check:checked~.hero {
-		display: none;
-	}
+  #check:checked ~ .hero {
+    display: none;
+  }
 
-	.checkbtn {
-		display: block;
-	}
+  .checkbtn {
+    display: block;
+  }
 
-	.navbar :checked~.checkbtn .line:nth-child(1) {
-		transform: translateY(10px) rotate(225deg);
-	}
+  .navbar :checked ~ .checkbtn .line:nth-child(1) {
+    transform: translateY(10px) rotate(225deg);
+  }
 
-	.navbar :checked~.checkbtn .line:nth-child(3) {
-		transform: translateY(-10px) rotate(-225deg);
-	}
+  .navbar :checked ~ .checkbtn .line:nth-child(3) {
+    transform: translateY(-10px) rotate(-225deg);
+  }
 
-	.navbar :checked~.checkbtn .line:nth-child(2) {
-		opacity: 0;
-	}
+  .navbar :checked ~ .checkbtn .line:nth-child(2) {
+    opacity: 0;
+  }
 
-	.button {
-		margin-top: 20px;
-	}
+  .button {
+    margin-top: 20px;
+  }
 
-	.btn {
-		border: 2px solid white;
-		padding: 10px 20px;
-		color: black;
-		text-decoration: none;
-		border-radius: 12px;
-		margin-right: 5px;
-	}
+  .btn {
+    border: 2px solid white;
+    padding: 10px 20px;
+    color: black;
+    text-decoration: none;
+    border-radius: 12px;
+    margin-right: 5px;
+  }
 
-	.login {
-		background-color: black;
-		color: white;
-	}
+  .login {
+    background-color: black;
+    color: white;
+  }
 
-	.register:hover {
-		background-color: black;
-		color: white;
-		transition: all 0.5s ease-in;
-	}
+  .register:hover {
+    background-color: black;
+    color: white;
+    transition: all 0.5s ease-in;
+  }
 
-	@media (max-width:415px) {
-		.navbar .hero {
-			width: auto;
-			margin-top: 60%;
-			margin-left: 10%;
-		}
+  @media (max-width: 415px) {
+    .navbar .hero {
+      width: auto;
+      margin-top: 60%;
+      margin-left: 10%;
+    }
 
-		.navbar .links {
-			width: 100%;
-			height: auto;
-		}
-	}
+    .navbar .links {
+      width: 100%;
+      height: auto;
+    }
+  }
 }

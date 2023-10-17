@@ -10,11 +10,10 @@ td {
 }
 
 .user-activity-page {
-  /* background-image: url("backgroundImage.avif"); */
   background-size: cover;
   display: flex;
   flex-direction: column;
-  min-height: 100vh; 
+  min-height: 100vh;
 }
 
 .user-activity-navbar {
@@ -48,9 +47,7 @@ td {
 }
 
 .report-container {
-  /* width: 80%; */
   max-width: 800px;
-  /* margin: 0 auto; */
   padding: 20px;
 }
 
@@ -58,26 +55,6 @@ td {
   font-size: 24px;
   margin-bottom: 20px;
 }
-
-/* .course-label {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  margin-bottom: 20px;
-}
-
-label {
-  font-weight: bold;
-  margin-right: 10px;
-} */
-
-/* select {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #011558;
-  border-radius: 5px;
-} */
-
 .activity-table {
   width: 100%;
   border-collapse: collapse;
@@ -97,7 +74,6 @@ label {
   color: #fff;
   text-align: center;
   padding: 10px;
-  /* margin: 10px; */
   width: 100%;
 }
 
@@ -109,14 +85,6 @@ label {
   .user-activity-h1 {
     font-size: 20px;
   }
-
-  /* label,
-  select {
-    display: block;
-    width: 100%;
-    margin-bottom: 10px;
-  } */
-
   .dashboard-button {
     width: 100%;
   }
