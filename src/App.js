@@ -10,8 +10,6 @@ import DiscussionForum from './Discussion';
 import QAreports from './Reports';
 import QAStudentDiscussion from './QAStudentDiscussion';
 import Homepage from './Home';
-import About from './About';
-import Service from './Service';
 import Contact from './Contact';
 import Announcements from './Announcements';
 import CourseModules from './CourseModules';
@@ -28,6 +26,7 @@ import Services from './Services';
 import InstructorDiscussion from './InstructorDiscussion';
 import Instructor from './Instructor';
 import ChatApp from './InstructorChat';
+import AdminChat from './AdminChat';
 
 function App() {
   return (
@@ -44,6 +43,7 @@ function App() {
         <Route path="/admin" element={<Admin />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/userActivity" element={<UserActivity />} />
+        <Route path="/adminChat" element={<AdminChat />} />
 
 
 

@@ -9,7 +9,7 @@ function Services() {
   };
 
   return (
-    <div>
+    <div className='service-main-div'>
       <header className='services-header'>
         <a href="#" className="logo services-a">Group15</a>
         <div className="menu-toggle"></div>
@@ -118,6 +118,9 @@ function Services() {
 
         <p className="common-content">These roles collectively contribute to the effective management and delivery of educational programs, ensuring that students receive a high-quality learning experience while meeting institutional goals and maintaining system integrity. The level of responsibility and access for each role is carefully defined to maintain accountability and efficiency within the educational institution or online learning platform.</p>
       </div>
+      <footer  className='services-footer'>
+        <p>&copy; 2023 SOFTWARE ENGINEERING</p>
+      </footer>
     </div>
   );
 }

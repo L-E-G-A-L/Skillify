@@ -42,6 +42,7 @@ function Admin() {
             </div>
           </div>
         </div>
+        <h2 class="chat">Need to talk to someone? <a href="adminChat">Click here</a></h2>
       </div>
       <footer className='admin-footer'>
         <p className='admin-footer-p'>&copy; 2023 SOFTWARE ENGINEERING WEBSITE</p>

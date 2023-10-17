@@ -18,7 +18,7 @@ class StudentChat extends React.Component {
               type="text"
               placeholder="Type your message..."
             />
-            <button class="sendButtonClass">Send</button>
+            <button className="sendButtonClass">Send</button>
           </div>
         </div>
       </div>

@@ -23,8 +23,8 @@ body {
 
 .aboutUs-header {
   position: relative;
-  max-width: 1200px;
-  margin: 13px auto;
+  /* max-width: 1200px;
+  margin: 13px auto; */
   padding: 10px;
   background: #011558;
   box-sizing: border-box;
