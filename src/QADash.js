@@ -59,7 +59,7 @@ export function QANav({ title, toggleInnerNav }) {
             <span className="qaspan">&gt;</span>
           </a>
           <a href="login" className="sub-menu-link">
-            <img src="LogoutImage" alt="Logout" />
+            <img src="logout.png" alt="Logout" />
             <p className="qap">Logout</p>
             <span className="qaspan">&gt;</span>
           </a>
