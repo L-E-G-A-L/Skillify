@@ -1,11 +1,22 @@
 import React from "react";
 import "./css/announcements.css";
+import axios from "axios";
 class Announcements extends React.Component {
+  state = {
+    announcements: [],
+  };
+
+  componentDidMount() {
+    axios.get("http://localhost/announcements.php").then((response) => {
+      console.log(response.data);
+      this.setState({ announcements: response.data });
+    });
+  }
   render() {
     return (
       <div>
         <header className="announcementsHeaderClass">
-          <nav class="announcementsNav">
+          <nav className="announcementsNav">
             <ul className="announcementsnav-list navUl">
               <li className="announcementNavLiClass">
                 <a href="announcements" className="announcementNavLiaClass">
@@ -32,29 +43,12 @@ class Announcements extends React.Component {
           </nav>
         </header>
         <div className="announcementContainer">
-          <div className="announcement">
-            <h2>Announcement #1</h2>
-            <p>Exam-1 would be conducted on next Tuesday!</p>
-          </div>
-          <div className="announcement">
-            <h2>Announcement #2</h2>
-            <p>Assignment-1 is due on Sept 26, 2023 by 11:59PM</p>
-          </div>
-          <div className="announcement">
-            <h2>Announcement #3</h2>
-            <p>
-              Please use external stylesheet for CSS part while building your
-              project
-            </p>
-          </div>
-          <div className="announcement">
-            <h2>Announcement #4</h2>
-            <p>There is no className today</p>
-          </div>
-          <div className="announcement">
-            <h2>Announcement #5</h2>
-            <p>Today's className will be onsite</p>
-          </div>
+          {this.state.announcements.map((announcement) => (
+            <div className="announcement" key={announcement.announcement_id}>
+              <h2>Announcement #{announcement.announcement_id}</h2>
+              <p>{announcement.announcement_message}</p>
+            </div>
+          ))}
         </div>
         <footer className="announcementFooterClass">
           <p>&copy; 2023 SOFTWARE ENGINEERING WEBSITE</p>
