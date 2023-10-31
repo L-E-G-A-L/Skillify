@@ -31,6 +31,7 @@ import InquiryInbox from './Enquiry';
 import UpdateCourseContent from './UpdateCourse'
 
 import CreateExam from "./CreateExam";
+import CourseDetail from './CourseDetail';
  
 
 function App() {
@@ -85,7 +86,7 @@ function App() {
         <Route path="/instructorChat" element={<ChatApp />} />
         <Route path='/services' element={<Services />} />
         <Route path="/create-exam" element={<CreateExam />} />
-        
+        <Route path="/course/:id" element={<CourseDetail />} />
       </Routes>
     </Router>
   );
