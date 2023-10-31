@@ -1,7 +1,27 @@
-import React from "react";
+import React, { Component } from "react";
 import "./css/assessments.css";
-class Assessments extends React.Component {
+import axios from "axios";
+class Assessments extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      exams: [],
+    };
+  }
+
+  componentDidMount() {
+    const searchParams = new URLSearchParams(window.location.search);
+    const courseId = searchParams.get("course_id");
+    axios
+      .get(`http://localhost/assessments.php?course_id=${courseId}`)
+      .then((response) => {
+        console.log("resp:", response.data);
+        this.setState({ exams: response.data });
+      });
+  }
+
   render() {
+    const { exams } = this.state;
     return (
       <div>
         <header className="assessmentsHeaderClass">
@@ -9,21 +29,16 @@ class Assessments extends React.Component {
         </header>
         <div className="assessmentsContainer">
           <ul className="exam-list">
-            <li className="exam">
-              <h2>Exam-1</h2>
-              <p>Date: September 30, 2023</p>
-              <p>Time: 9:00 AM - 11:00 AM</p>
-              <a href="#">Start Exam</a>
-            </li>
-            <li className="exam">
-              <h2>Exam-2</h2>
-              <p>Date: October 15, 2023</p>
-              <p>Time: 2:00 PM - 4:00 PM</p>
-              <a href="#">Start Exam</a>
-            </li>
+            {exams.map((exam, index) => (
+              <li key={index} className="exam">
+                <h2>{exam.exam_name}</h2>
+                <p>Date: {exam.exam_date}</p>
+                <p>Duration: {exam.exam_duration}</p>
+                <a href="#">Start Exam</a>
+              </li>
+            ))}
           </ul>
         </div>
-
         <footer className="assessmentsFooterClass">
           <p>&copy; 2023 SOFTWARE ENGINEERING WEBSITE</p>
         </footer>
