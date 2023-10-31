@@ -31,6 +31,12 @@ import NewPolicy from './NewPolicy';
 import ExistingPolicies from './ExistingPolicy';
 // import QaOfficer from './QAOfficerComponent';
 // import Studentpage from './StudentComponent';
+import InquiryInbox from './Enquiry'; 
+import UpdateCourseContent from './UpdateCourse'
+
+import CreateExam from "./CreateExam";
+import CourseDetail from './CourseDetail';
+ 
 
 function App() {
   return (
@@ -76,8 +82,10 @@ function App() {
 
         {/* <Route path='/about' element={<About />} /> */}
         <Route path="/about" element={<AboutUsPage />} />
-        <Route path="/pc" element={<ProgramCoordinator />} />
-        <Route path="/pcChat" element={<Chat />} />
+        <Route path="/PC" element={<ProgramCoordinator />} />
+        <Route path="/PCChat" element={<Chat />} />
+        <Route path="/Enquiry" element={<InquiryInbox />} />
+        <Route path="/UpdateCourse" element={<UpdateCourseContent />} />
 
 
 
@@ -85,6 +93,8 @@ function App() {
         <Route path="/instructorDiscussion" element={<InstructorDiscussion />} />
         <Route path="/instructorChat" element={<ChatApp />} />
         <Route path='/services' element={<Services />} />
+        <Route path="/create-exam" element={<CreateExam />} />
+        <Route path="/course/:id" element={<CourseDetail />} />
       </Routes>
     </Router>
   );

@@ -1,5 +1,6 @@
 import React from "react";
 import "./PC.css";
+import { Link } from "react-router-dom";
 
 function ProgramCoordinator() {
   return (
@@ -18,16 +19,7 @@ function ProgramCoordinator() {
                 Edit Profile
               </a>
             </li>
-            <li className="pc-li">
-              <a href="#" className="pc-a">
-                Settings
-              </a>
-            </li>
-            <li className="pc-li">
-              <a href="#" className="pc-a">
-                Help & Support
-              </a>
-            </li>
+        
             <li className="pc-li">
               <a href="login" className="pc-a">
                 Logout
@@ -41,7 +33,9 @@ function ProgramCoordinator() {
           <h2 className="pc-h2">
             Students concerns or inquiries related to the program
           </h2>
+          <Link to="/Enquiry" className="pc-a">
           <button className="pc-toggle-button">Inquiries Inbox</button>
+          </Link>
         </section>
         <section className="pc-functionality">
           <h2 className="pc-h2">Monitor Students Performance Data</h2>
@@ -51,9 +45,11 @@ function ProgramCoordinator() {
         </section>
         <section className="pc-functionality">
           <h2 className="pc-h2">
-            Manage All Courses Syllabus, Objectives, Assessments
+            Manage All Courses Syllabus, Objectives
           </h2>
+          <Link to="/UpdateCourse" className="pc-a">
           <button className="pc-toggle-button">Update Course Content</button>
+        </Link>
         </section>
         <section className="pc-functionality">
           <h2 className="pc-h2">Discussion Boards</h2>
@@ -61,20 +57,12 @@ function ProgramCoordinator() {
             <button className="pc-toggle-button">Chat</button>
           </a>
         </section>
-        <section className="pc-functionality">
-          <h2 className="pc-h2">Reviews and Evaluations of the Programs</h2>
-          <button className="pc-toggle-button">Evaluations Reports</button>
-        </section>
-        <section className="pc-functionality">
-          <h2 className="pc-h2">StakeHolders</h2>
-          <button className="pc-toggle-button">Instructors</button>
-          <button className="pc-toggle-button">Administrators</button>
-        </section>
+        
       </main>
       <footer className="pc-footer">
         <p>&copy; 2023 Program Coordinator Website</p>
       </footer>
-    </div>
+    </div>  
   );
 }
 
