@@ -1,6 +1,6 @@
 import React from "react";
 import "./css/student.css";
-
+import ChatComponent from "./StudentChatbot";
 class Student extends React.Component {
   state = {
     courses: [],
@@ -78,6 +78,9 @@ class Student extends React.Component {
             </div>
           ))}
         </section>
+        <div className="chat">
+          <ChatComponent />
+        </div>
         <footer className="studentfooterClass">
           <p>&copy; 2023 Program Coordinator Website</p>
         </footer>
