@@ -1,9 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Instructor.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPencil, faTrash } from "@fortawesome/free-solid-svg-icons";
+import { faPencil, faTrash, faAngleDown, faAngleUp } from "@fortawesome/free-solid-svg-icons";
 
 function Instructor() {
+  const [isOpen, setIsOpen] = useState(false);
+  const [selectedCourse, setSelectedCourse] = useState(null);
+
+  const toggleDropdown = () => {
+    setIsOpen(!isOpen);
+  };
+
+  const handleCourseSelect = (course) => {
+    setSelectedCourse(course);
+    setIsOpen(false);
+  };
+
+  const courses = ['Course 1', 'Course 2', 'Course 3'];
+
   function handlePencilClick() {
     console.log("Pencil icon clicked");
   }
@@ -37,7 +51,28 @@ function Instructor() {
           <button className="Instructor-button">Create Exams</button>
         </a>
         <button className="Instructor-button">Grade Students</button>
-        <button className="Instructor-button">Manage Course</button>
+
+        {/* Manage Course Dropdown Button */}
+        <div className={`Instructor-dropdown ${isOpen ? 'open' : ''}`}>
+        <button className="Instructor-button" onClick={toggleDropdown}>
+          {selectedCourse || 'Manage Courses'}{' '}
+          <FontAwesomeIcon icon={isOpen ? faAngleUp : faAngleDown} />
+        </button>
+        {isOpen && (
+          <ul className="Instructor-courses-menu">
+            {courses.map((course, index) => (
+              <li key={index} onClick={() => handleCourseSelect(course)}>
+                {/* Use <a href> to create links to course pages */}
+                <a href={`/course/${index + 1}`}>
+                    {course}
+                </a>  
+                </li>
+              ))}
+            </ul>
+          )}
+        </div>
+        
+        
         <a href="/instructorDiscussion" className="Instructor-a">
           <button className="Instructor-button">Discussions</button>
         </a>
@@ -60,10 +95,7 @@ function Instructor() {
             <td className="Instructor-td">Web Data Management</td>
             <td className="Instructor-td">
               <button className="Instructor-button" onClick={handlePencilClick}>
-                <FontAwesomeIcon
-                  icon={faPencil}
-                  className="fa fa-pencil-square-o"
-                />
+                <FontAwesomeIcon icon={faPencil} className="fa fa-pencil-square-o" />
               </button>
               <button className="Instructor-button" onClick={handleTrashClick}>
                 <FontAwesomeIcon icon={faTrash} className="fa fa-trash-o" />
@@ -92,10 +124,7 @@ function Instructor() {
             <td className="Instructor-td">85</td>
             <td className="Instructor-td">
               <button className="Instructor-button" onClick={handlePencilClick}>
-                <FontAwesomeIcon
-                  icon={faPencil}
-                  className="fa fa-pencil-square-o"
-                />
+                <FontAwesomeIcon icon={faPencil} className="fa fa-pencil-square-o" />
               </button>
               <button className="Instructor-button" onClick={handleTrashClick}>
                 <FontAwesomeIcon icon={faTrash} className="fa fa-trash-o" />
@@ -120,10 +149,7 @@ function Instructor() {
             <td className="Instructor-td">Steve Smith</td>
             <td className="Instructor-td">
               <button className="Instructor-button" onClick={handlePencilClick}>
-                <FontAwesomeIcon
-                  icon={faPencil}
-                  className="fa fa-pencil-square-o"
-                />
+                <FontAwesomeIcon icon={faPencil} className="fa fa-pencil-square-o" />
               </button>
               <button className="Instructor-button" onClick={handleTrashClick}>
                 <FontAwesomeIcon icon={faTrash} className="fa fa-trash-o" />
