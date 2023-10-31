@@ -60,10 +60,17 @@ function CourseDetail() {
         program_id: programId,
         course_obj_id: courseObjId,
       };
+      console.log(courseId,id);
       console.log(updatedCourse);
-      // Send the POST request using async/await
-      const response = await axios.post(`http://localhost/course_operations.php?course_id=${id}`, updatedCourse);
-  
+      
+       // Send the POST request using async/await
+    const response = await axios.post('http://localhost/course_operations.php', updatedCourse, {
+        headers: {
+          'Content-Type': 'application/json', // Set the content type to JSON
+        },
+      });
+
+
       // Check the response for success or error
       if (response.status === 200) {
         // The request was successful, and the data may contain a success message
