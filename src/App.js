@@ -30,6 +30,8 @@ import AdminChat from './AdminChat';
 import InquiryInbox from './Enquiry'; 
 import UpdateCourseContent from './UpdateCourse'
 
+import CreateExam from "./CreateExam";
+ 
 
 function App() {
   return (
@@ -82,6 +84,7 @@ function App() {
         <Route path="/instructorDiscussion" element={<InstructorDiscussion />} />
         <Route path="/instructorChat" element={<ChatApp />} />
         <Route path='/services' element={<Services />} />
+        <Route path="/create-exam" element={<CreateExam />} />
         
       </Routes>
     </Router>

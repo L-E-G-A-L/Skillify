@@ -1,7 +1,21 @@
 import React from "react";
 import "./css/grades.css";
-
+import axios from "axios";
 class Grades extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      grades: [],
+    };
+  }
+
+  componentDidMount() {
+    axios.get("http://localhost/grades.php").then((response) => {
+      console.log(response.data);
+      this.setState({ grades: response.data });
+    });
+  }
+
   render() {
     return (
       <div>
@@ -18,18 +32,12 @@ class Grades extends React.Component {
                 </tr>
               </thead>
               <tbody className="gradesTableTbody">
-                <tr className="gradesTableTbodytr">
-                  <td className="gradesTd">Exam 1</td>
-                  <td className="gradesTd">90%</td>
-                </tr>
-                <tr className="gradesTableTbodytr">
-                  <td className="gradesTd">Exam 2</td>
-                  <td className="gradesTd">85%</td>
-                </tr>
-                <tr className="gradesTableTbodytr">
-                  <td className="gradesTd">Exam 3</td>
-                  <td className="gradesTd">92%</td>
-                </tr>
+                {this.state.grades.map((grade, index) => (
+                  <tr key={index} className="gradesTableTbodytr">
+                    <td className="gradesTd">{grade.result_id}</td>
+                    <td className="gradesTd">{grade.grade}</td>
+                  </tr>
+                ))}
               </tbody>
             </table>
           </div>
@@ -41,4 +49,5 @@ class Grades extends React.Component {
     );
   }
 }
+
 export default Grades;
