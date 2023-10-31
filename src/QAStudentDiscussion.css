@@ -1,35 +1,49 @@
-body {
-  font-family: Arial, sans-serif;
-  background-color: #f2f2f2;
-  margin: 0;
-  padding: 0;
-}
-.student-list-page {
-  max-width: 600px;
-  margin: 0 auto;
+.divcontainer {
+  text-align: center;
+  background-color: #f4f4f4;
   padding: 20px;
 }
 
-.student-box {
-  background-color: #fff;
-  border: 1px solid #ccc;
-  padding: 10px;
-  margin-bottom: 10px;
+.students-table {
+  width: 80%;
+  margin: 0 auto;
+  border-collapse: collapse;
+  margin-bottom: 20px;
 }
 
-.student-box p {
-  margin: 0;
+.students-table th, .students-table td {
+  border: 1px solid #ddd;
+  padding: 12px;
+  text-align: center;
 }
 
-.student-box button {
+.students-table th {
   background-color: #011558;
-  color: #fff;
-  border: none;
-  padding: 8px 16px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
+  color: white;
 }
 
-.student-box button:hover {
-  background-color: #0056b3;
+.start-discussion-btn {
+  background-color: #011558;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.start-discussion-btn:hover {
+  background-color: #2a74ab;
+}
+
+@media screen and (max-width:350px){
+  .start-discussion-btn{
+    padding: 8px 16px;
+    border-radius: 3px;
+    font-size: 12px;
+  }
+  .QAtitle{
+    font-size: 5px;
+  }
 }

@@ -1,7 +1,68 @@
-import React from 'react';
+import React , { useState } from 'react';
+import { useNavigate  } from 'react-router-dom';
+import axios from 'axios'; 
 import './LRFStyles.css';
 
 function Registration() {
+  const navigation = useNavigate();
+  const [error, setError] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("Fill all details");
+  const [userData, setUserData] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
+    // dateOfBirth: "",
+  });
+
+  const handleInputChange = (e) => {
+    setUserData((prev) => ({
+      ...prev,
+      [e.target.name]: e.target.value,
+    }));
+  };
+
+  const onRegisterHandler = (data) => {
+    setError(false);
+    setErrorMessage("Fill all details");
+    if (
+      data.firstName &&
+      data.lastName &&
+      data.email &&
+      data.password &&
+      data.confirmPassword &&
+      data.password === data.confirmPassword
+    ) {
+      axios
+        .post("http://localhost/LRFAuth.php", {
+          action: "register",
+          firstName: data.firstName,
+          lastName: data.lastName,
+          email: data.email,
+          password: data.password,
+          // dateOfBirth: data.dateOfBirth,
+        })
+        .then((response) => {
+          if (response.data.success) {
+            navigation("/login");
+          } else {
+            setError(true);
+            setErrorMessage(response.data.error);
+          }
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    } else if (data.password !== data.confirmPassword) {
+      setError(true);
+      setErrorMessage("Passwords do not match");
+    } else {
+      setError(true);
+      setErrorMessage("Fill all details");
+    }
+  };
+  
   return (
     <div className="registration-page">
       <div className="lrf-navbar">
@@ -16,9 +77,10 @@ function Registration() {
           <input
             type="text"
             id="first-name"
-            name="first-name"
+            name="firstName"
             className="lrf-input"
             placeholder="Enter your first name"
+            onChange={e => handleInputChange(e)}
           />
         </div>
         <div className="input-group-2">
@@ -26,9 +88,10 @@ function Registration() {
           <input
             type="text"
             id="last-name"
-            name="last-name"
+            name="lastName"
             className="lrf-input"
             placeholder="Enter your last name"
+            onChange={e => handleInputChange(e)}
           />
         </div>
         <div className="input-group-2">
@@ -39,6 +102,7 @@ function Registration() {
             name="email"
             className="lrf-input"
             placeholder="Enter your email"
+            onChange={e => handleInputChange(e)}
           />
         </div>
         <div className="input-group-2">
@@ -49,6 +113,7 @@ function Registration() {
             name="password"
             className="lrf-input"
             placeholder="Enter your password"
+            onChange={e => handleInputChange(e)}
           />
         </div>
         <div className="input-group-2">
@@ -56,16 +121,18 @@ function Registration() {
           <input
             type="password"
             id="confirm-password"
-            name="confirm-password"
+            name="confirmPassword"
             className="lrf-input"
             placeholder="Confirm your password"
+            onChange={e => handleInputChange(e)}
           />
         </div>
-        <div className="input-group-2">
+        {/* <div className="input-group-2">
           <label htmlFor="date-of-birth" className='lrf-label'>Date of Birth</label>
-          <input type="date" className="lrf-input" id="date-of-birth" name="date-of-birth" />
-        </div>
-        <a href="login"><button className="register-button">Register</button></a>
+          <input type="date" className="lrf-input" id="date-of-birth" name="dateOfBirth" onChange={e => handleInputChange(e)}/>
+        </div> */}
+        {error && <h5 className="login-error-message">{errorMessage}</h5>}
+        <button className="register-button" onClick={() => onRegisterHandler(userData)}>Register</button>
         <div className="lrf-links">
           <a href="login" className='lrf-a'>Already registered? Login</a>
         </div>

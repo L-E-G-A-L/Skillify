@@ -1,7 +1,21 @@
-import React from 'react';
+import React, { useState } from 'react';
+import UserPopup from './UserPopup';
 import './Admin.css';
 
 function Admin() {
+  const [showUserPopup, setShowUserPopup] = useState(false);
+  const [role, setRole] = useState('');
+
+  const openUserPopup = (userType) => {
+    setRole(userType);
+    setShowUserPopup(true);
+  };
+
+  const closeUserPopup = () => {
+    setShowUserPopup(false);
+    setRole('');
+  };
+
   return (
     <div className="admin-page">
       <div className="admin-navbar">
@@ -14,7 +28,7 @@ function Admin() {
           <div className="box">
             <h2 className="admin-box-h2">STUDENT</h2>
             <div className="button-group">
-              <button className='admin-btngrp-btn'>MANAGE STUDENTS</button>
+              <button className='admin-btngrp-btn' onClick={() => openUserPopup('student')}>MANAGE STUDENTS</button>
               <button className='admin-btngrp-btn'>MANAGE COURSE</button>
               <button className='admin-btngrp-btn'>MANAGE PERMISSIONS</button>
               <button className='admin-btngrp-btn'>VIEW REPORTS</button>
@@ -24,7 +38,7 @@ function Admin() {
           <div className="box">
             <h2 className="admin-box-h2">COORDINATOR</h2>
             <div className="button-group">
-              <button className='admin-btngrp-btn'>MANAGE COORDINATOR</button>
+              <button className='admin-btngrp-btn' onClick={() => openUserPopup('coordinator')}>MANAGE COORDINATOR</button>
               <button className='admin-btngrp-btn'>HANDLE COURSE</button>
               <button className='admin-btngrp-btn'>MANAGE PERMISSIONS</button>
               <button className='admin-btngrp-btn'>ASSIGN STUDENTS</button>
@@ -34,7 +48,7 @@ function Admin() {
           <div className="box">
             <h2 className="admin-box-h2">QA-OFFICER</h2>
             <div className="button-group">
-              <button className='admin-btngrp-btn'>MANAGE QA-OFFICER</button>
+              <button className='admin-btngrp-btn' onClick={() => openUserPopup('qa')}>MANAGE QA-OFFICER</button>
               <button className='admin-btngrp-btn'>ASSIGN COURSE</button>
               <button className='admin-btngrp-btn'>HANDLE PERMISSIONS</button>
               <button className='admin-btngrp-btn'>REPORTS</button>
@@ -47,6 +61,9 @@ function Admin() {
       <footer className='admin-footer'>
         <p className='admin-footer-p'>&copy; 2023 SOFTWARE ENGINEERING WEBSITE</p>
       </footer>
+      {showUserPopup && (
+        <UserPopup userDataType={role} onClose={closeUserPopup} />
+      )}
     </div>
   );
 }

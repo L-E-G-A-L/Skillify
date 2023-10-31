@@ -1,8 +1,38 @@
-import React from 'react';
+import React , { useState } from 'react';
+import axios from 'axios'; 
 import './Registration';
 import './LRFStyles.css';
 
 function ForgotPassword() {
+  const [error, setError] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
+  
+  const onForgotPwdHandler = (email) => {
+    setError(false);
+
+    if (email) {
+      axios
+        .post('http://localhost/LRFAuth.php', {
+          action: "forgotPassword",
+          email: email,
+        })
+        .then((response) => {
+          if (response.data.success) {
+            setError(true);
+            setErrorMessage(response.data.message)
+          } else {
+            setError(true);
+            setErrorMessage(response.data.message)
+          }
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    } else {
+      setError(true);
+      setErrorMessage("Email field is required")
+    }
+  };
   return (
     <div className="forgot-password-page">
       <div className="lrf-navbar">
@@ -23,7 +53,8 @@ function ForgotPassword() {
             placeholder="Enter your email"
           />
         </div>
-        <button className="reset-password-button">Reset Password</button>
+        {error && <h5 className="login-error-message">{errorMessage}</h5>}
+        <button className="reset-password-button" onClick={() => onForgotPwdHandler(document.getElementById("email").value)}>Reset Password</button>
         <div className="lrf-links">
           <a href="login" className='lrf-a'>Back to Login</a>
         </div>

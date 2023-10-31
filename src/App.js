@@ -27,6 +27,10 @@ import InstructorDiscussion from './InstructorDiscussion';
 import Instructor from './Instructor';
 import ChatApp from './InstructorChat';
 import AdminChat from './AdminChat';
+import NewPolicy from './NewPolicy';
+import ExistingPolicies from './ExistingPolicy';
+// import QaOfficer from './QAOfficerComponent';
+// import Studentpage from './StudentComponent';
 import InquiryInbox from './Enquiry'; 
 import UpdateCourseContent from './UpdateCourse'
 
@@ -59,6 +63,10 @@ function App() {
         <Route path='/discussion' element={<DiscussionForum />} />
         <Route path='/reports' element={<QAreports />} />
         <Route path='/qastudentdiscussion' element={<QAStudentDiscussion />} />
+        <Route path='/newpolicy' element={<NewPolicy />} />
+        <Route path='/existingpolicy' element={<ExistingPolicies />} />
+        {/* <Route path='/qaofficercomponent' element={<QaOfficer/>}/>
+        <Route path='/studentcomponent' element={<Studentpage />}/> */}
 
 
 
