@@ -27,6 +27,9 @@ import InstructorDiscussion from './InstructorDiscussion';
 import Instructor from './Instructor';
 import ChatApp from './InstructorChat';
 import AdminChat from './AdminChat';
+import InquiryInbox from './Enquiry'; 
+import UpdateCourseContent from './UpdateCourse'
+
 import CreateExam from "./CreateExam";
  
 
@@ -70,8 +73,10 @@ function App() {
 
         {/* <Route path='/about' element={<About />} /> */}
         <Route path="/about" element={<AboutUsPage />} />
-        <Route path="/pc" element={<ProgramCoordinator />} />
-        <Route path="/pcChat" element={<Chat />} />
+        <Route path="/PC" element={<ProgramCoordinator />} />
+        <Route path="/PCChat" element={<Chat />} />
+        <Route path="/Enquiry" element={<InquiryInbox />} />
+        <Route path="/UpdateCourse" element={<UpdateCourseContent />} />
 
 
 
