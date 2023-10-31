@@ -1,8 +1,20 @@
 import React from "react";
 import "./css/student.css";
-
+import ChatComponent from "./StudentChatbot";
 class Student extends React.Component {
+  state = {
+    courses: [],
+  };
+
+  componentDidMount() {
+    fetch("http://localhost/courses.php")
+      .then((response) => response.json())
+      .then((data) => this.setState({ courses: data }))
+      .catch((error) => console.error("Error fetching courses:", error));
+  }
+
   render() {
+    const { courses } = this.state;
     return (
       <div>
         <header className="studentHeaderClass">
@@ -33,100 +45,42 @@ class Student extends React.Component {
           </nav>
         </header>
         <section className="tiles">
-          <div className="tile">
-            <div className="tile-row">
-              <h2>SE 5335 001</h2>
+          {courses.map((course, index) => (
+            <div className="tile" key={index}>
+              <div className="tile-row">
+                <h2>{course}</h2>
+              </div>
+              <div className="tile-row">
+                <a href="announcements">
+                  <button className="stuButtonClass">Announcements</button>
+                </a>
+              </div>
+              <div className="tile-row">
+                <a href="courseModules">
+                  <button className="stuButtonClass">Modules</button>
+                </a>
+              </div>
+              <div className="tile-row">
+                <a href="assessments">
+                  <button className="stuButtonClass">Assessments</button>
+                </a>
+              </div>
+              <div className="tile-row">
+                <a href="grades">
+                  <button className="stuButtonClass">Grades</button>
+                </a>
+              </div>
+              <div className="tile-row">
+                <a href="studentDiscussion">
+                  <button className="stuButtonClass">Discussions</button>
+                </a>
+              </div>
             </div>
-            <div className="tile-row">
-              <a href="announcements">
-                <button className="stuButtonClass">Announcements</button>
-              </a>
-            </div>
-            <div className="tile-row">
-              <a href="courseModules">
-                <button className="stuButtonClass">Modules</button>
-              </a>
-            </div>
-            <div className="tile-row">
-              <a href="assessments">
-                <button className="stuButtonClass">Assessments</button>
-              </a>
-            </div>
-            <div className="tile-row">
-              <a href="grades">
-                <button className="stuButtonClass">Grades</button>
-              </a>
-            </div>
-            <div className="tile-row">
-              <a href="studentDiscussion">
-                <button className="stuButtonClass">Discussions</button>
-              </a>
-            </div>
-          </div>
-          <div className="tile">
-            <div className="tile-row">
-              <h2>SE 5335 002</h2>
-            </div>
-            <div className="tile-row">
-              <a href="announcements">
-                <button className="stuButtonClass">Announcements</button>
-              </a>
-            </div>
-            <div className="tile-row">
-              <a href="courseModules">
-                <button className="stuButtonClass">Modules</button>
-              </a>
-            </div>
-            <div className="tile-row">
-              <a href="assessments">
-                <button className="stuButtonClass">Assessments</button>
-              </a>
-            </div>
-            <div className="tile-row">
-              <a href="grades">
-                <button className="stuButtonClass">Grades</button>
-              </a>
-            </div>
-            <div className="tile-row">
-              <a href="studentDiscussion">
-                <button className="stuButtonClass">Discussions</button>
-              </a>
-            </div>
-          </div>
-          <div className="tile">
-            <div className="tile-row">
-              <h2>SE 5335 003</h2>
-            </div>
-            <div className="tile-row">
-              <a href="announcements">
-                <button className="stuButtonClass">Announcements</button>
-              </a>
-            </div>
-            <div className="tile-row">
-              <a href="courseModules">
-                <button className="stuButtonClass">Modules</button>
-              </a>
-            </div>
-            <div className="tile-row">
-              <a href="assessments">
-                <button className="stuButtonClass">Assessments</button>
-              </a>
-            </div>
-            <div className="tile-row">
-              <a href="grades">
-                <button className="stuButtonClass">Grades</button>
-              </a>
-            </div>
-            <div className="tile-row">
-              <a href="studentDiscussion">
-                <button className="stuButtonClass">Discussions</button>
-              </a>
-            </div>
-          </div>
-          <h2 className="chat">
-            Need to talk to anyone? <a href="studentChat">Click here</a>
-          </h2>
+          ))}
         </section>
+        <div className="chat">
+          <ChatComponent />
+        </div>
         <footer className="studentfooterClass">
           <p>&copy; 2023 Program Coordinator Website</p>
         </footer>

@@ -149,3 +149,133 @@ Tallapelli, Sai Charan (1002073449)*/
     align-content: space-between;
   }
 }
+
+/* Responsive Inquiry Inbox CSS */
+
+/* Overall container */
+.inquiry-container {
+  margin: 20px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/* Styling for individual inquiry items */
+.inquiry-item {
+  margin-bottom: 15px;
+  padding: 15px;
+  border: 1px solid #e0e0e0;
+  border-radius: 5px;
+  position: relative; 
+}
+
+.inquiry-item strong {
+  font-size: 18px;
+  color: #333;
+}
+
+.mark-as-read-button {
+  background-color: #3498db;
+  color: #fff;
+  border: none;
+  padding: 8px 12px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.mark-as-read-button:hover {
+  background-color: #2980b9;
+}
+
+.read-status {
+  color: #27ae60;
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+}
+
+/* Media query for responsiveness */
+@media screen and (max-width: 768px) {
+  .inquiry-item {
+      padding: 10px;
+  }
+}
+
+/* UpdateCourseContent CSS */
+
+/* Overall container */
+.update-course-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
+}
+
+.uc-h1 {
+  font-size: 30px;
+  text-align: center;
+  margin: 20px 0;
+  text-shadow: 1px 1px 1px #ccc;
+}
+
+.course-box {
+  
+  border: 2px solid #000;
+  border-radius: 5px;
+  padding: 30px;
+  margin: 10px;
+  width: flex; 
+  background-color: #f9f9f9;
+  box-shadow: 3px 3px 5px #e0e0e0;
+}
+
+.course-details {
+  display: flex;
+  flex-direction: column; 
+  gap: 10px;
+}
+
+.course-title {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  
+}
+
+.course-description::before,
+.course-objectives::before {
+  font-weight: bold;
+  content: attr(data-title);
+  display: block;
+  margin-bottom: 5px;
+}
+
+.course-description,
+.course-objectives {
+  font-weight: bold;
+}
+
+.edit-button {
+  padding: 8px 12px;
+  background-color: var(--nav-color);
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  width: 150px;
+  text-align: center;
+}
+
+.edit-button:hover {
+  background-color: #8a8015;
+}
+
+/* Media query for responsiveness */
+@media screen and (max-width: 768px) {
+  .course-box {
+    width: calc(95% - 20px); /* Adjust width for smaller screens */
+  }
+}
+
+
