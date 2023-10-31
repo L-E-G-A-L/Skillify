@@ -17,6 +17,7 @@ function Login() {
       })
       .then((response) => {
         if (response.data.success) {
+          sessionStorage.setItem('userRole', response.data.user.role);
           const user = response.data.user;
 
           if (user.role === 'admin') {
