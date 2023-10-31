@@ -55,3 +55,8 @@
   .admin-user-popup-table-td-nda {
     text-align: center;
   }
+
+  .admin-user-popup-table-delete-button {
+    display: flex;
+    justify-content: center;
+  }
