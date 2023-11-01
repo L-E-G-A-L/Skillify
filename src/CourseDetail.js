@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
+import './CourseDetail.css'; 
 
 function CourseDetail() {
   const { id } = useParams();
@@ -55,9 +56,8 @@ function CourseDetail() {
   };
 
   return (
-    
     <div>
-        <div className="Instructor-topnav">
+      <div className="Instructor-topnav">
         <a className="Instructor-right Instructor-a" href="#">
           Notifications
         </a>
@@ -74,6 +74,7 @@ function CourseDetail() {
           Sign Out
         </a>
       </div>
+
       {isEditing ? (
         <div>
           <input
@@ -88,9 +89,9 @@ function CourseDetail() {
       ) : (
         <div>
           <h2>Course Details</h2>
-          <p>Course Name: {course.course_name}</p>
-          <p>Course Description: {course.course_description}</p>
-          <p>Course Content: {course.course_content}</p>
+          <p>Course Name: {courseName}</p>
+          <p>Course Description: {courseDescription}</p>
+          <p>Course Content: {courseContent}</p>
           <button onClick={handleEdit}>Edit</button>
         </div>
       )}

@@ -1,29 +1,47 @@
-import React, { useState } from "react";
-import "./Instructor.css";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPencil, faTrash, faAngleDown, faAngleUp } from "@fortawesome/free-solid-svg-icons";
+import React, { useState, useEffect } from 'react';
+import './Instructor.css';
+import './CourseDetail.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPencil, faTrash, faAngleDown, faAngleUp } from '@fortawesome/free-solid-svg-icons';
 
 function Instructor() {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedCourse, setSelectedCourse] = useState(null);
+  const [courses, setCourses] = useState([]);
 
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
   };
 
   const handleCourseSelect = (course) => {
-    setSelectedCourse(course);
+    setSelectedCourse(course.course_name);
     setIsOpen(false);
   };
 
-  const courses = ['Course 1', 'Course 2', 'Course 3'];
+  const fetchCourseNames = async () => {
+    try {
+      const response = await fetch('http://localhost/course_operations.php?getCourseNames=true');
+      if (response.ok) {
+        const data = await response.json();
+        setCourses(data);
+      } else {
+        console.error('Error fetching course names. Status: ' + response.status);
+      }
+    } catch (error) {
+      console.error('Error fetching course names: ' + error);
+    }
+  };
+
+  useEffect(() => {
+    fetchCourseNames();
+  }, []);
 
   function handlePencilClick() {
-    console.log("Pencil icon clicked");
+    console.log('Pencil icon clicked');
   }
 
   function handleTrashClick() {
-    console.log("Trash icon clicked");
+    console.log('Trash icon clicked');
   }
 
   return (
@@ -52,27 +70,21 @@ function Instructor() {
         </a>
         <button className="Instructor-button">Grade Students</button>
 
-        {/* Manage Course Dropdown Button */}
         <div className={`Instructor-dropdown ${isOpen ? 'open' : ''}`}>
-        <button className="Instructor-button" onClick={toggleDropdown}>
-          {selectedCourse || 'Manage Courses'}{' '}
-          <FontAwesomeIcon icon={isOpen ? faAngleUp : faAngleDown} />
-        </button>
-        {isOpen && (
-          <ul className="Instructor-courses-menu">
-            {courses.map((course, index) => (
-              <li key={index} onClick={() => handleCourseSelect(course)}>
-                {/* Use <a href> to create links to course pages */}
-                <a href={`/course/${index + 1}`}>
-                    {course}
-                </a>  
+          <button className="Instructor-button" onClick={toggleDropdown}>
+            {selectedCourse || 'Manage Courses'}{' '}
+            <FontAwesomeIcon icon={isOpen ? faAngleUp : faAngleDown} />
+          </button>
+          {isOpen && (
+            <ul className="Instructor-courses-menu">
+              {courses.map((course) => (
+                <li key={course.course_id} onClick={() => handleCourseSelect(course)}>
+                  <a href={`/course/${course.course_id}`}>{course.course_name}</a>
                 </li>
               ))}
             </ul>
           )}
         </div>
-        
-        
         <a href="/instructorDiscussion" className="Instructor-a">
           <button className="Instructor-button">Discussions</button>
         </a>
@@ -160,7 +172,7 @@ function Instructor() {
       </table>
 
       <h2 className="Instructor-chat">
-        Need to talk to someone?{" "}
+        Need to talk to someone?{' '}
         <a href="/instructorChat" className="Instructor-a">
           Click here
         </a>
