@@ -4,10 +4,8 @@ Kotagiri, Arvind kumar Satyanarayana (1002126766)
 Tamanampudi, Sai Sridhar (1002117404)
 Tadivaka, Sai Swetha (1002112726)
 Tallapelli, Sai Charan (1002073449)*/
-/* @import 'font-awesome/css/font-awesome.min.css'; */
-
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
-
+/* Common styles for all screen sizes */
 .Instructor-topnav {
   background-color: #011558;
   color: white;
@@ -28,14 +26,13 @@ Tallapelli, Sai Charan (1002073449)*/
 }
 
 /* Add the following CSS to make the buttons in the "Instructor-button-group" appear in a horizontal line */
-/* Add the following CSS to create space between buttons in the "Instructor-button-group" */
 .Instructor-button-group {
   display: flex;
-  justify-content: space-between; /* Adjust this as needed for spacing */
+  justify-content: space-between;
   align-items: center;
-  margin: 0 20%;
+  margin: 0 10%;
   margin-top: 20px;
-  width: 60%;
+  width: 80%; /* Adjust this as needed */
   box-sizing: border-box;
 }
 
@@ -45,11 +42,10 @@ Tallapelli, Sai Charan (1002073449)*/
   border: none;
   padding: 10px 20px;
   cursor: pointer;
-  margin-right: 10px; /* Adjust this value for spacing between buttons */
+  margin-right: 10px;
 }
 
 /* Rest of your existing CSS remains the same */
-
 
 /* Adjust this to control the spacing between buttons */
 .Instructor-button-group .Instructor-button + .Instructor-button {
@@ -64,19 +60,18 @@ Tallapelli, Sai Charan (1002073449)*/
 
 .Instructor-courses-menu {
   position: absolute;
-  top: 100%; /* Position the dropdown below the button */
+  top: 100%;
   left: 0;
   background-color: #fff;
   border: 1px solid #ddd;
   padding: 10px;
-  z-index: 1; /* Set a higher z-index to overlay other content */
-  display: none; /* Initially hide the dropdown */
+  z-index: 1;
+  display: none;
 }
 
 .Instructor-dropdown.open .Instructor-courses-menu {
-  display: block; /* Show the dropdown when the "open" class is present */
+  display: block;
 }
-
 
 .Instructor-table {
   border-collapse: collapse;
@@ -124,14 +119,22 @@ Tallapelli, Sai Charan (1002073449)*/
   color: white;
   text-align: center;
   padding: 10px;
+  width: 100%;
 }
 
 .Instructor-chat {
   margin-bottom: 25px;
 }
 
+/* Responsive styles for screens with a max-width of 768px */
 @media (max-width: 768px) {
+  .Instructor-button-group {
+    margin: 0 5%;
+    width: 100%;
+  }
+
   .Instructor-table {
     width: 100%;
   }
 }
+
