@@ -47,7 +47,7 @@ function InquiryInbox() {
                                 <strong>Name: {inquiry.firstName} {inquiry.lastName}</strong>
                                 <p>Email: {inquiry.email}</p>
                                 <p>Phone: {inquiry.phone}</p>
-                                <p>Message: {inquiry[" message"]}</p>
+                                <p>Message: {inquiry["messageInfo"]}</p>
                                 {!inquiry.read ? (
                                     <button onClick={() => markAsRead(index)} className="mark-as-read-button">
                                         Mark as Read
