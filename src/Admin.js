@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import UserPopup from './UserPopup';
 import './Admin.css';
 import PermissionPopup from './PermissionPopup';
+import { onLogOut } from './GlobalFunctions';
 
 function Admin() {
   const [showUserPopup, setShowUserPopup] = useState(false);
@@ -32,7 +33,7 @@ function Admin() {
     <div className="admin-page">
       <div className="admin-navbar">
         <a href="profile" className='admin-nav-a'>My Profile</a>
-        <a href="login" className='admin-nav-a'>Sign Out</a>
+        <a href="login" className='admin-nav-a' onClick={() => onLogOut()}>Sign Out</a>
       </div>
       <div className="admin-content">
         {/* <button className="admin-dashboard-button">Dashboard</button> */}
@@ -50,9 +51,9 @@ function Admin() {
           <div className="box">
             <h2 className="admin-box-h2">COORDINATOR</h2>
             <div className="button-group">
-              <button className='admin-btngrp-btn' onClick={() => openUserPopup('coordinator')}>MANAGE COORDINATOR</button>
+              <button className='admin-btngrp-btn' onClick={() => openUserPopup('pc')}>MANAGE COORDINATOR</button>
               <button className='admin-btngrp-btn'>HANDLE COURSE</button>
-              <button className='admin-btngrp-btn' onClick={() => openPermissionsPopup('coordinator')}>MANAGE PERMISSIONS</button>
+              <button className='admin-btngrp-btn' onClick={() => openPermissionsPopup('pc')}>MANAGE PERMISSIONS</button>
               <button className='admin-btngrp-btn'>ASSIGN STUDENTS</button>
               <button className='admin-btngrp-btn'>REVIEWS</button>
             </div>
@@ -68,7 +69,7 @@ function Admin() {
             </div>
           </div>
         </div>
-        <h2 class="chat">Need to talk to someone? <a href="adminChat">Click here</a></h2>
+        <h2 className="chat">Need to talk to someone? <a href="adminChat">Click here</a></h2>
       </div>
       <footer className='admin-footer'>
         <p className='admin-footer-p'>&copy; 2023 SOFTWARE ENGINEERING WEBSITE</p>

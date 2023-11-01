@@ -100,11 +100,11 @@ const PermissionPopup = ({ userDataType, onClose }) => {
                           <label className="permissions-radio-label">
                             <input
                               type="radio"
-                              value="coordinator"
-                              checked={editedUserRole === "coordinator"}
-                              onChange={() => setEditedUserRole("coordinator")}
+                              value="pc"
+                              checked={editedUserRole === "pc"}
+                              onChange={() => setEditedUserRole("pc")}
                             />
-                            Coordinator
+                            Program Coordinator
                           </label>
                           <label className="permissions-radio-label">
                             <input
