@@ -7,10 +7,15 @@ class Announcements extends React.Component {
   };
 
   componentDidMount() {
-    axios.get("http://localhost/announcements.php").then((response) => {
-      console.log(response.data);
-      this.setState({ announcements: response.data });
-    });
+    const searchParams = new URLSearchParams(window.location.search);
+    const courseId = searchParams.get("course_id");
+
+    axios
+      .get(`http://localhost/announcements.php?course_id=${courseId}`)
+      .then((response) => {
+        console.log(response.data);
+        this.setState({ announcements: response.data });
+      });
   }
   render() {
     return (
@@ -43,12 +48,13 @@ class Announcements extends React.Component {
           </nav>
         </header>
         <div className="announcementContainer">
-          {this.state.announcements.map((announcement) => (
-            <div className="announcement" key={announcement.announcement_id}>
-              <h2>Announcement #{announcement.announcement_id}</h2>
-              <p>{announcement.announcement_message}</p>
-            </div>
-          ))}
+          {this.state.announcements.length > 0 &&
+            this.state.announcements.map((announcement) => (
+              <div className="announcement" key={announcement.announcement_id}>
+                <h2>Announcement #{announcement.announcement_id}</h2>
+                <p>{announcement.announcement_message}</p>
+              </div>
+            ))}
         </div>
         <footer className="announcementFooterClass">
           <p>&copy; 2023 SOFTWARE ENGINEERING WEBSITE</p>

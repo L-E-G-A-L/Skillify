@@ -1,6 +1,6 @@
 import React from "react";
 import "./css/student.css";
-
+import ChatComponent from "./StudentChatbot";
 class Student extends React.Component {
   state = {
     courses: [],
@@ -48,20 +48,20 @@ class Student extends React.Component {
           {courses.map((course, index) => (
             <div className="tile" key={index}>
               <div className="tile-row">
-                <h2>{course}</h2>
+                <h2>{course.course_name}</h2>
               </div>
               <div className="tile-row">
-                <a href="announcements">
+                <a href={`/announcements?course_id=${course.course_id}`}>
                   <button className="stuButtonClass">Announcements</button>
                 </a>
               </div>
               <div className="tile-row">
-                <a href="courseModules">
+                <a href={`/courseModules?course_id=${course.course_id}`}>
                   <button className="stuButtonClass">Modules</button>
                 </a>
               </div>
               <div className="tile-row">
-                <a href="assessments">
+                <a href={`/assessments?course_id=${course.course_id}`}>
                   <button className="stuButtonClass">Assessments</button>
                 </a>
               </div>
@@ -78,6 +78,9 @@ class Student extends React.Component {
             </div>
           ))}
         </section>
+        <div className="chat">
+          <ChatComponent />
+        </div>
         <footer className="studentfooterClass">
           <p>&copy; 2023 Program Coordinator Website</p>
         </footer>

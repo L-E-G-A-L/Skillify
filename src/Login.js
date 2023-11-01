@@ -1,29 +1,46 @@
 import React , { useState } from 'react';
 import { useNavigate  } from 'react-router-dom';
+import axios from 'axios'; 
 import './LRFStyles.css';
+import { useUser } from './UserContext'; 
 
 function Login() {
   const navigation = useNavigate();
   const [error, setError] = useState(false);
+  const { setUserRole } = useUser(); 
 
   const onLoginHandler = (username, password) => {
-    setError(false)
-    if (username === "student@skillify.com" && password === "student") {
-      navigation("/student");
-    } else if (username === "admin@skillify.com" && password === "admin") {
-      navigation("/admin");
-    } else if (username === "pc@skillify.com" && password === "pc") {
-      navigation("/pc");
-    } else if (
-      username === "instructor@skillify.com" &&
-      password === "instructor"
-    ) {
-      navigation("/instructor");
-    } else if (username === "qa@skillify.com" && password === "qa") {
-      navigation("/qahome");
-    } else {
-      setError(true)
-    }
+    setError(false);
+    axios
+      .post('http://localhost/LRFAuth.php', {
+        action: "login",
+        username: username,
+        password: password,
+      })
+      .then((response) => {
+        if (response.data.success) {
+          const user = response.data.user;
+          sessionStorage.setItem('userRole', user.role);
+          setUserRole(user.role); 
+          if (user.role === 'admin') {
+            navigation('/admin');
+          } else if (user.role === 'student') {
+            navigation('/student');
+          } else if (user.role === 'pc') {
+            navigation('/pc');
+          } else if (user.role === 'instructor') {
+            navigation('/instructor');
+          } else if (user.role === 'qa') {
+            navigation('/qahome');
+          }
+        } else {
+          setError(true);
+          console.error('Login failed');
+        }
+      })
+      .catch((error) => {
+        console.error(error);
+      });
   };
 
   return (
