@@ -2,10 +2,12 @@ import React , { useState } from 'react';
 import { useNavigate  } from 'react-router-dom';
 import axios from 'axios'; 
 import './LRFStyles.css';
+import { useUser } from './UserContext'; 
 
 function Login() {
   const navigation = useNavigate();
   const [error, setError] = useState(false);
+  const { setUserRole } = useUser(); 
 
   const onLoginHandler = (username, password) => {
     setError(false);
@@ -17,9 +19,9 @@ function Login() {
       })
       .then((response) => {
         if (response.data.success) {
-          sessionStorage.setItem('userRole', response.data.user.role);
           const user = response.data.user;
-
+          sessionStorage.setItem('userRole', user.role);
+          setUserRole(user.role); 
           if (user.role === 'admin') {
             navigation('/admin');
           } else if (user.role === 'student') {

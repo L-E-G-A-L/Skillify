@@ -1,7 +1,25 @@
 import React from 'react';
 import './Profile.css';
+import { useNavigate } from 'react-router-dom';
 
 function Profile() {
+  const navigation = useNavigate();
+  const userRole = sessionStorage.getItem("userRole");
+  const goBack = () => {
+    if (userRole === "admin") {
+      navigation("/admin");
+    } else if (userRole === "student") {
+      navigation("/student");
+    } else if (userRole === "pc") {
+      navigation("/pc");
+    } else if (userRole === "instructor") {
+      navigation("/instructor");
+    } else if (userRole === "qa") {
+      navigation("/qahome");
+    } else {
+      navigation("/");
+    }
+  };
   return (
     <div className="profile-page">
       <div className="profile-navbar">
@@ -9,7 +27,7 @@ function Profile() {
         <a href="login" className='profile-nav-a'>Sign Out</a>
       </div>
       <div className="profile-content">
-        <button className="profile-dashboard-button">Dashboard</button>
+        <button className="profile-dashboard-button" onClick={() => goBack()}>Dashboard</button>
       </div>
       <div className="profile-container">
         <img src="profilepic.png" alt="User Profile Picture" />
