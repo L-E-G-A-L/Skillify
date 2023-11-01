@@ -1,57 +1,61 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-import { useParams } from 'react-router-dom';
-import './CourseDetail.css'; 
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import { useParams } from "react-router-dom";
+import "./CourseDetail.css";
 
 function CourseDetail() {
   const { id } = useParams();
 
-  const [course, setCourse] = useState({});
   const [isEditing, setEditing] = useState(false);
 
-  const [courseName, setCourseName] = useState('');
-  const [courseDescription, setCourseDescription] = useState('');
-  const [courseContent, setCourseContent] = useState('');
+  const [courseModuleContent, setCourseModuleContent] = useState("");
+  const [module_id, setCourseModuleId] = useState("");
+  const [coursesInfo, setCoursesInfo] = useState([]);
 
   useEffect(() => {
-    axios.get(`http://localhost/course_operations.php?course_id=${id}`)
+    axios
+      .get(`http://localhost/course_operations.php?course_id=${id}`)
       .then((response) => {
         const data = response.data;
-        setCourse(data);
-        setCourseName(data.course_name);
-        setCourseDescription(data.course_description);
-        setCourseContent(data.course_content);
+        setCoursesInfo(data);
       })
       .catch((error) => {
         console.error(error);
       });
   }, [id]);
 
-  const handleEdit = () => {
+  const handleEdit = (module_id, moduleContent) => {
     setEditing(true);
+    setCourseModuleContent(moduleContent);
+    setCourseModuleId(module_id);
   };
 
   const handleSave = async () => {
     try {
       const updatedCourse = {
         course_id: id,
-        course_content: courseContent,
+        module_id: module_id,
+        course_content: courseModuleContent,
       };
 
-      const response = await axios.post('http://localhost/course_operations.php', updatedCourse, {
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      });
+      const response = await axios.post(
+        "http://localhost/course_operations.php",
+        updatedCourse,
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
 
       if (response.status === 200) {
-        console.log('Course content updated successfully');
+        console.log("Course content updated successfully");
         setEditing(false);
       } else {
-        console.error('Error updating course content:', response.data);
+        console.error("Error updating course content:", response.data);
       }
     } catch (error) {
-      console.error('Error updating course content:', error);
+      console.error("Error updating course content:", error);
     }
   };
 
@@ -80,8 +84,8 @@ function CourseDetail() {
           <input
             type="text"
             name="course_content"
-            value={courseContent}
-            onChange={(e) => setCourseContent(e.target.value)}
+            value={courseModuleContent}
+            onChange={(e) => setCourseModuleContent(e.target.value)}
             placeholder="Course Content"
           />
           <button onClick={handleSave}>Save</button>
@@ -89,10 +93,21 @@ function CourseDetail() {
       ) : (
         <div>
           <h2>Course Details</h2>
-          <p>Course Name: {courseName}</p>
-          <p>Course Description: {courseDescription}</p>
-          <p>Course Content: {courseContent}</p>
-          <button onClick={handleEdit}>Edit</button>
+          {coursesInfo.map((module, index) => (
+            <div key={index}>
+              <p>Course Name: {module.course_name}</p>
+              <p>Course Description: {module.course_description}</p>
+              <p>Course Module Name: {module.module_name}</p>
+              <p>Course Module Content: {module.module_content}</p>
+              <button
+                onClick={() =>
+                  handleEdit(module.module_id, module.module_content)
+                }
+              >
+                Edit
+              </button>
+            </div>
+          ))}
         </div>
       )}
     </div>
