@@ -13,8 +13,18 @@ function Registration() {
     email: "",
     password: "",
     confirmPassword: "",
-    // dateOfBirth: "",
+    phoneNumber: "",
   });
+
+  const isEmailValid = (email) => {
+    const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+    return emailRegex.test(email);
+  };
+
+  const isPhoneNumberValid = (phoneNumber) => {
+    const phoneRegex = /^[0-9]{10}$/;
+    return phoneRegex.test(phoneNumber);
+  };
 
   const handleInputChange = (e) => {
     setUserData((prev) => ({
@@ -29,10 +39,12 @@ function Registration() {
     if (
       data.firstName &&
       data.lastName &&
-      data.email &&
+      isEmailValid(data.email)  &&
+      data.password.length >= 8 && 
       data.password &&
       data.confirmPassword &&
-      data.password === data.confirmPassword
+      data.password === data.confirmPassword &&
+      isPhoneNumberValid(data.phoneNumber) 
     ) {
       axios
         .post("http://localhost/LRFAuth.php", {
@@ -41,7 +53,7 @@ function Registration() {
           lastName: data.lastName,
           email: data.email,
           password: data.password,
-          // dateOfBirth: data.dateOfBirth,
+          phoneNumber: data.phoneNumber,
         })
         .then((response) => {
           if (response.data.success) {
@@ -59,7 +71,10 @@ function Registration() {
       setErrorMessage("Passwords do not match");
     } else {
       setError(true);
-      setErrorMessage("Fill all details");
+      if(!isEmailValid(data.email)) setErrorMessage("Enter a valid email");
+      else if(data.password.length < 8) setErrorMessage("Password must be at least 8 characters");
+      else if(!isPhoneNumberValid(data.phoneNumber)) setErrorMessage("Enter a valid phone number");
+      else setErrorMessage("Fill all details");
     }
   };
   
@@ -127,10 +142,10 @@ function Registration() {
             onChange={e => handleInputChange(e)}
           />
         </div>
-        {/* <div className="input-group-2">
-          <label htmlFor="date-of-birth" className='lrf-label'>Date of Birth</label>
-          <input type="date" className="lrf-input" id="date-of-birth" name="dateOfBirth" onChange={e => handleInputChange(e)}/>
-        </div> */}
+        <div className="input-group-2">
+          <label htmlFor="phoneNumber" className='lrf-label'>Mobile Number</label>
+          <input type="number" className="lrf-input" id="phoneNumber" name="phoneNumber" onChange={e => handleInputChange(e)}/>
+        </div>
         {error && <h5 className="login-error-message">{errorMessage}</h5>}
         <button className="register-button" onClick={() => onRegisterHandler(userData)}>Register</button>
         <div className="lrf-links">
