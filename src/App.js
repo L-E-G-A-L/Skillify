@@ -54,7 +54,7 @@ function App() {
         <Route path="/about" element={<AboutUsPage />} />
         <Route path='/services' element={<Services />} />
 
-        {userRole !== null ? (
+        {userRole === 'admin' || userRole === 'pc' ? (
             <Route path="/profile" element={<Profile />} />
         ) : (
           <Route path="/profile" element={<Navigate to="/nda" />} />
@@ -103,7 +103,7 @@ function App() {
         <Route path="/instructor" element={<Instructor />} />
         <Route path="/instructorDiscussion" element={<InstructorDiscussion />} />
         <Route path="/instructorChat" element={<ChatApp />} />
-        <Route path="/create-exam" element={<CreateExam />} />
+        <Route path="/create-exam/:id" element={<CreateExam />} />
         <Route path="/course/:id" element={<CourseDetail />} />
 
         <Route path="/nda" element={<AccessDenied />} />
