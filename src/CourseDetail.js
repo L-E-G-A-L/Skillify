@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import "./CourseDetail.css";
+import MessageCard from "./MessageCard";
 
 function CourseDetail() {
   const { id } = useParams();
@@ -93,21 +94,25 @@ function CourseDetail() {
       ) : (
         <div>
           <h2>Course Details</h2>
-          {coursesInfo.map((module, index) => (
-            <div key={index}>
-              <p>Course Name: {module.course_name}</p>
-              <p>Course Description: {module.course_description}</p>
-              <p>Course Module Name: {module.module_name}</p>
-              <p>Course Module Content: {module.module_content}</p>
-              <button
-                onClick={() =>
-                  handleEdit(module.module_id, module.module_content)
-                }
-              >
-                Edit
-              </button>
-            </div>
-          ))}
+          {coursesInfo !== "Course not found" ? (
+            coursesInfo.map((module, index) => (
+              <div key={index}>
+                <p>Course Name: {module.course_name}</p>
+                <p>Course Description: {module.course_description}</p>
+                <p>Course Module Name: {module.module_name}</p>
+                <p>Course Module Content: {module.module_content}</p>
+                <button
+                  onClick={() =>
+                    handleEdit(module.module_id, module.module_content)
+                  }
+                >
+                  Edit
+                </button>
+              </div>
+            ))
+          ) : (
+            <MessageCard message="Course Modules are not yet published for this course"></MessageCard>
+          )}
         </div>
       )}
     </div>
