@@ -1,0 +1,146 @@
+.ManageUser-Popup {
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.ManageUser-Popup-mainDiv {
+  background-color: #fff;
+  border-radius: 5px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.ManageUser-popup-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.ManageUser-popup-header h2 {
+  margin: 0;
+}
+
+.ManageUser-popup-close-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 24px;
+  color: #999;
+}
+
+.ManageUser-popup-mainAddUserBtn {
+  background-color: #011558;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  width: 100%;
+}
+
+.ManageUser-popup-close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 2.5em;
+  cursor: pointer;
+}
+
+.ManageUser-popup-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.ManageUser-popup-th,
+.ManageUser-popup-td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+.ManageUser-popup-th {
+  background-color: #f2f2f2;
+}
+
+.ManageUser-popup-table-tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.ManageUser-popup-td-nda {
+  text-align: center;
+}
+
+.ManageUser-popup-content {
+  width: 100%;
+}
+
+.ManageUser-popup-AddUserInputLabel {
+  width: 100%;
+  margin: 5px 0;
+  border-radius: 3px;
+  margin-top: 10px;
+  display: block;
+}
+
+.ManageUser-popup-AddUserInput {
+  width: 100%;
+}
+
+.ManageUser-popup-UserRole {
+  display: flex;
+    flex-direction: column;
+}
+
+.ManageUser-popup-ActionBtn {
+  display: flex;
+  justify-content: space-around;
+}
+
+.ManageUser-popup-AddUserBtn, .ManageUser-popup-CancelBtn {
+  padding: 10px 20px;
+  background-color: #011558;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.ManageUser-popup-form {
+  max-height: 100vh;
+  overflow-y: auto;
+}
+
+.ManageUser-popup-error-message {
+  color: #ff4b19;
+  text-align: center;
+}
+
+@media (max-width: 767px) {
+  .ManageUser-Popup-mainDiv {
+    width: 100%;
+    max-width: unset;
+  }
+}
+
+@media (max-width: 1024px) {
+  .ManageUser-Popup-mainDiv {
+    width: 60%;
+    max-width: unset;
+  }
+}

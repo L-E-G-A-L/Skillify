@@ -3,10 +3,12 @@ import UserPopup from './UserPopup';
 import './Admin.css';
 import PermissionPopup from './PermissionPopup';
 import { onLogOut } from './GlobalFunctions';
+import ManageUserPopup from './ManageUserPopup';
 
 function Admin() {
   const [showUserPopup, setShowUserPopup] = useState(false);
   const [showPermissionsPopup, setShowPermissionsPopup] = useState(false);
+  const [showManageUserPopup, setShowManageUserPopup] = useState(false);
   const [role, setRole] = useState('');
 
   const openUserPopup = (userType) => {
@@ -29,6 +31,14 @@ function Admin() {
     setRole('');
   };
   
+  const openManageUserPopup = (userType) => {
+    setShowManageUserPopup(true);
+  };
+
+  const closeManageUserPopup = () => {
+    setShowManageUserPopup(false);
+  };
+  
   return (
     <div className="admin-page">
       <div className="admin-navbar">
@@ -36,7 +46,7 @@ function Admin() {
         <a href="login" className='admin-nav-a' onClick={() => onLogOut()}>Sign Out</a>
       </div>
       <div className="admin-content">
-        {/* <button className="admin-dashboard-button">Dashboard</button> */}
+        <button className="admin-dashboard-button" onClick={() => openManageUserPopup()}>Manage Users</button>
         <div className="boxes">
           <div className="box">
             <h2 className="admin-box-h2">STUDENT</h2>
@@ -79,6 +89,9 @@ function Admin() {
       )}
       {showPermissionsPopup && (
         <PermissionPopup userDataType={role} onClose={closePermissionsPopup} />
+      )}
+      {showManageUserPopup && (
+        <ManageUserPopup onClose={closeManageUserPopup} />
       )}
     </div>
   );

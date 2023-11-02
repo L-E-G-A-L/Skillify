@@ -54,7 +54,7 @@ function App() {
         <Route path="/about" element={<AboutUsPage />} />
         <Route path='/services' element={<Services />} />
 
-        {userRole === 'admin' || userRole === 'pc' ? (
+        {userRole !== null ? (
             <Route path="/profile" element={<Profile />} />
         ) : (
           <Route path="/profile" element={<Navigate to="/nda" />} />
