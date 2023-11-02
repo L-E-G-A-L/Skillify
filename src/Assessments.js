@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./css/assessments.css";
 import axios from "axios";
+import MessageCard from "./MessageCard";
 class Assessments extends Component {
   constructor(props) {
     super(props);
@@ -28,16 +29,21 @@ class Assessments extends Component {
           <h1 className="assessmentsh1Class">My Exams</h1>
         </header>
         <div className="assessmentsContainer">
-          <ul className="exam-list">
-            {exams.map((exam, index) => (
-              <li key={index} className="exam">
-                <h2>{exam.exam_name}</h2>
-                <p>Date: {exam.exam_date}</p>
-                <p>Duration: {exam.exam_duration}</p>
-                <a href="#">Start Exam</a>
-              </li>
-            ))}
-          </ul>
+          {exams !== "No exams found" ? ( // Check if exams array is not empty
+            <ul className="exam-list">
+              {exams.map((exam, index) => (
+                <li key={index} className="exam">
+                  <h2>{exam.exam_name}</h2>
+                  <p>Date: {exam.exam_date}</p>
+                  <p>Duration: {exam.exam_duration}</p>
+                  <a href="#">Start Exam</a>
+                </li>
+              ))}
+            </ul>
+          ) : (
+            // Display a message when exams array is empty
+            <MessageCard message="The instructor has not created exams for this course" />
+          )}
         </div>
         <footer className="assessmentsFooterClass">
           <p>&copy; 2023 SOFTWARE ENGINEERING WEBSITE</p>
