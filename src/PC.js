@@ -1,6 +1,8 @@
 import React from "react";
 import "./PC.css";
 import { Link } from "react-router-dom";
+import ChatComponent from "./StudentChatbot";
+
 
 function ProgramCoordinator() {
   return (
@@ -57,13 +59,16 @@ function ProgramCoordinator() {
             <button className="pc-toggle-button">Chat</button>
           </a>
         </section>
-        
       </main>
+      <div className="chat">
+          <ChatComponent />
+        </div>
       <footer className="pc-footer">
         <p>&copy; 2023 Program Coordinator Website</p>
       </footer>
     </div>  
   );
 }
+
 
 export default ProgramCoordinator;
