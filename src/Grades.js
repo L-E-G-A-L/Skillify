@@ -10,10 +10,14 @@ class Grades extends React.Component {
   }
 
   componentDidMount() {
-    axios.get("http://localhost/grades.php").then((response) => {
-      console.log(response.data);
-      this.setState({ grades: response.data });
-    });
+    const searchParams = new URLSearchParams(window.location.search);
+    const courseId = searchParams.get("course_id");
+    axios
+      .get(`http://localhost/grades.php?course_id=${courseId}`)
+      .then((response) => {
+        console.log(response.data);
+        this.setState({ grades: response.data });
+      });
   }
 
   render() {
@@ -34,7 +38,7 @@ class Grades extends React.Component {
               <tbody className="gradesTableTbody">
                 {this.state.grades.map((grade, index) => (
                   <tr key={index} className="gradesTableTbodytr">
-                    <td className="gradesTd">{grade.result_id}</td>
+                    <td className="gradesTd">{grade.exam_name}</td>
                     <td className="gradesTd">{grade.grade}</td>
                   </tr>
                 ))}
