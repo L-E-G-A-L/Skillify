@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 import { Footer, QANav } from "./QADash";
 import "./QAStudentDiscussion.css";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 
 function QAStudentDiscussion() {
   return (
@@ -19,17 +19,15 @@ function StudentListPage() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    // Make an API call to fetch students with role 'student'
-    fetch('http://localhost/qastudentdiscussion.php')
+    fetch("http://localhost/qastudentdiscussion.php")
       .then((response) => response.json())
       .then((data) => setStudents(data))
-      .catch((error) => console.error('Error fetching students:', error));
+      .catch((error) => console.error("Error fetching students:", error));
   }, []);
 
   const handleStartDiscussion = () => {
-    // Handle the "Start Discussion" button click, e.g., navigate to the discussion page.
-    console.log('Discussion started');
-    navigate('/qaofficercomponent');
+    console.log("Discussion started");
+    navigate("/qaofficercomponent");
   };
   const userCourses = students.reduce((acc, student) => {
     if (!acc[student.user_name]) {
@@ -41,7 +39,6 @@ function StudentListPage() {
 
   return (
     <div className="divcontainer">
-      {/* <h1>Select a Student</h1> */}
       <table className="students-table">
         <thead>
           <tr>
@@ -54,9 +51,14 @@ function StudentListPage() {
           {Object.keys(userCourses).map((userName, index) => (
             <tr key={index}>
               <td>{userName}</td>
-              <td>{userCourses[userName].join(', ')}</td>
+              <td>{userCourses[userName].join(", ")}</td>
               <td>
-                <button className="start-discussion-btn" onClick={handleStartDiscussion}>Start Discussion</button>
+                <button
+                  className="start-discussion-btn"
+                  onClick={handleStartDiscussion}
+                >
+                  Start Discussion
+                </button>
               </td>
             </tr>
           ))}

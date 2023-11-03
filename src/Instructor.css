@@ -5,7 +5,6 @@ Tamanampudi, Sai Sridhar (1002117404)
 Tadivaka, Sai Swetha (1002112726)
 Tallapelli, Sai Charan (1002073449)*/
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
-/* Common styles for all screen sizes */
 .Instructor-topnav {
   background-color: #011558;
   color: white;
@@ -25,14 +24,13 @@ Tallapelli, Sai Charan (1002073449)*/
   float: Instructor-right;
 }
 
-/* Add the following CSS to make the buttons in the "Instructor-button-group" appear in a horizontal line */
 .Instructor-button-group {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin: 0 10%;
   margin-top: 20px;
-  width: 80%; /* Adjust this as needed */
+  width: 80%;
   box-sizing: border-box;
 }
 
@@ -45,14 +43,9 @@ Tallapelli, Sai Charan (1002073449)*/
   margin-right: 10px;
 }
 
-/* Rest of your existing CSS remains the same */
-
-/* Adjust this to control the spacing between buttons */
 .Instructor-button-group .Instructor-button + .Instructor-button {
   margin-left: 20px;
 }
-
-/* Rest of your existing CSS remains the same */
 
 .Instructor-dropdown {
   position: relative;
@@ -73,9 +66,8 @@ Tallapelli, Sai Charan (1002073449)*/
   display: block;
 }
 
-/* Add this to your CSS file */
 .Instructor-scrollable-table {
-  max-height: 300px; /* Adjust the height as needed */
+  max-height: 300px;
   overflow: auto;
 }
 
@@ -132,7 +124,6 @@ Tallapelli, Sai Charan (1002073449)*/
   margin-bottom: 25px;
 }
 
-/* Responsive styles for screens with a max-width of 768px */
 @media (max-width: 768px) {
   .Instructor-button-group {
     margin: 0 5%;
@@ -143,4 +134,3 @@ Tallapelli, Sai Charan (1002073449)*/
     width: 100%;
   }
 }
-
