@@ -12,6 +12,7 @@ function CreateExam() {
   const [newOption2, setNewOption2] = useState("");
   const [newOption3, setNewOption3] = useState("");
   const [newOption4, setNewOption4] = useState("");
+  const [newActualResponse, setNewActualResponse] = useState(""); // New state for "Actual Response"
 
   const addQuestion = () => {
     if (newQuestion.trim() !== "") {
@@ -19,6 +20,7 @@ function CreateExam() {
         question_id: questions.length + 1,
         text: `Question ${questions.length + 1}: ${newQuestion}`,
         options: [newOption1, newOption2, newOption3, newOption4],
+        actualResponse: newActualResponse, // Include "Actual Response"
       };
 
       setQuestions((prevQuestions) => [...prevQuestions, question]);
@@ -28,6 +30,7 @@ function CreateExam() {
       setNewOption2("");
       setNewOption3("");
       setNewOption4("");
+      setNewActualResponse(""); // Clear "Actual Response" input
     }
   };
 
@@ -57,6 +60,7 @@ function CreateExam() {
         option2: question.options[1],
         option3: question.options[2],
         option4: question.options[3],
+        actual_response: question.actualResponse, // Include "Actual Response"
       })),
     };
     console.log(examData);
@@ -69,6 +73,8 @@ function CreateExam() {
       .then((response) => {
         console.log("Exam published:", response.data);
         // You can perform further actions here if needed
+        // Show a success message using a simple alert
+        window.alert("Exam published successfully!");
       })
       .catch((error) => {
         console.error("Error publishing exam:", error);
@@ -114,6 +120,16 @@ function CreateExam() {
               </li>
             ))}
           </ul>
+          <input
+            type="text"
+            placeholder="Enter Actual Response"
+            value={question.actualResponse}
+            onChange={(e) => {
+              const updatedQuestions = [...questions];
+              updatedQuestions[questionIndex].actualResponse = e.target.value;
+              setQuestions(updatedQuestions);
+            }}
+          />
           <button onClick={() => deleteQuestion(questionIndex)}>
             Delete Question
           </button>
@@ -150,6 +166,12 @@ function CreateExam() {
           placeholder="Option 4"
           value={newOption4}
           onChange={(e) => setNewOption4(e.target.value)}
+        />
+        <input
+          type="text"
+          placeholder="Enter Actual Response"
+          value={newActualResponse}
+          onChange={(e) => setNewActualResponse(e.target.value)}
         />
         <button onClick={addQuestion}>Add Question</button>
       </div>

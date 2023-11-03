@@ -45,6 +45,7 @@ import CourseDetail from "./CourseDetail";
 import AccessDenied from "./AccessDenied";
 import { useUser } from "./UserContext";
 import ExamQuestions from "./ExamQuestions";
+import AutoGrader from "./AutoGrader";
 function App() {
   const { userRole } = useUser();
   return (
@@ -106,10 +107,8 @@ function App() {
         <Route path="/UpdateCourse" element={<UpdateCourseContent />} />
 
         <Route path="/instructor" element={<Instructor />} />
-        <Route
-          path="/instructorDiscussion"
-          element={<InstructorDiscussion />}
-        />
+        <Route path="/instructorDiscussion" element={<InstructorDiscussion />}/>
+        <Route path="/AutoGrader" element={<AutoGrader />}/>
         <Route path="/instructorChat" element={<ChatApp />} />
         <Route path="/create-exam/:id" element={<CreateExam />} />
         <Route path="/exam-questions" element={<ExamQuestions />} />
