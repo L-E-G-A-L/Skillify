@@ -27,8 +27,8 @@ function Instructor() {
     try {
       const response = await fetch('http://localhost/CreateExam.php?getCourseNames=true');
       if (response.ok) {
-        const data = await response.json();
-        setCourses(data);
+        const data = await response.json(); // Parse the response once
+        setCourses(data.courses); // Assuming that the courses are now under a "courses" key in the response
       } else {
         console.error('Error fetching course names for Create Exams. Status: ' + response.status);
       }
@@ -36,6 +36,7 @@ function Instructor() {
       console.error('Error fetching course names for Create Exams: ' + error);
     }
   };
+  
 
   useEffect(() => {
     fetchCreateExamCourseNames();
@@ -58,7 +59,7 @@ function Instructor() {
   useEffect(() => {
     fetchCourseNames();
   }, []);
-
+  
   function handlePencilClick() {
     console.log('Pencil icon clicked');
   }
@@ -125,32 +126,39 @@ function Instructor() {
         </a>
       </div>
 
-      <table className="Instructor-table">
-        <caption className="Instructor-caption">Manage Courses</caption>
-        <thead>
-          <tr>
-            <th className="Instructor-th">Sr.</th>
-            <th className="Instructor-th">Course Code</th>
-            <th className="Instructor-th">Course Name</th>
-            <th className="Instructor-th">Edit/Delete</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td className="Instructor-td">1</td>
-            <td className="Instructor-td">CS225</td>
-            <td className="Instructor-td">Web Data Management</td>
-            <td className="Instructor-td">
-              <button className="Instructor-button" onClick={handlePencilClick}>
-                <FontAwesomeIcon icon={faPencil} className="fa fa-pencil-square-o" />
-              </button>
-              <button className="Instructor-button" onClick={handleTrashClick}>
-                <FontAwesomeIcon icon={faTrash} className="fa fa-trash-o" />
-              </button>
-            </td>
-          </tr>
-        </tbody>
-      </table>
+      
+
+<table className="Instructor-table">
+  <caption className="Instructor-caption">Manage Courses</caption>
+  <thead>
+    <tr>
+      <th className="Instructor-th">Course ID</th>
+      <th className="Instructor-th">Course Name</th>
+      <th className="Instructor-th">Course Description</th>
+      <th className="Instructor-th">Edit/Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+    {courses.map((course, index) => (
+      <tr key={course.course_id}>
+        <td className="Instructor-td">{course.course_id}</td>
+        <td className="Instructor-td">{course.course_name}</td>
+        <td className="Instructor-td">{course.course_description}</td>
+        <td className="Instructor-td">
+          <button className="Instructor-button" onClick={handlePencilClick}>
+            <FontAwesomeIcon icon={faPencil} className="fa fa-pencil-square-o" />
+          </button>
+          <button className="Instructor-button" onClick={handleTrashClick}>
+            <FontAwesomeIcon icon={faTrash} className="fa fa-trash-o" />
+          </button>
+        </td>
+      </tr>
+    ))}
+  </tbody>
+</table>
+
+
+
 
       <table className="Instructor-table">
         <caption className="Instructor-caption">Feedback</caption>
