@@ -106,6 +106,29 @@ Tallapelli, Sai Charan (1002073449)*/
   text-align: left;
 }
 
+/* styles.css */
+.bordered-table {
+  border-collapse: collapse;
+  width: 100%;
+  border: 1px solid #ddd; /* Border for the whole table */
+}
+
+.bordered-table th, .bordered-table td {
+  border: 1px solid #ddd; /* Border for table cells */
+  padding: 8px;
+  text-align: left;
+}
+
+.bordered-table th {
+  background-color: #011558;
+  color: white; /* Header background color */
+}
+
+.bordered-table tr:hover {
+  background-color: #f5f5f5; /* Row hover color */
+}
+
+
 .fa {
   padding: 5px;
   font-size: 18px;

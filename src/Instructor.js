@@ -130,8 +130,9 @@ function Instructor() {
           </ul>
         )}
         </div>
-
+        <a href="/AutoGrader" className="Instructor-a">
         <button className="Instructor-button">Grade Students</button>
+        </a>
 
         <div className={`Instructor-dropdown ${isOpen ? 'open' : ''}`}>
           <button className="Instructor-button" onClick={toggleDropdown}>
