@@ -8,15 +8,38 @@ function Instructor() {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedCourse, setSelectedCourse] = useState(null);
   const [courses, setCourses] = useState([]);
+  const [isCreateExamOpen, setIsCreateExamOpen] = useState(false);
 
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
+  };
+
+  const toggleCreateExamDropdown = () => {
+    setIsCreateExamOpen(!isCreateExamOpen);
   };
 
   const handleCourseSelect = (course) => {
     setSelectedCourse(course.course_name);
     setIsOpen(false);
   };
+
+  const fetchCreateExamCourseNames = async () => {
+    try {
+      const response = await fetch('http://localhost/CreateExam.php?getCourseNames=true');
+      if (response.ok) {
+        const data = await response.json();
+        setCourses(data);
+      } else {
+        console.error('Error fetching course names for Create Exams. Status: ' + response.status);
+      }
+    } catch (error) {
+      console.error('Error fetching course names for Create Exams: ' + error);
+    }
+  };
+
+  useEffect(() => {
+    fetchCreateExamCourseNames();
+  }, []);
 
   const fetchCourseNames = async () => {
     try {
@@ -65,15 +88,26 @@ function Instructor() {
       </div>
 
       <div className="Instructor-button-group">
-        <a href="/create-exam">
-          <button className="Instructor-button">Create Exams</button>
-        </a>
+      <div className={`Instructor-dropdown ${isCreateExamOpen ? 'open' : ''}`}>
+        <button className="Instructor-button" onClick={toggleCreateExamDropdown}>
+          {selectedCourse || 'Create Exams'} <FontAwesomeIcon icon={isCreateExamOpen ? faAngleUp : faAngleDown} />
+        </button>
+        {isCreateExamOpen && (
+          <ul className="Instructor-courses-menu">
+            {courses.map((course) => (
+              <li key={course.course_id} onClick={() => handleCourseSelect(course)}>
+                <a href={`/create-exam/${course.course_id}`}>{course.course_name}</a>
+              </li>
+            ))}
+          </ul>
+        )}
+        </div>
+
         <button className="Instructor-button">Grade Students</button>
 
         <div className={`Instructor-dropdown ${isOpen ? 'open' : ''}`}>
           <button className="Instructor-button" onClick={toggleDropdown}>
-            {selectedCourse || 'Manage Courses'}{' '}
-            <FontAwesomeIcon icon={isOpen ? faAngleUp : faAngleDown} />
+            {selectedCourse || 'Manage Courses'} <FontAwesomeIcon icon={isOpen ? faAngleUp : faAngleDown} />
           </button>
           {isOpen && (
             <ul className="Instructor-courses-menu">
@@ -85,6 +119,7 @@ function Instructor() {
             </ul>
           )}
         </div>
+
         <a href="/instructorDiscussion" className="Instructor-a">
           <button className="Instructor-button">Discussions</button>
         </a>

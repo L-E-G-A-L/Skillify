@@ -1,14 +1,17 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { useParams } from 'react-router-dom';
+
 function CreateExam() {
+  const { id } = useParams();
+  const [examId, setExamId] = useState("");
+  const [examName, setExamName] = useState("");
   const [questions, setQuestions] = useState([]);
   const [newQuestion, setNewQuestion] = useState("");
   const [newOption1, setNewOption1] = useState("");
   const [newOption2, setNewOption2] = useState("");
   const [newOption3, setNewOption3] = useState("");
   const [newOption4, setNewOption4] = useState("");
-
-  // let questionIdCounter = 1;
 
   const addQuestion = () => {
     if (newQuestion.trim() !== "") {
@@ -19,8 +22,6 @@ function CreateExam() {
       };
 
       setQuestions((prevQuestions) => [...prevQuestions, question]);
-
-      // questionIdCounter++;
 
       setNewQuestion("");
       setNewOption1("");
@@ -46,9 +47,19 @@ function CreateExam() {
 
   const publishExam = () => {
     const examData = {
-      questions: questions,
+      exam_id: examId,
+      course_id: id, // Use the course ID from the URL parameters
+      exam_name: examName,
+      questions: questions.map((question) => ({
+        // question_id: question.question_id,
+        question_text: question.text,
+        option1: question.options[0],
+        option2: question.options[1],
+        option3: question.options[2],
+        option4: question.options[3],
+      })),
     };
-    console.log("===>80===>", examData);
+    console.log(examData);
     axios
       .post("http://localhost/CreateExam.php", examData, {
         headers: {
@@ -66,24 +77,23 @@ function CreateExam() {
 
   return (
     <div>
-      <div className="Instructor-topnav">
-        <a className="Instructor-right Instructor-a" href="#">
-          Notifications
-        </a>
-        <a className="Instructor-right Instructor-a" href="#">
-          Files
-        </a>
-        <a className="Instructor-right Instructor-a" href="profile">
-          Profile
-        </a>
-        <a className="Instructor-right Instructor-a" href="#">
-          Settings
-        </a>
-        <a className="Instructor-right Instructor-a" href="login">
-          Sign Out
-        </a>
-      </div>
       <h1>Create Exam</h1>
+      <h2>For course_id :{id}</h2>
+      <div>
+        <input
+          type="text"
+          placeholder="Enter Exam ID"
+          value={examId}
+          onChange={(e) => setExamId(e.target.value)}
+        />
+        <input
+          type="text"
+          placeholder="Enter Exam Name"
+          value={examName}
+          onChange={(e) => setExamName(e.target.value)}
+        />
+      </div>
+
       {questions.map((question, questionIndex) => (
         <div key={questionIndex}>
           <h3>{question.text}</h3>
@@ -109,6 +119,7 @@ function CreateExam() {
           </button>
         </div>
       ))}
+
       <div>
         <input
           type="text"
@@ -142,11 +153,7 @@ function CreateExam() {
         />
         <button onClick={addQuestion}>Add Question</button>
       </div>
-      <button onClick={publishExam}>Publish</button>{" "}
-      {/* The "Publish" button */}
-      <footer className="Instructor-footer">
-        <p>&copy; 2023 INSTRUCTOR-PAGE</p>
-      </footer>
+      <button onClick={publishExam}>Publish</button>
     </div>
   );
 }
