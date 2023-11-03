@@ -38,6 +38,7 @@ import ExistingPolicies from "./ExistingPolicy";
 // import Studentpage from './StudentComponent';
 import InquiryInbox from "./Enquiry";
 import UpdateCourseContent from "./UpdateCourse";
+import ViewAllAnnouncements from "./ViewAllAnnouncements";
 
 import CreateExam from "./CreateExam";
 import CourseDetail from "./CourseDetail";
@@ -89,6 +90,10 @@ function App() {
         <Route path='/studentcomponent' element={<Studentpage />}/> */}
 
         <Route path="/announcements" element={<Announcements />} />
+        <Route
+          path="/viewAllAnnouncements"
+          element={<ViewAllAnnouncements />}
+        />
         <Route path="/coursemodules" element={<CourseModules />} />
         <Route path="/assessments" element={<Assessments />} />
         <Route path="/grades" element={<Grades />} />

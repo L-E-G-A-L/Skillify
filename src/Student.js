@@ -1,6 +1,7 @@
 import React from "react";
 import "./css/student.css";
 import ChatComponent from "./StudentChatbot";
+import { onLogOut } from "./GlobalFunctions";
 class Student extends React.Component {
   state = {
     courses: [],
@@ -21,9 +22,8 @@ class Student extends React.Component {
           <nav>
             <ul className="studentNav-list studentNavUl">
               <li className="studentNavULLi">
-                <a href="announcements" className="studentNavULLia">
+                <a href="viewAllAnnouncements" className="studentNavULLia">
                   <i className="material-icons">notifications</i>
-                  <span className="notification-badge">2</span>
                 </a>
               </li>
               <li className="studentNavULLi">
@@ -37,7 +37,11 @@ class Student extends React.Component {
                 </a>
               </li>
               <li className="studentNavULLi">
-                <a href="login" className="studentNavULLia">
+                <a
+                  href="login"
+                  className="studentNavULLia"
+                  onClick={() => onLogOut()}
+                >
                   <i className="material-icons">logout</i>
                 </a>
               </li>
