@@ -7,6 +7,7 @@ class Assessments extends Component {
     super(props);
     this.state = {
       exams: [],
+      selectedExam: null,
     };
   }
 
@@ -20,7 +21,9 @@ class Assessments extends Component {
         this.setState({ exams: response.data });
       });
   }
-
+  startExam = (exam) => {
+    this.setState({ selectedExam: exam });
+  };
   render() {
     const { exams } = this.state;
     return (
@@ -29,19 +32,23 @@ class Assessments extends Component {
           <h1 className="assessmentsh1Class">My Exams</h1>
         </header>
         <div className="assessmentsContainer">
-          {exams !== "No exams found" ? ( // Check if exams array is not empty
+          {exams !== "No exams found" ? (
             <ul className="exam-list">
               {exams.map((exam, index) => (
                 <li key={index} className="exam">
                   <h2>{exam.exam_name}</h2>
                   <p>Date: {exam.exam_date}</p>
                   <p>Duration: {exam.exam_duration}</p>
-                  <a href="#">Start Exam</a>
+                  <button onClick={() => this.startExam(exam)}>
+                    {" "}
+                    <a href={`/exam-questions?exam_id=${exam.exam_id}`}>
+                      Start Exam
+                    </a>
+                  </button>
                 </li>
               ))}
             </ul>
           ) : (
-            // Display a message when exams array is empty
             <MessageCard message="The instructor has not created exams for this course" />
           )}
         </div>
