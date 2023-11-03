@@ -1,7 +1,5 @@
 import React, { Component } from "react";
 import axios from "axios";
-import EvaluateAndGrade from "./EvaluateAndGrade"; // Make sure to use the correct path to your EvaluateAndGrade component
-
 class ExamQuestions extends Component {
   constructor(props) {
     super(props);
