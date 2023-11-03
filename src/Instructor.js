@@ -9,6 +9,7 @@ function Instructor() {
   const [selectedCourse, setSelectedCourse] = useState(null);
   const [courses, setCourses] = useState([]);
   const [isCreateExamOpen, setIsCreateExamOpen] = useState(false);
+  const [exams, setExams] = useState([]);
 
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
@@ -58,6 +59,31 @@ function Instructor() {
 
   useEffect(() => {
     fetchCourseNames();
+  }, []);
+  
+  const fetchExams = async () => {
+    try {
+      const response = await fetch('http://localhost/CreateExam.php?getExams=true');
+      if (response.ok) {
+        const data = await response.json();
+  
+        if (Array.isArray(data.exams)) {
+          // If the data is an array, update the state
+          setExams(data.exams);
+        } else {
+          console.error('Data received is not an array:', data);
+        }
+      } else {
+        console.error('Error fetching exams. Status: ' + response.status);
+      }
+    } catch (error) {
+      console.error('Error fetching exams: ' + error);
+    }
+  };
+  
+  
+  useEffect(() => {
+    fetchExams();
   }, []);
   
   function handlePencilClick() {
@@ -126,7 +152,7 @@ function Instructor() {
         </a>
       </div>
 
-      
+        
 
 <table className="Instructor-table">
   <caption className="Instructor-caption">Manage Courses</caption>
@@ -157,7 +183,38 @@ function Instructor() {
   </tbody>
 </table>
 
-
+<div className="Instructor-scrollable-table">
+      <div className="Instructor-table-container">
+        <table className="Instructor-table">
+          <caption className="Instructor-caption">Exams Published</caption>
+          <thead>
+            <tr>
+              <th className="Instructor-th">Course ID</th>
+              <th className="Instructor-th">Exam ID</th>
+              <th className="Instructor-th">Exam Name</th>
+              <th className="Instructor-th">Edit/Delete</th>
+            </tr>
+          </thead>
+          <tbody>
+            {exams.map((exam, index) => (
+              <tr key={exam.exam_id}>
+                <td className="Instructor-td">{exam.course_id}</td>
+                <td className="Instructor-td">{exam.exam_id}</td>
+                <td className="Instructor-td">{exam.exam_name}</td>
+                <td className="Instructor-td">
+                  <button className="Instructor-button" onClick={handlePencilClick}>
+                    <FontAwesomeIcon icon={faPencil} className="fa fa-pencil-square-o" />
+                  </button>
+                  <button className="Instructor-button" onClick={handleTrashClick}>
+                    <FontAwesomeIcon icon={faTrash} className="fa fa-trash-o" />
+                  </button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
 
 
       <table className="Instructor-table">
