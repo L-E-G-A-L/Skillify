@@ -70,7 +70,7 @@ class Student extends React.Component {
                 </a>
               </div>
               <div className="tile-row">
-                <a href="grades">
+                <a href={`/grades?course_id=${course.course_id}`}>
                   <button className="stuButtonClass">Grades</button>
                 </a>
               </div>
