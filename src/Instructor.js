@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './Instructor.css';
 import './CourseDetail.css';
+import ChatComponent from "./StudentChatbot";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPencil, faTrash, faAngleDown, faAngleUp } from '@fortawesome/free-solid-svg-icons';
 
@@ -271,12 +272,11 @@ function Instructor() {
         </tbody>
       </table>
 
-      <h2 className="Instructor-chat">
-        Need to talk to someone?{' '}
-        <a href="/instructorChat" className="Instructor-a">
-          Click here
-        </a>
-      </h2>
+      
+        <div className="chat">
+          <ChatComponent />
+        </div>
+      
       <footer className="Instructor-footer">
         <p>&copy; 2023 INSTRUCTOR-PAGE</p>
       </footer>
