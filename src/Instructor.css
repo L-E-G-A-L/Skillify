@@ -73,6 +73,12 @@ Tallapelli, Sai Charan (1002073449)*/
   display: block;
 }
 
+/* Add this to your CSS file */
+.Instructor-scrollable-table {
+  max-height: 300px; /* Adjust the height as needed */
+  overflow: auto;
+}
+
 .Instructor-table {
   border-collapse: collapse;
   width: 80%;
