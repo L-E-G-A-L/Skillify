@@ -1,161 +1,163 @@
-/* ExistingPolicies.css */
+/*Name (Last, First) and Student Id
+Sunkoju,TarunKumar(1002077699)
+Kotagiri, Arvind kumar Satyanarayana (1002126766)
+Tamanampudi, Sai Sridhar (1002117404)
+Tadivaka, Sai Swetha (1002112726)
+Tallapelli, Sai Charan (1002073449)*/
 
 .existing-policies-container {
-    max-width: 100%;
-    padding: 20px;
-  }
-  
-  .expolicytable {
-    width: 100%;
-    border-collapse: collapse;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    border-radius: 10px;
-    overflow: hidden;
-    margin-top: 20px;
-  }
-  
-  .expolicyth, .expolicytd {
-    padding: 1rem;
-    text-align: left;
-  }
-  
-  .expolicyth {
-    background-color: #011558;
-    color: #fff;
-  }
-  .expolicytd {
-    user-select: text;
-    cursor: text;
-  }
-  
-  .expolicytr:nth-child(even) {
-    background-color: #f2f2f2;
-  }
-  
-  .expolicytr:hover {
-    background-color: #ddd;
-  }
-  
-  .button-container {
-    display: flex; /* Use flexbox for layout */
-    gap: 1rem; /* Adjust the spacing between buttons as needed */
-    align-items: center; /* Center align items vertically */
-  }
+  max-width: 100%;
+  padding: 20px;
+}
 
-/* Edit button styles */
+.expolicytable {
+  width: 100%;
+  border-collapse: collapse;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  overflow: hidden;
+  margin-top: 20px;
+}
+
+.expolicyth,
+.expolicytd {
+  padding: 1rem;
+  text-align: left;
+}
+
+.expolicyth {
+  background-color: #011558;
+  color: #fff;
+}
+.expolicytd {
+  user-select: text;
+  cursor: text;
+}
+
+.expolicytr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.expolicytr:hover {
+  background-color: #ddd;
+}
+
+.button-container {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
 .editpolicybutton {
-    background-color: #3CB371; /* Green */
-    color: #fff;
-    border: none;
-    padding: 0.5rem 1rem;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
-  
+  background-color: #3cb371; /* Green */
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
 .editpolicybutton:hover {
-    background-color: #2E8B57; /* Darker green on hover */
-  }
-  
-  /* Save button styles */
- .savepolicybutton {
-    background-color: #008CFF; /* Blue */
-    color: #fff;
-    border: none;
-    padding: 0.5rem 1rem;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
-  
+  background-color: #2e8b57; /* Darker green on hover */
+}
+
+.savepolicybutton {
+  background-color: #008cff; /* Blue */
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
 .savepolicybutton:hover {
-    background-color: #0076D5; /* Darker blue on hover */
-  }
+  background-color: #0076d5; /* Darker blue on hover */
+}
 
-/* Delete button styles */
 .delete-button {
-    background-color: #FF0000; /* Red */
-    color: #fff;
-    border: none;
-    padding: 0.5rem 1rem; 
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
-  
+  background-color: #ff0000; /* Red */
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
 .delete-button:hover {
-    background-color: #FF3333; /* Darker red on hover */
-  }  
+  background-color: #ff3333; /* Darker red on hover */
+}
 
-  @media screen and (max-width: 768px) {  
-    .expolicyth,
-    .expolicytd {
-      padding: 0.5rem; /* Adjust the padding for smaller screens */
-    }
-  
-    .button-container {
-      gap: 0.5rem; /* Adjust the spacing between buttons for smaller screens */
-    }
+@media screen and (max-width: 768px) {
+  .expolicyth,
+  .expolicytd {
+    padding: 0.5rem;
   }
 
-  @media screen and (max-width: 630px) {  
-    .expolicyth,
-    .expolicytd {
-      padding: 0.3rem; /* Adjust the padding for smaller screens */
-    }
-  
-    .button-container {
-      gap: 0.3rem; /* Adjust the spacing between buttons for smaller screens */
-    }
-    .existing-policies-container {
-        padding: 5px;
-        max-width: 80%;
-      }
+  .button-container {
+    gap: 0.5rem;
   }
-  
-  /* Responsive Styles */
-  @media screen and (max-width: 530px) {
-    .expolicyth,
-    .expolicytd {
-        padding: 0.1rem;
-        font-size: 12px;
-    }
+}
 
-    .button-container {
-        gap: 0.1rem;
-  } 
-  .editpolicybutton,.delete-button,.savepolicybutton{
-    padding: 0.4rem 0.8rem; 
+@media screen and (max-width: 630px) {
+  .expolicyth,
+  .expolicytd {
+    padding: 0.3rem;
+  }
+
+  .button-container {
+    gap: 0.3rem;
+  }
+  .existing-policies-container {
+    padding: 5px;
+    max-width: 80%;
+  }
+}
+
+@media screen and (max-width: 530px) {
+  .expolicyth,
+  .expolicytd {
+    padding: 0.1rem;
+    font-size: 12px;
+  }
+
+  .button-container {
+    gap: 0.1rem;
+  }
+  .editpolicybutton,
+  .delete-button,
+  .savepolicybutton {
+    padding: 0.4rem 0.8rem;
     border-radius: 4px;
-}
-.existing-policies-container{
+  }
+  .existing-policies-container {
     margin-left: 10px;
-}
+  }
 }
 @media screen and (max-width: 440px) {
-    .expolicyth,
-    .expolicytd {
-        font-size: 10px;
-    }
+  .expolicyth,
+  .expolicytd {
+    font-size: 10px;
+  }
 }
 
 @media screen and (max-width: 390px) {
-    .expolicyth,
-    .expolicytd {
-        font-size: 8px;
-        text-align: center;
-    }
-    /* .button-container{
-        padding: 0.1rem;
-        border-radius: 2px;
-    } */
-    .editpolicybutton,.delete-button,.savepolicybutton{
-        padding: 0.3rem 0.6rem; 
-        border-radius: 2px;
-    }
+  .expolicyth,
+  .expolicytd {
+    font-size: 8px;
+    text-align: center;
+  }
+  .editpolicybutton,
+  .delete-button,
+  .savepolicybutton {
+    padding: 0.3rem 0.6rem;
+    border-radius: 2px;
+  }
 }
-@media screen and (max-width: 340px){
-.existing-policies-container{
+@media screen and (max-width: 340px) {
+  .existing-policies-container {
     margin-left: 5px;
-}
+  }
 }

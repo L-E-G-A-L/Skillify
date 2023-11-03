@@ -57,13 +57,13 @@ function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/about" element={<AboutUsPage />} />
         <Route path="/services" element={<Services />} />
-
+        {/* 
         {userRole === "admin" || userRole === "pc" ? (
           <Route path="/profile" element={<Profile />} />
         ) : (
           <Route path="/profile" element={<Navigate to="/nda" />} />
-        )}
-
+        )} */}
+        <Route path="/profile" element={<Profile />} />
         <Route
           path="/admin"
           element={userRole === "admin" ? <Admin /> : <Navigate to="/nda" />}
