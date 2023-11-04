@@ -13,7 +13,7 @@ function Login() {
   const onLoginHandler = (username, password) => {
     setError(false);
     axios
-      .post('http://localhost/LRFAuth.php', {
+      .post('https://sxt7404.uta.cloud/php/LRFAuth.php', {
         action: "login",
         username: username,
         password: password,

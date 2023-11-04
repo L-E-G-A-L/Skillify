@@ -59,7 +59,7 @@ function Registration() {
       isPhoneNumberValid(data.phoneNumber) 
     ) {
       axios
-        .post("http://localhost/LRFAuth.php", {
+        .post("https://sxt7404.uta.cloud/php/LRFAuth.php", {
           action: "register",
           firstName: data.firstName,
           lastName: data.lastName,

@@ -21,7 +21,7 @@ function ResetPassword() {
     setError(false);
     if (password.length >= 8 && password === confirmPassword) {
       axios
-        .post("http://localhost/LRFAuth.php", {
+        .post("https://sxt7404.uta.cloud/php/LRFAuth.php", {
           action: "resetPassword",
           user_email: email,
           password: password,
