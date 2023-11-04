@@ -24,7 +24,6 @@ class ViewAllAnnouncements extends React.Component {
               <li className="announcementNavLiClass">
                 <a href="announcements" className="announcementNavLiaClass">
                   <i className="material-icons">notifications</i>
-                  <span className="notification-badge">2</span>
                 </a>
               </li>
               <li>
