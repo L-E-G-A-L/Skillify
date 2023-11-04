@@ -15,7 +15,7 @@ function CourseDetail() {
 
   useEffect(() => {
     axios
-      .get(`http://localhost/course_operations.php?course_id=${id}`)
+      .get(`https://sxt7404.uta.cloud/php/course_operations.php?course_id=${id}`)
       .then((response) => {
         const data = response.data;
         setCoursesInfo(data);
@@ -40,7 +40,7 @@ function CourseDetail() {
       };
 
       const response = await axios.post(
-        "http://localhost/course_operations.php",
+        "https://sxt7404.uta.cloud/php/course_operations.php",
         updatedCourse,
         {
           headers: {

@@ -7,7 +7,7 @@ const UpdateCourseContent = () => {
 
   const fetchAllCourses = async () => {
     try {
-      const response = await axios.get("http://localhost/UpdateCourse.php");
+      const response = await axios.get("https://sxt7404.uta.cloud/php/UpdateCourse.php");
       setCourses(response.data);
     } catch (error) {
       console.error("Error fetching courses: ", error);
@@ -37,7 +37,7 @@ const UpdateCourseContent = () => {
       setCourses(updatedCourses);
 
       try {
-        const response = await axios.put(`http://localhost/UpdateCourse.php`, {
+        const response = await axios.put(`https://sxt7404.uta.cloud/php/UpdateCourse.php`, {
           id: courseId,
           course_description: newDescription,
           course_content: newObjectives,

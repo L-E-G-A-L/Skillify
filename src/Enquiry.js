@@ -9,7 +9,7 @@ function InquiryInbox() {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get("http://localhost/getEnquiries.php");
+                const response = await axios.get("https://sxt7404.uta.cloud/php/getEnquiries.php");
                 setInquiries(response.data);
                 setLoading(false);
             } catch (error) {
@@ -22,7 +22,7 @@ function InquiryInbox() {
 
     const markAsRead = async (inquiryId) => {
         try {
-            await axios.put("http://localhost/getEnquiries.php", { enquiryData_id: inquiryId });
+            await axios.put("https://sxt7404.uta.cloud/php/getEnquiries.php", { enquiryData_id: inquiryId });
             const updatedInquiries = inquiries.map(inquiry => {
                 if (inquiry.enquiryData_id === inquiryId) {
                     return { ...inquiry, isRead: 1 };

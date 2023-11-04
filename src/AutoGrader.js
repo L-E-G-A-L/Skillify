@@ -10,7 +10,7 @@ function AutoGrader() {
   useEffect(() => {
     // Fetch exam responses
     axios
-      .get("http://localhost/grader.php")
+      .get("https://sxt7404.uta.cloud/php/grader.php")
       .then((response) => {
         console.log(response.data); // Debug the response
         setResponses(response.data.responses);
@@ -24,7 +24,7 @@ function AutoGrader() {
     setGradingInProgress(true);
 
     axios
-      .get("http://localhost/grader.php?calculate_grades=true")
+      .get("https://sxt7404.uta.cloud/php/grader.php?calculate_grades=true")
       .then((response) => {
         setGrades(response.data.grades);
         setGradingInProgress(false);
