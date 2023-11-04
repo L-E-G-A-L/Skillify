@@ -19,7 +19,7 @@ function StudentListPage() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch("http://localhost/qastudentdiscussion.php")
+    fetch("https://sxt7404.uta.cloud/php/qastudentdiscussion.php")
       .then((response) => response.json())
       .then((data) => setStudents(data))
       .catch((error) => console.error("Error fetching students:", error));

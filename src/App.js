@@ -50,6 +50,7 @@ import CourseExams from "./CourseExamEvaluation";
 import EvaluationFormforQA from "./Form";
 import PersonA from "./QAOfficerComponent";
 import PersonB from "./StudentComponent";
+import VerifyUser from "./VerifyUser";
 const socket = io.connect("http://localhost:3001");
 function App() {
   const { userRole } = useUser();
@@ -64,6 +65,7 @@ function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/about" element={<AboutUsPage />} />
         <Route path="/services" element={<Services />} />
+        <Route path="/verifyUser" element={<VerifyUser />} />
         {/* 
         {userRole === "admin" || userRole === "pc" ? (
           <Route path="/profile" element={<Profile />} />
