@@ -1,8 +1,15 @@
-import React from "react";
+import React, { useState, useEffect } from 'react';
 import "./InstructorDiscussion.css";
+import { useNavigate } from 'react-router-dom';
+import "./QAChat.css";
+function InstructorDiscussion() {
+  const navigate = useNavigate();
+  const [showChat, setShowChat] = useState(false);
 
-class InstructorDiscussion extends React.Component {
-  render() {
+  const handleChatButtonClick = () => {
+    navigate('/personc');
+    setShowChat(true);
+  };
     return (
       <div>
         <header className="id-header">
@@ -21,14 +28,17 @@ class InstructorDiscussion extends React.Component {
               </a>
             </li>
             <li className="id-li">
-              <a href="#" className="id-a">
+            <a href="#" className="id-a">
                 QA Officer
               </a>
             </li>
             <li className="id-li">
-              <a href="#" className="id-a">
-                Admin
-              </a>
+            <div className="xxx">
+                {!showChat && (<div className="yyy">
+                <button className="id-a" onClick={handleChatButtonClick}>Admin</button>
+              </div>
+                )}
+              </div>
             </li>
             <li className="id-li">
               <a href="#" className="id-a">
@@ -83,6 +93,6 @@ class InstructorDiscussion extends React.Component {
       </div>
     );
   }
-}
+
 
 export default InstructorDiscussion;
