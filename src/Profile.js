@@ -1,6 +1,7 @@
 import React from 'react';
 import './Profile.css';
 import { useNavigate } from 'react-router-dom';
+import { onLogOut } from './GlobalFunctions';
 
 function Profile() {
   const navigation = useNavigate();
@@ -24,7 +25,7 @@ function Profile() {
     <div className="profile-page">
       <div className="profile-navbar">
         <a href="#" className='profile-nav-a'>My Profile</a>
-        <a href="login" className='profile-nav-a'>Sign Out</a>
+        <a href="login" className='profile-nav-a' onClick={() => onLogOut()}>Sign Out</a>
       </div>
       <div className="profile-content">
         <button className="profile-dashboard-button" onClick={() => goBack()}>Dashboard</button>

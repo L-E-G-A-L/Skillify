@@ -6,27 +6,32 @@ import './LRFStyles.css';
 function ForgotPassword() {
   const [error, setError] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
+
+  
+  const generateRandomToken = (length) => {
+    const charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+    let token = "";
+    for (let i = 0; i < length; i++) {
+      const randomIndex = Math.floor(Math.random() * charset.length);
+      token += charset[randomIndex];
+    }
+    return token;
+  };
+
   
   const onForgotPwdHandler = (email) => {
     setError(false);
-
+    const user_token = generateRandomToken(32);
     if (email) {
-      axios
-        .post('http://localhost/LRFAuth.php', {
-          action: "forgotPassword",
-          email: email,
+      axios.post('http://localhost:4000/resetPassword', {
+        email,
+        user_token,
+      })
+        .then(response => {
+          console.log(response.data);
         })
-        .then((response) => {
-          if (response.data.success) {
-            setError(true);
-            setErrorMessage(response.data.message)
-          } else {
-            setError(true);
-            setErrorMessage(response.data.message)
-          }
-        })
-        .catch((error) => {
-          console.log(error);
+        .catch(error => {
+          console.error(error);
         });
     } else {
       setError(true);

@@ -13,7 +13,7 @@ function Login() {
   const onLoginHandler = (username, password) => {
     setError(false);
     axios
-      .post('http://localhost/LRFAuth.php', {
+      .post('https://sxt7404.uta.cloud/php/LRFAuth.php', {
         action: "login",
         username: username,
         password: password,
@@ -22,6 +22,7 @@ function Login() {
         if (response.data.success) {
           const user = response.data.user;
           sessionStorage.setItem('userRole', user.role);
+          sessionStorage.setItem('userId', user.id);
           setUserRole(user.role); 
           if (user.role === 'admin') {
             navigation('/admin');

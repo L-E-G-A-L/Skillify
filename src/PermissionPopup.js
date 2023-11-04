@@ -12,7 +12,7 @@ const PermissionPopup = ({ userDataType, onClose }) => {
 
   const fetchData = () => {
     axios
-      .post("http://localhost/LRFAuth.php", {
+      .post("https://sxt7404.uta.cloud/php/LRFAuth.php", {
         action: "getUserDetails",
         role: userDataType,
       })
@@ -40,7 +40,7 @@ const PermissionPopup = ({ userDataType, onClose }) => {
 
   const handleSaveUserRole = (user_id) => {
     axios
-      .post("http://localhost/LRFAuth.php", {
+      .post("https://sxt7404.uta.cloud/php/LRFAuth.php", {
         action: "updateUserRole",
         user_id: user_id,
         user_role: editedUserRole,
