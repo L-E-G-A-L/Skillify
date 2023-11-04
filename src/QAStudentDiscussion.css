@@ -1,10 +1,3 @@
-/*Name (Last, First) and Student Id
-Sunkoju,TarunKumar(1002077699)
-Kotagiri, Arvind kumar Satyanarayana (1002126766)
-Tamanampudi, Sai Sridhar (1002117404)
-Tadivaka, Sai Swetha (1002112726)
-Tallapelli, Sai Charan (1002073449)*/
-
 .divcontainer {
   text-align: center;
   background-color: #f4f4f4;
@@ -18,8 +11,7 @@ Tallapelli, Sai Charan (1002073449)*/
   margin-bottom: 20px;
 }
 
-.students-table th,
-.students-table td {
+.students-table th, .students-table td {
   border: 1px solid #ddd;
   padding: 12px;
   text-align: center;
@@ -45,13 +37,13 @@ Tallapelli, Sai Charan (1002073449)*/
   background-color: #2a74ab;
 }
 
-@media screen and (max-width: 350px) {
-  .start-discussion-btn {
+@media screen and (max-width:350px){
+  .start-discussion-btn{
     padding: 8px 16px;
     border-radius: 3px;
     font-size: 12px;
   }
-  .QAtitle {
+  .QAtitle{
     font-size: 5px;
   }
 }

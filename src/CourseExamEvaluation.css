@@ -1,0 +1,73 @@
+/*Name (Last, First) and Student Id
+Sunkoju,TarunKumar(1002077699)
+Kotagiri, Arvind kumar Satyanarayana (1002126766)
+Tamanampudi, Sai Sridhar (1002117404)
+Tadivaka, Sai Swetha (1002112726)
+Tallapelli, Sai Charan (1002073449)*/
+
+.course-exams-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f5f5f5;
+  border-radius: 5px;
+}
+
+.course-title {
+  font-size: 20px;
+  margin-top: 20px;
+  color: #333;
+}
+
+.course-list {
+  list-style: none;
+  padding: 0;
+}
+
+.course-item {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin: 10px 0;
+  padding: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.course-h3 {
+  color: black;
+  font-size: 20px;
+}
+.exam-title {
+  font-size: 18px;
+  color: #008cff;
+  margin: 10px 0;
+}
+
+.exam-list {
+  list-style: disc;
+  padding-left: 20px;
+  margin: 0;
+}
+
+.exam-item {
+  font-size: 16px;
+  color: #555;
+  margin: 5px 0;
+}
+
+/* Add these styles to your CourseExams.css file */
+.form-link {
+  display: inline-block;
+  background-color: #007bff; /* Blue color */
+  color: #fff;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  margin-left: 10px;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.form-link:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+}

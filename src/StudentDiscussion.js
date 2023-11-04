@@ -1,7 +1,16 @@
-import React from "react";
+import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import "./css/studentDiscussion.css";
-class StudentDiscussion extends React.Component {
-  render() {
+import "./QAChat.css";
+function StudentDiscussion() {
+  const navigate = useNavigate();
+  const [showChat, setShowChat] = useState(false);
+
+
+  const handleChatButtonClick = () => {
+    navigate('/personb');
+    setShowChat(true);
+  };
     return (
       <div className="studentDiscussion">
         <header class="studentDiscussionHeaderClass">
@@ -15,9 +24,12 @@ class StudentDiscussion extends React.Component {
           <nav>
             <ul className="stuDisscussionNavul">
               <li className="stuDisscussionNavLi">
-                <a href="#" className="studentDiscussionNava">
-                  QA Officer
-                </a>
+              <div className="xxx">
+                {!showChat && (<div className="yyy">
+                <button className="studentDiscussionNava" onClick={handleChatButtonClick}>QA Officer</button>
+              </div>
+                )}
+              </div>
               </li>
               <li>
                 <a href="#" className="studentDiscussionNava">
@@ -72,7 +84,6 @@ class StudentDiscussion extends React.Component {
         </footer>
       </div>
     );
-  }
 }
 
 export default StudentDiscussion;
