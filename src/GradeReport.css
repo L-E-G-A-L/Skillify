@@ -1,0 +1,34 @@
+/*Name (Last, First) and Student Id
+Sunkoju,TarunKumar(1002077699)
+Kotagiri, Arvind kumar Satyanarayana (1002126766)
+Tamanampudi, Sai Sridhar (1002117404)
+Tadivaka, Sai Swetha (1002112726)
+Tallapelli, Sai Charan (1002073449)*/
+.grades-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.grades-table th,
+.grades-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+.grades-table th {
+  background-color: #f2f2f2;
+}
+
+.grades-table tr:nth-child(odd) {
+  background-color: #f7f7f7;
+}
+
+.grades-table tr:nth-child(even) {
+  background-color: #e9e9e9;
+}
+
+.grades-table tr:hover {
+  background-color: #cfcfcf;
+}

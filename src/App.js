@@ -39,12 +39,18 @@ import ExistingPolicies from "./ExistingPolicy";
 import InquiryInbox from "./Enquiry";
 import UpdateCourseContent from "./UpdateCourse";
 import ViewAllAnnouncements from "./ViewAllAnnouncements";
-
+import io from "socket.io-client";
 import CreateExam from "./CreateExam";
 import CourseDetail from "./CourseDetail";
 import AccessDenied from "./AccessDenied";
 import { useUser } from "./UserContext";
 import ExamQuestions from "./ExamQuestions";
+import AutoGrader from "./AutoGrader";
+import CourseExams from "./CourseExamEvaluation";
+import EvaluationFormforQA from "./Form";
+import PersonA from "./QAOfficerComponent";
+import PersonB from "./StudentComponent";
+const socket = io.connect("http://localhost:3001");
 function App() {
   const { userRole } = useUser();
   return (
@@ -88,6 +94,10 @@ function App() {
         <Route path="/existingpolicy" element={<ExistingPolicies />} />
         {/* <Route path='/qaofficercomponent' element={<QaOfficer/>}/>
         <Route path='/studentcomponent' element={<Studentpage />}/> */}
+        <Route path="/audit" element={<CourseExams />} />
+        <Route path="/form" element={<EvaluationFormforQA />} />
+        <Route path="/persona" element={<PersonA socket={socket} />} />
+        <Route path="/personb" element={<PersonB socket={socket} />} />
 
         <Route path="/announcements" element={<Announcements />} />
         <Route
@@ -110,6 +120,7 @@ function App() {
           path="/instructorDiscussion"
           element={<InstructorDiscussion />}
         />
+        <Route path="/AutoGrader" element={<AutoGrader />} />
         <Route path="/instructorChat" element={<ChatApp />} />
         <Route path="/create-exam/:id" element={<CreateExam />} />
         <Route path="/exam-questions" element={<ExamQuestions />} />
