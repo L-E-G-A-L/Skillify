@@ -8,10 +8,12 @@ class ViewAllAnnouncements extends React.Component {
   };
 
   componentDidMount() {
-    axios.get(`http://localhost/viewAllannouncements.php`).then((response) => {
-      console.log(response.data);
-      this.setState({ announcements: response.data });
-    });
+    axios
+      .get(`https://sxt7404.uta.cloud/php/viewAllannouncements.php`)
+      .then((response) => {
+        console.log(response.data);
+        this.setState({ announcements: response.data });
+      });
   }
   render() {
     return (
