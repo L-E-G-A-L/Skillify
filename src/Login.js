@@ -22,6 +22,7 @@ function Login() {
         if (response.data.success) {
           const user = response.data.user;
           sessionStorage.setItem('userRole', user.role);
+          sessionStorage.setItem('userId', user.id);
           setUserRole(user.role); 
           if (user.role === 'admin') {
             navigation('/admin');
