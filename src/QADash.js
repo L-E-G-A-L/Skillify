@@ -1,4 +1,4 @@
-import React from "react";
+import React/*, { useState, useEffect }*/ from 'react';
 import "./QADash.css";
 import { Link } from "react-router-dom";
 import ChatComponent from "./Chatbot";
@@ -17,6 +17,27 @@ function QADashboard() {
 }
 
 export function QANav({ title, toggleInnerNav }) {
+  // const [userName, setUserName] = useState('User Name'); // Initial state with a placeholder
+
+  // useEffect(() => {
+  //   // Fetch user data after the user logs in, replace 'fetchUserData' with your actual function
+  //   const fetchUserData = async () => {
+  //     try {
+  //       // Assuming you get user data as a JSON object with 'userName' property
+  //       const response = await fetch('/api/getUserData'); // Replace with your API endpoint
+  //       const userData = await response.json();
+
+  //       // Update the user name in the state
+  //       if (userData.userName) {
+  //         setUserName(userData.userName);
+  //       }
+  //     } catch (error) {
+  //       console.error('Error fetching user data:', error);
+  //     }
+  //   };
+  //   fetchUserData();
+  // }, []);
+
   return (
     <nav className="qanav">
       <h1 className="qah1">{title}</h1>
@@ -77,7 +98,9 @@ function MainContent() {
       </section>
       <section className="functionality">
         <h2 className="qah2">Audits or Evaluations of courses and exams</h2>
+        <Link className="link" to="/audit">
         <button className="toggle-button">Audit</button>
+        </Link>
       </section>
       <section className="functionality">
         <h2 className="qah2">
@@ -90,9 +113,14 @@ function MainContent() {
       </section>
       <section className="functionality">
         <h2 className="qah2">
-          Enhancing Teaching Methods, Assessments, and Program effectiveness
+          Create New Policy / View Existing Policies
         </h2>
-        <button className="toggle-button">Enhancement</button>
+        <Link className="link" to="/newpolicy">
+          <button className="toggle-button">New Policy</button>
+        </Link>
+        <Link className="link" to="/existingpolicy">
+          <button className="toggle-button1">View Policy</button>
+        </Link>  
       </section>
       <section className="functionality">
         <h2 className="qah2">Monitor and Analyze Student Performance Data</h2>
