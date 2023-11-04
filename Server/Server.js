@@ -51,7 +51,6 @@ app.listen(port, () => {
 
 app.post('/registerUser', (req, res) => {
   const { user_email, user_token } = req.body;
-  console.log("this",user_email)
 
   const verificationLink = `http://localhost:3000/verifyUser?token=${user_token}&email=${user_email}`;
   const mailOptions = {
@@ -70,6 +69,31 @@ app.post('/registerUser', (req, res) => {
     } else {
       console.log('Email sent: ' + info.response);
       res.status(200).send('Email sent successfully to ' + user_email);
+    }
+  });
+});
+
+app.post('/resetPassword', (req, res) => {
+  const { email, user_token } = req.body;
+
+  const verificationLink = `http://localhost:3000/resetPassword?token=${user_token}&email=${email}`;
+  const mailOptions = {
+    from: 'Group15.WDM@gmail.com',
+    to: email,
+    subject: 'Skillify Password Reset',
+    text: `
+      Use this link to reset your password:
+      ${verificationLink}
+    `,
+  };
+
+  transporter.sendMail(mailOptions, (error, info) => {
+    if (error) {
+      console.error(error);
+      res.status(500).send('Email sending failed.');
+    } else {
+      console.log('Email sent: ' + info.response);
+      res.status(200).send('Email sent successfully to ' + email);
     }
   });
 });

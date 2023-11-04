@@ -27,7 +27,8 @@ a {
 
 .login-page,
 .registration-page,
-.forgot-password-page {
+.forgot-password-page,
+.reset-password-page {
   background-size: cover;
   min-height: 100vh;
   display: flex;
@@ -51,7 +52,8 @@ a {
 }
 
 .registration-container,
-.forgot-password-container {
+.forgot-password-container,
+.reset-password-container {
   padding: 20px;
   border-radius: 5px;
   background-color: rgb(241, 241, 251);

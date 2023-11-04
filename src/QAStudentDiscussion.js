@@ -27,7 +27,7 @@ function StudentListPage() {
 
   const handleStartDiscussion = () => {
     console.log("Discussion started");
-    navigate("/qaofficercomponent");
+    navigate("/persona");
   };
   const userCourses = students.reduce((acc, student) => {
     if (!acc[student.user_name]) {

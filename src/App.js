@@ -50,7 +50,9 @@ import CourseExams from "./CourseExamEvaluation";
 import EvaluationFormforQA from "./Form";
 import PersonA from "./QAOfficerComponent";
 import PersonB from "./StudentComponent";
+import PersonC from './InstructorChat';
 import VerifyUser from "./VerifyUser";
+import ResetPassword from "./ResetPassword";
 const socket = io.connect("http://localhost:3001");
 function App() {
   const { userRole } = useUser();
@@ -66,17 +68,18 @@ function App() {
         <Route path="/about" element={<AboutUsPage />} />
         <Route path="/services" element={<Services />} />
         <Route path="/verifyUser" element={<VerifyUser />} />
-        {/* 
-        {userRole === "admin" || userRole === "pc" ? (
-          <Route path="/profile" element={<Profile />} />
+        <Route path="/resetPassword" element={<ResetPassword />} />
+        
+
+        {userRole !== null ? (
+            <Route path="/profile" element={<Profile />} />
         ) : (
           <Route path="/profile" element={<Navigate to="/nda" />} />
-        )} */}
-        <Route path="/profile" element={<Profile />} />
-        <Route
-          path="/admin"
-          element={userRole === "admin" ? <Admin /> : <Navigate to="/nda" />}
-        />
+        )}
+
+        <Route path="/admin" element={userRole === "admin" ? <Admin /> : <Navigate to="/nda" />} />
+        
+        
         <Route
           path="/adminChat"
           element={
@@ -84,48 +87,216 @@ function App() {
           }
         />
 
-        <Route path="/userActivity" element={<UserActivity />} />
+        {userRole !== null ? (
+            <Route path="/userActivity" element={<UserActivity />} />
+        ) : (
+          <Route path="/userActivity" element={<Navigate to="/nda" />} />
+        )}
+        
+        {userRole !== null ? (
+            <Route path="/student" element={<Student />} />
+        ) : (
+          <Route path="/student" element={<Navigate to="/nda" />} />
+        )}
+        
+        {userRole === "admin" || userRole === "qa" ? (
+            <Route path="/qadashboard" element={<QADashboard />} />
+        ) : (
+          <Route path="/qadashboard" element={<Navigate to="/nda" />} />
+        )}
+        
+        {userRole === "admin" || userRole === "qa" ? (
+            <Route path="/discussion" element={<DiscussionForum />} />
+        ) : (
+          <Route path="/discussion" element={<Navigate to="/nda" />} />
+        )}
+        
+        {userRole === "admin" || userRole === "qa" ? (
+            <Route path="/reports" element={<QAreports />} />
+        ) : (
+          <Route path="/reports" element={<Navigate to="/nda" />} />
+        )}
+        
+        {userRole === "admin" || userRole === "qa" ? (
+            <Route path="/qastudentdiscussion" element={<QAStudentDiscussion />} />
+        ) : (
+          <Route path="/qastudentdiscussion" element={<Navigate to="/nda" />} />
+        )}
+        
+        {userRole === "admin" || userRole === "qa" ? (
+            <Route path="/newpolicy" element={<NewPolicy />} />
+        ) : (
+          <Route path="/newpolicy" element={<Navigate to="/nda" />} />
+        )}
+        
+        {userRole === "admin" || userRole === "qa" ? (
+            <Route path="/existingpolicy" element={<ExistingPolicies />} />
+        ) : (
+          <Route path="/existingpolicy" element={<Navigate to="/nda" />} />
+        )}
+        
+        {userRole === "admin" || userRole === "qa" ? (
+            <Route path="/audit" element={<CourseExams />} />
+        ) : (
+          <Route path="/audit" element={<Navigate to="/nda" />} />
+        )}
+        
+        {userRole === "admin" || userRole === "qa" ? (
+            <Route path="/form" element={<EvaluationFormforQA />} />
+        ) : (
+          <Route path="/form" element={<Navigate to="/nda" />} />
+        )}
+        
+        {userRole === "admin" || userRole === "qa" ? (
+            <Route path="/persona" element={<PersonA socket={socket} />} />
+        ) : (
+          <Route path="/persona" element={<Navigate to="/nda" />} />
+        )}
+        
+        {userRole === "admin" || userRole === "qa" ? (
+            <Route path="/personb" element={<PersonB socket={socket} />} />
+        ) : (
+          <Route path="/personb" element={<Navigate to="/nda" />} />
+        )}
+        
+        {userRole === "admin" || userRole === "instructor" || userRole === "qa" ? (
+            <Route path='/personc' element={<PersonC socket={socket} />}/> 
+        ) : (
+          <Route path="/personc" element={<Navigate to="/nda" />} />
+        )}
 
-        <Route path="/student" element={<Student />} />
-        <Route path="/qadashboard" element={<QADashboard />} />
-        <Route path="/qahome" element={<QADashboard />} />
-        <Route path="/discussion" element={<DiscussionForum />} />
-        <Route path="/reports" element={<QAreports />} />
-        <Route path="/qastudentdiscussion" element={<QAStudentDiscussion />} />
-        <Route path="/newpolicy" element={<NewPolicy />} />
-        <Route path="/existingpolicy" element={<ExistingPolicies />} />
-        {/* <Route path='/qaofficercomponent' element={<QaOfficer/>}/>
-        <Route path='/studentcomponent' element={<Studentpage />}/> */}
-        <Route path="/audit" element={<CourseExams />} />
-        <Route path="/form" element={<EvaluationFormforQA />} />
-        <Route path="/persona" element={<PersonA socket={socket} />} />
-        <Route path="/personb" element={<PersonB socket={socket} />} />
+        {userRole !== null ? (
+            <Route path="/announcements" element={<Announcements />} />
+        ) : (
+          <Route path="/announcements" element={<Navigate to="/nda" />} />
+        )}
+        
+        {userRole !== null ? (
+             <Route
+             path="/viewAllAnnouncements"
+             element={<ViewAllAnnouncements />}
+           />
+        ) : (
+          <Route path="/viewAllAnnouncements" element={<Navigate to="/nda" />} />
+        )}
+        
+        {userRole !== null || userRole !== "student" ? (
+             <Route
+             path="/coursemodules"
+             element={<ViewAllAnnouncements />}
+           />
+        ) : (
+          <Route path="/coursemodules" element={<Navigate to="/nda" />} />
+        )}
 
-        <Route path="/announcements" element={<Announcements />} />
-        <Route
-          path="/viewAllAnnouncements"
-          element={<ViewAllAnnouncements />}
-        />
-        <Route path="/coursemodules" element={<CourseModules />} />
-        <Route path="/assessments" element={<Assessments />} />
-        <Route path="/grades" element={<Grades />} />
-        <Route path="/studentdiscussion" element={<StudentDiscussion />} />
-        <Route path="/studentchat" element={<StudentChat />} />
+        {userRole !== null ? (
+             <Route path="/assessments" element={<Assessments />} />
+        ) : (
+          <Route path="/assessments" element={<Navigate to="/nda" />} />
+        )}
+        
+        {userRole !== null ? (
+             <Route path="/grades" element={<Grades />} />
+        ) : (
+          <Route path="/grades" element={<Navigate to="/nda" />} />
+        )}
+       
+        {userRole !== null ? (
+             <Route path="/studentdiscussion" element={<StudentDiscussion />} />
+        ) : (
+          <Route path="/studentdiscussion" element={<Navigate to="/nda" />} />
+        )}
+       
+        {userRole !== null ? (
+            <Route path="/studentchat" element={<StudentChat />} />
+        ) : (
+          <Route path="/studentchat" element={<Navigate to="/nda" />} />
+        )}
 
-        <Route path="/PC" element={<ProgramCoordinator />} />
-        <Route path="/PCChat" element={<Chat />} />
-        <Route path="/Enquiry" element={<InquiryInbox />} />
-        <Route path="/UpdateCourse" element={<UpdateCourseContent />} />
 
-        <Route path="/instructor" element={<Instructor />} />
-        <Route
-          path="/instructorDiscussion"
-          element={<InstructorDiscussion />}
-        />
-        <Route path="/AutoGrader" element={<AutoGrader />} />
-        <Route path="/instructorChat" element={<ChatApp />} />
-        <Route path="/create-exam/:id" element={<CreateExam />} />
-        <Route path="/exam-questions" element={<ExamQuestions />} />
+        {userRole !== null || userRole !== "student" ? (
+             <Route
+             path="/coursemodules"
+             element={<ViewAllAnnouncements />}
+           />
+        ) : (
+          <Route path="/coursemodules" element={<Navigate to="/nda" />} />
+        )}
+        
+        {userRole === "admin" || userRole === "pc" ? (
+            <Route path="/PC" element={<ProgramCoordinator />} />
+        ) : (
+          <Route path="/PC" element={<Navigate to="/nda" />} />
+        )}
+
+        {userRole !== null || userRole !== "student" ? (
+             <Route path="/PCChat" element={<Chat />} />
+        ) : (
+          <Route path="/PCChat" element={<Navigate to="/nda" />} />
+        )}
+
+        {userRole !== null || userRole !== "student" ? (
+             <Route path="/Enquiry" element={<InquiryInbox />} />
+        ) : (
+          <Route path="/Enquiry" element={<Navigate to="/nda" />} />
+        )}
+
+        {userRole !== null || userRole !== "student" ? (
+             <Route path="/UpdateCourse" element={<UpdateCourseContent />} />
+        ) : (
+          <Route path="/UpdateCourse" element={<Navigate to="/nda" />} />
+        )}
+
+        {userRole !== null || userRole !== "student" ? (
+             <Route path="/PCChat" element={<Chat />} />
+        ) : (
+          <Route path="/PCChat" element={<Navigate to="/nda" />} />
+        )}
+
+        {userRole !== null || userRole !== "instructor" ? (
+             <Route path="/instructor" element={<Instructor />} />
+        ) : (
+          <Route path="/instructor" element={<Navigate to="/nda" />} />
+        )}
+
+        {userRole !== null || userRole !== "instructor" ? (
+            <Route path="/instructorDiscussion" element={<InstructorDiscussion />} />
+        ) : (
+          <Route path="/instructorDiscussion" element={<Navigate to="/nda" />} />
+        )}
+        
+
+        {userRole !== null || userRole !== "instructor" ? (
+             <Route path="/AutoGrader" element={<AutoGrader />} />
+        ) : (
+          <Route path="/AutoGrader" element={<Navigate to="/nda" />} />
+        )}
+        
+
+        {userRole !== null || userRole !== "instructor" ? (
+             <Route path="/instructorChat" element={<ChatApp />} />
+        ) : (
+          <Route path="/instructorChat" element={<Navigate to="/nda" />} />
+        )}
+        
+        {userRole !== null || userRole !== "instructor" ? (
+             <Route path="/create-exam/:id" element={<CreateExam />} />
+        ) : (
+          <Route path="/create-exam/:id" element={<Navigate to="/nda" />} />
+        )}
+        
+        {userRole !== null || userRole !== "instructor" ? (
+             <Route path="/exam-questions" element={<ExamQuestions />} />
+        ) : (
+          <Route path="/exam-questions" element={<Navigate to="/nda" />} />
+        )}
+        
+        {userRole !== null || userRole !== "instructor" ? (
+             <Route path="/course/:id" element={<CourseDetail />} />
+        ) : (
+          <Route path="/course/:id" element={<Navigate to="/nda" />} />
+        )}
+        
         <Route path="/course/:id" element={<CourseDetail />} />
 
         <Route path="/nda" element={<AccessDenied />} />
