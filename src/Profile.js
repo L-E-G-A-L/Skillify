@@ -1,11 +1,23 @@
-import React from 'react';
+import React, { useEffect, useState } from "react";
+import axios from 'axios';
 import './Profile.css';
 import { useNavigate } from 'react-router-dom';
 import { onLogOut } from './GlobalFunctions';
 
 function Profile() {
   const navigation = useNavigate();
+  const [userData, setUserData] = useState({});
+  const [isEditMode, setIsEditMode] = useState(false);
+  const [editedData, setEditedData] = useState({
+    user_name: '',
+    user_email: '',
+    phoneNumber: '',
+    user_role: userData.user_role,
+  });
+  const [Data, setData] = useState(true);
   const userRole = sessionStorage.getItem("userRole");
+  const user_id = sessionStorage.getItem("userId");
+
   const goBack = () => {
     if (userRole === "admin") {
       navigation("/admin");
@@ -21,6 +33,59 @@ function Profile() {
       navigation("/");
     }
   };
+  const handleEdit = () => {
+    setIsEditMode(true);
+    setEditedData({ ...userData });
+  };
+
+  const handleSave = (user_id) => {
+    const editedUser = {
+      user_id: user_id,
+      user_name: editedData.user_name,
+      user_email: editedData.user_email,
+      user_role: userData.user_role
+    };
+    axios
+      .post("https://sxt7404.uta.cloud/php/LRFAuth.php", {
+        action: "updateUser",
+        user: editedUser,
+      })
+      .then((response) => {
+        if (response.data.success) {
+          fetchData()
+        } else {
+          console.log(response.data.error);
+        }
+      })
+      .catch((error) => {
+        console.error("Error saving user:", error);
+      });
+      setIsEditMode(false)
+  };
+
+  const fetchData = () => {
+    console.log(user_id)
+    axios
+      .post("https://sxt7404.uta.cloud/php/LRFAuth.php", {
+        action: "getAllDetails",
+        user_id: user_id,
+      })
+      .then((response) => {
+        if (response.data.success) {
+          setData(true);
+          setUserData(response.data.user);
+        } else {
+          setData(false);
+        }
+      })
+      .catch((error) => {
+        console.error("Error fetching user data:", error);
+      });
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
   return (
     <div className="profile-page">
       <div className="profile-navbar">
@@ -36,28 +101,65 @@ function Profile() {
         <div className="profile-details">
           <div className="form-group">
             <label className='profile-label' htmlFor="full-name">Full Name:</label>
-            <input className='profile-input' type="text" id="full-name" name="full-name" value="Name" />
-          </div>
-          <div className="form-group">
-            <label className='profile-label' htmlFor="display-name">Display Name:</label>
-            <input className='profile-input' type="text" id="display-name" name="display-name" value="Name" />
+            {isEditMode ? (
+              <input
+                className='profile-input'
+                type="text"
+                id="full-name"
+                name="full-name"
+                value={editedData.user_name}
+                onChange={(e) =>
+                  setEditedData({ ...editedData, user_name: e.target.value })
+                }
+              />
+            ) : (
+              <span>{userData.user_name}</span>
+            )}
           </div>
           <div className="form-group">
             <label className='profile-label' htmlFor="email">Email:</label>
-            <input className='profile-input' type="text" id="email" name="email" value="Name" />
+            {isEditMode ? (
+              <input
+                className='profile-input'
+                type="text"
+                id="email"
+                name="email"
+                value={editedData.user_email}
+                onChange={(e) =>
+                  setEditedData({ ...editedData, user_email: e.target.value })
+                }
+              />
+            ) : (
+              <span>{userData.user_email}</span>
+            )}
           </div>
           <div className="form-group">
             <label className='profile-label' htmlFor="phone-number">Phone Number</label>
-            <input className='profile-input' type="number" id="phone-number" name="phone-number" value="1234561234" />
-          </div>
-          <div className="form-group">
-            <label className='profile-label' htmlFor="pronouns">Pronouns:</label>
-            <input className='profile-input' type="text" id="pronouns" name="pronouns" value="None" />
+            {isEditMode ? (
+              <input
+                className='profile-input'
+                type="number"
+                id="phone-number"
+                name="phone-number"
+                value={editedData.phoneNumber}
+                onChange={(e) =>
+                  setEditedData({ ...editedData, phoneNumber: e.target.value })
+                }
+              />
+            ) : (
+              <span>{userData.phoneNumber}</span>
+            )}
           </div>
         </div>
         <div className="buttons">
-          <button className="save-button">Save</button>
-          <button className="cancel-button">Cancel</button>
+          {isEditMode ? (
+            <div>
+              <button className="save-button" onClick={() =>handleSave(userData.user_id)}>Save</button>
+              <button className="cancel-button" onClick={() => setIsEditMode(false)}>Cancel</button>
+            </div>
+          ) : (
+            <button className="edit-button" onClick={handleEdit}>Edit</button>
+          )}
         </div>
       </div>
       <footer className='profile-footer'>

@@ -22,7 +22,7 @@ function Login() {
         if (response.data.success) {
           const user = response.data.user;
           sessionStorage.setItem('userRole', user.role);
-          sessionStorage.setItem('userId', user.id);
+          sessionStorage.setItem('userId', user.user_id);
           setUserRole(user.role); 
           if (user.role === 'admin') {
             navigation('/admin');
