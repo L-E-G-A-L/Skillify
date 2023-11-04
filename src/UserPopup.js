@@ -12,7 +12,7 @@ const UserPopup = ({ userDataType, onClose }) => {
 
   const handleDelete = (user_id) => {
     axios
-      .post("http://localhost/LRFAuth.php", {
+      .post("https://sxt7404.uta.cloud/php/LRFAuth.php", {
         action: "deleteUser",
         user_id: user_id,
       })
@@ -43,7 +43,7 @@ const UserPopup = ({ userDataType, onClose }) => {
     };
   
     axios
-      .post("http://localhost/LRFAuth.php", {
+      .post("https://sxt7404.uta.cloud/php/LRFAuth.php", {
         action: "updateUser",
         user: editedUser,
       })
@@ -78,7 +78,7 @@ const UserPopup = ({ userDataType, onClose }) => {
 
   useEffect(() => {
     axios
-      .post("http://localhost/LRFAuth.php", {
+      .post("https://sxt7404.uta.cloud/php/LRFAuth.php", {
         action: "getUserDetails",
         role: userDataType,
       })

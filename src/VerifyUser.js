@@ -11,7 +11,7 @@ const VerifyUser = () => {
     if (token && email) {
       const data = { email, token };
 
-      fetch("http://localhost/Mailer.php", {
+      fetch("https://sxt7404.uta.cloud/php/Mailer.php", {
         method: "POST",
         headers: {
           "Content-Type": "application/json", 

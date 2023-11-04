@@ -33,7 +33,7 @@ function ManageUserPopup({ onClose }) {
 
   const handleDelete = (user_id) => {
     axios
-      .post("http://localhost/LRFAuth.php", {
+      .post("https://sxt7404.uta.cloud/php/LRFAuth.php", {
         action: "deleteUser",
         user_id: user_id,
       })
@@ -57,7 +57,7 @@ function ManageUserPopup({ onClose }) {
       user_role: editedUserRole
     };
     axios
-      .post("http://localhost/LRFAuth.php", {
+      .post("https://sxt7404.uta.cloud/php/LRFAuth.php", {
         action: "updateUserWithRole",
         user: editedUser,
       })
@@ -98,7 +98,7 @@ function ManageUserPopup({ onClose }) {
 
   const fetchDetails = () => {
     axios
-    .post("http://localhost/LRFAuth.php", {
+    .post("https://sxt7404.uta.cloud/php/LRFAuth.php", {
       action: "getIPQUserDetails",
     })
     .then((response) => {
@@ -134,7 +134,7 @@ function ManageUserPopup({ onClose }) {
       userData.userType
     ) {
       axios
-        .post("http://localhost/LRFAuth.php", {
+        .post("https://sxt7404.uta.cloud/php/LRFAuth.php", {
           action: "register",
           firstName: userData.firstName,
           lastName: userData.lastName,
