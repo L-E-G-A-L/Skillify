@@ -66,7 +66,7 @@ class Contact extends React.Component {
       };
 
       axios
-        .post("http://localhost/contactSendEmail.php", formData, {
+        .post("https://sxt7404.uta.cloud/php/contactSendEmail.php", formData, {
           headers: {
             "Content-Type": "application/json",
           },

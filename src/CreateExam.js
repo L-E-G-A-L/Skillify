@@ -65,7 +65,7 @@ function CreateExam() {
     };
     console.log(examData);
     axios
-      .post("http://localhost/CreateExam.php", examData, {
+      .post("https://sxt7404.uta.cloud/php/CreateExam.php", examData, {
         headers: {
           "Content-Type": "application/json",
         },
