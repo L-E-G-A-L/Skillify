@@ -8,7 +8,7 @@ class Student extends React.Component {
   };
 
   componentDidMount() {
-    fetch("http://localhost/courses.php")
+    fetch("https://sxt7404.uta.cloud/php/courses.php")
       .then((response) => response.json())
       .then((data) => this.setState({ courses: data }))
       .catch((error) => console.error("Error fetching courses:", error));

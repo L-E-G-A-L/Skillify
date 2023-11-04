@@ -22,7 +22,9 @@ class ExamQuestions extends Component {
 
   fetchQuestions = (exam_id) => {
     axios
-      .get(`http://localhost/exam_questions.php?exam_id=${exam_id}`)
+      .get(
+        `https://sxt7404.uta.cloud/php/exam_questions.php?exam_id=${exam_id}`
+      )
       .then((response) => {
         this.setState({ questions: response.data, error: null });
       })
@@ -44,7 +46,7 @@ class ExamQuestions extends Component {
     const searchParams = new URLSearchParams(window.location.search);
     const exam_id = searchParams.get("exam_id");
     axios
-      .post("http://localhost/submitted_answers.php", {
+      .post("https://sxt7404.uta.cloud/php/submitted_answers.php", {
         exam_id: exam_id,
         user_id: 1,
         course_id: 1,

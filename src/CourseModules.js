@@ -12,7 +12,9 @@ class CourseModules extends Component {
     const searchParams = new URLSearchParams(window.location.search);
     const courseId = searchParams.get("course_id");
     axios
-      .get(`http://localhost/courseModules.php?course_id=${courseId}`)
+      .get(
+        `https://sxt7404.uta.cloud/php/courseModules.php?course_id=${courseId}`
+      )
       .then((response) => {
         console.log("resp:", response.data);
         this.setState({ modules: response.data });

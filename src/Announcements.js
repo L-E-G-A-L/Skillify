@@ -12,7 +12,9 @@ class Announcements extends React.Component {
     const courseId = searchParams.get("course_id");
 
     axios
-      .get(`http://localhost/announcements.php?course_id=${courseId}`)
+      .get(
+        `https://sxt7404.uta.cloud/php/announcements.php?course_id=${courseId}`
+      )
       .then((response) => {
         console.log(response.data);
         this.setState({ announcements: response.data });
