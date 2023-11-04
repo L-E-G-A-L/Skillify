@@ -33,6 +33,9 @@ Tallapelli, Sai Charan (1002073449)*/
   color: #fff;
   margin-left: 45%;
 }
+.qah1{
+  white-space: nowrap;
+}
 
 .qamain {
   display: flex;
@@ -74,7 +77,7 @@ Tallapelli, Sai Charan (1002073449)*/
   color: var(--name-color);
 }
 
-.toggle-button {
+.toggle-button,.toggle-button1 {
   background-color: var(--nav-color);
   color: var(--bg-color);
   border: none;
@@ -82,6 +85,9 @@ Tallapelli, Sai Charan (1002073449)*/
   cursor: pointer;
   margin-top: 10px;
   border-radius: 5px;
+}
+.toggle-button1{
+  margin-left: 30px;
 }
 .functionality .button {
   display: inline-block;
@@ -106,7 +112,10 @@ Tallapelli, Sai Charan (1002073449)*/
   background-color: var(--nav-color);
   color: var(--bg-color);
   text-align: center;
-  padding: 5px;
+  /* padding: 5px; */
+  bottom: 0;
+  position:fixed;
+  width: 100%;
   /* margin: 10px; */
 }
 
@@ -294,6 +303,9 @@ Tallapelli, Sai Charan (1002073449)*/
     margin-bottom: 5%;
     position: relative;
   }
+  /* .qafooter {
+    position: relative;
+  } */
 }
 
 @media screen and (max-width: 480px) {
@@ -314,6 +326,9 @@ Tallapelli, Sai Charan (1002073449)*/
   .toggle-button {
     padding: 8px 15px;
   }
+  .toggle-button1{
+    margin-left: 10px;
+  }
 
   .user-pic {
     width: 30px;
@@ -329,5 +344,10 @@ Tallapelli, Sai Charan (1002073449)*/
     top: 48px;
     right: 10px;
     width: 30px;
+  }
+}
+@media screen and (max-width:290px){
+  .toggle-button1{
+    margin-left: 0px;
   }
 }
