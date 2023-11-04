@@ -7,6 +7,7 @@ import { useUser } from './UserContext';
 function Login() {
   const navigation = useNavigate();
   const [error, setError] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("Wrong username/password provided");
   const { setUserRole } = useUser(); 
 
   const onLoginHandler = (username, password) => {
@@ -33,9 +34,13 @@ function Login() {
           } else if (user.role === 'qa') {
             navigation('/qahome');
           }
-        } else {
+        } else if(response.data.error) {
           setError(true);
-          console.error('Login failed');
+          setErrorMessage(response.data.error);
+        }
+        else {
+          setError(true);
+          setErrorMessage('Wrong username/password provided');
         }
       })
       .catch((error) => {
@@ -60,7 +65,7 @@ function Login() {
           <label htmlFor="password" className='lrf-label'>Password</label>
           <input type="password" className="lrf-input" id="password" name="password" placeholder="Enter your password" />
         </div>
-        {error && <h5 className="login-error-message">Wrong username/password provided</h5>}
+        {error && <h5 className="login-error-message">{errorMessage}</h5>}
         <button className="login-button" onClick={() => onLoginHandler(document.getElementById("username").value, document.getElementById("password").value)}>Login</button>
         <div className="lrf-links">
           <a href="forgotpassword" className='lrf-a'><button className="login-button">Forgot Password?</button></a>

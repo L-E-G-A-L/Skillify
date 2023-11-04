@@ -16,6 +16,16 @@ function Registration() {
     phoneNumber: "",
   });
 
+  const generateRandomToken = (length) => {
+    const charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+    let token = "";
+    for (let i = 0; i < length; i++) {
+      const randomIndex = Math.floor(Math.random() * charset.length);
+      token += charset[randomIndex];
+    }
+    return token;
+  };
+
   const isEmailValid = (email) => {
     const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
     return emailRegex.test(email);
@@ -34,6 +44,8 @@ function Registration() {
   };
 
   const onRegisterHandler = (data) => {
+    const user_email = data.email;
+    const user_token = generateRandomToken(32);
     setError(false);
     setErrorMessage("Fill all details");
     if (
@@ -54,9 +66,20 @@ function Registration() {
           email: data.email,
           password: data.password,
           phoneNumber: data.phoneNumber,
+          token: user_token,
         })
         .then((response) => {
           if (response.data.success) {
+            axios.post('http://localhost:4000/registerUser', {
+                user_email,
+                user_token,
+              })
+              .then(response => {
+                console.log(response.data);
+              })
+              .catch(error => {
+                console.error(error);
+              });
             navigation("/login");
           } else {
             setError(true);
