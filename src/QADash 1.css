@@ -1,0 +1,353 @@
+/*Name (Last, First) and Student Id
+Sunkoju,TarunKumar(1002077699)
+Kotagiri, Arvind kumar Satyanarayana (1002126766)
+Tamanampudi, Sai Sridhar (1002117404)
+Tadivaka, Sai Swetha (1002112726)
+Tallapelli, Sai Charan (1002073449)*/
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+:root {
+  --body-color: #f0f0f0;
+  --nav-color: #011558;
+  --bg-color: #fff;
+  --line-color: #000;
+}
+
+.dark-theme {
+  --body-color: #0a0a0a;
+  --nav-color: #011558;
+  --bg-color: #000;
+  --name-color: #fff;
+}
+
+.qabody {
+  font-family: "Poppins", sans-serif;
+  background: var(--body-color);
+  transition: background 0.3s;
+  margin: 0;
+  padding: 0;
+}
+
+.qanav .qah1 {
+  font-size: 25px;
+  color: #fff;
+  margin-left: 45%;
+}
+.qah1{
+  white-space: nowrap;
+}
+
+.qamain {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 20px;
+  margin: 10px;
+}
+#toggle-menu-checkbox {
+  display: none;
+}
+#toggle-menu-label {
+  width: 100px;
+  min-width: 50px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  margin-left: 50px;
+  margin-right: 50px;
+  background: url("Profile.png") center center / cover;
+}
+
+#toggle-menu-checkbox:checked ~ .sub-menu-wrap {
+  max-height: 400px;
+}
+
+.functionality {
+  background-color: var(--bg-color);
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  border-radius: auto;
+  padding: 15px;
+  margin: 5px;
+  flex-basis: calc(30% - 1px);
+}
+
+.functionality .qah2 {
+  font-size: 20px;
+  margin-bottom: -5px;
+  color: var(--name-color);
+}
+
+.toggle-button,.toggle-button1 {
+  background-color: var(--nav-color);
+  color: var(--bg-color);
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  margin-top: 10px;
+  border-radius: 5px;
+}
+.toggle-button1{
+  margin-left: 30px;
+}
+.functionality .button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: var(--nav-color);
+  color: var(--bg-color);
+  text-decoration: none;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 10px 0;
+}
+.link {
+  text-decoration: none;
+}
+
+.functionality .toggle-button .link {
+  color: #fff;
+  text-decoration: none;
+}
+.qafooter {
+  background-color: var(--nav-color);
+  color: var(--bg-color);
+  text-align: center;
+  /* padding: 5px; */
+  bottom: 0;
+  position:fixed;
+  width: 100%;
+  /* margin: 10px; */
+}
+
+.qanav {
+  background: var(--nav-color);
+  width: 100%;
+  padding: 10px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+
+.user-pic {
+  width: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  margin-left: 50px;
+  margin-right: 50px;
+}
+
+.qanav .qaul {
+  width: 100%;
+  text-align: right;
+}
+
+.qanav .qaul .qali {
+  display: inline-block;
+  list-style: none;
+  margin: 5px 10px;
+}
+
+.qanav .qaul .qali .qaa {
+  color: var(--bg-color);
+  text-decoration: none;
+  border-style: none;
+}
+.qanav .qaul .qali .qaa .link {
+  text-decoration: none;
+  border-style: none;
+  color: #fff;
+}
+
+.sub-menu-wrap {
+  position: absolute;
+  top: 100%;
+  right: 5%;
+  width: 320px;
+  max-height: 0px;
+  overflow: hidden;
+  transition: max-height 0.5s;
+}
+
+.sub-menu {
+  background: var(--bg-color);
+  padding: 10px;
+  margin: 10px;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+}
+
+.user-info .qah3 {
+  font-weight: 500;
+  color: var(--name-color);
+}
+
+.user-info .user-pic {
+  width: 60px;
+  border-radius: 50%;
+  margin-right: 15px;
+  margin-left: 15px;
+}
+
+.sub-menu .qahr {
+  border: 0;
+  height: 1px;
+  width: 100%;
+  background: var(--line-color);
+  margin: 15px 0 10px;
+}
+
+.sub-menu-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #525252;
+  margin: 12px 0;
+}
+
+.sub-menu-link .qap {
+  width: 100%;
+}
+
+.sub-menu-link .qaimg {
+  width: 30px;
+  background-image: #e5e5e5;
+  border-radius: 50%;
+  padding: 2px;
+  margin-right: 15px;
+}
+
+.sub-menu-link .qaspan {
+  font-size: 12px;
+  transition: transform 0.5s;
+}
+
+.sub-menu-link:hover .qaspan {
+  transform: translateX(5px);
+}
+
+.sub-menu-link:hover .qap {
+  font-weight: 600;
+}
+
+#dark-btn {
+  position: absolute;
+  top: 68px;
+  right: 25px;
+  background: #ccc;
+  width: 35px;
+  border-radius: 15px;
+  padding: 2px 3px;
+  cursor: pointer;
+  display: flex;
+  transition: padding-left 0.5s, background 0.5s;
+}
+
+#dark-btn .qaspan {
+  width: 18px;
+  height: 18px;
+  background: #fff;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+#dark-btn.dark-btn-on {
+  padding-left: 20px;
+  background: black;
+  width: 20px;
+}
+.chat {
+  margin-bottom: 5%;
+  position: relative;
+}
+
+@media screen and (max-width: 830px) {
+  .qanav .qah1 {
+    font-size: 20px !important;
+    margin-left: 10% !important;
+    color: #fff;
+  }
+
+  .qamain {
+    padding: 10px;
+  }
+
+  .functionality {
+    flex-basis: 100%;
+    margin: 5px 0;
+  }
+
+  .toggle-button {
+    padding: 8px 15px;
+  }
+
+  .user-pic {
+    width: 30px;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+
+  .qanav .qaul .qali {
+    margin: 5px 10px;
+  }
+
+  #dark-btn {
+    top: 48px;
+    right: 10px;
+    width: 30px;
+  }
+  .chat {
+    margin-bottom: 5%;
+    position: relative;
+  }
+  /* .qafooter {
+    position: relative;
+  } */
+}
+
+@media screen and (max-width: 480px) {
+  .qanav .qah1 {
+    font-size: 15px !important;
+    margin-top: 5px;
+  }
+
+  .qamain {
+    padding: 10px;
+  }
+
+  .functionality {
+    flex-basis: 100%;
+    margin: 5px 0;
+  }
+
+  .toggle-button {
+    padding: 8px 15px;
+  }
+  .toggle-button1{
+    margin-left: 10px;
+  }
+
+  .user-pic {
+    width: 30px;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+
+  .qanav .qaul .qali {
+    margin: 5px 10px;
+  }
+
+  #dark-btn {
+    top: 48px;
+    right: 10px;
+    width: 30px;
+  }
+}
+@media screen and (max-width:290px){
+  .toggle-button1{
+    margin-left: 0px;
+  }
+}
