@@ -13,8 +13,8 @@ app.use(cors());
 const transporter = nodemailer.createTransport({
   service: "Gmail", // Change this to your email service provider
   auth: {
-    user: "", // Your email
-    pass: "", // Your email password
+    user: "Group15.WDM@gmail.com", // Your email
+    pass: "rdyamrrxylveqyif", // Your email password
   },
 });
 
@@ -23,8 +23,8 @@ app.post("/send-email", (req, res) => {
   const { question, foundDiscrepancy, comments } = req.body;
 
   const mailOptions = {
-    from: "",
-    to: "", // Receiver's email
+    from: "Group15.WDM@gmail.com",
+    to: "Group15.WDM@gmail.com", // Receiver's email
     subject: "Evaluation Form Submission",
     text: `
       Question: ${question}
