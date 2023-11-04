@@ -1,6 +1,7 @@
 import React from "react";
 import "./css/announcements.css";
 import axios from "axios";
+import MessageCard from "./MessageCard";
 class Announcements extends React.Component {
   state = {
     announcements: [],
@@ -48,13 +49,16 @@ class Announcements extends React.Component {
           </nav>
         </header>
         <div className="announcementContainer">
-          {this.state.announcements.length > 0 &&
+          {this.state.announcements.length > 0 ? (
             this.state.announcements.map((announcement) => (
               <div className="announcement" key={announcement.announcement_id}>
                 <h2>Announcement #{announcement.announcement_id}</h2>
                 <p>{announcement.announcement_message}</p>
               </div>
-            ))}
+            ))
+          ) : (
+            <MessageCard message="Announcements are not yet posted by the instructor" />
+          )}
         </div>
         <footer className="announcementFooterClass">
           <p>&copy; 2023 SOFTWARE ENGINEERING WEBSITE</p>
