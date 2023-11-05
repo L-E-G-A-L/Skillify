@@ -15,7 +15,9 @@ function CourseDetail() {
 
   useEffect(() => {
     axios
-      .get(`https://sxt7404.uta.cloud/php/course_operations.php?course_id=${id}`)
+      .get(
+        `https://sxt7404.uta.cloud/php/course_operations.php?course_id=${id}`
+      )
       .then((response) => {
         const data = response.data;
         setCoursesInfo(data);
