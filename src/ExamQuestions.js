@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
+import "./exam-questions.css";
+import MessageCard from "./MessageCard";
 
 class ExamQuestions extends Component {
   constructor(props) {
@@ -78,68 +80,92 @@ class ExamQuestions extends Component {
     if (submitted) {
       return (
         <div>
-          <h1>Thank You</h1>
-          <p>Your answers have been submitted successfully!</p>
+          <header className="examsHeaderClass">
+            <h1 className="examsHeaderh1Class">Exam</h1>
+          </header>
+          <MessageCard message="Thank You! Your answers have been submitted successfully!" />
+          <footer className="examQuestionsFooter">
+            <p>&copy; 2023 SOFTWARE ENGINEERING WEBSITE</p>
+          </footer>
         </div>
       );
     }
 
     return (
       <div>
-        <h1>Exam Questions</h1>
-        <p>Time Left: {timer} seconds</p>
-        <form>
-          {questions.map((question, index) => (
-            <div key={index}>
-              <p>{question.question_text}</p>
-              <label>
-                <input
-                  type="radio"
-                  name={`answer${index}`}
-                  value={question.option1}
-                  onChange={() =>
-                    this.handleAnswerSelection(index, question.option1)
-                  }
-                />
-                {question.option1}
-              </label>
-              <label>
-                <input
-                  type="radio"
-                  name={`answer${index}`}
-                  value={question.option2}
-                  onChange={() =>
-                    this.handleAnswerSelection(index, question.option2)
-                  }
-                />
-                {question.option2}
-              </label>
-              <label>
-                <input
-                  type="radio"
-                  name={`answer${index}`}
-                  value={question.option3}
-                  onChange={() =>
-                    this.handleAnswerSelection(index, question.option3)
-                  }
-                />
-                {question.option3}
-              </label>
-              <label>
-                <input
-                  type="radio"
-                  name={`answer${index}`}
-                  value={question.option4}
-                  onChange={() =>
-                    this.handleAnswerSelection(index, question.option4)
-                  }
-                />
-                {question.option4}
-              </label>
-            </div>
-          ))}
-          <button onClick={this.submitExam}>Submit Exam</button>
-        </form>
+        <header className="examsHeaderClass">
+          <h1 className="examsHeaderh1Class">Exam</h1>
+        </header>
+        <div className="exam-container">
+          <p className="time-left">Time Left: {timer} seconds</p>
+          <form className="exam-form">
+            {Array.isArray(questions) ? (
+              questions.map((question, index) => (
+                <div className="question-card" key={index}>
+                  <h2 className="question-title">{question.question_text}</h2>
+                  <div className="question-options">
+                    <label>
+                      <input
+                        type="radio"
+                        name={`answer${index}`}
+                        value={question.option1}
+                        onChange={() =>
+                          this.handleAnswerSelection(index, question.option1)
+                        }
+                      />
+                      {question.option1}
+                    </label>
+                    <label>
+                      <input
+                        type="radio"
+                        name={`answer${index}`}
+                        value={question.option2}
+                        onChange={() =>
+                          this.handleAnswerSelection(index, question.option2)
+                        }
+                      />
+                      {question.option2}
+                    </label>
+                    <label>
+                      <input
+                        type="radio"
+                        name={`answer${index}`}
+                        value={question.option3}
+                        onChange={() =>
+                          this.handleAnswerSelection(index, question.option3)
+                        }
+                      />
+                      {question.option3}
+                    </label>
+                    <label>
+                      <input
+                        type="radio"
+                        name={`answer${index}`}
+                        value={question.option4}
+                        onChange={() =>
+                          this.handleAnswerSelection(index, question.option4)
+                        }
+                      />
+                      {question.option4}
+                    </label>
+                  </div>
+                </div>
+              ))
+            ) : (
+              <div>
+                <MessageCard message="Please wait until the questions load" />
+              </div>
+            )}
+            {Array.isArray(questions) && questions.length > 0 && (
+              <button className="submit-button" onClick={this.submitExam}>
+                Submit Exam
+              </button>
+            )}
+          </form>
+        </div>
+        <footer className="examQuestionsFooter">
+          <p>&copy; 2023 SOFTWARE ENGINEERING WEBSITE</p>
+        </footer>
       </div>
     );
   }
