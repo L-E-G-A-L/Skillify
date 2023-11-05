@@ -38,7 +38,7 @@ class Assessments extends Component {
           {exams !== "No exams found" ? (
             <ul className="exam-list">
               {exams.map((exam, index) => (
-                <li key={index} className="exam">
+                <ul key={index} className="exam">
                   <h2>{exam.exam_name}</h2>
                   <p>Date: {exam.exam_date}</p>
                   <p>Duration: {exam.exam_duration}</p>
@@ -50,7 +50,7 @@ class Assessments extends Component {
                       Start Exam
                     </a>
                   </button>
-                </li>
+                </ul>
               ))}
             </ul>
           ) : (
