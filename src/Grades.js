@@ -2,11 +2,13 @@ import React from "react";
 import "./css/grades.css";
 import axios from "axios";
 import MessageCard from "./MessageCard";
+
 class Grades extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       grades: [],
+      loading: true,
     };
   }
 
@@ -20,7 +22,7 @@ class Grades extends React.Component {
       )
       .then((response) => {
         console.log(response.data);
-        this.setState({ grades: response.data });
+        this.setState({ grades: response.data, loading: false });
       });
   }
 
@@ -32,7 +34,9 @@ class Grades extends React.Component {
             <h1 className="gradesh1Class">My Grades</h1>
           </header>
           <div className="gradesContainer">
-            {this.state.grades.length > 0 ? (
+            {this.state.loading ? (
+              <p>Loading...</p>
+            ) : this.state.grades.length > 0 ? (
               <table className="gradesTableClass">
                 <thead>
                   <tr>
