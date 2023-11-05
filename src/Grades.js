@@ -13,8 +13,11 @@ class Grades extends React.Component {
   componentDidMount() {
     const searchParams = new URLSearchParams(window.location.search);
     const courseId = searchParams.get("course_id");
+    const userId = sessionStorage.getItem("userId");
     axios
-      .get(`https://sxt7404.uta.cloud/php/grades.php?course_id=${courseId}`)
+      .get(
+        `https://sxt7404.uta.cloud/php/grades.php?course_id=${courseId}&user_id=${userId}`
+      )
       .then((response) => {
         console.log(response.data);
         this.setState({ grades: response.data });

@@ -8,6 +8,7 @@ class Assessments extends Component {
     this.state = {
       exams: [],
       selectedExam: null,
+      courseId: null,
     };
   }
 
@@ -27,7 +28,7 @@ class Assessments extends Component {
     this.setState({ selectedExam: exam });
   };
   render() {
-    const { exams } = this.state;
+    const { exams, courseId } = this.state;
     return (
       <div>
         <header className="assessmentsHeaderClass">
@@ -43,7 +44,9 @@ class Assessments extends Component {
                   <p>Duration: {exam.exam_duration}</p>
                   <button onClick={() => this.startExam(exam)}>
                     {" "}
-                    <a href={`/exam-questions?exam_id=${exam.exam_id}`}>
+                    <a
+                      href={`/exam-questions?exam_id=${exam.exam_id}&course_id=${courseId}`}
+                    >
                       Start Exam
                     </a>
                   </button>
