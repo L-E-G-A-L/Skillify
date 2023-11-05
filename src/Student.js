@@ -26,11 +26,11 @@ class Student extends React.Component {
                   <i className="material-icons">notifications</i>
                 </a>
               </li>
-              <li className="studentNavULLi">
+              {/* <li className="studentNavULLi">
                 <a href="home" className="studentNavULLia">
                   <i className="material-icons">insert_drive_file</i>
                 </a>
-              </li>
+              </li> */}
               <li className="studentNavULLi">
                 <a href="profile" className="studentNavULLia">
                   <i className="material-icons">person</i>

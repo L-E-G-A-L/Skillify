@@ -52,7 +52,7 @@ app.listen(port, () => {
 app.post('/registerUser', (req, res) => {
   const { user_email, user_token } = req.body;
 
-  const verificationLink = `http://localhost:3000/verifyUser?token=${user_token}&email=${user_email}`;
+  const verificationLink = `https://axk6767.uta.cloud/verifyUser?token=${user_token}&email=${user_email}`;
   const mailOptions = {
     from: 'Group15.WDM@gmail.com',
     to: user_email,
@@ -76,7 +76,7 @@ app.post('/registerUser', (req, res) => {
 app.post('/resetPassword', (req, res) => {
   const { email, user_token } = req.body;
 
-  const verificationLink = `http://localhost:3000/resetPassword?token=${user_token}&email=${email}`;
+  const verificationLink = `https://axk6767.uta.cloud/resetPassword?token=${user_token}&email=${email}`;
   const mailOptions = {
     from: 'Group15.WDM@gmail.com',
     to: email,

@@ -43,7 +43,7 @@ export function QANav({ title, toggleInnerNav }) {
       <h1 className="qah1">{title}</h1>
       <ul className="qaul">
         <li className="qali">
-          <Link className="link" to="/qahome">
+          <Link className="link" to={sessionStorage.getItem("userRole") === "admin" ? "/admin" : "/qadashboard"}>
             <a className="qaa">Home</a>
           </Link>
         </li>

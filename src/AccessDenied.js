@@ -15,7 +15,7 @@ function AccessDenied() {
     } else if (userRole === "instructor") {
       navigation("/instructor");
     } else if (userRole === "qa") {
-      navigation("/qahome");
+      navigation("/qadashboard");
     } else {
       navigation("/");
     }
