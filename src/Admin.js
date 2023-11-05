@@ -4,8 +4,10 @@ import './Admin.css';
 import PermissionPopup from './PermissionPopup';
 import { onLogOut } from './GlobalFunctions';
 import ManageUserPopup from './ManageUserPopup';
+import { useNavigate  } from 'react-router-dom';
 
 function Admin() {
+  const navigation = useNavigate();
   const [showUserPopup, setShowUserPopup] = useState(false);
   const [showPermissionsPopup, setShowPermissionsPopup] = useState(false);
   const [showManageUserPopup, setShowManageUserPopup] = useState(false);
@@ -54,28 +56,28 @@ function Admin() {
               <button className='admin-btngrp-btn' onClick={() => openUserPopup('student')}>MANAGE STUDENTS</button>
               <button className='admin-btngrp-btn'>MANAGE COURSE</button>
               <button className='admin-btngrp-btn' onClick={() => openPermissionsPopup('student')}>MANAGE PERMISSIONS</button>
-              <button className='admin-btngrp-btn'>VIEW REPORTS</button>
-              <button className='admin-btngrp-btn'>VIEW PERFORMANCE</button>
+              {/* <button className='admin-btngrp-btn'>VIEW REPORTS</button> */}
+              <button className='admin-btngrp-btn'>CHAT</button>
             </div>
           </div>
           <div className="box">
             <h2 className="admin-box-h2">COORDINATOR</h2>
             <div className="button-group">
               <button className='admin-btngrp-btn' onClick={() => openUserPopup('pc')}>MANAGE COORDINATOR</button>
-              <button className='admin-btngrp-btn'>HANDLE COURSE</button>
+              <button className='admin-btngrp-btn' onClick={() => navigation('/pc')}>HANDLE COURSE</button>
               <button className='admin-btngrp-btn' onClick={() => openPermissionsPopup('pc')}>MANAGE PERMISSIONS</button>
-              <button className='admin-btngrp-btn'>ASSIGN STUDENTS</button>
-              <button className='admin-btngrp-btn'>REVIEWS</button>
+              {/* <button className='admin-btngrp-btn'>REVIEWS</button> */}
+              <button className='admin-btngrp-btn'>CHAT</button>
             </div>
           </div>
           <div className="box">
             <h2 className="admin-box-h2">QA-OFFICER</h2>
             <div className="button-group">
               <button className='admin-btngrp-btn' onClick={() => openUserPopup('qa')}>MANAGE QA-OFFICER</button>
-              <button className='admin-btngrp-btn'>ASSIGN COURSE</button>
+              <button className='admin-btngrp-btn' onClick={() => navigation('/qadashboard')}>ASSIGN COURSE</button>
               <button className='admin-btngrp-btn' onClick={() => openPermissionsPopup('qa')}>HANDLE PERMISSIONS</button>
-              <button className='admin-btngrp-btn'>REPORTS</button>
-              <button className='admin-btngrp-btn'>PERFORMANCE</button>
+              {/* <button className='admin-btngrp-btn'>REPORTS</button> */}
+              <button className='admin-btngrp-btn'>CHAT</button>
             </div>
           </div>
         </div>

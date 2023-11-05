@@ -33,7 +33,7 @@ function Login() {
           } else if (user.role === 'instructor') {
             navigation('/instructor');
           } else if (user.role === 'qa') {
-            navigation('/qahome');
+            navigation('/qadashboard');
           }
         } else if(response.data.error) {
           setError(true);
