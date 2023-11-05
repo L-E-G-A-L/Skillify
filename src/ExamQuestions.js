@@ -48,11 +48,12 @@ class ExamQuestions extends Component {
     const searchParams = new URLSearchParams(window.location.search);
     const exam_id = searchParams.get("exam_id");
     const user_id = sessionStorage.getItem("userId");
+    const course_id = searchParams.get("course_id");
     axios
       .post("https://sxt7404.uta.cloud/php/submitted_answers.php", {
         exam_id: exam_id,
         user_id: user_id,
-        course_id: 1,
+        course_id: course_id,
         user_responses: userResponses,
       })
       .then((response) => {
