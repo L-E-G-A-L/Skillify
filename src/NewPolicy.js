@@ -27,7 +27,7 @@ function NewPolicy() {
     } else if (policyDescription.length === 0) {
       alert("Policy Decription should not be blank!");
     } else {
-      const url = "http://localhost/create_policy.php";
+      const url = "https://sxt7404.uta.cloud/php/create_policy.php";
 
       let fData = new FormData();
       fData.append("name", policyName);

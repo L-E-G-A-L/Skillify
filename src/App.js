@@ -180,14 +180,10 @@ function App() {
           <Route path="/viewAllAnnouncements" element={<Navigate to="/nda" />} />
         )}
         
-        {userRole !== null || userRole !== "student" ? (
-             <Route
+        <Route
              path="/coursemodules"
-             element={<ViewAllAnnouncements />}
+             element={<CourseModules />}
            />
-        ) : (
-          <Route path="/coursemodules" element={<Navigate to="/nda" />} />
-        )}
 
         {userRole !== null ? (
              <Route path="/assessments" element={<Assessments />} />
@@ -211,16 +207,6 @@ function App() {
             <Route path="/studentchat" element={<StudentChat />} />
         ) : (
           <Route path="/studentchat" element={<Navigate to="/nda" />} />
-        )}
-
-
-        {userRole !== null || userRole !== "student" ? (
-             <Route
-             path="/coursemodules"
-             element={<ViewAllAnnouncements />}
-           />
-        ) : (
-          <Route path="/coursemodules" element={<Navigate to="/nda" />} />
         )}
         
         {userRole === "admin" || userRole === "pc" ? (
@@ -296,8 +282,6 @@ function App() {
         ) : (
           <Route path="/course/:id" element={<Navigate to="/nda" />} />
         )}
-        
-        <Route path="/course/:id" element={<CourseDetail />} />
 
         <Route path="/nda" element={<AccessDenied />} />
       </Routes>

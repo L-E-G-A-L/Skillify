@@ -33,7 +33,7 @@ function Instructor() {
   const fetchCreateExamCourseNames = async () => {
     try {
       const response = await fetch(
-        "http://localhost/CreateExam.php?getCourseNames=true"
+        "https://sxt7404.uta.cloud/php/CreateExam.php?getCourseNames=true"
       );
       if (response.ok) {
         const data = await response.json();
@@ -56,7 +56,7 @@ function Instructor() {
   const fetchCourseNames = async () => {
     try {
       const response = await fetch(
-        "http://localhost/course_operations.php?getCourseNames=true"
+        "https://sxt7404.uta.cloud/php/course_operations.php?getCourseNames=true"
       );
       if (response.ok) {
         const data = await response.json();
@@ -78,7 +78,7 @@ function Instructor() {
   const fetchExams = async () => {
     try {
       const response = await fetch(
-        "http://localhost/CreateExam.php?getExams=true"
+        "https://sxt7404.uta.cloud/php/CreateExam.php?getExams=true"
       );
       if (response.ok) {
         const data = await response.json();

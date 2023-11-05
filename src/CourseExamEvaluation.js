@@ -24,7 +24,7 @@ function CourseExams() {
                     <li className="exam-item">{entry.examName}{' '}
                     <a
                   href="/form" // Replace with your Google Forms link
-                  target="_blank"
+                  // target="_blank"
                   className="form-link"
                 >
                   Click here for Evaluation form
