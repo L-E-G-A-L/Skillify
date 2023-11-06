@@ -45,6 +45,14 @@ section {
   border-radius: 5px;
   transition: background-color 0.3s, color 0.3s;
 }
+.disinst{
+  background-color: #011558;
+  color: #fff;
+  padding: 5px 20px;
+  border: 2px solid #fff;
+  border-radius: 5px;
+  transition: background-color 0.3s, color 0.3s
+}
 .disnav .link {
   border-radius: 2px;
   text-decoration: none;
@@ -80,7 +88,7 @@ section {
   display: block;
 }
 
-.delete-button {
+.delete-button-dis {
   color: red;
   cursor: pointer;
 }

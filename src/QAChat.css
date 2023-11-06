@@ -6,8 +6,8 @@ Tadivaka, Sai Swetha (1002112726)
 Tallapelli, Sai Charan (1002073449)*/
 
 body {
-  margin: 0 !important;
-  padding: 0 !important;
+  margin: 0;
+  padding: 0;
 }
 
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,700");
@@ -90,10 +90,11 @@ body {
 }
 
 .message_content {
-  background-color: #fff;
-  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
   padding: 10px;
   max-width: 100%;
+  overflow-x: hidden;
 }
 
 .message-meta {
@@ -109,12 +110,14 @@ body {
 }
 
 #you .message_content {
+  border-radius: 20px 20px 0px 20px;
   background-color: #43a047; /* Green background color */
   color: white;
-  justify-content: flex-end;
+  justify-content: flex-end !important;
 }
 
 #other .message_content {
+  border-radius: 20px 20px 20px 0px;
   background-color: #1976d2; /* Blue background color */
   color: white;
   justify-content: flex-start;
