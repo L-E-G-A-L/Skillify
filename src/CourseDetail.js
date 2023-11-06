@@ -65,17 +65,11 @@ function CourseDetail() {
   return (
     <div>
       <div className="Instructor-topnav">
-        <a className="Instructor-right Instructor-a" href="#">
-          Notifications
-        </a>
-        <a className="Instructor-right Instructor-a" href="#">
-          Files
+        <a className="Instructor-right Instructor-a" href="/instructor">
+          Instructor_Page
         </a>
         <a className="Instructor-right Instructor-a" href="profile">
           Profile
-        </a>
-        <a className="Instructor-right Instructor-a" href="#">
-          Settings
         </a>
         <a className="Instructor-right Instructor-a" href="login">
           Sign Out
@@ -117,6 +111,9 @@ function CourseDetail() {
           )}
         </div>
       )}
+      <footer className="Instructor-footer">
+        <p>&copy; 2023 INSTRUCTOR-PAGE</p>
+      </footer>
     </div>
   );
 }

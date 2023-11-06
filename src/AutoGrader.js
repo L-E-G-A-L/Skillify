@@ -72,6 +72,19 @@ function AutoGrader() {
 
   return (
     <div>
+      <div className="Instructor-topnav">
+        <a className="Instructor-right Instructor-a" href="/instructor">
+          Instructor_Page
+        </a>
+        
+        <a className="Instructor-right Instructor-a" href="profile">
+          Profile
+        </a>
+        
+        <a className="Instructor-right Instructor-a" href="login">
+          Sign Out
+        </a>
+      </div>
       <h1>Auto Grade Students</h1>
       {responses.length > 0 ? (
         <table className="bordered-table">
@@ -125,6 +138,9 @@ function AutoGrader() {
           </ul>
         </div>
       )}
+      <footer className="Instructor-footer">
+        <p>&copy; 2023 INSTRUCTOR-PAGE</p>
+      </footer>
     </div>
   );
 }

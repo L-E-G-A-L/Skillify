@@ -6,13 +6,15 @@ function CreateExam() {
   const { id } = useParams();
   const [examId, setExamId] = useState("");
   const [examName, setExamName] = useState("");
+  const [examDate, setExamDate] = useState(""); // New state for "Exam Date"
+  const [examDuration, setExamDuration] = useState(""); // New state for "Exam Duration"
   const [questions, setQuestions] = useState([]);
   const [newQuestion, setNewQuestion] = useState("");
   const [newOption1, setNewOption1] = useState("");
   const [newOption2, setNewOption2] = useState("");
   const [newOption3, setNewOption3] = useState("");
   const [newOption4, setNewOption4] = useState("");
-  const [newActualResponse, setNewActualResponse] = useState(""); // New state for "Actual Response"
+  const [newActualResponse, setNewActualResponse] = useState("");
 
   const addQuestion = () => {
     if (newQuestion.trim() !== "") {
@@ -20,7 +22,7 @@ function CreateExam() {
         question_id: questions.length + 1,
         text: `Question ${questions.length + 1}: ${newQuestion}`,
         options: [newOption1, newOption2, newOption3, newOption4],
-        actualResponse: newActualResponse, // Include "Actual Response"
+        actualResponse: newActualResponse,
       };
 
       setQuestions((prevQuestions) => [...prevQuestions, question]);
@@ -30,7 +32,7 @@ function CreateExam() {
       setNewOption2("");
       setNewOption3("");
       setNewOption4("");
-      setNewActualResponse(""); // Clear "Actual Response" input
+      setNewActualResponse("");
     }
   };
 
@@ -51,19 +53,20 @@ function CreateExam() {
   const publishExam = () => {
     const examData = {
       exam_id: examId,
-      course_id: id, // Use the course ID from the URL parameters
+      course_id: id,
       exam_name: examName,
+      exam_date: examDate, // Include "Exam Date"
+      exam_duration: examDuration, // Include "Exam Duration"
       questions: questions.map((question) => ({
-        // question_id: question.question_id,
         question_text: question.text,
         option1: question.options[0],
         option2: question.options[1],
         option3: question.options[2],
         option4: question.options[3],
-        actual_response: question.actualResponse, // Include "Actual Response"
+        actual_response: question.actualResponse,
       })),
     };
-    console.log(examData);
+
     axios
       .post("https://sxt7404.uta.cloud/php/CreateExam.php", examData, {
         headers: {
@@ -72,8 +75,6 @@ function CreateExam() {
       })
       .then((response) => {
         console.log("Exam published:", response.data);
-        // You can perform further actions here if needed
-        // Show a success message using a simple alert
         window.alert("Exam published successfully!");
       })
       .catch((error) => {
@@ -82,9 +83,23 @@ function CreateExam() {
   };
 
   return (
+    
     <div>
+       <div className="Instructor-topnav">
+        <a className="Instructor-right Instructor-a" href="/instructor">
+          Instructor_Page
+        </a>
+        
+        <a className="Instructor-right Instructor-a" href="profile">
+          Profile
+        </a>
+        
+        <a className="Instructor-right Instructor-a" href="login">
+          Sign Out
+        </a>
+        </div>
       <h1>Create Exam</h1>
-      <h2>For course_id :{id}</h2>
+      <h2>For course_id: {id}</h2>
       <div>
         <input
           type="text"
@@ -97,6 +112,18 @@ function CreateExam() {
           placeholder="Enter Exam Name"
           value={examName}
           onChange={(e) => setExamName(e.target.value)}
+        />
+        <input
+          type="text"
+          placeholder="Enter Exam Date"
+          value={examDate}
+          onChange={(e) => setExamDate(e.target.value)}
+        />
+        <input
+          type="text"
+          placeholder="Enter Exam Duration"
+          value={examDuration}
+          onChange={(e) => setExamDuration(e.target.value)}
         />
       </div>
 
@@ -176,6 +203,9 @@ function CreateExam() {
         <button onClick={addQuestion}>Add Question</button>
       </div>
       <button onClick={publishExam}>Publish</button>
+      <footer className="Instructor-footer">
+        <p>&copy; 2023 INSTRUCTOR-PAGE</p>
+      </footer>
     </div>
   );
 }
