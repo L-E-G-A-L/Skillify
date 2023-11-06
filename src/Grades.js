@@ -42,6 +42,7 @@ class Grades extends React.Component {
                   <tr>
                     <th className="gradesTh">Exam #</th>
                     <th className="gradesTh">Grade</th>
+                    <th className="gradesTh">Feedback</th>
                   </tr>
                 </thead>
                 <tbody className="gradesTableTbody">
@@ -49,6 +50,7 @@ class Grades extends React.Component {
                     <tr key={index} className="gradesTableTbodytr">
                       <td className="gradesTd">{grade.exam_name}</td>
                       <td className="gradesTd">{grade.grade}</td>
+                      <td className="gradesTd">{grade.feedback}</td>
                     </tr>
                   ))}
                 </tbody>
