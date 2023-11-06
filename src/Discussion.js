@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import "./Discussion.css";
+import { useNavigate } from 'react-router-dom';
+import "./QAChat.css";
 import { Footer, QANav } from "./QADash";
 import { Link } from "react-router-dom";
 
@@ -23,6 +25,13 @@ function DiscussionForum() {
   );
 }
 function InnerNav() {
+  const navigate = useNavigate();
+  const [showChat, setShowChat] = useState(false);
+
+  const handleChatButtonClick = () => {
+    navigate('/persona');
+    setShowChat(true);
+  };
   return (
     <nav className="disnav">
       <ul className="disul">
@@ -32,9 +41,7 @@ function InnerNav() {
           </Link>
         </li>
         <li className="disli">
-          <a className="disa" href="#">
-            Instructor
-          </a>
+        <a className="disa" onClick={handleChatButtonClick}>Instructor</a>
         </li>
         <li className="disli">
           <a className="disa" href="#">
@@ -60,7 +67,7 @@ function StudentContent() {
         <div className="discussion-content">
           <p className="disp">This is the content of Discussion 1.</p>
         </div>
-        <span className="delete-button">Delete</span>
+        <span className="delete-button-dis">Delete</span>
       </div>
       <div className="discussion">
         <input type="checkbox" id="discussion2" />
@@ -68,7 +75,7 @@ function StudentContent() {
         <div className="discussion-content">
           <p className="disp">This is the content of Discussion 2.</p>
         </div>
-        <span className="delete-button">Delete</span>
+        <span className="delete-button-dis">Delete</span>
       </div>
     </section>
   );
