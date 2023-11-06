@@ -36,7 +36,7 @@ function AutoGrader() {
 
   const handlePublishResult = (userId, courseId, examId, feedbackText) => {
     axios
-      .post("http://localhost/publishExamResult.php", {
+      .post("https://sxt7404.uta.cloud/php/publishExamResult.php", {
         user_id: userId,
         course_id: courseId,
         exam_id: examId,
@@ -75,11 +75,11 @@ function AutoGrader() {
         <a className="Instructor-right Instructor-a" href="/instructor">
           Instructor_Page
         </a>
-        
+
         <a className="Instructor-right Instructor-a" href="profile">
           Profile
         </a>
-        
+
         <a className="Instructor-right Instructor-a" href="login">
           Sign Out
         </a>
