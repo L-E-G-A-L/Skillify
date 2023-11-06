@@ -111,18 +111,14 @@ function Instructor() {
   return (
     <div>
       <div className="Instructor-topnav">
-        <a className="Instructor-right Instructor-a" href="#">
-          Notifications
+        <a className="Instructor-right Instructor-a" href="/instructor">
+          Instructor_Page
         </a>
-        <a className="Instructor-right Instructor-a" href="#">
-          Files
-        </a>
+        
         <a className="Instructor-right Instructor-a" href="profile">
           Profile
         </a>
-        <a className="Instructor-right Instructor-a" href="#">
-          Settings
-        </a>
+        
         <a className="Instructor-right Instructor-a" href="login">
           Sign Out
         </a>
