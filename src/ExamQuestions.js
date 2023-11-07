@@ -22,7 +22,7 @@ class ExamQuestions extends Component {
     const exam_duration = searchParams.get("exam_duration");
 
     if (!isNaN(exam_duration)) {
-      this.setState({ timer: exam_duration * 60 }); // Convert minutes to seconds
+      this.setState({ timer: exam_duration * 60 });
       this.fetchQuestions(exam_id);
       this.timerInterval = setInterval(this.updateTimer, 1000);
     } else {
