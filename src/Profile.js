@@ -121,7 +121,7 @@ function Profile() {
       </div>
       <div className="profile-container">
         <img src="profilepic.png" alt="User Profile Picture" />
-        <h1 className='profile-h1'>User Name</h1>
+        <h1 className='profile-h1'>{userData.user_name}</h1>
         <div className="profile-details">
           <div className="form-group">
             <label className='profile-label' htmlFor="full-name">Full Name:</label>

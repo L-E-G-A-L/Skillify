@@ -1,7 +1,20 @@
 import React, { useState, useEffect } from 'react';
 import './CourseExamEvaluation.css';
+import { Footer, QANav } from "./QADash";
 
 function CourseExams() {
+  return (
+    <html lang="en">
+      <body className="repbody">
+        <QANav title="Audit" />
+        <CourseandExam />
+        <Footer />
+      </body>
+    </html>
+  );
+}
+
+function CourseandExam() {
     const [courseData, setCourseData] = useState([]);
   
     useEffect(() => {

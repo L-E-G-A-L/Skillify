@@ -54,7 +54,7 @@ function Admin() {
             <h2 className="admin-box-h2">STUDENT</h2>
             <div className="button-group">
               <button className='admin-btngrp-btn' onClick={() => openUserPopup('student')}>MANAGE STUDENTS</button>
-              <button className='admin-btngrp-btn'>MANAGE COURSE</button>
+              <button className='admin-btngrp-btn' onClick={() => navigation('/reports')}>VIEW REPORTS</button>
               <button className='admin-btngrp-btn' onClick={() => openPermissionsPopup('student')}>MANAGE PERMISSIONS</button>
               {/* <button className='admin-btngrp-btn'>VIEW REPORTS</button> */}
               <button className='admin-btngrp-btn'>CHAT</button>
