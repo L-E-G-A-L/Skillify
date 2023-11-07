@@ -51,6 +51,9 @@ Tallapelli, Sai Charan (1002073449)*/
   min-height: 100vh;
 }
 
+.submissionContainer {
+  min-height: 100vh;
+}
 .question-container {
   margin: 20px 0;
   background-color: #f9f9f9;
