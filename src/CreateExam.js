@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { useParams } from 'react-router-dom';
+import { useParams } from "react-router-dom";
 
 function CreateExam() {
   const { id } = useParams();
@@ -57,6 +57,7 @@ function CreateExam() {
       exam_name: examName,
       exam_date: examDate, // Include "Exam Date"
       exam_duration: examDuration, // Include "Exam Duration"
+      user_id: sessionStorage.getItem("userId"),
       questions: questions.map((question) => ({
         question_text: question.text,
         option1: question.options[0],
@@ -66,7 +67,6 @@ function CreateExam() {
         actual_response: question.actualResponse,
       })),
     };
-
     axios
       .post("https://sxt7404.uta.cloud/php/CreateExam.php", examData, {
         headers: {
@@ -83,21 +83,20 @@ function CreateExam() {
   };
 
   return (
-    
     <div>
-       <div className="Instructor-topnav">
+      <div className="Instructor-topnav">
         <a className="Instructor-right Instructor-a" href="/instructor">
           Instructor_Page
         </a>
-        
+
         <a className="Instructor-right Instructor-a" href="profile">
           Profile
         </a>
-        
+
         <a className="Instructor-right Instructor-a" href="login">
           Sign Out
         </a>
-        </div>
+      </div>
       <h1>Create Exam</h1>
       <h2>For course_id: {id}</h2>
       <div>
