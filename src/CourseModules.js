@@ -2,10 +2,12 @@ import React, { Component } from "react";
 import "./css/courseModules.css";
 import axios from "axios";
 import MessageCard from "./MessageCard";
+import CourseContent from "./CourseContent"; // Import the CourseContent component
 
 class CourseModules extends Component {
   state = {
     modules: [],
+    selectedModuleContent: "",
   };
 
   componentDidMount() {
@@ -21,34 +23,21 @@ class CourseModules extends Component {
       });
   }
 
-  openModuleContentInNewTab = (module) => {
-    const moduleContent = module.courseModuleContent;
-    const newTab = window.open("", "_blank");
-
-    newTab.document.open();
-    newTab.document.write(`
-      <html>
-      <head>
-        <title>Module Content</title>
-      </head>
-      <body>
-        ${moduleContent}
-      </body>
-      </html>
-    `);
-    newTab.document.close();
-    const downloadLink = newTab.document.createElement("a");
-    downloadLink.href = `data:text/plain;charset=utf-8,${encodeURIComponent(
-      moduleContent
-    )}`;
-    downloadLink.download = "module_content.txt";
-    downloadLink.textContent = "Download";
-    newTab.document.body.appendChild(downloadLink);
+  openModuleContent = (module) => {
+    this.setState({
+      selectedModuleContent: module.courseModuleContent,
+      selectedModuleName: module.courseModuleName,
+      selectedCourseModuleDescription: module.courseModuleDescription,
+    });
   };
 
   render() {
-    const { modules } = this.state;
-    console.log("modules:", modules);
+    const {
+      modules,
+      selectedModuleContent,
+      selectedModuleName,
+      selectedCourseModuleDescription,
+    } = this.state;
 
     return (
       <div>
@@ -58,16 +47,19 @@ class CourseModules extends Component {
         <div className="courseModulesContainer">
           {modules === "No course modules found" ? (
             <MessageCard message="The instructor has not yet posted the content for this course. Please check again later." />
+          ) : selectedModuleContent ? (
+            <CourseContent
+              content={selectedModuleContent}
+              moduleName={selectedModuleName}
+              moduleDescription={selectedCourseModuleDescription}
+            />
           ) : (
             <ul className="module-list">
               {modules.map((module) => (
                 <li className="module" key={module.id}>
                   <h2>{module.courseModuleName}</h2>
                   <p>{module.courseModuleDescription}</p>
-                  <a
-                    href="#"
-                    onClick={() => this.openModuleContentInNewTab(module)}
-                  >
+                  <a href="#" onClick={() => this.openModuleContent(module)}>
                     View Notes
                   </a>
                 </li>

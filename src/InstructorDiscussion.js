@@ -29,16 +29,11 @@ function InstructorDiscussion() {
             </li>
             <li className="id-li">
             <a href="#" className="id-a">
-                QA Officer
+                Admin
               </a>
             </li>
             <li className="id-li">
-            <div className="xxx">
-                {!showChat && (<div className="yyy">
-                <button className="id-a" onClick={handleChatButtonClick}>Admin</button>
-              </div>
-                )}
-              </div>
+                <a className="id-a" onClick={handleChatButtonClick}>QA Officer</a>
             </li>
             <li className="id-li">
               <a href="#" className="id-a">

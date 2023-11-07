@@ -5,10 +5,9 @@ function AutoGrader() {
   const [responses, setResponses] = useState([]);
   const [grades, setGrades] = useState([]);
   const [gradingInProgress, setGradingInProgress] = useState(false);
-  // const [feedback, setFeedback] = useState({});
+  const [feedbackText, setFeedbackText] = useState({}); // New state for feedback text
 
   useEffect(() => {
-    // Fetch exam responses
     axios
       .get("https://sxt7404.uta.cloud/php/grader.php")
       .then((response) => {
@@ -35,29 +34,22 @@ function AutoGrader() {
       });
   };
 
-  // const handleFeedbackChange = (userId, courseId, examId, event) => {
-  //   const { value } = event.target;
-  //   const feedbackKey = `${userId}-${courseId}-${examId}`;
-  //   setFeedback({
-  //     ...feedback,
-  //     [feedbackKey]: value,
-  //   });
-  // };
+  const handlePublishResult = (userId, courseId, examId, feedbackText) => {
+    axios
+      .post("https://sxt7404.uta.cloud/php/publishExamResult.php", {
+        user_id: userId,
+        course_id: courseId,
+        exam_id: examId,
+        feedback: feedbackText,
+      })
+      .then((response) => {
+        console.log("====>", response.data);
+      })
+      .catch((error) => {
+        console.error("Error publishing feedback:", error);
+      });
 
-  const handlePublishResult = (userId, courseId, examId) => {
-    // Send the result (user_id, course_id, exam_id, grade, and feedback) to your result table
-    // const feedbackKey = `${userId}-${courseId}-${examId}`;
-    // const feedbackText = feedback[feedbackKey];
-    const grade = grades.find((grade) => grade.user_id === userId && grade.course_id === courseId && grade.exam_id === examId);
-
-    // Make an API call to send the result to your server here
-    // You can use Axios or any other method you prefer
-
-    // After successfully sending the result, you can clear the input
-    // setFeedback({
-    //   ...feedback,
-    //   [feedbackKey]: "",
-    // });
+    clearFeedbackForUser(userId);
   };
 
   // Group responses by unique user, course, and exam combinations
@@ -70,10 +62,30 @@ function AutoGrader() {
     return acc;
   }, {});
 
+  const clearFeedbackForUser = (userId) => {
+    setFeedbackText((prevFeedbackText) => ({
+      ...prevFeedbackText,
+      [userId]: "",
+    }));
+  };
+
   return (
     <div>
+      <div className="Instructor-topnav">
+        <a className="Instructor-right Instructor-a" href="/instructor">
+          Instructor_Page
+        </a>
+
+        <a className="Instructor-right Instructor-a" href="profile">
+          Profile
+        </a>
+
+        <a className="Instructor-right Instructor-a" href="login">
+          Sign Out
+        </a>
+      </div>
       <h1>Auto Grade Students</h1>
-      {responses.length > 0 ? (
+      {responses && responses.length > 0 ? (
         <table className="bordered-table">
           <thead>
             <tr>
@@ -102,21 +114,35 @@ function AutoGrader() {
       ) : (
         <button onClick={calculateAllGrades}>Grade All</button>
       )}
-      {grades.length > 0 && (
+      {grades && grades.length > 0 && (
         <div>
           <h2>Grades</h2>
           <ul>
-            {grades.map((grade, index) => (
-              <li key={index}>
+            {grades.map((grade) => (
+              <li key={grade.user_id}>
                 {`User ID: ${grade.user_id}, Course ID: ${grade.course_id}, Exam ID: ${grade.exam_id} - Grade: ${grade.grade}`}
                 <div>
-                  {/* <p>Feedback:</p>
-                  <textarea
-                    name="feedbackText"
-                    value={feedback[`${grade.user_id}-${grade.course_id}-${grade.exam_id}`] || ""}
-                    onChange={(e) => handleFeedbackChange(grade.user_id, grade.course_id, grade.exam_id, e)}
-                  /> */}
-                  <button onClick={() => handlePublishResult(grade.user_id, grade.course_id, grade.exam_id)}>
+                  <input
+                    type="text"
+                    value={feedbackText[grade.user_id] || ""}
+                    onChange={(e) =>
+                      setFeedbackText({
+                        ...feedbackText,
+                        [grade.user_id]: e.target.value,
+                      })
+                    }
+                    placeholder="Enter feedback"
+                  />
+                  <button
+                    onClick={() =>
+                      handlePublishResult(
+                        grade.user_id,
+                        grade.course_id,
+                        grade.exam_id,
+                        feedbackText[grade.user_id]
+                      )
+                    }
+                  >
                     Publish
                   </button>
                 </div>
@@ -125,6 +151,9 @@ function AutoGrader() {
           </ul>
         </div>
       )}
+      <footer className="Instructor-footer">
+        <p>&copy; 2023 INSTRUCTOR-PAGE</p>
+      </footer>
     </div>
   );
 }

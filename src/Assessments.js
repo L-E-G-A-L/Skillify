@@ -8,6 +8,7 @@ class Assessments extends Component {
     this.state = {
       exams: [],
       selectedExam: null,
+      courseId: null,
     };
   }
 
@@ -27,7 +28,7 @@ class Assessments extends Component {
     this.setState({ selectedExam: exam });
   };
   render() {
-    const { exams } = this.state;
+    const { exams, courseId } = this.state;
     return (
       <div>
         <header className="assessmentsHeaderClass">
@@ -37,17 +38,19 @@ class Assessments extends Component {
           {exams !== "No exams found" ? (
             <ul className="exam-list">
               {exams.map((exam, index) => (
-                <li key={index} className="exam">
+                <ul key={index} className="exam">
                   <h2>{exam.exam_name}</h2>
                   <p>Date: {exam.exam_date}</p>
                   <p>Duration: {exam.exam_duration}</p>
                   <button onClick={() => this.startExam(exam)}>
                     {" "}
-                    <a href={`/exam-questions?exam_id=${exam.exam_id}`}>
+                    <a
+                      href={`/exam-questions?exam_id=${exam.exam_id}&course_id=${courseId}`}
+                    >
                       Start Exam
                     </a>
                   </button>
-                </li>
+                </ul>
               ))}
             </ul>
           ) : (

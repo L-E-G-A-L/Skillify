@@ -3,12 +3,7 @@ import "./Instructor.css";
 import "./CourseDetail.css";
 import ChatComponent from "./StudentChatbot";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faPencil,
-  faTrash,
-  faAngleDown,
-  faAngleUp,
-} from "@fortawesome/free-solid-svg-icons";
+import { faAngleDown, faAngleUp } from "@fortawesome/free-solid-svg-icons";
 
 function Instructor() {
   const [isOpen, setIsOpen] = useState(false);
@@ -100,28 +95,14 @@ function Instructor() {
     fetchExams();
   }, []);
 
-  function handlePencilClick() {
-    console.log("Pencil icon clicked");
-  }
-
-  function handleTrashClick() {
-    console.log("Trash icon clicked");
-  }
-
   return (
     <div>
       <div className="Instructor-topnav">
-        <a className="Instructor-right Instructor-a" href="#">
-          Notifications
-        </a>
-        <a className="Instructor-right Instructor-a" href="#">
-          Files
+        <a className="Instructor-right Instructor-a" href="/instructor">
+          Instructor_Page
         </a>
         <a className="Instructor-right Instructor-a" href="profile">
           Profile
-        </a>
-        <a className="Instructor-right Instructor-a" href="#">
-          Settings
         </a>
         <a className="Instructor-right Instructor-a" href="login">
           Sign Out
@@ -129,17 +110,13 @@ function Instructor() {
       </div>
 
       <div className="Instructor-button-group">
-        <div
-          className={`Instructor-dropdown ${isCreateExamOpen ? "open" : ""}`}
-        >
+        <div className={`Instructor-dropdown ${isCreateExamOpen ? "open" : ""}`}>
           <button
             className="Instructor-button"
             onClick={toggleCreateExamDropdown}
           >
             {selectedCourse || "Create Exams"}{" "}
-            <FontAwesomeIcon
-              icon={isCreateExamOpen ? faAngleUp : faAngleDown}
-            />
+            <FontAwesomeIcon icon={isCreateExamOpen ? faAngleUp : faAngleDown} />
           </button>
           {isCreateExamOpen && (
             <ul className="Instructor-courses-menu">
@@ -157,7 +134,7 @@ function Instructor() {
           )}
         </div>
         <a href="/AutoGrader" className="Instructor-a">
-        <button className="Instructor-button">Grade Students</button>
+          <button className="Instructor-button">Grade Students</button>
         </a>
 
         <div className={`Instructor-dropdown ${isOpen ? "open" : ""}`}>
@@ -193,7 +170,7 @@ function Instructor() {
             <th className="Instructor-th">Course ID</th>
             <th className="Instructor-th">Course Name</th>
             <th className="Instructor-th">Course Description</th>
-            <th className="Instructor-th">Edit/Delete</th>
+            {/* Remove the Edit/Delete column */}
           </tr>
         </thead>
         <tbody>
@@ -202,23 +179,7 @@ function Instructor() {
               <td className="Instructor-td">{course.course_id}</td>
               <td className="Instructor-td">{course.course_name}</td>
               <td className="Instructor-td">{course.course_description}</td>
-              <td className="Instructor-td">
-                <button
-                  className="Instructor-button"
-                  onClick={handlePencilClick}
-                >
-                  <FontAwesomeIcon
-                    icon={faPencil}
-                    className="fa fa-pencil-square-o"
-                  />
-                </button>
-                <button
-                  className="Instructor-button"
-                  onClick={handleTrashClick}
-                >
-                  <FontAwesomeIcon icon={faTrash} className="fa fa-trash-o" />
-                </button>
-              </td>
+              {/* Remove the Edit and Delete buttons */}
             </tr>
           ))}
         </tbody>
@@ -233,7 +194,7 @@ function Instructor() {
                 <th className="Instructor-th">Course ID</th>
                 <th className="Instructor-th">Exam ID</th>
                 <th className="Instructor-th">Exam Name</th>
-                <th className="Instructor-th">Edit/Delete</th>
+                {/* Remove the Edit/Delete column */}
               </tr>
             </thead>
             <tbody>
@@ -242,26 +203,7 @@ function Instructor() {
                   <td className="Instructor-td">{exam.course_id}</td>
                   <td className="Instructor-td">{exam.exam_id}</td>
                   <td className="Instructor-td">{exam.exam_name}</td>
-                  <td className="Instructor-td">
-                    <button
-                      className="Instructor-button"
-                      onClick={handlePencilClick}
-                    >
-                      <FontAwesomeIcon
-                        icon={faPencil}
-                        className="fa fa-pencil-square-o"
-                      />
-                    </button>
-                    <button
-                      className="Instructor-button"
-                      onClick={handleTrashClick}
-                    >
-                      <FontAwesomeIcon
-                        icon={faTrash}
-                        className="fa fa-trash-o"
-                      />
-                    </button>
-                  </td>
+                  {/* Remove the Edit and Delete buttons */}
                 </tr>
               ))}
             </tbody>
@@ -277,7 +219,7 @@ function Instructor() {
             <th className="Instructor-th">Student Name</th>
             <th className="Instructor-th">Exam Name</th>
             <th className="Instructor-th">Score</th>
-            <th className="Instructor-th">Edit Feedback</th>
+            {/* Remove the Edit Feedback column */}
           </tr>
         </thead>
         <tbody>
@@ -286,48 +228,12 @@ function Instructor() {
             <td className="Instructor-td">Steve Smith</td>
             <td className="Instructor-td">Midterm Exam</td>
             <td className="Instructor-td">85</td>
-            <td className="Instructor-td">
-              <button className="Instructor-button" onClick={handlePencilClick}>
-                <FontAwesomeIcon
-                  icon={faPencil}
-                  className="fa fa-pencil-square-o"
-                />
-              </button>
-              <button className="Instructor-button" onClick={handleTrashClick}>
-                <FontAwesomeIcon icon={faTrash} className="fa fa-trash-o" />
-              </button>
-            </td>
+            {/* Remove the Edit Feedback buttons */}
           </tr>
         </tbody>
       </table>
 
-      <table className="Instructor-table">
-        <caption className="Instructor-caption">Progress Tracking</caption>
-        <thead>
-          <tr>
-            <th className="Instructor-th">Sr.</th>
-            <th className="Instructor-th">Student Name</th>
-            <th className="Instructor-th">View/Edit Progress</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td className="Instructor-td">1</td>
-            <td className="Instructor-td">Steve Smith</td>
-            <td className="Instructor-td">
-              <button className="Instructor-button" onClick={handlePencilClick}>
-                <FontAwesomeIcon
-                  icon={faPencil}
-                  className="fa fa-pencil-square-o"
-                />
-              </button>
-              <button className="Instructor-button" onClick={handleTrashClick}>
-                <FontAwesomeIcon icon={faTrash} className="fa fa-trash-o" />
-              </button>
-            </td>
-          </tr>
-        </tbody>
-      </table>
+      
 
       <div className="chat">
         <ChatComponent />

@@ -2,9 +2,11 @@ import React from "react";
 import "./css/announcements.css";
 import axios from "axios";
 import MessageCard from "./MessageCard";
+
 class Announcements extends React.Component {
   state = {
     announcements: [],
+    loading: true,
   };
 
   componentDidMount() {
@@ -17,9 +19,10 @@ class Announcements extends React.Component {
       )
       .then((response) => {
         console.log(response.data);
-        this.setState({ announcements: response.data });
+        this.setState({ announcements: response.data, loading: false });
       });
   }
+
   render() {
     return (
       <div>
@@ -29,7 +32,6 @@ class Announcements extends React.Component {
               <li className="announcementNavLiClass">
                 <a href="announcements" className="announcementNavLiaClass">
                   <i className="material-icons">notifications</i>
-                  <span className="notification-badge">2</span>
                 </a>
               </li>
               <li>
@@ -51,10 +53,12 @@ class Announcements extends React.Component {
           </nav>
         </header>
         <div className="announcementContainer">
-          {this.state.announcements.length > 0 ? (
-            this.state.announcements.map((announcement) => (
+          {this.state.loading ? (
+            <p>Loading...</p>
+          ) : this.state.announcements.length > 0 ? (
+            this.state.announcements.map((announcement, index) => (
               <div className="announcement" key={announcement.announcement_id}>
-                <h2>Announcement #{announcement.announcement_id}</h2>
+                <h2>Announcement #{index + 1}</h2>
                 <p>{announcement.announcement_message}</p>
               </div>
             ))

@@ -56,6 +56,7 @@ function GradesReport() {
         A: report.grade === 'A' ? 1 : null,
         B: report.grade === 'B' ? 1 : null,
         C: report.grade === 'C' ? 1 : null,
+        F: report.grade === 'F' ? 1 : null,
       });
     }
     return acc;
@@ -75,6 +76,10 @@ function GradesReport() {
     {
       name: 'Grade C',
       data: processedData.map((item) => item.C),
+    },
+    {
+      name: 'Grade F',
+      data: processedData.map((item) => item.F),
     },
   ];
 
