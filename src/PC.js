@@ -12,7 +12,7 @@ function ProgramCoordinator() {
           <h6 className="pc-h6">DASHBOARD</h6>
           <ul className="pc-nav-list pc-ul">
             <li className="pc-li">
-              <a href="home" className="pc-a">
+              <a href={sessionStorage.getItem("userRole") === "admin" ? "/admin" : "/home"} className="pc-a">
                 Home
               </a>
             </li>
