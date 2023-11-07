@@ -51,6 +51,7 @@ import EvaluationFormforQA from "./Form";
 import PersonA from "./QAOfficerComponent";
 import PersonB from "./StudentComponent";
 import PersonC from './InstructorChat';
+import CourseContentDisplay from "./QACourseContentdisplay";
 import VerifyUser from "./VerifyUser";
 import ResetPassword from "./ResetPassword";
 const socket = io.connect("http://localhost:3001");
@@ -133,6 +134,12 @@ function App() {
             <Route path="/existingpolicy" element={<ExistingPolicies />} />
         ) : (
           <Route path="/existingpolicy" element={<Navigate to="/nda" />} />
+        )}
+
+        {userRole === "admin" || userRole === "qa" ? (
+            <Route path="/qacoursecontentdisplay" element={<CourseContentDisplay />} />
+        ) : (
+          <Route path="/qacoursecontentdisplay" element={<Navigate to="/nda" />} />
         )}
         
         {userRole === "admin" || userRole === "qa" ? (

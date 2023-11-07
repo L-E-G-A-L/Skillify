@@ -94,7 +94,9 @@ function MainContent() {
     <main className="qamain">
       <section className="functionality">
         <h2 className="qah2">Review and Validate Program and courses</h2>
+        <Link className="link" to="/qacoursecontentdisplay">
         <button className="toggle-button">Course Content</button>
+        </Link>
       </section>
       <section className="functionality">
         <h2 className="qah2">Audits or Evaluations of courses and exams</h2>

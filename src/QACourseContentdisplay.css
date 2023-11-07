@@ -1,0 +1,59 @@
+/* App.css */
+
+
+.container {
+  max-width: 800px;
+  margin: 10px auto;
+  padding: 20px;
+  background-color: #ffffff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
+.title {
+  text-align: center;
+  font-size: 36px;
+  margin-bottom: 30px;
+  color:black;
+}
+
+.subtitle {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: black;
+}
+
+.program-list, .course-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.program-item, .course-item {
+  margin-bottom: 10px;
+}
+
+.program-button, .course-button {
+  background-color: #011558;
+  color: #fff;
+  border: none;
+  padding: 12px 24px;
+  cursor: pointer;
+  font-size: 18px;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.program-button.active, .course-button.active {
+  background-color: #011558;
+}
+
+.module-details {
+  margin-top: 20px;
+}
+
+.module-details p {
+  font-size: 16px;
+  margin: 10px 0;
+  color: #555;
+}
