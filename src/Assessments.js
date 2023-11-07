@@ -15,6 +15,7 @@ class Assessments extends Component {
   componentDidMount() {
     const searchParams = new URLSearchParams(window.location.search);
     const courseId = searchParams.get("course_id");
+    this.setState({ courseId: courseId });
     axios
       .get(
         `https://sxt7404.uta.cloud/php/assessments.php?course_id=${courseId}`
