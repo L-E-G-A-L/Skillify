@@ -200,7 +200,6 @@ Tallapelli, Sai Charan (1002073449)*/
       padding: 10px;
   }
 }
-
 /* UpdateCourseContent CSS */
 
 /* Overall container */
@@ -208,7 +207,7 @@ Tallapelli, Sai Charan (1002073449)*/
   display: flex;
   flex-direction: column;
   align-items: center;
-  
+  padding: 0 20px; /* Adding padding to the overall container */
 }
 
 .uc-h1 {
@@ -218,40 +217,49 @@ Tallapelli, Sai Charan (1002073449)*/
   text-shadow: 1px 1px 1px #ccc;
 }
 
-.course-box {
-  
+.uc-course-box {
   border: 2px solid #000;
   border-radius: 5px;
   padding: 30px;
   margin: 10px;
-  width: flex; 
+  width: 100%;
   background-color: #f9f9f9;
   box-shadow: 3px 3px 5px #e0e0e0;
+  max-width: 900px; /* Set a maximum width for the course boxes */
+  margin: 10px auto; /* Center the boxes */
 }
 
-.course-details {
-  display: flex;
-  flex-direction: column; 
-  gap: 10px;
+.uc-module-box {
+  border: 1px solid #888;
+  border-radius: 5px;
+  padding: 15px;
+  margin: 10px 0;
+  background-color: #fff;
 }
 
-.course-title {
+.uc-course-title {
   font-size: 20px;
   font-weight: bold;
   margin-bottom: 10px;
-  
 }
 
-.course-description::before,
-.course-objectives::before {
+.uc-moduleid {
+  font-size: 16px;
   font-weight: bold;
-  content: attr(data-title);
-  display: block;
-  margin-bottom: 5px;
+  margin-bottom: 8px;
+}
+.uc-modulename{
+  font-size: 18px;
+  font-weight: bold; /* Bold font for the module name, description, and content */
+  margin-bottom: 6px;
 }
 
-.course-description,
-.course-objectives {
+.uc-module-box p {
+  margin-bottom: 10px; /* Add spacing between other paragraphs in module boxes */
+}
+
+.uc-coursename,
+.uc-moduledescription {
   font-weight: bold;
 }
 
@@ -263,8 +271,10 @@ Tallapelli, Sai Charan (1002073449)*/
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s;
-  width: 150px;
+  width: auto;
   text-align: center;
+  white-space: nowrap;
+  display: inline-block;
 }
 
 .edit-button:hover {
@@ -273,9 +283,8 @@ Tallapelli, Sai Charan (1002073449)*/
 
 /* Media query for responsiveness */
 @media screen and (max-width: 768px) {
-  .course-box {
-    width: calc(95% - 20px); /* Adjust width for smaller screens */
+  .uc-course-box {
+    width: calc(95% - 20px);
+    max-width: none; /* Remove max-width on smaller screens */
   }
 }
-
-
