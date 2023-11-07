@@ -1,7 +1,8 @@
-import React/*, { useState, useEffect }*/ from 'react';
+import React, { useState, useEffect } from 'react';
 import "./QADash.css";
 import { Link } from "react-router-dom";
 import ChatComponent from "./Chatbot";
+import axios from 'axios';
 
 function QADashboard() {
   return (
@@ -17,27 +18,26 @@ function QADashboard() {
 }
 
 export function QANav({ title, toggleInnerNav }) {
-  // const [userName, setUserName] = useState('User Name'); // Initial state with a placeholder
+  const [userName, setUserName] = useState('');
 
-  // useEffect(() => {
-  //   // Fetch user data after the user logs in, replace 'fetchUserData' with your actual function
-  //   const fetchUserData = async () => {
-  //     try {
-  //       // Assuming you get user data as a JSON object with 'userName' property
-  //       const response = await fetch('/api/getUserData'); // Replace with your API endpoint
-  //       const userData = await response.json();
-
-  //       // Update the user name in the state
-  //       if (userData.userName) {
-  //         setUserName(userData.userName);
-  //       }
-  //     } catch (error) {
-  //       console.error('Error fetching user data:', error);
-  //     }
-  //   };
-  //   fetchUserData();
-  // }, []);
-
+  useEffect(() => {
+    const userRole = sessionStorage.getItem('userRole');
+    const user_id = sessionStorage.getItem('userId');
+    console.log(userRole);
+    console.log(user_id);
+    axios
+      .get(`https://sxt7404.uta.cloud/php/qausernamefetch.php?user_id=${user_id}&role=${userRole}`)
+      .then((response) => {
+        console.log(response.data);
+        if (response.data.users && response.data.users.user_name) {
+          const fetchedUserName = response.data.users.user_name;
+          setUserName(fetchedUserName);
+        }
+      })
+      .catch((error) => {
+        console.error('Error:', error);
+      });
+  }, []);
   return (
     <nav className="qanav">
       <h1 className="qah1">{title}</h1>
@@ -61,7 +61,7 @@ export function QANav({ title, toggleInnerNav }) {
         <div className="sub-menu">
           <div className="user-info">
             <img src="Profile.png" alt="Profile" className="user-pic" />
-            <h3 className="qah3">User Name</h3>
+            <h3 className="qah3">{userName || 'User Name'}</h3>
           </div>
           <hr className="qahr" />
           <a href="profile" className="sub-menu-link">
@@ -94,7 +94,9 @@ function MainContent() {
     <main className="qamain">
       <section className="functionality">
         <h2 className="qah2">Review and Validate Program and courses</h2>
+        <Link className="link" to="/qacoursecontentdisplay">
         <button className="toggle-button">Course Content</button>
+        </Link>
       </section>
       <section className="functionality">
         <h2 className="qah2">Audits or Evaluations of courses and exams</h2>

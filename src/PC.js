@@ -12,7 +12,7 @@ function ProgramCoordinator() {
           <h6 className="pc-h6">DASHBOARD</h6>
           <ul className="pc-nav-list pc-ul">
             <li className="pc-li">
-              <a href="home" className="pc-a">
+              <a href={sessionStorage.getItem("userRole") === "admin" ? "/admin" : "/home"} className="pc-a">
                 Home
               </a>
             </li>
@@ -41,9 +41,9 @@ function ProgramCoordinator() {
         </section>
         <section className="pc-functionality">
           <h2 className="pc-h2">Monitor Students Performance Data</h2>
-          <a href="reports" className="pc-a">
-            <button className="pc-toggle-button">Reports</button>
-          </a>
+          <Link to="/pcReports" className="pc-a">
+          <button className="pc-toggle-button">Reports </button>
+          </Link>
         </section>
         <section className="pc-functionality">
           <h2 className="pc-h2">
@@ -54,10 +54,13 @@ function ProgramCoordinator() {
         </Link>
         </section>
         <section className="pc-functionality">
-          <h2 className="pc-h2">Discussion Boards</h2>
-          <a href="pcChat" className="pc-a">
-            <button className="pc-toggle-button">Chat</button>
-          </a>
+          <h2 className="pc-h2">Chat with StakeHolders</h2>
+          <Link to="/pcinstructor" className="pc-a">
+          <button className="pc-toggle-button">Instructor</button>
+        </Link>
+        <Link to="/pcadmin" className="pc-a">
+          <button className="pc-toggle-button">Administrator</button>
+        </Link>
         </section>
       </main>
       <div className="chat">

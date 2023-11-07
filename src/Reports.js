@@ -21,11 +21,11 @@ function QAreports() {
 function Dashboard() {
   return (
     <div className="content">
-      <button className="dashboard-button">
-        <Link class="link" to="/qadashboard">
+      <Link class="link" to={sessionStorage.getItem("userRole") === "admin" ? "/admin" : "/qadashboard"}>
+        <button className="dashboard-button">
           Dashboard
-        </Link>
-      </button>
+        </button>
+      </Link>
     </div>
   );
 }

@@ -26,7 +26,8 @@ import Profile from "./Profile";
 import UserActivity from "./UserActivity";
 import AboutUsPage from "./AboutUs";
 import ProgramCoordinator from "./PC";
-import Chat from "./PCChat";
+import Chat from "./pcinstructor";
+import PcAdminChat from "./pcadmin"
 import Services from "./Services";
 import InstructorDiscussion from "./InstructorDiscussion";
 import Instructor from "./Instructor";
@@ -38,6 +39,7 @@ import ExistingPolicies from "./ExistingPolicy";
 // import Studentpage from './StudentComponent';
 import InquiryInbox from "./Enquiry";
 import UpdateCourseContent from "./UpdateCourse";
+import GradesReport from "./pcReports";
 import ViewAllAnnouncements from "./ViewAllAnnouncements";
 import io from "socket.io-client";
 import CreateExam from "./CreateExam";
@@ -51,6 +53,7 @@ import EvaluationFormforQA from "./Form";
 import PersonA from "./QAOfficerComponent";
 import PersonB from "./StudentComponent";
 import PersonC from './InstructorChat';
+import CourseContentDisplay from "./QACourseContentdisplay";
 import VerifyUser from "./VerifyUser";
 import ResetPassword from "./ResetPassword";
 const socket = io.connect("http://localhost:3001");
@@ -134,6 +137,12 @@ function App() {
         ) : (
           <Route path="/existingpolicy" element={<Navigate to="/nda" />} />
         )}
+
+        {userRole === "admin" || userRole === "qa" ? (
+            <Route path="/qacoursecontentdisplay" element={<CourseContentDisplay />} />
+        ) : (
+          <Route path="/qacoursecontentdisplay" element={<Navigate to="/nda" />} />
+        )}
         
         {userRole === "admin" || userRole === "qa" ? (
             <Route path="/audit" element={<CourseExams />} />
@@ -183,7 +192,7 @@ function App() {
         {userRole !== null || userRole !== "student" ? (
              <Route
              path="/coursemodules"
-             element={<ViewAllAnnouncements />}
+             element={<CourseModules />}
            />
         ) : (
           <Route path="/coursemodules" element={<Navigate to="/nda" />} />
@@ -213,15 +222,6 @@ function App() {
           <Route path="/studentchat" element={<Navigate to="/nda" />} />
         )}
 
-
-        {userRole !== null || userRole !== "student" ? (
-             <Route
-             path="/coursemodules"
-             element={<ViewAllAnnouncements />}
-           />
-        ) : (
-          <Route path="/coursemodules" element={<Navigate to="/nda" />} />
-        )}
         
         {userRole === "admin" || userRole === "pc" ? (
             <Route path="/PC" element={<ProgramCoordinator />} />
@@ -230,9 +230,16 @@ function App() {
         )}
 
         {userRole !== null || userRole !== "student" ? (
-             <Route path="/PCChat" element={<Chat />} />
+             <Route path="/pcinstructor" element={<Chat />} />
         ) : (
-          <Route path="/PCChat" element={<Navigate to="/nda" />} />
+          <Route path="/pcinstructor" element={<Navigate to="/nda" />} />
+        )}
+
+        
+        {userRole !== null || userRole !== "student" ? (
+             <Route path="/pcadmin" element={<PcAdminChat />} />
+        ) : (
+          <Route path="/pcadmin" element={<Navigate to="/nda" />} />
         )}
 
         {userRole !== null || userRole !== "student" ? (
@@ -245,6 +252,12 @@ function App() {
              <Route path="/UpdateCourse" element={<UpdateCourseContent />} />
         ) : (
           <Route path="/UpdateCourse" element={<Navigate to="/nda" />} />
+        )}
+
+        {userRole !== null || userRole !== "student" ? (
+             <Route path="/pcReports" element={<GradesReport />} />
+        ) : (
+          <Route path="/pcReports" element={<Navigate to="/nda" />} />
         )}
 
         {userRole !== null || userRole !== "student" ? (
@@ -296,8 +309,6 @@ function App() {
         ) : (
           <Route path="/course/:id" element={<Navigate to="/nda" />} />
         )}
-        
-        <Route path="/course/:id" element={<CourseDetail />} />
 
         <Route path="/nda" element={<AccessDenied />} />
       </Routes>

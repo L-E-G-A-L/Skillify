@@ -38,7 +38,7 @@ Tallapelli, Sai Charan (1002073449)*/
 }
 .exam-title {
   font-size: 18px;
-  color: #008cff;
+  color: #011558;
   margin: 10px 0;
 }
 
@@ -57,7 +57,7 @@ Tallapelli, Sai Charan (1002073449)*/
 /* Add these styles to your CourseExams.css file */
 .form-link {
   display: inline-block;
-  background-color: #007bff; /* Blue color */
+  background-color: #011558; /* Blue color */
   color: #fff;
   padding: 5px 10px;
   border: none;
@@ -69,5 +69,5 @@ Tallapelli, Sai Charan (1002073449)*/
 }
 
 .form-link:hover {
-  background-color: #0056b3; /* Darker blue on hover */
+  background-color: #011558; /* Darker blue on hover */
 }
