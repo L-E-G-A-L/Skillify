@@ -43,11 +43,12 @@ function Profile() {
       user_id: user_id,
       user_name: editedData.user_name,
       user_email: editedData.user_email,
+      user_number: editedData.phoneNumber,
       user_role: userData.user_role
     };
     axios
       .post("https://sxt7404.uta.cloud/php/LRFAuth.php", {
-        action: "updateUser",
+        action: "updateProfile",
         user: editedUser,
       })
       .then((response) => {
