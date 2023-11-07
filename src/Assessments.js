@@ -45,7 +45,7 @@ class Assessments extends Component {
                   <button onClick={() => this.startExam(exam)}>
                     {" "}
                     <a
-                      href={`/exam-questions?exam_id=${exam.exam_id}&course_id=${courseId}`}
+                      href={`/exam-questions?exam_id=${exam.exam_id}&course_id=${courseId}&exam_duration=${exam.exam_duration}`}
                     >
                       Start Exam
                     </a>

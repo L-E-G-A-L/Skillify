@@ -9,7 +9,7 @@ class ExamQuestions extends Component {
 
     this.state = {
       questions: [],
-      timer: 0,
+      timer: 0, // Timer in seconds
       userResponses: {},
       submitted: false,
       error: null,
@@ -19,7 +19,26 @@ class ExamQuestions extends Component {
   componentDidMount() {
     const searchParams = new URLSearchParams(window.location.search);
     const exam_id = searchParams.get("exam_id");
-    this.fetchQuestions(exam_id);
+    const exam_duration = searchParams.get("exam_duration");
+    console.log("exam_duration:", exam_duration);
+    if (!isNaN(exam_duration)) {
+      this.setState({ timer: exam_duration * 60 });
+      this.fetchQuestions(exam_id);
+      this.timerInterval = setInterval(() => {
+        if (this.state.timer > 0) {
+          this.setState((prevState) => ({ timer: prevState.timer - 1 }));
+        } else {
+          this.submitExam();
+        }
+      }, 1000);
+    } else {
+      this.setState({ error: "Invalid exam_duration" });
+    }
+  }
+
+  componentWillUnmount() {
+    // Clear the timer interval when the component unmounts
+    clearInterval(this.timerInterval);
   }
 
   fetchQuestions = (exam_id) => {
@@ -58,12 +77,12 @@ class ExamQuestions extends Component {
       })
       .then((response) => {
         if (response.data.message === "Exam responses submitted successfully") {
+          this.setState({ submitted: true });
         }
       })
       .catch((error) => {
         console.error("Error submitting answers:", error);
       });
-    this.setState({ submitted: true });
   };
 
   render() {
@@ -154,7 +173,7 @@ class ExamQuestions extends Component {
               ))
             ) : (
               <div>
-                <MessageCard message="Please wait until the questions load" />
+                <MessageCard message="Thanks for your submission!" />
               </div>
             )}
             {Array.isArray(questions) && questions.length > 0 && (
