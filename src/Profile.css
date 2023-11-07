@@ -137,6 +137,10 @@ button {
   width: 100%;
 }
 
+.profile-error-message {
+  margin-bottom: 20px;
+}
+
 @media (max-width: 767px) {
   .form-group {
     flex-direction: column;
