@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import "./CourseDetail.css";
+import "./Instructor.css";  
 import MessageCard from "./MessageCard";
 
 function CourseDetail() {
@@ -63,12 +64,12 @@ function CourseDetail() {
   };
 
   return (
-    <div>
+    <div className="CourseDetail-container">
       <div className="Instructor-topnav">
         <a className="Instructor-right Instructor-a" href="/instructor">
           Instructor_Page
         </a>
-        <a className="Instructor-right Instructor-a" href="profile">
+        <a className="Instructor-right Instructor-a" href="/profile">
           Profile
         </a>
         <a className="Instructor-right Instructor-a" href="login">
@@ -80,35 +81,40 @@ function CourseDetail() {
         <div>
           <input
             type="text"
-            name="course_content"
+            className="Edit-input"
             value={courseModuleContent}
             onChange={(e) => setCourseModuleContent(e.target.value)}
             placeholder="Course Content"
           />
-          <button onClick={handleSave}>Save</button>
+          <button className="Edit-button" onClick={handleSave}>
+            Save
+          </button>
         </div>
       ) : (
         <div>
-          <h2>Course Details</h2>
-          {coursesInfo !== "Course not found" ? (
-            coursesInfo.map((module, index) => (
-              <div key={index}>
-                <p>Course Name: {module.course_name}</p>
-                <p>Course Description: {module.course_description}</p>
-                <p>Course Module Name: {module.module_name}</p>
-                <p>Course Module Content: {module.module_content}</p>
-                <button
-                  onClick={() =>
-                    handleEdit(module.module_id, module.module_content)
-                  }
-                >
-                  Edit
-                </button>
-              </div>
-            ))
-          ) : (
-            <MessageCard message="Course Modules are not yet published for this course"></MessageCard>
-          )}
+          <h2 className="Course-details-heading">Course Details</h2>
+          <div className="Course-Container">
+            {coursesInfo !== "Course not found" ? (
+              coursesInfo.map((module, index) => (
+                <div key={index}>
+                  <p><b>Course Name:</b> {module.course_name}</p>
+                  <p><b>Course Description:</b> {module.course_description}</p>
+                  <p><b>Course Module Name:</b> {module.module_name}</p>
+                  <p><b>Course Module Content:</b> {module.module_content}</p>
+                  <button
+                    className="Edit-button"
+                    onClick={() =>
+                      handleEdit(module.module_id, module.module_content)
+                    }
+                  >
+                    Edit
+                  </button>
+                </div>
+              ))
+            ) : (
+              <MessageCard message="Course Modules are not yet published for this course"></MessageCard>
+            )}
+          </div>
         </div>
       )}
       <footer className="Instructor-footer">
