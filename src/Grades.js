@@ -40,7 +40,7 @@ class Grades extends React.Component {
               <table className="gradesTableClass">
                 <thead>
                   <tr>
-                    <th className="gradesTh">Exam #</th>
+                    <th className="gradesTh">Exam Name</th>
                     <th className="gradesTh">Grade</th>
                     <th className="gradesTh">Feedback</th>
                   </tr>
