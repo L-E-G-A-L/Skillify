@@ -15,6 +15,8 @@ function Profile() {
     user_role: userData.user_role,
   });
   const [Data, setData] = useState(true);
+  const [error, setError] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("Fill all details");
   const userRole = sessionStorage.getItem("userRole");
   const user_id = sessionStorage.getItem("userId");
 
@@ -38,6 +40,16 @@ function Profile() {
     setEditedData({ ...userData });
   };
 
+  const isEmailValid = (email) => {
+    const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+    return emailRegex.test(email);
+  };
+
+  const isPhoneNumberValid = (phoneNumber) => {
+    const phoneRegex = /^[0-9]{10}$/;
+    return phoneRegex.test(phoneNumber);
+  };
+
   const handleSave = (user_id) => {
     const editedUser = {
       user_id: user_id,
@@ -46,22 +58,33 @@ function Profile() {
       user_number: editedData.phoneNumber,
       user_role: userData.user_role
     };
-    axios
-      .post("https://sxt7404.uta.cloud/php/LRFAuth.php", {
-        action: "updateProfile",
-        user: editedUser,
-      })
-      .then((response) => {
-        if (response.data.success) {
-          fetchData()
-        } else {
-          console.log(response.data.error);
-        }
-      })
-      .catch((error) => {
-        console.error("Error saving user:", error);
-      });
-      setIsEditMode(false)
+    if(
+      editedData.user_name !== "" &&
+      isEmailValid(editedData.user_email)  &&
+      isPhoneNumberValid(editedData.phoneNumber) 
+    ) {
+      axios
+        .post("https://sxt7404.uta.cloud/php/LRFAuth.php", {
+          action: "updateProfile",
+          user: editedUser,
+        })
+        .then((response) => {
+          if (response.data.success) {
+            fetchData()
+          } else {
+            console.log(response.data.error);
+          }
+        })
+        .catch((error) => {
+          console.error("Error saving user:", error);
+        });
+        setIsEditMode(false)
+    } else {
+      setError(true);
+      if(!isEmailValid(editedData.user_email)) setErrorMessage("Enter a valid email");
+      else if(!isPhoneNumberValid(editedData.phoneNumber)) setErrorMessage("Enter a valid phone number");
+      else setErrorMessage("Fill all details");
+    }
   };
 
   const fetchData = () => {
@@ -155,6 +178,7 @@ function Profile() {
         <div className="buttons">
           {isEditMode ? (
             <div>
+              {error && <h5 className="login-error-message profile-error-message">{errorMessage}</h5>}
               <button className="save-button" onClick={() =>handleSave(userData.user_id)}>Save</button>
               <button className="cancel-button" onClick={() => setIsEditMode(false)}>Cancel</button>
             </div>
