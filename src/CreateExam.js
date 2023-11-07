@@ -88,8 +88,8 @@ function CreateExam() {
         <a className="Instructor-right Instructor-a" href="/instructor">
           Instructor_Page
         </a>
-
-        <a className="Instructor-right Instructor-a" href="profile">
+        
+        <a className="Instructor-right Instructor-a" href="/profile">
           Profile
         </a>
 

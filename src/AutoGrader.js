@@ -76,7 +76,7 @@ function AutoGrader() {
           Instructor_Page
         </a>
 
-        <a className="Instructor-right Instructor-a" href="profile">
+        <a className="Instructor-right Instructor-a" href="/profile">
           Profile
         </a>
 

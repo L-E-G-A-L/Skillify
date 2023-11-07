@@ -11,6 +11,8 @@ function Instructor() {
   const [courses, setCourses] = useState([]);
   const [isCreateExamOpen, setIsCreateExamOpen] = useState(false);
   const [exams, setExams] = useState([]);
+  const [StudentProgress, setStudentProgress] = useState([]);
+
 
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
@@ -95,13 +97,34 @@ function Instructor() {
     fetchExams();
   }, []);
 
+  const fetchStudentProgress = async () => {
+    try {
+      const response = await fetch(
+        "https://sxt7404.uta.cloud/php/grader.php?getResult=true" // Replace with the actual API endpoint
+      );
+      if (response.ok) {
+        const data = await response.json();
+        setStudentProgress(data); // Update the student progress state with the fetched data
+      } else {
+        console.error("Error fetching student progress. Status: " + response.status);
+      }
+    } catch (error) {
+      console.error("Error fetching student progress: " + error);
+    }
+  };
+  
+  useEffect(() => {
+    fetchStudentProgress();
+  }, []);
+  
+
   return (
     <div>
       <div className="Instructor-topnav">
         <a className="Instructor-right Instructor-a" href="/instructor">
           Instructor_Page
         </a>
-        <a className="Instructor-right Instructor-a" href="profile">
+        <a className="Instructor-right Instructor-a" href="/profile">
           Profile
         </a>
         <a className="Instructor-right Instructor-a" href="login">
@@ -212,26 +235,35 @@ function Instructor() {
       </div>
 
       <table className="Instructor-table">
-        <caption className="Instructor-caption">Feedback</caption>
-        <thead>
-          <tr>
-            <th className="Instructor-th">Sr.</th>
-            <th className="Instructor-th">Student Name</th>
-            <th className="Instructor-th">Exam Name</th>
-            <th className="Instructor-th">Score</th>
-            {/* Remove the Edit Feedback column */}
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td className="Instructor-td">1</td>
-            <td className="Instructor-td">Steve Smith</td>
-            <td className="Instructor-td">Midterm Exam</td>
-            <td className="Instructor-td">85</td>
-            {/* Remove the Edit Feedback buttons */}
-          </tr>
-        </tbody>
-      </table>
+  <caption className="Instructor-caption">Student Progress</caption>
+  <thead>
+    <tr>
+      <th className="Instructor-th">User ID</th>
+      <th className="Instructor-th">Course ID</th>
+      <th className="Instructor-th">Exam ID</th>
+      <th className="Instructor-th">Grade</th>
+    </tr>
+  </thead>
+  <tbody>
+    {Array.isArray(StudentProgress) ? (
+      StudentProgress.map((progress, index) => (
+        <tr key={index}>
+          <td className="Instructor-td">{progress.user_id}</td>
+          <td className="Instructor-td">{progress.course_id}</td>
+          <td className="Instructor-td">{progress.exam_id}</td>
+          <td className="Instructor-td">{progress.grade}</td>
+        </tr>
+      ))
+    ) : (
+      <tr>
+        <td className="Instructor-td" colSpan="4">
+          No student progress data available.
+        </td>
+      </tr>
+    )}
+  </tbody>
+</table>
+
 
       
 
