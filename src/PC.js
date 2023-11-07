@@ -41,9 +41,9 @@ function ProgramCoordinator() {
         </section>
         <section className="pc-functionality">
           <h2 className="pc-h2">Monitor Students Performance Data</h2>
-          <a href="reports" className="pc-a">
-            <button className="pc-toggle-button">Reports</button>
-          </a>
+          <Link to="/pcReports" className="pc-a">
+          <button className="pc-toggle-button">Reports </button>
+          </Link>
         </section>
         <section className="pc-functionality">
           <h2 className="pc-h2">
@@ -55,10 +55,12 @@ function ProgramCoordinator() {
         </section>
         <section className="pc-functionality">
           <h2 className="pc-h2">Chat with StakeHolders</h2>
-          <a href="pcChat" className="pc-a">
-            <button className="pc-toggle-button">Instructor</button>
-            <button className="pc-toggle-button">Administrator</button>
-          </a>
+          <Link to="/pcinstructor" className="pc-a">
+          <button className="pc-toggle-button">Instructor</button>
+        </Link>
+        <Link to="/pcadmin" className="pc-a">
+          <button className="pc-toggle-button">Administrator</button>
+        </Link>
         </section>
       </main>
       <div className="chat">

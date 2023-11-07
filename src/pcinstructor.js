@@ -7,9 +7,9 @@ const Chat = () => {
       <div className="pc-chat-header">Chat</div>
       <div className="pc-chat-messages">
         <div className="message  pc-sender-message">
-          Hello Administrator, can you provide me the access to view report.pdf?
+          Hello , to improve the performance of the students, we have to think of a new plan of action.
         </div>
-        <div className="message  pc-receiver-message">Sure</div>
+        <div className="message  pc-receiver-message">Sure, lets connect.</div>
       </div>
       <div className="pc-chat-input">
         <input

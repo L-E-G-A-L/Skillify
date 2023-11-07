@@ -26,7 +26,8 @@ import Profile from "./Profile";
 import UserActivity from "./UserActivity";
 import AboutUsPage from "./AboutUs";
 import ProgramCoordinator from "./PC";
-import Chat from "./PCChat";
+import Chat from "./pcinstructor";
+import PcAdminChat from "./pcadmin"
 import Services from "./Services";
 import InstructorDiscussion from "./InstructorDiscussion";
 import Instructor from "./Instructor";
@@ -38,6 +39,7 @@ import ExistingPolicies from "./ExistingPolicy";
 // import Studentpage from './StudentComponent';
 import InquiryInbox from "./Enquiry";
 import UpdateCourseContent from "./UpdateCourse";
+import GradesReport from "./pcReports";
 import ViewAllAnnouncements from "./ViewAllAnnouncements";
 import io from "socket.io-client";
 import CreateExam from "./CreateExam";
@@ -228,9 +230,16 @@ function App() {
         )}
 
         {userRole !== null || userRole !== "student" ? (
-             <Route path="/PCChat" element={<Chat />} />
+             <Route path="/pcinstructor" element={<Chat />} />
         ) : (
-          <Route path="/PCChat" element={<Navigate to="/nda" />} />
+          <Route path="/pcinstructor" element={<Navigate to="/nda" />} />
+        )}
+
+        
+        {userRole !== null || userRole !== "student" ? (
+             <Route path="/pcadmin" element={<PcAdminChat />} />
+        ) : (
+          <Route path="/pcadmin" element={<Navigate to="/nda" />} />
         )}
 
         {userRole !== null || userRole !== "student" ? (
@@ -243,6 +252,12 @@ function App() {
              <Route path="/UpdateCourse" element={<UpdateCourseContent />} />
         ) : (
           <Route path="/UpdateCourse" element={<Navigate to="/nda" />} />
+        )}
+
+        {userRole !== null || userRole !== "student" ? (
+             <Route path="/pcReports" element={<GradesReport />} />
+        ) : (
+          <Route path="/pcReports" element={<Navigate to="/nda" />} />
         )}
 
         {userRole !== null || userRole !== "student" ? (
