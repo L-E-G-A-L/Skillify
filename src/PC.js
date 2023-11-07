@@ -54,9 +54,10 @@ function ProgramCoordinator() {
         </Link>
         </section>
         <section className="pc-functionality">
-          <h2 className="pc-h2">Discussion Boards</h2>
+          <h2 className="pc-h2">Chat with StakeHolders</h2>
           <a href="pcChat" className="pc-a">
-            <button className="pc-toggle-button">Chat</button>
+            <button className="pc-toggle-button">Instructor</button>
+            <button className="pc-toggle-button">Administrator</button>
           </a>
         </section>
       </main>
