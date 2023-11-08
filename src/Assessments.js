@@ -34,6 +34,9 @@ class Assessments extends Component {
       <div>
         <header className="assessmentsHeaderClass">
           <h1 className="assessmentsh1Class">My Exams</h1>
+          <a href="student" className="announcementNavLiaClass">
+            <i className="material-icons">home</i>
+          </a>
         </header>
         <div className="assessmentsContainer">
           {exams !== "No exams found" ? (
@@ -43,7 +46,10 @@ class Assessments extends Component {
                   <h2>{exam.exam_name}</h2>
                   <p>Date: {exam.exam_date}</p>
                   <p>Duration: {exam.exam_duration}</p>
-                  <button onClick={() => this.startExam(exam)}>
+                  <button
+                    onClick={() => this.startExam(exam)}
+                    className="create-exam-button"
+                  >
                     {" "}
                     <a
                       href={`/exam-questions?exam_id=${exam.exam_id}&course_id=${courseId}&exam_duration=${exam.exam_duration}`}

@@ -15,12 +15,14 @@ Tallapelli, Sai Charan (1002073449)*/
 }
 
 .courseModulesHeaderClass {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   background-color: #011558;
   color: white;
-  text-align: center;
-  padding: 20px 0;
+  padding: 20px 30px;
+  margin-bottom: 30px;
 }
-
 .courseModulesh1 {
   margin: 0;
 }

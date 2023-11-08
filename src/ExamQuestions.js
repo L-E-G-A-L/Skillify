@@ -115,6 +115,9 @@ class ExamQuestions extends Component {
         <div>
           <header className="examsHeaderClass">
             <h1 className="examsHeaderh1Class">Exam</h1>
+            <a href="student" className="announcementNavLiaClass">
+              <i className="material-icons">home</i>
+            </a>
           </header>
           <div class="submissionContainer">
             <MessageCard message="Thank You! Your answers have been submitted successfully!" />

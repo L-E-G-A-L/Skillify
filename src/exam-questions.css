@@ -6,10 +6,13 @@ Tadivaka, Sai Swetha (1002112726)
 Tallapelli, Sai Charan (1002073449)*/
 
 .examsHeaderClass {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   background-color: #011558;
   color: white;
-  text-align: center;
-  padding: 20px 0;
+  padding: 20px 30px;
+  margin-bottom: 30px;
 }
 
 .examsHeaderh1Class {

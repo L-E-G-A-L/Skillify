@@ -32,6 +32,9 @@ class Grades extends React.Component {
         <div className="gradesClass">
           <header className="gradesHeaderClass">
             <h1 className="gradesh1Class">My Grades</h1>
+            <a href="student" className="announcementNavLiaClass">
+              <i className="material-icons">home</i>
+            </a>
           </header>
           <div className="gradesContainer">
             {this.state.loading ? (

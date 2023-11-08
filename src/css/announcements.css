@@ -5,120 +5,120 @@ Tamanampudi, Sai Sridhar (1002117404)
 Tadivaka, Sai Swetha (1002112726)
 Tallapelli, Sai Charan (1002073449)*/
 
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
 }
 
 .announcementsNav {
-    text-align: right;
+  text-align: right;
 }
 
 .announcementsHeaderClass {
-    background-color: #011558;
-    color: white;
-    padding: 20px 30px;
-    margin-bottom: 30px;
+  background-color: #011558;
+  color: white;
+  padding: 20px 30px;
+  margin-bottom: 30px;
 }
 
 .navUl {
-    list-style: none;
-    display: flex;
+  list-style: none;
+  display: flex;
 }
 
-.announcementNavLiClass{
-    margin: 0 20px;
+.announcementNavLiClass {
+  margin: 0 20px;
 }
 
-.announcementNavLiaClass{
-    text-decoration: none;
-    color: white;
-    display: flex;
-    align-items: center;
+.announcementNavLiaClass {
+  text-decoration: none;
+  color: white;
+  display: flex;
+  align-items: center;
 }
 
 .announcementsnav-list {
-    list-style: none;
-    display: flex;
-    justify-content: flex-end;
+  list-style: none;
+  display: flex;
+  justify-content: flex-end;
 }
 
 .material-icons {
-    font-size: 24px;
-    margin-right: 5px;
+  font-size: 24px;
+  margin-right: 5px;
 }
 
 .notification-badge {
-    background-color: red;
-    color: white;
-    border-radius: 50%;
-    padding: 4px 8px;
-    position: relative;
-    top: -8px;
+  background-color: red;
+  color: white;
+  border-radius: 50%;
+  padding: 4px 8px;
+  position: relative;
+  top: -8px;
 }
 
 .announcementsHeaderClass {
-    background-color: 011558;
-    color: white;
-    text-align: center;
-    padding: 20px 0;
+  background-color: 011558;
+  color: white;
+  text-align: center;
+  padding: 20px 0;
 }
 
 .announcementContainer {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    max-width: 800px;
-    margin: 20px auto;
-    padding: 20px;
-    background-color: white;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: white;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
 }
 
 .announcement {
-    margin-bottom: 20px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    background-color: #fff;
-    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+  margin-bottom: 20px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
 }
 
 .announcement h2 {
-    color: #011558;
+  color: #011558;
 }
 
 .announcement p {
-    margin: 0;
+  margin: 0;
 }
 
 .announcementFooterClass {
-    margin-top: auto;
-    background-color: #011558;
-    color: #fff;
-    text-align: center;
-    padding: 10px;
-    width: 100%;
+  margin-top: auto;
+  background-color: #011558;
+  color: #fff;
+  text-align: center;
+  padding: 10px;
+  width: 100%;
 }
 
 @media (max-width: 767px) {
-    .announcementsHeaderClass {
-        padding: 20px 10px;
-    }
+  .announcementsHeaderClass {
+    padding: 20px 10px;
+  }
 
-    .announcementsnav-list {
-        justify-content: center;
-    }
+  .announcementsnav-list {
+    justify-content: center;
+  }
 
-    .announcementNavLiClass{
-        margin: 0 10px;
-    }
+  .announcementNavLiClass {
+    margin: 0 10px;
+  }
 
-    .material-icons {
-        font-size: 20px;
-    }
+  .material-icons {
+    font-size: 20px;
+  }
 }

@@ -30,13 +30,8 @@ class Announcements extends React.Component {
           <nav className="announcementsNav">
             <ul className="announcementsnav-list navUl">
               <li className="announcementNavLiClass">
-                <a href="announcements" className="announcementNavLiaClass">
-                  <i className="material-icons">notifications</i>
-                </a>
-              </li>
-              <li>
-                <a href="#" className="announcementNavLiaClass">
-                  <i className="material-icons">insert_drive_file</i>
+                <a href="student" className="announcementNavLiaClass">
+                  <i className="material-icons">home</i>
                 </a>
               </li>
               <li className="announcementNavLiClass">
