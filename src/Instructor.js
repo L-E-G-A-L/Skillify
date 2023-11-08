@@ -74,7 +74,7 @@ function Instructor() {
   const fetchExams = async () => {
     try {
       const response = await fetch(
-        "http://localhost/CreateExam.php?getExams=true"
+        "https://sxt7404.uta.cloud/php/CreateExam.php?getExams=true"
       );
       if (response.ok) {
         const data = await response.json();
