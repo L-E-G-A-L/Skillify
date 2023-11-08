@@ -100,7 +100,7 @@ function Instructor() {
   const fetchStudentProgress = async () => {
     try {
       const response = await fetch(
-        "https://sxt7404.uta.cloud/php/grader.php?getResult=true" // Replace with the actual API endpoint
+        "https://sxt7404.uta.cloud/php/result.php" // Replace with the actual API endpoint
       );
       if (response.ok) {
         const data = await response.json();
