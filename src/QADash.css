@@ -11,6 +11,7 @@ Tallapelli, Sai Charan (1002073449)*/
   --nav-color: #011558;
   --bg-color: #fff;
   --line-color: #000;
+  --innernav-color:#525252;
 }
 
 .dark-theme {
@@ -18,14 +19,17 @@ Tallapelli, Sai Charan (1002073449)*/
   --nav-color: #011558;
   --bg-color: #000;
   --name-color: #fff;
+  --innernav-color:#fff;
 }
 
 .qabody {
   font-family: "Poppins", sans-serif;
-  background: var(--body-color);
+  background-color: var(--body-color);
   transition: background 0.3s;
-  margin: 0;
-  padding: 0;
+  margin: 0%;
+  padding: 0%;
+  width: 100vw;
+  min-height: 100vh;
 }
 
 .qanav .qah1 {
@@ -79,7 +83,7 @@ Tallapelli, Sai Charan (1002073449)*/
 
 .toggle-button,.toggle-button1 {
   background-color: var(--nav-color);
-  color: var(--bg-color);
+  color: #fff;
   border: none;
   padding: 10px 20px;
   cursor: pointer;
@@ -104,13 +108,13 @@ Tallapelli, Sai Charan (1002073449)*/
   text-decoration: none;
 }
 
-.functionality .toggle-button .link {
+.functionality .link {
   color: #fff;
   text-decoration: none;
 }
 .qafooter {
   background-color: var(--nav-color);
-  color: var(--bg-color);
+  color: #fff;
   text-align: center;
   /* padding: 5px; */
   bottom: 0;
@@ -149,9 +153,11 @@ Tallapelli, Sai Charan (1002073449)*/
 }
 
 .qanav .qaul .qali .qaa {
-  color: var(--bg-color);
+  background-color: var(--nav-color);
   text-decoration: none;
   border-style: none;
+  color: #fff;
+  
 }
 .qanav .qaul .qali .qaa .link {
   text-decoration: none;
@@ -173,6 +179,7 @@ Tallapelli, Sai Charan (1002073449)*/
   background: var(--bg-color);
   padding: 10px;
   margin: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
 }
 
 .user-info {
@@ -204,7 +211,7 @@ Tallapelli, Sai Charan (1002073449)*/
   display: flex;
   align-items: center;
   text-decoration: none;
-  color: #525252;
+  color: var(--innernav-color);
   margin: 12px 0;
 }
 
@@ -249,14 +256,14 @@ Tallapelli, Sai Charan (1002073449)*/
 #dark-btn .qaspan {
   width: 18px;
   height: 18px;
-  background: #fff;
+  background:var(--bg-color);
   border-radius: 50%;
   display: inline-block;
 }
 
 #dark-btn.dark-btn-on {
   padding-left: 20px;
-  background: black;
+  background-color: black;
   width: 20px;
 }
 .chat {
@@ -300,8 +307,7 @@ Tallapelli, Sai Charan (1002073449)*/
     width: 30px;
   }
   .chat {
-    margin-bottom: 5%;
-    position: relative;
+    margin-bottom: 10%;
   }
   /* .qafooter {
     position: relative;
@@ -349,5 +355,8 @@ Tallapelli, Sai Charan (1002073449)*/
 @media screen and (max-width:290px){
   .toggle-button1{
     margin-left: 0px;
+  }
+  .sub-menu-wrap{
+    width: 270px;
   }
 }

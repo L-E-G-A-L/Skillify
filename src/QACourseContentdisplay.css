@@ -57,3 +57,14 @@
   margin: 10px 0;
   color: #555;
 }
+
+@media screen and(max-width:400px) {
+  .title{
+    font-size: 24px;
+  }
+  .program-button,.course-button{
+    padding: 10px 20px;
+    font-size: 14px;
+    border-radius: 3px;
+  }
+}
