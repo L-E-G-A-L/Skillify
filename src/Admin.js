@@ -5,6 +5,7 @@ import PermissionPopup from './PermissionPopup';
 import { onLogOut } from './GlobalFunctions';
 import ManageUserPopup from './ManageUserPopup';
 import { useNavigate  } from 'react-router-dom';
+import ChatComponent from "./StudentChatbot";
 
 function Admin() {
   const navigation = useNavigate();
@@ -81,8 +82,12 @@ function Admin() {
             </div>
           </div>
         </div>
-        <h2 className="chat">Need to talk to someone? <a href="adminChat">Click here</a></h2>
+        {/* <h2 className="chat">Need to talk to someone? <a href="adminChat">Click here</a></h2> */}
+        <div className="admin-chat">
+          <ChatComponent />
+        </div>
       </div>
+      
       <footer className='admin-footer'>
         <p className='admin-footer-p'>&copy; 2023 SOFTWARE ENGINEERING WEBSITE</p>
       </footer>
