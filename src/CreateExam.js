@@ -130,7 +130,7 @@ function CreateExam() {
       </div>
 
       {questions.map((question, questionIndex) => (
-        <div key={questionIndex}>
+        <div key={questionIndex} className="createExam-container">
           <h15>{question.text}</h15>
           <ul>
             {question.options.map((option, optionIndex) => (
@@ -139,6 +139,7 @@ function CreateExam() {
                   type="text"
                   placeholder={`Option ${optionIndex + 1}`}
                   value={option}
+                  className = "createExam-added-question-input"
                   onChange={(e) => {
                     const updatedQuestions = [...questions];
                     updatedQuestions[questionIndex].options[optionIndex] =
@@ -153,13 +154,14 @@ function CreateExam() {
             type="text"
             placeholder="Enter Actual Response"
             value={question.actualResponse}
+            className = "createExam-added-question-actualinput"
             onChange={(e) => {
               const updatedQuestions = [...questions];
               updatedQuestions[questionIndex].actualResponse = e.target.value;
               setQuestions(updatedQuestions);
             }}
           />
-          <button onClick={() => deleteQuestion(questionIndex)}>
+          <button onClick={() => deleteQuestion(questionIndex)} className = "createExam-added-question-btn">
             Delete Question
           </button>
         </div>
