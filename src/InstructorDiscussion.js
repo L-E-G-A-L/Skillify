@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import "./InstructorDiscussion.css";
 import { useNavigate } from 'react-router-dom';
 import "./QAChat.css";
@@ -23,12 +23,12 @@ function InstructorDiscussion() {
         <nav className="id-nav">
           <ul className="id-ul">
             <li className="id-li">
-              <a href="#" className="id-a">
+              <a className="id-a" onClick={handleChatButtonClick}>
                 Student
               </a>
             </li>
             <li className="id-li">
-            <a href="#" className="id-a">
+            <a className="id-a" onClick={handleChatButtonClick}>
                 Admin
               </a>
             </li>
@@ -36,7 +36,7 @@ function InstructorDiscussion() {
                 <a className="id-a" onClick={handleChatButtonClick}>QA Officer</a>
             </li>
             <li className="id-li">
-              <a href="#" className="id-a">
+              <a className="id-a" onClick={handleChatButtonClick}>
                 Program Coordinator
               </a>
             </li>
