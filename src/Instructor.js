@@ -98,9 +98,7 @@ function Instructor() {
 
   const fetchStudentProgress = async () => {
     try {
-      const response = await fetch(
-        "https://sxt7404.uta.cloud/php/result.php"
-      );
+      const response = await fetch("https://sxt7404.uta.cloud/php/result.php");
       if (response.ok) {
         const jsonData = await response.json();
         setStudentProgress(jsonData);
@@ -123,6 +121,9 @@ function Instructor() {
       <div className="Instructor-topnav">
         <a className="Instructor-right Instructor-a" href="/instructor">
           Instructor_Page
+        </a>
+        <a className="Instructor-right Instructor-a" href="/instructor">
+          Reports
         </a>
         <a className="Instructor-right Instructor-a" href="/profile">
           Profile
