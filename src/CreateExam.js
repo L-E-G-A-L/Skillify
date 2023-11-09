@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
+import "./Instructor.css"
 
-function CreateExam() {
+function CreateExam() {   
   const { id } = useParams();
   const [examId, setExamId] = useState("");
   const [examName, setExamName] = useState("");
@@ -84,7 +85,7 @@ function CreateExam() {
 
   return (
     <div>
-      <div className="Instructor-topnav">
+      <div className="Instructor-header-topnav">
         <a className="Instructor-right Instructor-a" href="/instructor">
           Instructor_Page
         </a>
@@ -97,9 +98,11 @@ function CreateExam() {
           Sign Out
         </a>
       </div>
+      <div className="Instructor-create-exam">
       <h1>Create Exam</h1>
-      <h2>For course_id: {id}</h2>
-      <div>
+      <h2 className="Instructor-course-id">For course_id: {id}</h2>
+      <div className="Instructor-create-exam-content"></div>
+       <div className="Instructor-create-exam-container">
         <input
           type="text"
           placeholder="Enter Exam ID"
@@ -128,7 +131,7 @@ function CreateExam() {
 
       {questions.map((question, questionIndex) => (
         <div key={questionIndex}>
-          <h3>{question.text}</h3>
+          <h15>{question.text}</h15>
           <ul>
             {question.options.map((option, optionIndex) => (
               <li key={optionIndex}>
@@ -162,7 +165,7 @@ function CreateExam() {
         </div>
       ))}
 
-      <div>
+<div className="Instructor-create-exam-container">
         <input
           type="text"
           placeholder="Enter a new question"
@@ -200,12 +203,16 @@ function CreateExam() {
           onChange={(e) => setNewActualResponse(e.target.value)}
         />
         <button onClick={addQuestion}>Add Question</button>
-      </div>
+        
       <button onClick={publishExam}>Publish</button>
-      <footer className="Instructor-footer">
+      </div>
+      </div>
+
+      <footer className="Instructor-Exam-footer">
         <p>&copy; 2023 INSTRUCTOR-PAGE</p>
       </footer>
-    </div>
+      </div>
+    
   );
 }
 

@@ -99,7 +99,11 @@ function Instructor() {
   const fetchStudentProgress = async () => {
     try {
       const response = await fetch(
+<<<<<<< HEAD
+        "https://sxt7404.uta.cloud/php/result.php" // Replace with the actual API endpoint
+=======
         "https://sxt7404.uta.cloud/php/result.php/result.php"
+>>>>>>> 92da0eb5969169e85eabc345d8f9db351e710614
       );
       if (response.ok) {
         const jsonData = await response.json();
@@ -123,6 +127,9 @@ function Instructor() {
       <div className="Instructor-topnav">
         <a className="Instructor-right Instructor-a" href="/instructor">
           Instructor_Page
+        </a>
+        <a className="Instructor-right Instructor-a" href="/instructor">
+          Reports
         </a>
         <a className="Instructor-right Instructor-a" href="/profile">
           Profile
