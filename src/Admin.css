@@ -109,6 +109,11 @@ button {
   width: 100%;
 }
 
+.admin-chat {
+  position: relative;
+  top: 20px;
+}
+
 @media (max-width: 767px) {
   .boxes {
     display: grid;

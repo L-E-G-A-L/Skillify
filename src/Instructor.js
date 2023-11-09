@@ -13,7 +13,6 @@ function Instructor() {
   const [exams, setExams] = useState([]);
   const [StudentProgress, setStudentProgress] = useState([]);
 
-
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
   };
@@ -100,23 +99,28 @@ function Instructor() {
   const fetchStudentProgress = async () => {
     try {
       const response = await fetch(
+<<<<<<< HEAD
         "https://sxt7404.uta.cloud/php/result.php" // Replace with the actual API endpoint
+=======
+        "https://sxt7404.uta.cloud/php/result.php/result.php"
+>>>>>>> 92da0eb5969169e85eabc345d8f9db351e710614
       );
       if (response.ok) {
-        const data = await response.json();
-        setStudentProgress(data); // Update the student progress state with the fetched data
+        const jsonData = await response.json();
+        setStudentProgress(jsonData);
       } else {
-        console.error("Error fetching student progress. Status: " + response.status);
+        console.error(
+          "Error fetching student progress. Status: " + response.status
+        );
       }
     } catch (error) {
       console.error("Error fetching student progress: " + error);
     }
   };
-  
+
   useEffect(() => {
     fetchStudentProgress();
   }, []);
-  
 
   return (
     <div>
@@ -136,13 +140,17 @@ function Instructor() {
       </div>
 
       <div className="Instructor-button-group">
-        <div className={`Instructor-dropdown ${isCreateExamOpen ? "open" : ""}`}>
+        <div
+          className={`Instructor-dropdown ${isCreateExamOpen ? "open" : ""}`}
+        >
           <button
             className="Instructor-button"
             onClick={toggleCreateExamDropdown}
           >
             {selectedCourse || "Create Exams"}{" "}
-            <FontAwesomeIcon icon={isCreateExamOpen ? faAngleUp : faAngleDown} />
+            <FontAwesomeIcon
+              icon={isCreateExamOpen ? faAngleUp : faAngleDown}
+            />
           </button>
           {isCreateExamOpen && (
             <ul className="Instructor-courses-menu">
@@ -238,37 +246,34 @@ function Instructor() {
       </div>
 
       <table className="Instructor-table">
-  <caption className="Instructor-caption">Student Progress</caption>
-  <thead>
-    <tr>
-      <th className="Instructor-th">User ID</th>
-      <th className="Instructor-th">Course ID</th>
-      <th className="Instructor-th">Exam ID</th>
-      <th className="Instructor-th">Grade</th>
-    </tr>
-  </thead>
-  <tbody>
-    {Array.isArray(StudentProgress) ? (
-      StudentProgress.map((progress, index) => (
-        <tr key={index}>
-          <td className="Instructor-td">{progress.user_id}</td>
-          <td className="Instructor-td">{progress.course_id}</td>
-          <td className="Instructor-td">{progress.exam_id}</td>
-          <td className="Instructor-td">{progress.grade}</td>
-        </tr>
-      ))
-    ) : (
-      <tr>
-        <td className="Instructor-td" colSpan="4">
-          No student progress data available.
-        </td>
-      </tr>
-    )}
-  </tbody>
-</table>
-
-
-      
+        <caption className="Instructor-caption">Student Progress</caption>
+        <thead>
+          <tr>
+            <th className="Instructor-th">User ID</th>
+            <th className="Instructor-th">Course ID</th>
+            <th className="Instructor-th">Exam ID</th>
+            <th className="Instructor-th">Grade</th>
+          </tr>
+        </thead>
+        <tbody>
+          {Array.isArray(StudentProgress) ? (
+            StudentProgress.map((progress, index) => (
+              <tr key={index}>
+                <td className="Instructor-td">{progress.user_id}</td>
+                <td className="Instructor-td">{progress.course_id}</td>
+                <td className="Instructor-td">{progress.exam_id}</td>
+                <td className="Instructor-td">{progress.grade}</td>
+              </tr>
+            ))
+          ) : (
+            <tr>
+              <td className="Instructor-td" colSpan="4">
+                No student progress data available.
+              </td>
+            </tr>
+          )}
+        </tbody>
+      </table>
 
       <div className="chat">
         <ChatComponent />

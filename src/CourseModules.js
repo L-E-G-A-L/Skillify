@@ -43,6 +43,9 @@ class CourseModules extends Component {
       <div>
         <header className="courseModulesHeaderClass">
           <h1 className="courseModulesh1">Course Modules</h1>
+          <a href="student" className="announcementNavLiaClass">
+            <i className="material-icons">home</i>
+          </a>
         </header>
         <div className="courseModulesContainer">
           {modules === "No course modules found" ? (

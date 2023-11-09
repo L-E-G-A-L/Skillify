@@ -113,14 +113,20 @@ body {
   border-radius: 20px 20px 0px 20px;
   background-color: #43a047; /* Green background color */
   color: white;
+}
+
+#you{
   justify-content: flex-end !important;
+}
+
+#other{
+  justify-content: flex-start !important;
 }
 
 #other .message_content {
   border-radius: 20px 20px 20px 0px;
   background-color: #1976d2; /* Blue background color */
   color: white;
-  justify-content: flex-start;
 }
 
 .chat-window .chat-footer {

@@ -6,25 +6,33 @@ import axios from 'axios';
 
 function QADashboard() {
   return (
-    <html lang="en">
       <body className="qabody">
         <QANav title="Dashboard" />
         <MainContent />
         <QAChart />
         <Footer />
       </body>
-    </html>
   );
 }
 
 export function QANav({ title, toggleInnerNav }) {
   const [userName, setUserName] = useState('');
+  const [isDarkMode, setIsDarkMode] = useState(false);
+
+  const handleDarkModeToggle = () => {
+    setIsDarkMode(!isDarkMode);
+  };
 
   useEffect(() => {
     const userRole = sessionStorage.getItem('userRole');
     const user_id = sessionStorage.getItem('userId');
-    console.log(userRole);
-    console.log(user_id);
+    const body = document.body;
+    if (isDarkMode) {
+      body.classList.add('dark-theme');
+    } else {
+      body.classList.remove('dark-theme');
+    }
+
     axios
       .get(`https://sxt7404.uta.cloud/php/qausernamefetch.php?user_id=${user_id}&role=${userRole}`)
       .then((response) => {
@@ -37,7 +45,7 @@ export function QANav({ title, toggleInnerNav }) {
       .catch((error) => {
         console.error('Error:', error);
       });
-  }, []);
+  }, [isDarkMode]);
   return (
     <nav className="qanav">
       <h1 className="qah1">{title}</h1>
@@ -55,9 +63,9 @@ export function QANav({ title, toggleInnerNav }) {
       />
       <label for="toggle-menu-checkbox" id="toggle-menu-label"></label>
       <div className="sub-menu-wrap" id="submenu">
-        <div id="dark-btn">
-          <span className="qaspan"></span>
-        </div>
+      <div id="dark-btn" onClick={handleDarkModeToggle}>
+      <span className={`qaspan ${isDarkMode ? 'dark-btn-on' : ''}`}></span>
+      </div>
         <div className="sub-menu">
           <div className="user-info">
             <img src="Profile.png" alt="Profile" className="user-pic" />
