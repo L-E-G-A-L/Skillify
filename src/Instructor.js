@@ -122,7 +122,7 @@ function Instructor() {
         <a className="Instructor-right Instructor-a" href="/instructor">
           Instructor_Page
         </a>
-        <a className="Instructor-right Instructor-a" href="/instructor">
+        <a className="Instructor-right Instructor-a" href="/pcReports">
           Reports
         </a>
         <a className="Instructor-right Instructor-a" href="/profile">
