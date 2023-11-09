@@ -44,7 +44,7 @@ function InnerNav() {
         <a className="disa" onClick={handleChatButtonClick}>Instructor</a>
         </li>
         <li className="disli">
-          <a className="disa" href="#">
+          <a className="disa" onClick={handleChatButtonClick}>
             Admin
           </a>
         </li>

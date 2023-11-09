@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from "react";
 import ScrollToBottom from "react-scroll-to-bottom";
 import { v4 as uuidv4 } from "uuid";
-import { Footer, QANav } from "./QADash";
 
-
-function PersonA({ socket }) {
+function PCDiscussion({ socket }) {
   const [currentMessage, setCurrentMessage] = useState("");
   const [messageList, setMessageList] = useState([]);
 
@@ -12,7 +10,7 @@ function PersonA({ socket }) {
     if (currentMessage !== "") {
       const messageData = {
         senderSocketId: socket.id,
-        userId: generateUserId(), // Function to generate unique user ID
+        userId: generateUserId(),
         message: currentMessage,
         time: new Date(Date.now()).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }),
       };
@@ -25,28 +23,23 @@ function PersonA({ socket }) {
 
   useEffect(() => {
     socket.on("receive_message", (data) => {
-      // Check if the received message socket.id is not the same as the current client's socket.id
       if (data.senderSocketId !== socket.id) {
         setMessageList((list) => [...list, data]);
       }
     });
-    // Clean up the event listener when the component unmounts
     return () => {
       socket.off("receive_message");
     };
   }, [socket]);
 
   const generateUserId = () => {
-    return uuidv4(); // Replace this with the actual generated user ID
+    return uuidv4();
   };
 
   return (
-    <html lang="en">
-    <body className="discusuionbody">
-    <QANav title="Chat" />
     <div className="chat-window">
       <div className="chat-header">
-        <p>QA Chat</p>
+        <p>PC Chat</p>
       </div>
       <div className="chat-body">
         <ScrollToBottom className="message-container">
@@ -62,7 +55,6 @@ function PersonA({ socket }) {
                 </div>
                 <div className="message-meta">
                   <p id="time">{messageContent.time}</p>
-                  {/* <p id="author">{messageContent.userId}</p> */}
                 </div>
               </div>
             </div>
@@ -84,10 +76,7 @@ function PersonA({ socket }) {
         <button className="send_button" onClick={sendMessage}>&#9658;</button>
       </div>
     </div>
-    <Footer />
-    </body>
-  </html>
   );
 }
 
-export default PersonA;
+export default PCDiscussion;
