@@ -99,7 +99,7 @@ function Instructor() {
   const fetchStudentProgress = async () => {
     try {
       const response = await fetch(
-        "https://sxt7404.uta.cloud/php/result.php/result.php"
+        "https://sxt7404.uta.cloud/php/result.php"
       );
       if (response.ok) {
         const jsonData = await response.json();
