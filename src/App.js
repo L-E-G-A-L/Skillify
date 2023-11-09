@@ -58,7 +58,7 @@ import VerifyUser from "./VerifyUser";
 import ResetPassword from "./ResetPassword";
 import AdminDiscussion from "./AdminDiscussion";
 import PCDiscussion from "./PCDiscussion";
-const socket = io.connect("*");
+const socket = io.connect("http://localhost:3001");
 function App() {
   const { userRole } = useUser();
   return (
