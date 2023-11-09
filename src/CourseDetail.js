@@ -78,7 +78,7 @@ function CourseDetail() {
       </div>
 
       {isEditing ? (
-        <div>
+        <div className="course-editing">
           <input
             type="text"
             className="Edit-input"
