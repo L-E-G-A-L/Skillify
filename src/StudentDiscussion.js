@@ -24,25 +24,20 @@ function StudentDiscussion() {
           <nav>
             <ul className="stuDisscussionNavul">
               <li className="stuDisscussionNavLi">
-              <div className="xxx">
-                {!showChat && (<div className="yyy">
-                <button className="studentDiscussionNava" onClick={handleChatButtonClick}>QA Officer</button>
-              </div>
-                )}
-              </div>
+                <a className="studentDiscussionNava" onClick={handleChatButtonClick}>QA Officer</a>
               </li>
               <li>
-                <a href="#" className="studentDiscussionNava">
+                <a className="studentDiscussionNava" onClick={handleChatButtonClick}>
                   Instructor
                 </a>
               </li>
               <li className="stuDisscussionNavLi">
-                <a href="#" className="studentDiscussionNava">
+                <a className="studentDiscussionNava" onClick={handleChatButtonClick}>
                   Admin
                 </a>
               </li>
               <li className="stuDisscussionNavLi">
-                <a href="#" className="studentDiscussionNava">
+                <a className="studentDiscussionNava" href="#">
                   Program Coordinator
                 </a>
               </li>
@@ -58,7 +53,7 @@ function StudentDiscussion() {
               <div className="discussion-content">
                 <p>This is the content of Discussion 1.</p>
               </div>
-              <span className="delete-button">Delete</span>
+              <span className="studentdiscussion-delete-button">Delete</span>
             </div>
             <div className="discussion">
               <input type="checkbox" id="discussion2" />

@@ -1,8 +1,8 @@
-import React from "react";
+import React,{ useState } from "react";
 import "./PC.css";
 import { Link } from "react-router-dom";
 import ChatComponent from "./StudentChatbot";
-
+import "./QAChat.css";
 
 function ProgramCoordinator() {
   return (
@@ -55,10 +55,10 @@ function ProgramCoordinator() {
         </section>
         <section className="pc-functionality">
           <h2 className="pc-h2">Chat with StakeHolders</h2>
-          <Link to="/pcinstructor" className="pc-a">
+          <Link to="/pcdiscussion" className="pc-a">
           <button className="pc-toggle-button">Instructor</button>
         </Link>
-        <Link to="/pcadmin" className="pc-a">
+        <Link to="/pcdiscussion" className="pc-a">
           <button className="pc-toggle-button">Administrator</button>
         </Link>
         </section>

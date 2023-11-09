@@ -41,7 +41,7 @@ function PersonB({ socket }) {
   return (
     <div className="chat-window">
       <div className="chat-header">
-        <p>Live Chat</p>
+        <p>Student Chat</p>
       </div>
       <div className="chat-body">
         <ScrollToBottom className="message-container">

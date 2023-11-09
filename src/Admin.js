@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import UserPopup from './UserPopup';
 import './Admin.css';
+import './QAChat.css'
 import PermissionPopup from './PermissionPopup';
 import { onLogOut } from './GlobalFunctions';
 import ManageUserPopup from './ManageUserPopup';
@@ -58,7 +59,7 @@ function Admin() {
               <button className='admin-btngrp-btn' onClick={() => navigation('/reports')}>VIEW REPORTS</button>
               <button className='admin-btngrp-btn' onClick={() => openPermissionsPopup('student')}>MANAGE PERMISSIONS</button>
               {/* <button className='admin-btngrp-btn'>VIEW REPORTS</button> */}
-              <button className='admin-btngrp-btn'>CHAT</button>
+              <button className='admin-btngrp-btn' onClick={() => navigation('/admindiscussion')}>CHAT</button>
             </div>
           </div>
           <div className="box">
@@ -68,7 +69,7 @@ function Admin() {
               <button className='admin-btngrp-btn' onClick={() => navigation('/pc')}>HANDLE COURSE</button>
               <button className='admin-btngrp-btn' onClick={() => openPermissionsPopup('pc')}>MANAGE PERMISSIONS</button>
               {/* <button className='admin-btngrp-btn'>REVIEWS</button> */}
-              <button className='admin-btngrp-btn'>CHAT</button>
+              <button className='admin-btngrp-btn' onClick={() => navigation('/admindiscussion')}>CHAT</button>
             </div>
           </div>
           <div className="box">
@@ -78,7 +79,7 @@ function Admin() {
               <button className='admin-btngrp-btn' onClick={() => navigation('/qadashboard')}>ASSIGN COURSE</button>
               <button className='admin-btngrp-btn' onClick={() => openPermissionsPopup('qa')}>HANDLE PERMISSIONS</button>
               {/* <button className='admin-btngrp-btn'>REPORTS</button> */}
-              <button className='admin-btngrp-btn'>CHAT</button>
+              <button className='admin-btngrp-btn' onClick={() => navigation('/admindiscussion')}>CHAT</button>
             </div>
           </div>
         </div>
