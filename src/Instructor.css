@@ -149,12 +149,176 @@ Tallapelli, Sai Charan (1002073449)*/
 }
 
 @media (max-width: 768px) {
-  .Instructor-button-group {
-    margin: 0 5%;
-    width: 100%;
+  .Instructor-topnav {
+    padding: 10px 0;
   }
-
+  
+  .Instructor-topnav .Instructor-a {
+    margin: 0 5px;
+  }
+  
+  .Instructor-dropdown {
+    position: relative;
+  }
+  
+  .Instructor-courses-menu {
+    top: 30px;
+    padding: 8px;
+  }
+  
+  .Instructor-scrollable-table {
+    max-height: 200px;
+  }
+  
   .Instructor-table {
     width: 100%;
+    margin: 10px auto;
+  }
+  
+  .Instructor-caption {
+    padding: 8px;
+  }
+  
+  .Instructor-th,
+  .Instructor-td {
+    padding: 8px;
+  }
+  
+  .Instructor-chat {
+    margin-bottom: 15px;
   }
 }
+
+/* instructor.css */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+
+/* Top navigation bar for the header */
+.Instructor-header-topnav {
+  background-color: #011558;
+  color: white;
+  display: flex;
+  justify-content: flex-end;
+  padding: 20px 0;
+  width: 100%;
+}
+
+.Instructor-header-topnav .Instructor-a {
+  color: white;
+  text-decoration: none;
+  margin: 0 10px;
+}
+
+/* Footer at the bottom of the page */
+.Instructor-Exam-footer {
+  background-color: #011558;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  width: 100%;
+  position: initial;
+  bottom: 0;
+}
+
+.Instructor-create-exam-container ul li  {
+  list-style-type: none; 
+}
+
+/* Create Exam page styling */
+.Instructor-create-exam {
+  text-align: center;
+  padding: 20px;
+}
+
+.Instructor-create-exam h1 {
+  font-weight: bold;
+}
+
+.Instructor-course-id {
+  font-weight: bold;
+}
+
+.Instructor-create-exam-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.Instructor-input {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
+}
+
+.Instructor-question {
+  padding: 20px;
+  border: 1px solid #ddd;
+  margin: 10px 0;
+}
+
+.Instructor-options {
+  list-style: none;
+  padding: 0;
+}
+
+.Instructor-options li {
+  margin: 10px 0;
+}
+
+.Instructor-add-button {
+  background-color: #011558;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+/* Container for the Create Exam content */
+.Instructor-create-exam-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 2px solid #011558;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Style for input fields and buttons within the container */
+.Instructor-create-exam-container input,
+.Instructor-create-exam-container button {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+
+/* Media Query for screens smaller than 768px */
+@media (max-width: 768px) {
+  .Instructor-header-topnav {
+    padding: 10px 0;
+  }
+
+  .Instructor-header-topnav .Instructor-a {
+    margin: 0 5px;
+  }
+
+  .Instructor-create-exam {
+    padding: 10px;
+  }
+
+  .Instructor-question {
+    padding: 10px;
+  }
+
+  .Instructor-add-button {
+    padding: 8px 16px;
+  }
+}
+
+
+
+
+
