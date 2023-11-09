@@ -26,8 +26,8 @@ import Profile from "./Profile";
 import UserActivity from "./UserActivity";
 import AboutUsPage from "./AboutUs";
 import ProgramCoordinator from "./PC";
-import Chat from "./pcinstructor";
-import PcAdminChat from "./pcadmin"
+// import Chat from "./pcinstructor";
+// import PcAdminChat from "./pcadmin"
 import Services from "./Services";
 import InstructorDiscussion from "./InstructorDiscussion";
 import Instructor from "./Instructor";
@@ -237,18 +237,18 @@ function App() {
           <Route path="/pcdiscussion" element={<Navigate to="/nda" />} />
         )}
 
-        {userRole !== null || userRole !== "student" ? (
+        {/* {userRole !== null || userRole !== "student" ? (
              <Route path="/pcinstructor" element={<Chat />} />
         ) : (
           <Route path="/pcinstructor" element={<Navigate to="/nda" />} />
-        )}
+        )} */}
 
         
-        {userRole !== null || userRole !== "student" ? (
+        {/* {userRole !== null || userRole !== "student" ? (
              <Route path="/pcadmin" element={<PcAdminChat />} />
         ) : (
           <Route path="/pcadmin" element={<Navigate to="/nda" />} />
-        )}
+        )} */}
 
         {userRole !== null || userRole !== "student" ? (
              <Route path="/Enquiry" element={<InquiryInbox />} />
