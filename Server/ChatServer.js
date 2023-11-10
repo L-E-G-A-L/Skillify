@@ -9,17 +9,11 @@ app.use(cors());
 const server = http.createServer(app);
 
 const io = new Server(server, {
-  cors: {
-    origin: (origin, callback) => {
-      if (origin === "https://axk6767.uta.cloud") {
-        callback(null, true);
-      } else {
-        callback(new Error("Not allowed by CORS"));
-      }
+    cors: {
+      origin: "https://axk6767.uta.cloud", // Allow requests from this origin
+      methods: ["GET", "POST"],
     },
-    methods: ["GET", "POST"],
-  },
-});
+  });
 
 io.on("connection", (socket) => {
   console.log(`User Connected: ${socket.id}`);
