@@ -15,6 +15,7 @@
     "apexcharts": "^3.44.0",
     "axios": "^1.6.0",
     "chart.js": "^4.4.0",
+    "concurrently": "^8.2.2",
     "cors": "^2.8.5",
     "express": "^4.18.2",
     "nodemailer": "^6.9.7",
@@ -37,7 +38,7 @@
     "ws": "^8.14.2"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "concurrently \"react-scripts start\" \"cd server && npm install && npm run start:all\"",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
