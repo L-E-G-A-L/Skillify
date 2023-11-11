@@ -1,33 +1,18 @@
-const express = require("express");
-const app = express();
-const http = require("http");
-const cors = require("cors");
-const { Server } = require("socket.io");
+require("dotenv").config();
+const server = require("http").createServer();
 
-app.use(cors());
+const io = require("socket.io")(server, {
+  cors: {
+    origin: "https://axk6767.uta.cloud/",
+    methods: ["GET", "POST"],
+  },
+});
 
-const server = http.createServer(app);
-
-const io = new Server(server, {
-    cors: {
-      origin: "https://axk6767.uta.cloud", // Allow requests from this origin
-      methods: ["GET", "POST"],
-    },
-  });
-
-io.on("connection", (socket) => {
-  console.log(`User Connected: ${socket.id}`);
-
-  socket.on("send_message", (data) => {
-    console.log(data);
-    io.emit("receive_message", data);
-  });
-
-  socket.on("disconnect", () => {
-    console.log("User Disconnected", socket.id);
+io.on("connection", (client) => {
+  client.on("send_message", (data) => {
+    // Broadcast to all users
+    io.sockets.emit("receive_message", data);
   });
 });
 
-server.listen(3001, () => {
-  console.log("SERVER RUNNING");
-});
+server.listen(process.env.PORT || 3001);

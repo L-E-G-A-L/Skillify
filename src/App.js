@@ -41,7 +41,6 @@ import InquiryInbox from "./Enquiry";
 import UpdateCourseContent from "./UpdateCourse";
 import GradesReport from "./pcReports";
 import ViewAllAnnouncements from "./ViewAllAnnouncements";
-import io from "socket.io-client";
 import CreateExam from "./CreateExam";
 import CourseDetail from "./CourseDetail";
 import AccessDenied from "./AccessDenied";
@@ -58,7 +57,7 @@ import VerifyUser from "./VerifyUser";
 import ResetPassword from "./ResetPassword";
 import AdminDiscussion from "./AdminDiscussion";
 import PCDiscussion from "./PCDiscussion";
-const socket = io.connect("http://localhost:3001");
+
 function App() {
   const { userRole } = useUser();
   return (
@@ -89,7 +88,7 @@ function App() {
           path="/admindiscussion"
           element={
             userRole === "admin" ? (
-              <AdminDiscussion socket={socket} />
+              <AdminDiscussion />
             ) : (
               <Navigate to="/nda" />
             )
@@ -179,19 +178,19 @@ function App() {
         )}
 
         {userRole === "admin" || userRole === "qa" ? (
-          <Route path="/persona" element={<PersonA socket={socket} />} />
+          <Route path="/persona" element={<PersonA />} />
         ) : (
           <Route path="/persona" element={<Navigate to="/nda" />} />
         )}
 
         {userRole === "admin" || userRole === "student" ? (
-          <Route path="/personb" element={<PersonB socket={socket} />} />
+          <Route path="/personb" element={<PersonB />} />
         ) : (
           <Route path="/personb" element={<Navigate to="/nda" />} />
         )}
 
         {userRole === "admin" || userRole === "instructor" ? (
-          <Route path="/personc" element={<PersonC socket={socket} />} />
+          <Route path="/personc" element={<PersonC />} />
         ) : (
           <Route path="/personc" element={<Navigate to="/nda" />} />
         )}
@@ -253,7 +252,7 @@ function App() {
         {userRole === "admin" || userRole === "pc" ? (
           <Route
             path="/pcdiscussion"
-            element={<PCDiscussion socket={socket} />}
+            element={<PCDiscussion />}
           />
         ) : (
           <Route path="/pcdiscussion" element={<Navigate to="/nda" />} />

@@ -1,142 +1,101 @@
-/*Name (Last, First) and Student Id
+/* /*Name (Last, First) and Student Id
 Sunkoju,TarunKumar(1002077699)
 Kotagiri, Arvind kumar Satyanarayana (1002126766)
 Tamanampudi, Sai Sridhar (1002117404)
 Tadivaka, Sai Swetha (1002112726)
 Tallapelli, Sai Charan (1002073449)*/
 
-body {
+.body{
   margin: 0;
   padding: 0;
 }
-
-@import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,700");
-
-.chat-window {
-  width: 300px;
-  height: 420px;
-  margin-left: 35%;
-  margin-top: 2%;
+.welcome-chat-container {
+  padding: 15px;
 }
 
-.chat-window p {
-  margin: 0;
+.message-chat-container {
+  flex-direction: column;
+  margin: 3px;
+  padding: 0 16px;
+  overflow-y: auto;
+  min-height: 300px;
+  max-height: 300px;
 }
 
-.chat-window .chat-header {
-  height: 45px;
-  border-radius: 6px;
-  background: #263238;
-  position: relative;
-  cursor: pointer;
+.message-grid {
+  max-width: 50%;
 }
 
-.chat-window .chat-header p {
-  display: block;
-  padding: 0 1em 0 2em;
-  color: #fff;
-  font-weight: 700;
-  line-height: 45px;
+.message-text {
+  font-size: 12px;
+  padding: 0 8px;
 }
 
-.chat-window .chat-body {
-  height: calc(450px - (45px + 70px));
-  border: 1px solid #263238;
-  background: #fff;
-  position: relative;
+.message-self {
+  text-align: right;
 }
 
-.chat-window .chat-body .message-container {
-  width: 100%;
-  height: 100%;
-  overflow-y: scroll;
-  overflow-x: hidden;
+.message-other {
+  text-align: left;
 }
 
-.chat-window .chat-body .message-container::-webkit-scrollbar {
-  display: none;
+.message-typography {
+  padding: 8px;
 }
 
-.chat-window .chat-body .message {
-  height: auto;
-  padding: 10px;
+.message-self-typography {
+  background-color: #43a047;
+  border-radius: 20px 20px 0px 20px;
+  justify-content: flex-end !important;
+  text-align: right;
+}
+
+.message-other-typography {
+  background-color: #1976d2;
+  border-radius: 20px 20px 20px 0px;
+  justify-content: flex-start !important;
+  text-align: left;
+}
+
+.controls-container {
   display: flex;
+  align-items: center;
+  padding: 8px;
 }
 
-.message_content {
+.text-field {
+  flex: 1;
+  border: 1px solid gray;
+  border-radius: 4px;
+  padding-left: 2px;
+}
+
+.send-chat-button {
+  margin-left: 8px; /* Adjust the margin as needed */
+}
+/* styles.css */
+
+.discussion-container {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  height: 100vh;
+  background-color: #4a4949;
+  padding: 5px;
+  width: 100%;
+}
+
+.form {
   display: flex;
   flex-direction: column;
-  padding: 10px;
-  max-width: 100%;
-  overflow-x: hidden;
+  align-items: center;
 }
 
-.message-meta {
-  margin-top: 5px;
-  display: flex;
-  justify-content: space-between;
-  font-size: 12px;
+.dialogContainer {
+  margin-top: 5%;
+  background-color: #fff;
+  border-radius: 8px;
+  max-width: 350px; /* Use your theme.shape.borderRadius here */
+  border-radius: 15px;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.4);
 }
 
-#time {
-  font-size: 12px;
-  color: #888;
-}
-
-#you .message_content {
-  border-radius: 20px 20px 0px 20px;
-  background-color: #43a047; /* Green background color */
-  color: white;
-}
-
-#you{
-  justify-content: flex-end !important;
-}
-
-#other{
-  justify-content: flex-start !important;
-}
-
-#other .message_content {
-  border-radius: 20px 20px 20px 0px;
-  background-color: #1976d2; /* Blue background color */
-  color: white;
-}
-
-.chat-window .chat-footer {
-  height: 40px;
-  border: 1px solid #263238;
-  border-top: none;
-  display: flex;
-}
-
-.chat-window .chat-footer input {
-  height: 100%;
-  flex: 85%;
-  border: 0;
-  padding: 0 0.7em;
-  font-size: 1em;
-  border-right: 1px dotted #607d8b;
-  outline: none;
-  font-family: "Open Sans", sans-serif;
-}
-
-.chat-window .chat-footer .send_button {
-  border: 0;
-  display: grid;
-  place-items: center;
-  cursor: pointer;
-  flex: 15%;
-  height: 100%;
-  background: transparent;
-  outline: none;
-  font-size: 25px;
-  color: lightgray;
-}
-
-.chat-window .chat-footer .send_button:hover {
-  color: #43a047;
-}
-.hide {
-  opacity: 0 !important;
-}
