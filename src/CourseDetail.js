@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import "./CourseDetail.css";
-import "./Instructor.css";  
+import "./Instructor.css";
 import MessageCard from "./MessageCard";
 
 function CourseDetail() {
@@ -97,10 +97,18 @@ function CourseDetail() {
             {coursesInfo !== "Course not found" ? (
               coursesInfo.map((module, index) => (
                 <div key={index}>
-                  <p><b>Course Name:</b> {module.course_name}</p>
-                  <p><b>Course Description:</b> {module.course_description}</p>
-                  <p><b>Course Module Name:</b> {module.module_name}</p>
-                  <p><b>Course Module Content:</b> {module.module_content}</p>
+                  <p>
+                    <b>Course Name:</b> {module.course_name}
+                  </p>
+                  <p>
+                    <b>Course Description:</b> {module.course_description}
+                  </p>
+                  <p>
+                    <b>Course Module Name:</b> {module.module_name}
+                  </p>
+                  <p>
+                    <b>Course Module Content:</b> {module.module_content}
+                  </p>
                   <button
                     className="Edit-button"
                     onClick={() =>

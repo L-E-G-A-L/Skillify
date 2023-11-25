@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from 'react';
-import './GradeReport.css'; 
+import React, { useState, useEffect } from "react";
+import "./GradeReport.css";
 
 function GradesReport() {
   const [grades, setGrades] = useState([]);
 
   useEffect(() => {
-    fetch('https://sxt7404.uta.cloud/php/Reports.php')
+    fetch("https://sxt7404.uta.cloud/php/Reports.php")
       .then((response) => response.json())
       .then((data) => {
         setGrades(data);

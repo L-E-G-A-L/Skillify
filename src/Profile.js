@@ -1,17 +1,17 @@
 import React, { useEffect, useState } from "react";
-import axios from 'axios';
-import './Profile.css';
-import { useNavigate } from 'react-router-dom';
-import { onLogOut } from './GlobalFunctions';
+import axios from "axios";
+import "./Profile.css";
+import { useNavigate } from "react-router-dom";
+import { onLogOut } from "./GlobalFunctions";
 
 function Profile() {
   const navigation = useNavigate();
   const [userData, setUserData] = useState({});
   const [isEditMode, setIsEditMode] = useState(false);
   const [editedData, setEditedData] = useState({
-    user_name: '',
-    user_email: '',
-    phoneNumber: '',
+    user_name: "",
+    user_email: "",
+    phoneNumber: "",
     user_role: userData.user_role,
   });
   const [Data, setData] = useState(true);
@@ -56,12 +56,12 @@ function Profile() {
       user_name: editedData.user_name,
       user_email: editedData.user_email,
       user_number: editedData.phoneNumber,
-      user_role: userData.user_role
+      user_role: userData.user_role,
     };
-    if(
+    if (
       editedData.user_name !== "" &&
-      isEmailValid(editedData.user_email)  &&
-      isPhoneNumberValid(editedData.phoneNumber) 
+      isEmailValid(editedData.user_email) &&
+      isPhoneNumberValid(editedData.phoneNumber)
     ) {
       axios
         .post("https://sxt7404.uta.cloud/php/LRFAuth.php", {
@@ -70,7 +70,7 @@ function Profile() {
         })
         .then((response) => {
           if (response.data.success) {
-            fetchData()
+            fetchData();
           } else {
             console.log(response.data.error);
           }
@@ -78,17 +78,19 @@ function Profile() {
         .catch((error) => {
           console.error("Error saving user:", error);
         });
-        setIsEditMode(false)
+      setIsEditMode(false);
     } else {
       setError(true);
-      if(!isEmailValid(editedData.user_email)) setErrorMessage("Enter a valid email");
-      else if(!isPhoneNumberValid(editedData.phoneNumber)) setErrorMessage("Enter a valid phone number");
+      if (!isEmailValid(editedData.user_email))
+        setErrorMessage("Enter a valid email");
+      else if (!isPhoneNumberValid(editedData.phoneNumber))
+        setErrorMessage("Enter a valid phone number");
       else setErrorMessage("Fill all details");
     }
   };
 
   const fetchData = () => {
-    console.log(user_id)
+    console.log(user_id);
     axios
       .post("https://sxt7404.uta.cloud/php/LRFAuth.php", {
         action: "getAllDetails",
@@ -113,21 +115,29 @@ function Profile() {
   return (
     <div className="profile-page">
       <div className="profile-navbar">
-        <a href="#" className='profile-nav-a'>My Profile</a>
-        <a href="login" className='profile-nav-a' onClick={() => onLogOut()}>Sign Out</a>
+        <a href="#" className="profile-nav-a">
+          My Profile
+        </a>
+        <a href="login" className="profile-nav-a" onClick={() => onLogOut()}>
+          Sign Out
+        </a>
       </div>
       <div className="profile-content">
-        <button className="profile-dashboard-button" onClick={() => goBack()}>Dashboard</button>
+        <button className="profile-dashboard-button" onClick={() => goBack()}>
+          Dashboard
+        </button>
       </div>
       <div className="profile-container">
         <img src="profilepic.png" alt="User Profile Picture" />
-        <h1 className='profile-h1'>{userData.user_name}</h1>
+        <h1 className="profile-h1">{userData.user_name}</h1>
         <div className="profile-details">
           <div className="form-group">
-            <label className='profile-label' htmlFor="full-name">Full Name:</label>
+            <label className="profile-label" htmlFor="full-name">
+              Full Name:
+            </label>
             {isEditMode ? (
               <input
-                className='profile-input'
+                className="profile-input"
                 type="text"
                 id="full-name"
                 name="full-name"
@@ -141,10 +151,12 @@ function Profile() {
             )}
           </div>
           <div className="form-group">
-            <label className='profile-label' htmlFor="email">Email:</label>
+            <label className="profile-label" htmlFor="email">
+              Email:
+            </label>
             {isEditMode ? (
               <input
-                className='profile-input'
+                className="profile-input"
                 type="text"
                 id="email"
                 name="email"
@@ -158,10 +170,12 @@ function Profile() {
             )}
           </div>
           <div className="form-group">
-            <label className='profile-label' htmlFor="phone-number">Phone Number</label>
+            <label className="profile-label" htmlFor="phone-number">
+              Phone Number
+            </label>
             {isEditMode ? (
               <input
-                className='profile-input'
+                className="profile-input"
                 type="number"
                 id="phone-number"
                 name="phone-number"
@@ -178,16 +192,32 @@ function Profile() {
         <div className="buttons">
           {isEditMode ? (
             <div>
-              {error && <h5 className="login-error-message profile-error-message">{errorMessage}</h5>}
-              <button className="save-button" onClick={() =>handleSave(userData.user_id)}>Save</button>
-              <button className="cancel-button" onClick={() => setIsEditMode(false)}>Cancel</button>
+              {error && (
+                <h5 className="login-error-message profile-error-message">
+                  {errorMessage}
+                </h5>
+              )}
+              <button
+                className="save-button"
+                onClick={() => handleSave(userData.user_id)}
+              >
+                Save
+              </button>
+              <button
+                className="cancel-button"
+                onClick={() => setIsEditMode(false)}
+              >
+                Cancel
+              </button>
             </div>
           ) : (
-            <button className="edit-button" onClick={handleEdit}>Edit</button>
+            <button className="edit-button" onClick={handleEdit}>
+              Edit
+            </button>
           )}
         </div>
       </div>
-      <footer className='profile-footer'>
+      <footer className="profile-footer">
         <p>&copy; 2023 SOFTWARE ENGINEERING WEBSITE</p>
       </footer>
     </div>

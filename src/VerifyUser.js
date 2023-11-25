@@ -1,8 +1,8 @@
 import { useEffect } from "react";
-import { useNavigate  } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 
 const VerifyUser = () => {
-    const navigation = useNavigate();
+  const navigation = useNavigate();
   useEffect(() => {
     const urlParams = new URLSearchParams(window.location.search);
     const token = urlParams.get("token");
@@ -14,7 +14,7 @@ const VerifyUser = () => {
       fetch("https://sxt7404.uta.cloud/php/Mailer.php", {
         method: "POST",
         headers: {
-          "Content-Type": "application/json", 
+          "Content-Type": "application/json",
         },
         body: JSON.stringify(data),
       })
@@ -28,9 +28,11 @@ const VerifyUser = () => {
         .then((responseData) => {
           if (responseData.success) {
             console.log("Email verified successfully");
+            alert("Email verified successfully");
             navigation("/login");
           } else if (responseData.error) {
             console.error("Email verification failed");
+            alert("Email verification failed Contact Admin");
             navigation("/login");
           }
         })

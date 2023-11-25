@@ -1,19 +1,21 @@
-import React , { useState } from 'react';
-import { useNavigate  } from 'react-router-dom';
-import axios from 'axios'; 
-import './LRFStyles.css';
-import { useUser } from './UserContext'; 
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
+import "./LRFStyles.css";
+import { useUser } from "./UserContext";
 
 function Login() {
   const navigation = useNavigate();
   const [error, setError] = useState(false);
-  const [errorMessage, setErrorMessage] = useState("Wrong username/password provided");
-  const { setUserRole } = useUser(); 
+  const [errorMessage, setErrorMessage] = useState(
+    "Wrong username/password provided"
+  );
+  const { setUserRole } = useUser();
 
   const onLoginHandler = (username, password) => {
     setError(false);
     axios
-      .post('https://sxt7404.uta.cloud/php/LRFAuth.php', {
+      .post("https://sxt7404.uta.cloud/php/LRFAuth.php", {
         action: "login",
         username: username,
         password: password,
@@ -21,27 +23,26 @@ function Login() {
       .then((response) => {
         if (response.data.success) {
           const user = response.data.user;
-          sessionStorage.setItem('userRole', user.role);
-          sessionStorage.setItem('userId', user.user_id);
-          setUserRole(user.role); 
-          if (user.role === 'admin') {
-            navigation('/admin');
-          } else if (user.role === 'student') {
-            navigation('/student');
-          } else if (user.role === 'pc') {
-            navigation('/pc');
-          } else if (user.role === 'instructor') {
-            navigation('/instructor');
-          } else if (user.role === 'qa') {
-            navigation('/qadashboard');
+          sessionStorage.setItem("userRole", user.role);
+          sessionStorage.setItem("userId", user.user_id);
+          setUserRole(user.role);
+          if (user.role === "admin") {
+            navigation("/admin");
+          } else if (user.role === "student") {
+            navigation("/student");
+          } else if (user.role === "pc") {
+            navigation("/pc");
+          } else if (user.role === "instructor") {
+            navigation("/instructor");
+          } else if (user.role === "qa") {
+            navigation("/qadashboard");
           }
-        } else if(response.data.error) {
+        } else if (response.data.error) {
           setError(true);
           setErrorMessage(response.data.error);
-        }
-        else {
+        } else {
           setError(true);
-          setErrorMessage('Wrong username/password provided');
+          setErrorMessage("Wrong username/password provided");
         }
       })
       .catch((error) => {
@@ -52,29 +53,65 @@ function Login() {
   return (
     <div className="login-page">
       <div className="lrf-navbar">
-        <a href="home"><button className="navbar-button">Home</button></a>
-        <a href="contact"><button className="navbar-button">Contact</button></a>
-        <a href="about"><button className="navbar-button">About</button></a>
+        <a href="home">
+          <button className="navbar-button">Home</button>
+        </a>
+        <a href="contact">
+          <button className="navbar-button">Contact</button>
+        </a>
+        <a href="about">
+          <button className="navbar-button">About</button>
+        </a>
       </div>
       <div className="login-container">
-        <h1 className='lrf-h1'>Login</h1>
+        <h1 className="lrf-h1">Login</h1>
         <div className="input-group">
-          <label htmlFor="username" className='lrf-label'>Username</label>
-          <input type="text" className="lrf-input" id="username" name="username" placeholder="Enter your username" />
+          <label htmlFor="username" className="lrf-label">
+            Username
+          </label>
+          <input
+            type="text"
+            className="lrf-input"
+            id="username"
+            name="username"
+            placeholder="Enter your username"
+          />
         </div>
         <div className="input-group">
-          <label htmlFor="password" className='lrf-label'>Password</label>
-          <input type="password" className="lrf-input" id="password" name="password" placeholder="Enter your password" />
+          <label htmlFor="password" className="lrf-label">
+            Password
+          </label>
+          <input
+            type="password"
+            className="lrf-input"
+            id="password"
+            name="password"
+            placeholder="Enter your password"
+          />
         </div>
         {error && <h5 className="login-error-message">{errorMessage}</h5>}
-        <button className="login-button" onClick={() => onLoginHandler(document.getElementById("username").value, document.getElementById("password").value)}>Login</button>
+        <button
+          className="login-button"
+          onClick={() =>
+            onLoginHandler(
+              document.getElementById("username").value,
+              document.getElementById("password").value
+            )
+          }
+        >
+          Login
+        </button>
         <div className="lrf-links">
-          <a href="forgotpassword" className='lrf-a'><button className="login-button">Forgot Password?</button></a>
-          <a href="registration" className='lrf-a'><button className="login-button">Sign Up</button></a>
+          <a href="forgotpassword" className="lrf-a">
+            <button className="login-button">Forgot Password?</button>
+          </a>
+          <a href="registration" className="lrf-a">
+            <button className="login-button">Sign Up</button>
+          </a>
         </div>
       </div>
-      <footer className='lrf-footer'>
-        <p className='lrf-footer-p'>&copy; 2023 SOFTWARE ENGINEERING WEBSITE</p>
+      <footer className="lrf-footer">
+        <p className="lrf-footer-p">&copy; 2023 SOFTWARE ENGINEERING WEBSITE</p>
       </footer>
     </div>
   );

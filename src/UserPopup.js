@@ -2,7 +2,12 @@ import React, { useEffect, useState } from "react";
 import "./UserPopup.css";
 import axios from "axios";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTrash, faEdit, faSave, faTimes } from "@fortawesome/free-solid-svg-icons";
+import {
+  faTrash,
+  faEdit,
+  faSave,
+  faTimes,
+} from "@fortawesome/free-solid-svg-icons";
 
 const UserPopup = ({ userDataType, onClose }) => {
   const [userData, setUserData] = useState([]);
@@ -18,7 +23,9 @@ const UserPopup = ({ userDataType, onClose }) => {
       })
       .then((response) => {
         if (response.data.success) {
-          setUserData((prevData) => prevData.filter((user) => user.user_id !== user_id));
+          setUserData((prevData) =>
+            prevData.filter((user) => user.user_id !== user_id)
+          );
         } else {
           console.log(response.data.error);
         }
@@ -31,8 +38,8 @@ const UserPopup = ({ userDataType, onClose }) => {
   const handleEdit = (user_id) => {
     setEditingRow(user_id);
     setEditedData({
-      user_name: userData.find(user => user.user_id === user_id).user_name,
-      user_email: userData.find(user => user.user_id === user_id).user_email,
+      user_name: userData.find((user) => user.user_id === user_id).user_name,
+      user_email: userData.find((user) => user.user_id === user_id).user_email,
     });
   };
   const handleSave = (user_id) => {
@@ -41,7 +48,7 @@ const UserPopup = ({ userDataType, onClose }) => {
       user_name: editedData.user_name,
       user_email: editedData.user_email,
     };
-  
+
     axios
       .post("https://sxt7404.uta.cloud/php/LRFAuth.php", {
         action: "updateUser",
@@ -68,7 +75,7 @@ const UserPopup = ({ userDataType, onClose }) => {
       .catch((error) => {
         console.error("Error saving user:", error);
       });
-  
+
     setEditingRow(null);
   };
 
@@ -171,7 +178,10 @@ const UserPopup = ({ userDataType, onClose }) => {
               ))
             ) : (
               <tr className="admin-user-popup-table-tr">
-                <td colSpan="3" className="admin-user-popup-table-td admin-user-popup-table-td-nda">
+                <td
+                  colSpan="3"
+                  className="admin-user-popup-table-td admin-user-popup-table-td-nda"
+                >
                   No data available
                 </td>
               </tr>

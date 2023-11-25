@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
-import "./Instructor.css"
+import "./Instructor.css";
 
-function CreateExam() {   
+function CreateExam() {
   const { id } = useParams();
   const [examId, setExamId] = useState("");
   const [examName, setExamName] = useState("");
@@ -89,7 +89,7 @@ function CreateExam() {
         <a className="Instructor-right Instructor-a" href="/instructor">
           Instructor_Page
         </a>
-        
+
         <a className="Instructor-right Instructor-a" href="/profile">
           Profile
         </a>
@@ -99,122 +99,124 @@ function CreateExam() {
         </a>
       </div>
       <div className="Instructor-create-exam">
-      <h1>Create Exam</h1>
-      <h2 className="Instructor-course-id">For course_id: {id}</h2>
-      <div className="Instructor-create-exam-content"></div>
-       <div className="Instructor-create-exam-container">
-        <input
-          type="text"
-          placeholder="Enter Exam ID"
-          value={examId}
-          onChange={(e) => setExamId(e.target.value)}
-        />
-        <input
-          type="text"
-          placeholder="Enter Exam Name"
-          value={examName}
-          onChange={(e) => setExamName(e.target.value)}
-        />
-        <input
-          type="text"
-          placeholder="Enter Exam Date"
-          value={examDate}
-          onChange={(e) => setExamDate(e.target.value)}
-        />
-        <input
-          type="text"
-          placeholder="Enter Exam Duration"
-          value={examDuration}
-          onChange={(e) => setExamDuration(e.target.value)}
-        />
-      </div>
+        <h1>Create Exam</h1>
+        <h2 className="Instructor-course-id">For course_id: {id}</h2>
+        <div className="Instructor-create-exam-content"></div>
+        <div className="Instructor-create-exam-container">
+          <input
+            type="text"
+            placeholder="Enter Exam ID"
+            value={examId}
+            onChange={(e) => setExamId(e.target.value)}
+          />
+          <input
+            type="text"
+            placeholder="Enter Exam Name"
+            value={examName}
+            onChange={(e) => setExamName(e.target.value)}
+          />
+          <input
+            type="text"
+            placeholder="Enter Exam Date"
+            value={examDate}
+            onChange={(e) => setExamDate(e.target.value)}
+          />
+          <input
+            type="text"
+            placeholder="Enter Exam Duration"
+            value={examDuration}
+            onChange={(e) => setExamDuration(e.target.value)}
+          />
+        </div>
 
-      {questions.map((question, questionIndex) => (
-        <div key={questionIndex} className="createExam-container">
-          <h15>{question.text}</h15>
-          <ul>
-            {question.options.map((option, optionIndex) => (
-              <li key={optionIndex}>
-                <input
-                  type="text"
-                  placeholder={`Option ${optionIndex + 1}`}
-                  value={option}
-                  className = "createExam-added-question-input"
-                  onChange={(e) => {
-                    const updatedQuestions = [...questions];
-                    updatedQuestions[questionIndex].options[optionIndex] =
-                      e.target.value;
-                    setQuestions(updatedQuestions);
-                  }}
-                />
-              </li>
-            ))}
-          </ul>
+        {questions.map((question, questionIndex) => (
+          <div key={questionIndex} className="createExam-container">
+            <h15>{question.text}</h15>
+            <ul>
+              {question.options.map((option, optionIndex) => (
+                <li key={optionIndex}>
+                  <input
+                    type="text"
+                    placeholder={`Option ${optionIndex + 1}`}
+                    value={option}
+                    className="createExam-added-question-input"
+                    onChange={(e) => {
+                      const updatedQuestions = [...questions];
+                      updatedQuestions[questionIndex].options[optionIndex] =
+                        e.target.value;
+                      setQuestions(updatedQuestions);
+                    }}
+                  />
+                </li>
+              ))}
+            </ul>
+            <input
+              type="text"
+              placeholder="Enter Actual Response"
+              value={question.actualResponse}
+              className="createExam-added-question-actualinput"
+              onChange={(e) => {
+                const updatedQuestions = [...questions];
+                updatedQuestions[questionIndex].actualResponse = e.target.value;
+                setQuestions(updatedQuestions);
+              }}
+            />
+            <button
+              onClick={() => deleteQuestion(questionIndex)}
+              className="createExam-added-question-btn"
+            >
+              Delete Question
+            </button>
+          </div>
+        ))}
+
+        <div className="Instructor-create-exam-container">
+          <input
+            type="text"
+            placeholder="Enter a new question"
+            value={newQuestion}
+            onChange={(e) => setNewQuestion(e.target.value)}
+          />
+          <input
+            type="text"
+            placeholder="Option 1"
+            value={newOption1}
+            onChange={(e) => setNewOption1(e.target.value)}
+          />
+          <input
+            type="text"
+            placeholder="Option 2"
+            value={newOption2}
+            onChange={(e) => setNewOption2(e.target.value)}
+          />
+          <input
+            type="text"
+            placeholder="Option 3"
+            value={newOption3}
+            onChange={(e) => setNewOption3(e.target.value)}
+          />
+          <input
+            type="text"
+            placeholder="Option 4"
+            value={newOption4}
+            onChange={(e) => setNewOption4(e.target.value)}
+          />
           <input
             type="text"
             placeholder="Enter Actual Response"
-            value={question.actualResponse}
-            className = "createExam-added-question-actualinput"
-            onChange={(e) => {
-              const updatedQuestions = [...questions];
-              updatedQuestions[questionIndex].actualResponse = e.target.value;
-              setQuestions(updatedQuestions);
-            }}
+            value={newActualResponse}
+            onChange={(e) => setNewActualResponse(e.target.value)}
           />
-          <button onClick={() => deleteQuestion(questionIndex)} className = "createExam-added-question-btn">
-            Delete Question
-          </button>
-        </div>
-      ))}
+          <button onClick={addQuestion}>Add Question</button>
 
-<div className="Instructor-create-exam-container">
-        <input
-          type="text"
-          placeholder="Enter a new question"
-          value={newQuestion}
-          onChange={(e) => setNewQuestion(e.target.value)}
-        />
-        <input
-          type="text"
-          placeholder="Option 1"
-          value={newOption1}
-          onChange={(e) => setNewOption1(e.target.value)}
-        />
-        <input
-          type="text"
-          placeholder="Option 2"
-          value={newOption2}
-          onChange={(e) => setNewOption2(e.target.value)}
-        />
-        <input
-          type="text"
-          placeholder="Option 3"
-          value={newOption3}
-          onChange={(e) => setNewOption3(e.target.value)}
-        />
-        <input
-          type="text"
-          placeholder="Option 4"
-          value={newOption4}
-          onChange={(e) => setNewOption4(e.target.value)}
-        />
-        <input
-          type="text"
-          placeholder="Enter Actual Response"
-          value={newActualResponse}
-          onChange={(e) => setNewActualResponse(e.target.value)}
-        />
-        <button onClick={addQuestion}>Add Question</button>
-        
-      <button onClick={publishExam}>Publish</button>
-      </div>
+          <button onClick={publishExam}>Publish</button>
+        </div>
       </div>
 
       <footer className="Instructor-Exam-footer">
         <p>&copy; 2023 INSTRUCTOR-PAGE</p>
       </footer>
-      </div>
-    
+    </div>
   );
 }
 
