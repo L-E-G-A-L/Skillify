@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./Chatbot.css";
-
+import axios from "axios";
 const ChatComponent = () => {
   const [messages, setMessages] = useState([
     { text: "Welcome! How can I assist you today?", isUser: false },
@@ -12,30 +12,27 @@ const ChatComponent = () => {
     setIsOpen(!isOpen);
   };
 
-  function getBotResponse(userMessage) {
-    if (userMessage.toLowerCase().includes("profile")) {
-      return "You can access your profile by clicking on your username at the top right.";
-    } else if (userMessage.toLowerCase().includes("update")) {
-      return "To update your profile, go to the 'Profile Settings' page and click 'Edit Profile'.";
-    } else if (userMessage.toLowerCase().includes("help")) {
-      return "Sure, what can I help you with?";
-    } else if (userMessage.toLowerCase().includes("courses")) {
-      return "Sure, I can help you with your courses. You can view courses on your current screen";
-    } else if (userMessage.toLowerCase().includes("signout")) {
-      return "Sure, I can help you with signing out from your application. Go to top right corner of the screen to find logout button. Click on it to sign out from the application";
-    } else {
-      return "I'm sorry, I couldn't understand your request. Please try again.";
+  const getBotResponse = async (userMessage) => {
+    try {
+      const response = await axios.post(
+        "http://localhost:3001/getBotResponse",
+        { userMessage }
+      );
+      return response.data.botResponse;
+    } catch (error) {
+      console.error("Error fetching bot response:", error);
+      return "Sorry, I couldn't understand your request. Please try again.";
     }
-  }
+  };
 
-  const handleUserInput = () => {
+  const handleUserInput = async () => {
     const userMessage = userInput.trim();
     if (userMessage === "") return;
 
     const updatedMessages = [...messages, { text: userMessage, isUser: true }];
     setMessages(updatedMessages);
 
-    const botResponse = getBotResponse(userMessage);
+    const botResponse = await getBotResponse(userMessage);
 
     setTimeout(() => {
       setMessages([...updatedMessages, { text: botResponse, isUser: false }]);
@@ -56,7 +53,7 @@ const ChatComponent = () => {
         {isOpen && (
           <div className="chat-container">
             <div className="chat-header" onClick={toggleChat}>
-              <h2>Help</h2>
+              <h2>User Profile Help</h2>
             </div>
             <div className="chat-messages">
               {messages.map((message, index) => (

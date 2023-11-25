@@ -5,7 +5,7 @@ import { format } from "date-fns";
 import "./QAChat.css";
 import axios from "axios";
 
-const socket = io("https://axk6767.uta.cloud/");
+const socket = io("http://localhost:3002");
 
 function PersonC() {
   const scrollRef = useRef();

@@ -6,7 +6,7 @@ import "./QAChat.css";
 import axios from "axios";
 import { Footer, QANav } from "./QADash";
 
-const socket = io("https://axk6767.uta.cloud/");
+const socket = io("http://localhost:3002");
 
 function PersonA() {
   const scrollRef = useRef();
