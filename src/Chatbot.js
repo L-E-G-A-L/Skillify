@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./Chatbot.css";
-
+import axios from "axios";
 const ChatComponent = () => {
   const [messages, setMessages] = useState([
     { text: "Welcome! How can I assist you today?", isUser: false },
@@ -14,25 +14,14 @@ const ChatComponent = () => {
 
   const getBotResponse = async (userMessage) => {
     try {
-      const response = await fetch('https://api.openai.com/v1/engines/davinci/completions', {
-        method: 'POST',
-        headers: {
-          'Authorization': `Bearer OPENAI_API_KEY`,
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          prompt: `User: ${userMessage}`,
-          max_tokens: 1024,
-          temperature: 0.7,
-        }),
-      });
-
-      const responseData = await response.json();
-      const botResponse = responseData.choices[0].text;
-      return botResponse;
+      const response = await axios.post(
+        "http://localhost:3001/getBotResponse",
+        { userMessage }
+      );
+      return response.data.botResponse;
     } catch (error) {
-      console.error('Error fetching bot response:', error);
-      return 'Sorry, I couldn\'t understand your request. Please try again.';
+      console.error("Error fetching bot response:", error);
+      return "Sorry, I couldn't understand your request. Please try again.";
     }
   };
 
