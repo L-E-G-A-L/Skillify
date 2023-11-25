@@ -1,8 +1,10 @@
 import express from "express";
 import { ChatGPTAPI } from "chatgpt";
 import bodyParser from "body-parser";
+import cors from "cors";
 require("dotenv").config();
 const app = express();
+app.use(cors());
 const port = 3001; // You can use any port you prefer
 
 // Middleware
@@ -15,7 +17,6 @@ const api = new ChatGPTAPI({
 
 app.post("/getBotResponse", async (req, res) => {
   const { message } = req.body;
-  //   console.log(message);
   let response;
   try {
     response = await api.sendMessage(`"${message}"`);

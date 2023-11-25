@@ -16,9 +16,9 @@ const ChatComponent = () => {
     try {
       const response = await axios.post(
         "http://localhost:3001/getBotResponse",
-        { userMessage }
+        { message: userMessage }
       );
-      return response.data.botResponse;
+      return response.data.text;
     } catch (error) {
       console.error("Error fetching bot response:", error);
       return "Sorry, I couldn't understand your request. Please try again.";
@@ -42,7 +42,7 @@ const ChatComponent = () => {
   };
 
   return (
-    <body className="chatbody">
+    <div className="chatbody">
       <div>
         <div
           className={`chat-popup-button ${isOpen ? "open" : ""}`}
@@ -80,7 +80,7 @@ const ChatComponent = () => {
           </div>
         )}
       </div>
-    </body>
+    </div>
   );
 };
 

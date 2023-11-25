@@ -1,6 +1,5 @@
 require("dotenv").config();
 const server = require("http").createServer();
-
 const io = require("socket.io")(server, {
   cors: {
     origin: "https://sxt7404.uta.cloud/",
