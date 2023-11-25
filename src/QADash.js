@@ -1,22 +1,22 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 import "./QADash.css";
 import { Link } from "react-router-dom";
 import ChatComponent from "./Chatbot";
-import axios from 'axios';
+import axios from "axios";
 
 function QADashboard() {
   return (
-      <body className="qabody">
-        <QANav title="Dashboard" />
-        <MainContent />
-        <QAChart />
-        <Footer />
-      </body>
+    <body className="qabody">
+      <QANav title="Dashboard" />
+      <MainContent />
+      <QAChart />
+      <Footer />
+    </body>
   );
 }
 
 export function QANav({ title, toggleInnerNav }) {
-  const [userName, setUserName] = useState('');
+  const [userName, setUserName] = useState("");
   const [isDarkMode, setIsDarkMode] = useState(false);
 
   const handleDarkModeToggle = () => {
@@ -24,17 +24,19 @@ export function QANav({ title, toggleInnerNav }) {
   };
 
   useEffect(() => {
-    const userRole = sessionStorage.getItem('userRole');
-    const user_id = sessionStorage.getItem('userId');
+    const userRole = sessionStorage.getItem("userRole");
+    const user_id = sessionStorage.getItem("userId");
     const body = document.body;
     if (isDarkMode) {
-      body.classList.add('dark-theme');
+      body.classList.add("dark-theme");
     } else {
-      body.classList.remove('dark-theme');
+      body.classList.remove("dark-theme");
     }
 
     axios
-      .get(`https://sxt7404.uta.cloud/php/qausernamefetch.php?user_id=${user_id}&role=${userRole}`)
+      .get(
+        `https://sxt7404.uta.cloud/php/qausernamefetch.php?user_id=${user_id}&role=${userRole}`
+      )
       .then((response) => {
         console.log(response.data);
         if (response.data.users && response.data.users.user_name) {
@@ -43,7 +45,7 @@ export function QANav({ title, toggleInnerNav }) {
         }
       })
       .catch((error) => {
-        console.error('Error:', error);
+        console.error("Error:", error);
       });
   }, [isDarkMode]);
   return (
@@ -51,7 +53,14 @@ export function QANav({ title, toggleInnerNav }) {
       <h1 className="qah1">{title}</h1>
       <ul className="qaul">
         <li className="qali">
-          <Link className="link" to={sessionStorage.getItem("userRole") === "admin" ? "/admin" : "/qadashboard"}>
+          <Link
+            className="link"
+            to={
+              sessionStorage.getItem("userRole") === "admin"
+                ? "/admin"
+                : "/qadashboard"
+            }
+          >
             <a className="qaa">Home</a>
           </Link>
         </li>
@@ -63,13 +72,13 @@ export function QANav({ title, toggleInnerNav }) {
       />
       <label for="toggle-menu-checkbox" id="toggle-menu-label"></label>
       <div className="sub-menu-wrap" id="submenu">
-      <div id="dark-btn" onClick={handleDarkModeToggle}>
-      <span className={`qaspan ${isDarkMode ? 'dark-btn-on' : ''}`}></span>
-      </div>
+        <div id="dark-btn" onClick={handleDarkModeToggle}>
+          <span className={`qaspan ${isDarkMode ? "dark-btn-on" : ""}`}></span>
+        </div>
         <div className="sub-menu">
           <div className="user-info">
             <img src="Profile.png" alt="Profile" className="user-pic" />
-            <h3 className="qah3">{userName || 'User Name'}</h3>
+            <h3 className="qah3">{userName || "User Name"}</h3>
           </div>
           <hr className="qahr" />
           <a href="profile" className="sub-menu-link">
@@ -103,13 +112,13 @@ function MainContent() {
       <section className="functionality">
         <h2 className="qah2">Review and Validate Program and courses</h2>
         <Link className="link" to="/qacoursecontentdisplay">
-        <button className="toggle-button">Course Content</button>
+          <button className="toggle-button">Course Content</button>
         </Link>
       </section>
       <section className="functionality">
         <h2 className="qah2">Audits or Evaluations of courses and exams</h2>
         <Link className="link" to="/audit">
-        <button className="toggle-button">Audit</button>
+          <button className="toggle-button">Audit</button>
         </Link>
       </section>
       <section className="functionality">
@@ -122,15 +131,13 @@ function MainContent() {
         </Link>
       </section>
       <section className="functionality">
-        <h2 className="qah2">
-          Create New Policy / View Existing Policies
-        </h2>
+        <h2 className="qah2">Create New Policy / View Existing Policies</h2>
         <Link className="link" to="/newpolicy">
           <button className="toggle-button">New Policy</button>
         </Link>
         <Link className="link" to="/existingpolicy">
           <button className="toggle-button1">View Policy</button>
-        </Link>  
+        </Link>
       </section>
       <section className="functionality">
         <h2 className="qah2">Monitor and Analyze Student Performance Data</h2>
