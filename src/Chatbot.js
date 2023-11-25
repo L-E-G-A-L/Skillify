@@ -12,26 +12,38 @@ const ChatComponent = () => {
     setIsOpen(!isOpen);
   };
 
-  function getBotResponse(userMessage) {
-    if (userMessage.toLowerCase().includes("profile")) {
-      return "You can access your profile by clicking on your username at the top right.";
-    } else if (userMessage.toLowerCase().includes("update")) {
-      return "To update your profile, go to the 'Profile Settings' page and click 'Edit Profile'.";
-    } else if (userMessage.toLowerCase().includes("help")) {
-      return "Sure, I can help you with your user profile. What do you need assistance with?";
-    } else {
-      return "I'm sorry, I couldn't understand your request. Please try again.";
-    }
-  }
+  const getBotResponse = async (userMessage) => {
+    try {
+      const response = await fetch('https://api.openai.com/v1/engines/davinci/completions', {
+        method: 'POST',
+        headers: {
+          'Authorization': `Bearer OPENAI_API_KEY`,
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          prompt: `User: ${userMessage}`,
+          max_tokens: 1024,
+          temperature: 0.7,
+        }),
+      });
 
-  const handleUserInput = () => {
+      const responseData = await response.json();
+      const botResponse = responseData.choices[0].text;
+      return botResponse;
+    } catch (error) {
+      console.error('Error fetching bot response:', error);
+      return 'Sorry, I couldn\'t understand your request. Please try again.';
+    }
+  };
+
+  const handleUserInput = async () => {
     const userMessage = userInput.trim();
     if (userMessage === "") return;
 
     const updatedMessages = [...messages, { text: userMessage, isUser: true }];
     setMessages(updatedMessages);
 
-    const botResponse = getBotResponse(userMessage);
+    const botResponse = await getBotResponse(userMessage);
 
     setTimeout(() => {
       setMessages([...updatedMessages, { text: botResponse, isUser: false }]);
