@@ -6,10 +6,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start:backend1": "nodemon Server.js",
-    "start:backend2": "nodemon ChatServer.js",
-    "start:all": "concurrently \"npm run start:backend1\" \"npm run start:backend2\""
-},
+    "start": "nodemon ChatServer.js"
+  },
   "author": "",
   "license": "ISC",
   "dependencies": {

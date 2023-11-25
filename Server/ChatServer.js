@@ -3,7 +3,7 @@ const server = require("http").createServer();
 
 const io = require("socket.io")(server, {
   cors: {
-    origin: "https://axk6767.uta.cloud/",
+    origin: "https://sxt7404.uta.cloud/",
     methods: ["GET", "POST"],
   },
 });
@@ -15,4 +15,4 @@ io.on("connection", (client) => {
   });
 });
 
-server.listen(process.env.PORT || 3001);
+server.listen(process.env.PORT || 3002);
