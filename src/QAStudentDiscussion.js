@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Footer, QANav } from "./QADash";
-import "./QAStudentDiscussion.css";
+import "./css/QAStudentDiscussion.css";
 import { useNavigate } from "react-router-dom";
 
 function QAStudentDiscussion() {

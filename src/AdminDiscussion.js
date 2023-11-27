@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { TextField, Button } from "@mui/material";
 import io from "socket.io-client";
 import { format } from "date-fns";
-import "./QAChat.css";
+import "./css/QAChat.css";
 import axios from "axios";
 
 const socket = io("http://localhost:3002");

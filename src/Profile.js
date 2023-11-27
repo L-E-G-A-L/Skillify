@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import "./Profile.css";
+import "./css/Profile.css";
 import { useNavigate } from "react-router-dom";
 import { onLogOut } from "./GlobalFunctions";
 

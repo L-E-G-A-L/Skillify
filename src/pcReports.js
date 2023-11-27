@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "./Reports.css";
+import "./css/Reports.css";
 
 import Chart from "react-apexcharts";
 

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import "./LRFStyles.css";
+import "./css/LRFStyles.css";
 
 function Registration() {
   const navigation = useNavigate();

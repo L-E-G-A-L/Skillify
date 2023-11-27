@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Footer, QANav } from "./QADash";
-import "./Form.css";
+import "./css/Form.css";
 import axios from "axios";
 
 function EvaluationFormforQA() {

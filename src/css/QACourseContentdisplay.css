@@ -1,5 +1,9 @@
-/* App.css */
-
+/*Name (Last, First) and Student Id
+Sunkoju,TarunKumar(1002077699)
+Kotagiri, Arvind kumar Satyanarayana (1002126766)
+Tamanampudi, Sai Sridhar (1002117404)
+Tadivaka, Sai Swetha (1002112726)
+Tallapelli, Sai Charan (1002073449)*/
 
 .container {
   max-width: 800px;
@@ -14,7 +18,7 @@
   text-align: center;
   font-size: 36px;
   margin-bottom: 30px;
-  color:black;
+  color: black;
 }
 
 .subtitle {
@@ -23,17 +27,20 @@
   color: black;
 }
 
-.program-list, .course-list {
+.program-list,
+.course-list {
   list-style: none;
   padding: 0;
   margin: 0;
 }
 
-.program-item, .course-item {
+.program-item,
+.course-item {
   margin-bottom: 10px;
 }
 
-.program-button, .course-button {
+.program-button,
+.course-button {
   background-color: #011558;
   color: #fff;
   border: none;
@@ -44,7 +51,8 @@
   transition: background-color 0.3s;
 }
 
-.program-button.active, .course-button.active {
+.program-button.active,
+.course-button.active {
   background-color: #011558;
 }
 
@@ -59,10 +67,11 @@
 }
 
 @media screen and(max-width:400px) {
-  .title{
+  .title {
     font-size: 24px;
   }
-  .program-button,.course-button{
+  .program-button,
+  .course-button {
     padding: 10px 20px;
     font-size: 14px;
     border-radius: 3px;

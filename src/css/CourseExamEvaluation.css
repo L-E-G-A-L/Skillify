@@ -43,7 +43,7 @@ Tallapelli, Sai Charan (1002073449)*/
 }
 
 .exam-list {
-  list-style:circle;
+  list-style: circle;
   padding-left: 20px;
   margin: 0;
 }
@@ -54,7 +54,6 @@ Tallapelli, Sai Charan (1002073449)*/
   margin: 5px 0;
 }
 
-/* Add these styles to your CourseExams.css file */
 .form-link {
   display: inline-block;
   background-color: #011558; /* Blue color */

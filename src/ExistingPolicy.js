@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "./ExistingPolicy.css"; // Import the external CSS file
+import "./css/ExistingPolicy.css"; // Import the external CSS file
 import { QANav, Footer } from "./QADash";
 
 function Existing_Policy() {

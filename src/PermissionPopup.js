@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "./PermissionPopup.css";
+import "./css/PermissionPopup.css";
 import axios from "axios";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEdit, faSave, faTimes } from "@fortawesome/free-solid-svg-icons";

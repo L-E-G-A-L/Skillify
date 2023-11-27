@@ -1,5 +1,5 @@
 import React from "react";
-import "./UserActivity.css";
+import "./css/UserActivity.css";
 
 function UserActivity() {
   return (

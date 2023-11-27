@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
-import "./exam-questions.css";
+import "./css/exam-questions.css";
 import MessageCard from "./MessageCard";
 
 class ExamQuestions extends Component {

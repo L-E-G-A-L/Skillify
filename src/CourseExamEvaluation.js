@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "./CourseExamEvaluation.css";
+import "./css/CourseExamEvaluation.css";
 import { Footer, QANav } from "./QADash";
 
 function CourseExams() {
