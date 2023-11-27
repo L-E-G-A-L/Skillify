@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import "./Discussion.css";
-import { useNavigate } from 'react-router-dom';
-import "./QAChat.css";
+import "./css/Discussion.css";
+import { useNavigate } from "react-router-dom";
+import "./css/QAChat.css";
 import { Footer, QANav } from "./QADash";
 import { Link } from "react-router-dom";
 
@@ -29,7 +29,7 @@ function InnerNav() {
   const [showChat, setShowChat] = useState(false);
 
   const handleChatButtonClick = () => {
-    navigate('/persona');
+    navigate("/persona");
     setShowChat(true);
   };
   return (
@@ -41,7 +41,9 @@ function InnerNav() {
           </Link>
         </li>
         <li className="disli">
-        <a className="disa" onClick={handleChatButtonClick}>Instructor</a>
+          <a className="disa" onClick={handleChatButtonClick}>
+            Instructor
+          </a>
         </li>
         <li className="disli">
           <a className="disa" onClick={handleChatButtonClick}>

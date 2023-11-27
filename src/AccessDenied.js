@@ -1,5 +1,5 @@
 import React from "react";
-import "./AccessDenied.css";
+import "./css/AccessDenied.css";
 import { useNavigate } from "react-router-dom";
 
 function AccessDenied() {

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
-import "./Instructor.css";
+import "./css/Instructor.css";
 
 function CreateExam() {
   const { id } = useParams();

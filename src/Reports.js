@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import "./Reports.css";
-import "./GradeReport.css";
+import "./css/Reports.css";
+import "./css/GradeReport.css";
 import { Footer, QANav } from "./QADash";
 import { Link } from "react-router-dom";
 import Chart from "react-apexcharts";

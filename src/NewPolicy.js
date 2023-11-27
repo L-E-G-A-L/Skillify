@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./NewPolicy.css";
+import "./css/NewPolicy.css";
 import { QANav, Footer } from "./QADash";
 import axios from "axios";
 

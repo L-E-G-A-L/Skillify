@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import "./Registration";
-import "./LRFStyles.css";
+import "./css/LRFStyles.css";
 
 function ResetPassword() {
   const [password, setPassword] = useState("");

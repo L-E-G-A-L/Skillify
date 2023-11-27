@@ -1,11 +1,10 @@
-/* /*Name (Last, First) and Student Id
+/*Name (Last, First) and Student Id
 Sunkoju,TarunKumar(1002077699)
 Kotagiri, Arvind kumar Satyanarayana (1002126766)
 Tamanampudi, Sai Sridhar (1002117404)
 Tadivaka, Sai Swetha (1002112726)
 Tallapelli, Sai Charan (1002073449)*/
-
-.body{
+.body {
   margin: 0;
   padding: 0;
 }
@@ -98,4 +97,3 @@ Tallapelli, Sai Charan (1002073449)*/
   border-radius: 15px;
   box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.4);
 }
-

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "./ManageUserPopup.css";
+import "./css/ManageUserPopup.css";
 import axios from "axios";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {

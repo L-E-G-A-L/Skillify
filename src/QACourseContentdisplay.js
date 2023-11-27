@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "./QACourseContentdisplay.css";
+import "./css/QACourseContentdisplay.css";
 import { Footer, QANav } from "./QADash";
 
 function CourseContentDisplay() {

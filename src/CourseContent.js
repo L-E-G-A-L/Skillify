@@ -1,5 +1,5 @@
 import React from "react";
-import "./CourseContent.css";
+import "./css/CourseContent.css";
 class CourseContent extends React.Component {
   constructor(props) {
     super(props);

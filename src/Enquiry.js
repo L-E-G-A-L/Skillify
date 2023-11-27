@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import "./PC.css";
+import "./css/PC.css";
 
 function InquiryInbox() {
   const [inquiries, setInquiries] = useState([]);

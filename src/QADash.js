@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "./QADash.css";
+import "./css/QADash.css";
 import { Link } from "react-router-dom";
 import ChatComponent from "./Chatbot";
 import axios from "axios";

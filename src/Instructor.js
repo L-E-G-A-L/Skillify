@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import "./Instructor.css";
-import "./CourseDetail.css";
+import "./css/Instructor.css";
+import "./css/CourseDetail.css";
 import ChatComponent from "./StudentChatbot";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleDown, faAngleUp } from "@fortawesome/free-solid-svg-icons";
