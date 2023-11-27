@@ -59,11 +59,23 @@ Tallapelli, Sai Charan (1002073449)*/
 }
 
 .chat-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   background-color: #011558;
   color: #fff;
-  padding: 1px;
+  padding: 10px;
   text-align: center;
   border-bottom: 2px solid #011558;
+}
+
+.close-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #fff;
+  font-size: 24px;
+  margin-right: 10px;
 }
 
 .chat-messages {
@@ -122,17 +134,24 @@ Tallapelli, Sai Charan (1002073449)*/
   }
 }
 @media (max-width: 900px) {
-  .chat-popup-button{
+  .chat-popup-button {
     bottom: 40px;
   }
-}  
-@media (max-width: 300px) {
+}
+@media (max-width: 580px) {
   .chat-container {
-    width: 70%;
-    right: 25%;
+    max-width: 70%;
+    right: 15%;
+    margin-bottom: 10%;
   }
   .chat-popup-button {
     bottom: 40px;
     right: 2%;
+  }
+}
+
+@media (max-width: 320px) {
+  .chat-container {
+    right: 20%;
   }
 }

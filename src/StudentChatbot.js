@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./Chatbot.css";
 import axios from "axios";
+
 const ChatComponent = () => {
   const [messages, setMessages] = useState([
     { text: "Welcome! How can I assist you today?", isUser: false },
@@ -23,6 +24,10 @@ const ChatComponent = () => {
       console.error("Error fetching bot response:", error);
       return "Sorry, I couldn't understand your request. Please try again.";
     }
+  };
+
+  const closeChat = () => {
+    setIsOpen(false);
   };
 
   const handleUserInput = async () => {
@@ -52,8 +57,11 @@ const ChatComponent = () => {
         </div>
         {isOpen && (
           <div className="chat-container">
-            <div className="chat-header" onClick={toggleChat}>
-              <h2>User Profile Help</h2>
+            <div className="chat-header">
+              <h2>Virtual Assistant</h2>
+              <button className="close-button" onClick={closeChat}>
+                <i className="material-icons">close</i>
+              </button>
             </div>
             <div className="chat-messages">
               {messages.map((message, index) => (
