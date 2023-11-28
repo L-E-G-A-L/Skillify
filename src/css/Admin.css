@@ -139,3 +139,72 @@ button {
     grid-template-columns: auto auto auto;
   }
 }
+
+.dark-mode {
+  background-color: #121212;
+  color: #fff;
+}
+
+.dark-mode .admin-navbar .admin-nav-a {
+  color: #fff;
+}
+
+.dark-mode .admin-content {
+  background-color: #121212;
+  color: #fff;
+}
+
+.dark-mode .box {
+  background-color: #0a0a0a;
+  border-color: #fff;
+}
+
+.dark-mode .box .admin-box-h2 {
+  border-bottom-color: #ccc;
+}
+
+.toggle-container {
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+}
+
+.toggle-container input {
+  display: none;
+}
+
+.toggle-slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: 0.4s;
+  border-radius: 20px;
+}
+
+.toggle-slider:before {
+  position: absolute;
+  content: '';
+  height: 18px;
+  width: 18px;
+  left: 2px;
+  bottom: 2px;
+  background-color: white;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+
+.toggle-container input:checked + .toggle-slider {
+  background-color: #2196f3;
+}
+
+.toggle-container input:checked + .toggle-slider:before {
+  transform: translateX(20px);
+}
+
+.toggle-container input:focus + .toggle-slider {
+  box-shadow: 0 0 1px #2196f3;
+}
