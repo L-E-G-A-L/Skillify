@@ -117,7 +117,6 @@ const UpdateCourseContent = () => {
       <div>
         {courses.map((course) => (
           <div key={course.course_id} className="uc-course-box">
-            <h2 className="uc-course-title">Course ID: {course.course_id}</h2>
             <h7 className="uc-coursename"> Course_Name: </h7>
             <p> {course.course_name}</p>
             <h7 className="uc-coursename"> Course Description: </h7>
@@ -138,9 +137,6 @@ const UpdateCourseContent = () => {
                   key={courseModule.courseModulesId}
                   className="uc-module-box"
                 >
-                  <h3 className="uc-moduleid">
-                    Module ID: {courseModule.courseModulesId}
-                  </h3>
                   <h4 className="uc-modulename">
                     Module Name: {courseModule.courseModuleName}
                   </h4>
