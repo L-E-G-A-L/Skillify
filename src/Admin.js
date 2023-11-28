@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, {useState, useEffect} from 'react';
 import UserPopup from "./UserPopup";
 import "./css/Admin.css";
 import "./css/QAChat.css";
@@ -14,6 +14,21 @@ function Admin() {
   const [showPermissionsPopup, setShowPermissionsPopup] = useState(false);
   const [showManageUserPopup, setShowManageUserPopup] = useState(false);
   const [role, setRole] = useState("");
+  const [darkMode, setDarkMode] = useState(false);
+
+  const toggleDarkMode = () => {
+    setDarkMode((prevDarkMode) => !prevDarkMode);
+  };
+
+  useEffect(() => {
+    // Apply or remove dark mode styles based on the darkMode state
+    const body = document.body;
+    if (darkMode) {
+      body.classList.add('dark-mode');
+    } else {
+      body.classList.remove('dark-mode');
+    }
+  }, [darkMode]);
 
   const openUserPopup = (userType) => {
     setRole(userType);
@@ -46,6 +61,11 @@ function Admin() {
   return (
     <div className="admin-page">
       <div className="admin-navbar">
+        <label className="toggle-container">
+          <input type="checkbox" checked={darkMode} onChange={toggleDarkMode} />
+          <span className="toggle-slider"></span>
+          Drk M
+        </label>
         <a href="profile" className="admin-nav-a">
           My Profile
         </a>
