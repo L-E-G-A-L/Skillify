@@ -150,7 +150,10 @@ class ExamQuestions extends Component {
                         name={`answer${index}`}
                         value={question.option1}
                         onChange={() =>
-                          this.handleAnswerSelection(index, question.option1)
+                          this.handleAnswerSelection(
+                            question.question_id,
+                            question.option1
+                          )
                         }
                       />
                       {question.option1}
@@ -161,7 +164,10 @@ class ExamQuestions extends Component {
                         name={`answer${index}`}
                         value={question.option2}
                         onChange={() =>
-                          this.handleAnswerSelection(index, question.option2)
+                          this.handleAnswerSelection(
+                            question.question_id,
+                            question.option2
+                          )
                         }
                       />
                       {question.option2}
@@ -172,7 +178,10 @@ class ExamQuestions extends Component {
                         name={`answer${index}`}
                         value={question.option3}
                         onChange={() =>
-                          this.handleAnswerSelection(index, question.option3)
+                          this.handleAnswerSelection(
+                            question.question_id,
+                            question.option3
+                          )
                         }
                       />
                       {question.option3}
@@ -183,7 +192,10 @@ class ExamQuestions extends Component {
                         name={`answer${index}`}
                         value={question.option4}
                         onChange={() =>
-                          this.handleAnswerSelection(index, question.option4)
+                          this.handleAnswerSelection(
+                            question.question_id,
+                            question.option4
+                          )
                         }
                       />
                       {question.option4}
